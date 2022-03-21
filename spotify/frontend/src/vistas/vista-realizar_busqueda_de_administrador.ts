@@ -22,7 +22,7 @@ export class VistaRealizar_busqueda_de_administrador extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-button id="atrasB">
-  Atrás
+   Atrás 
  </vaadin-button>
  <label style="align-self: center;">No hay ningún resultado para la búsqueda realizada</label>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 50%;">
