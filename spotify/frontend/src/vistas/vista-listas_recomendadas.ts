@@ -1,9 +1,9 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-album';
+import './vista-lista_de_reproduccion_ajena';
 
-@customElement('vista-albumes_recomendados')
-export class VistaAlbumes_recomendados extends LitElement {
+@customElement('vista-listas_recomendadas')
+export class VistaListas_recomendadas extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -16,7 +16,7 @@ export class VistaAlbumes_recomendados extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vista-album style="align-self: center;"></vista-album>
+ <vista-lista_de_reproduccion_ajena style="width: 100%; height: 100%;"></vista-lista_de_reproduccion_ajena>
 </vaadin-vertical-layout>
 `;
   }

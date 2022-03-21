@@ -1,9 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-album';
 
-@customElement('vista-albumes_recomendados')
-export class VistaAlbumes_recomendados extends LitElement {
+@customElement('vista-lista_de_reproduccion_ajena')
+export class VistaLista_de_reproduccion_ajena extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -16,7 +15,7 @@ export class VistaAlbumes_recomendados extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vista-album style="align-self: center;"></vista-album>
+ <img id="fotoB" style="width: 100%; height: 100%;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
 </vaadin-vertical-layout>
 `;
   }
