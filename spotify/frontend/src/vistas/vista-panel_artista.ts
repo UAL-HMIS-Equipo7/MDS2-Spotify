@@ -4,6 +4,7 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import './vista-albumes';
 import './vista-canciones_mas_exitosas';
 import './vista-artistas_similares';
+import './vista-eventos';
 
 @customElement('vista-panel_artista')
 export class VistaPanel_artista extends LitElement {
@@ -25,7 +26,8 @@ export class VistaPanel_artista extends LitElement {
   <vista-canciones_mas_exitosas></vista-canciones_mas_exitosas>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 50%;">
-  <vista-artistas_similares></vista-artistas_similares>
+  <vista-artistas_similares style="width: 100%; flex-grow: 0; flex-shrink: 1;"></vista-artistas_similares>
+  <vista-eventos style="width: 100%; flex-shrink: 1; flex-grow: 0;"></vista-eventos>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

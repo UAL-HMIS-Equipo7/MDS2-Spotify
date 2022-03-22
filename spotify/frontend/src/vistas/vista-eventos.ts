@@ -19,12 +19,12 @@ export class VistaEventos extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <label id="tituloL" style="align-self: center;">Conciertos, festivales</label>
- <vaadin-scroller id="navegacionSB">
-  <vaadin-horizontal-layout theme="spacing" style="height: 100%; width: 100%;">
+ <vaadin-scroller id="navegacionSB" style="width: 100%;">
+  <vaadin-horizontal-layout theme="spacing" style="height: 100%; width: 100%; justify-content: center;">
    <vista-evento></vista-evento>
    <vista-evento></vista-evento>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: center;">
    <vista-evento></vista-evento>
    <vista-evento></vista-evento>
   </vaadin-horizontal-layout>

@@ -14,7 +14,7 @@ export class VistaEvento extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; justify-content: center;">
  <img id="fotoEventoImg" src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&amp;quality=20">
  <label id="nombreL" style="align-self: center;">Nombre</label>
 </vaadin-horizontal-layout>
