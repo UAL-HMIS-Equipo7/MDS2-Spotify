@@ -2,10 +2,10 @@ import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-scroller.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-album';
+import './vista-cancion';
 
-@customElement('vista-albumes')
-export class VistaAlbumes extends LitElement {
+@customElement('vista-canciones_mas_exitosas')
+export class VistaCanciones_mas_exitosas extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -18,15 +18,19 @@ export class VistaAlbumes extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center;">Álbumes</label>
- <vaadin-scroller style="align-self: center;">
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-   <vista-album></vista-album>
-   <vista-album></vista-album>
+ <label id="tituloL" style="align-self: center;">Canciones más exitosas</label>
+ <vaadin-scroller id="navegacionSB" style="align-self: center;">
+  <vaadin-horizontal-layout theme="spacing">
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-   <vista-album></vista-album>
-   <vista-album></vista-album>
+  <vaadin-horizontal-layout theme="spacing">
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
+  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing">
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
   </vaadin-horizontal-layout>
  </vaadin-scroller>
 </vaadin-vertical-layout>

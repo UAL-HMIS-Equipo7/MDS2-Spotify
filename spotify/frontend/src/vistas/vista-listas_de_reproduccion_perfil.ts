@@ -23,18 +23,21 @@ export class VistaListas_de_reproduccion_perfil extends LitElement {
  <label id="tituloL" style="align-self: center;">Listas de reproducción</label>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-button id="anteriorB">
-   Anterior
+    Anterior 
   </vaadin-button>
   <vista-lista_de_reproduccion_ajena></vista-lista_de_reproduccion_ajena>
   <vista-lista_de_reproduccion_propia></vista-lista_de_reproduccion_propia>
   <vaadin-button id="siguienteB">
-   Siguiente
+    Siguiente 
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
   <vaadin-text-field placeholder="Listas por página" id="listasPorPaginaTF"></vaadin-text-field>
   <label id="numPaginaL">1/?</label>
  </vaadin-horizontal-layout>
+ <vaadin-button id="crearListaB" style="align-self: center;">
+  Crear Lista
+ </vaadin-button>
 </vaadin-vertical-layout>
 `;
   }

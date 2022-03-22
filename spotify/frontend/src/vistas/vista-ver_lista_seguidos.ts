@@ -1,7 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-usuarios';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-scroller.js';
+import './vista-usuarios';
 
 @customElement('vista-ver_lista_seguidos')
 export class VistaVer_lista_seguidos extends LitElement {
@@ -16,10 +16,12 @@ export class VistaVer_lista_seguidos extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <vista-usuarios></vista-usuarios>
- <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%;"></vaadin-scroller>
-</vaadin-horizontal-layout>
+<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
+ <label id="tituloL" style="align-self: center;">Seguidos</label>
+ <vaadin-scroller id="navegacionSB" style="height: 100%; align-self: center;">
+  <vista-usuarios></vista-usuarios>
+ </vaadin-scroller>
+</vaadin-vertical-layout>
 `;
   }
 
