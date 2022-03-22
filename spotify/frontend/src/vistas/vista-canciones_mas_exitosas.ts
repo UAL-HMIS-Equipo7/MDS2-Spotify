@@ -19,6 +19,7 @@ export class VistaCanciones_mas_exitosas extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <label id="tituloL" style="align-self: center;">Canciones más exitosas</label>
+<<<<<<< HEAD
  <vaadin-scroller id="navegacionSB" style="align-self: center;">
   <vaadin-horizontal-layout theme="spacing">
    <vista-cancion></vista-cancion>
@@ -29,6 +30,14 @@ export class VistaCanciones_mas_exitosas extends LitElement {
    <vista-cancion></vista-cancion>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing">
+=======
+ <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%;">
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
+  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
+>>>>>>> branch 'master' of https://github.com/mdmontesinos/MDS2-Spotify.git
    <vista-cancion></vista-cancion>
    <vista-cancion></vista-cancion>
   </vaadin-horizontal-layout>
