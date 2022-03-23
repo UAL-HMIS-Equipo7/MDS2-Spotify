@@ -17,19 +17,21 @@ export class VistaCreditos extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 20%; justify-content: center;">
   <img id="cancionImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
   <label id="tituloL">Titulo</label>
   <vaadin-button id="cerrarB">
-   Cerrar
+    Cerrar 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <label id="tituloAlbumL">Titulo del Album</label>
- <label id="compositorL">Compositor/es</label>
- <label id="productorL">Productor/es</label>
- <label id="interpreteL">Intérprete/s</label>
- <label id="ficheroL">Fichero Multimedia asociado</label>
- <label id="estiloL">Estilos </label>
+ <vaadin-vertical-layout theme="spacing" style="width: 60%; align-items: center; align-self: center; height: 80%; justify-content: center;">
+  <label id="tituloAlbumL">Titulo del Album</label>
+  <label id="compositorL">Compositor/es</label>
+  <label id="productorL">Productor/es</label>
+  <label id="interpreteL">Intérprete/s</label>
+  <label id="ficheroL">Fichero Multimedia asociado</label>
+  <label id="estiloL">Estilos </label>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

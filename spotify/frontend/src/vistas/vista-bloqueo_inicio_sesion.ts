@@ -15,8 +15,8 @@ export class VistaBloqueo_inicio_sesion extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-button id="atrasB" style="align-self: flex-start;">
-  Atrás
+ <vaadin-button id="atrasB" style="align-self: flex-start; margin: var(--lumo-space-s);">
+   Atrás 
  </vaadin-button>
  <img id="alertaImg" style="align-self: center;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
  <label id="errorL" style="align-self: center;">Ha fallado demasiados intentos de inicio de sesión. Inténtelo de nuevo en:</label>

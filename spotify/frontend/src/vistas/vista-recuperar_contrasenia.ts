@@ -17,15 +17,17 @@ export class VistaRecuperar_contrasenia extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-button id="atrasB" style="align-self: flex-start;">
-  Atrás
+ <vaadin-button id="atrasB" style="align-self: flex-start; margin: var(--lumo-space-s);">
+   Atrás 
  </vaadin-button>
- <label id="tituloL" style="align-self: center;">Recuperación de Contraseña</label>
- <label id="correoL" style="align-self: center;">Introducir Correo Electrónico</label>
- <vaadin-text-field label="" placeholder="Email" id="correoTF" style="align-self: center;"></vaadin-text-field>
- <vaadin-button id="confirmarB" style="align-self: center;">
-  Confirmar
- </vaadin-button>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-l);">Recuperación de Contraseña</label>
+ <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-grow: 0; margin: var(--lumo-space-xl); height: 60%; justify-content: center;">
+  <label id="correoL" style="align-self: center;">Introducir Correo Electrónico</label>
+  <vaadin-text-field label="" placeholder="Email" id="correoTF" style="align-self: center;"></vaadin-text-field>
+  <vaadin-button id="confirmarB" style="align-self: center;">
+    Confirmar 
+  </vaadin-button>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

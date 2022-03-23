@@ -11,23 +11,28 @@ export class VistaCanciones_ultimos_exitos extends LitElement {
           display: block;
           height: 100%;
       }
+
+    .cancionCiber {
+    	max-width: 300px;
+    	max-height: 300px;
+    }
       `;
   }
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-  <vista-cancion_cibernauta></vista-cancion_cibernauta>
-  <vista-cancion_cibernauta></vista-cancion_cibernauta>
-  <vista-cancion_cibernauta></vista-cancion_cibernauta>
-  <vista-cancion_cibernauta></vista-cancion_cibernauta>
+<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-m);">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-items: center;">
+  <vista-cancion_cibernauta class="cancionCiber"></vista-cancion_cibernauta>
+  <vista-cancion_cibernauta class="cancionCiber"></vista-cancion_cibernauta>
+  <vista-cancion_cibernauta class="cancionCiber"></vista-cancion_cibernauta>
+  <vista-cancion_cibernauta class="cancionCiber"></vista-cancion_cibernauta>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-  <vista-cancion_cibernauta></vista-cancion_cibernauta>
-  <vista-cancion_cibernauta></vista-cancion_cibernauta>
-  <vista-cancion_cibernauta></vista-cancion_cibernauta>
-  <vista-cancion_cibernauta></vista-cancion_cibernauta>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-items: center;">
+  <vista-cancion_cibernauta class="cancionCiber"></vista-cancion_cibernauta>
+  <vista-cancion_cibernauta class="cancionCiber"></vista-cancion_cibernauta>
+  <vista-cancion_cibernauta class="cancionCiber"></vista-cancion_cibernauta>
+  <vista-cancion_cibernauta class="cancionCiber"></vista-cancion_cibernauta>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

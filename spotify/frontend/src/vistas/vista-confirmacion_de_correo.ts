@@ -1,8 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-confirmacion_de_correo')
 export class VistaConfirmacion_de_correo extends LitElement {
@@ -18,20 +18,22 @@ export class VistaConfirmacion_de_correo extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-button id="atrasB" style="align-self: flex-start;">
-  Atrás
+ <vaadin-button id="atrasB" style="align-self: flex-start; margin: var(--lumo-space-m);">
+   Atrás 
  </vaadin-button>
- <label id="tituloL" style="align-self: center;">Verificación de Código</label>
- <vaadin-text-field label="" placeholder="Introduzca el código" id="codigoTF" style="align-self: center;"></vaadin-text-field>
- <label id="errorL" style="align-self: center;">Error Correspondiente</label>
- <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
-  <vaadin-button id="confirmarB">
-   Confirmar
-  </vaadin-button>
-  <vaadin-button id="reenviarB">
-   Reenviar
-  </vaadin-button>
- </vaadin-horizontal-layout>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-xl);">Verificación de Código</label>
+ <vaadin-vertical-layout theme="spacing" style="height: 60%; justify-content: center; align-self: center;">
+  <vaadin-text-field label="" placeholder="Introduzca el código" id="codigoTF" style="align-self: center;"></vaadin-text-field>
+  <label id="errorL" style="align-self: center;">Error Correspondiente</label>
+  <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
+   <vaadin-button id="confirmarB">
+     Confirmar 
+   </vaadin-button>
+   <vaadin-button id="reenviarB">
+     Reenviar 
+   </vaadin-button>
+  </vaadin-horizontal-layout>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }
