@@ -11,18 +11,23 @@ export class VistaUsuarios_administrador extends LitElement {
           display: block;
           height: 100%;
       }
+
+    .usuarioAdministrador {
+	    	margin: var(--lumo-space-s); 
+	    	padding: var(--lumo-space-s);
+	    }
       `;
   }
 
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL">Usuarios</label>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Usuarios</label>
  <vaadin-scroller style="width: 100%; height: 100%;">
-  <vista-usuario_administrador></vista-usuario_administrador>
-  <vista-usuario_administrador></vista-usuario_administrador>
-  <vista-usuario_administrador></vista-usuario_administrador>
-  <vista-usuario_administrador></vista-usuario_administrador>
+  <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>
+  <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>
+  <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>
+  <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>
  </vaadin-scroller>
 </vaadin-vertical-layout>
 `;

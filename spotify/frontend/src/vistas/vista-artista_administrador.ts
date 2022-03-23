@@ -16,16 +16,16 @@ export class VistaArtista_administrador extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="artistaL">Nombre Artista</label>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-  <img id="artistaImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;">
+ <label id="artistaL" style="align-self: center; margin: var(--lumo-space-s);">Nombre Artista</label>
+ <vaadin-horizontal-layout theme="spacing" style="width: 85%; height: 90%; justify-content: center; align-items: center; align-self: center;">
+  <img id="artistaImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg" style="max-width: 600px; max-height: 600px; width: 100%; height: 100%;">
+  <vaadin-vertical-layout theme="spacing" style="width: 50%; height: 60%;">
    <vaadin-button id="editarArtistaB" style="width: 100%; height: 100%;">
-    Editar Artista
+     Editar Artista 
    </vaadin-button>
    <vaadin-button id="eliminarArtistaB" style="width: 100%; height: 100%;">
-    Eliminar Artista
+     Eliminar Artista 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>

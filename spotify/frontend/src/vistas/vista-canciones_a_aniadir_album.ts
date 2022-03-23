@@ -18,15 +18,15 @@ export class VistaCanciones_a_aniadir_album extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around;">
- <vaadin-text-field label="" placeholder="Buscar canción a añadir" id="aniadirCancionTF"></vaadin-text-field>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
+ <vaadin-text-field label="" placeholder="Buscar canción a añadir" id="aniadirCancionTF" style="width: 40%; align-self: center; margin: var(--lumo-space-xl);"></vaadin-text-field>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-button id="anteriorB">
-   Anterior
+    Anterior 
   </vaadin-button>
   <vista-cancion_album></vista-cancion_album>
   <vaadin-button id="posteriorB">
-   Posterior
+    Posterior 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

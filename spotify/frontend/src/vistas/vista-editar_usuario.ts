@@ -17,13 +17,13 @@ export class VistaEditar_usuario extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around; padding: var(--lumo-space-s);">
  <label id="tituloL">Usuario Registrado</label>
  <label id="errorL">Mensaje de error correspondiente</label>
  <vaadin-horizontal-layout theme="spacing">
-  <img id="fotoImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <img id="fotoImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg" style="max-width: 500px; max-height: 500px;">
   <vaadin-button id="elegirFotoB">
-   Elegir Foto
+    Elegir Foto 
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing">
@@ -40,10 +40,10 @@ export class VistaEditar_usuario extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-button id="guardarB">
-   Guardar
+    Guardar 
   </vaadin-button>
   <vaadin-button id="cancelarB">
-   Cancelar
+    Cancelar 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

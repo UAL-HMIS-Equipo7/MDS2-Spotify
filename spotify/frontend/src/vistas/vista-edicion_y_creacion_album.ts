@@ -23,27 +23,27 @@ export class VistaEdicion_y_creacion_album extends LitElement {
  <vaadin-horizontal-layout theme="spacing">
   <img id="fotoImg" style="width: 150px;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
   <vaadin-button id="elegirFotoB">
-   Elegir imagen
+    Elegir imagen 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing">
+ <vaadin-horizontal-layout theme="spacing" style="align-items: center;">
   <label id="tituloAlbumL">Título</label>
   <vaadin-text-field label="" placeholder="" id="tituloAlbumTF"></vaadin-text-field>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing">
+ <vaadin-horizontal-layout theme="spacing" style="align-items: center;">
   <label id="artistaL">Nombre del artista</label>
   <vaadin-text-field label="" placeholder="" id="artistaTF"></vaadin-text-field>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing">
+ <vaadin-horizontal-layout theme="spacing" style="align-items: center;">
   <label>Fecha de edición</label>
   <vaadin-text-field label="" placeholder="" id="fechaEdicionTF"></vaadin-text-field>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-button id="guardarB">
-   Guardar
+    Guardar 
   </vaadin-button>
   <vaadin-button id="cancelarB">
-   Cancelar
+    Cancelar 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

@@ -17,20 +17,24 @@ export class VistaMenu_administracion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around;">
+ <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 30%; justify-content: center;">
   <vaadin-button id="busquedaB">
-   Buscar
+    Buscar 
   </vaadin-button>
-  <vaadin-text-field label="" placeholder="Buscar elemento a modificar" id="busquedaTF"></vaadin-text-field>
+  <vaadin-text-field label="" placeholder="Buscar elemento a modificar" id="busquedaTF" style="width: 70%;"></vaadin-text-field>
  </vaadin-horizontal-layout>
- <vaadin-button id="darAltaB">
-  Dar de alta
+ <vaadin-button id="darAltaB" style="align-self: center; width: 30%;">
+   Dar de alta 
  </vaadin-button>
- <label id="numCancionesMostradasL">Número canciones mostradas al cibernauta</label>
- <vaadin-text-field placeholder="6" id="numCancionesMostradasTF"></vaadin-text-field>
- <label id="limiteCancionesReproduciblesL">Límite de canciones reproducibles por el cibernauta</label>
- <vaadin-text-field placeholder="10" id="limiteCancionesReproduciblesTF"></vaadin-text-field>
+ <vaadin-vertical-layout theme="spacing" style="align-items: center;">
+  <label id="numCancionesMostradasL">Número canciones mostradas al cibernauta</label>
+  <vaadin-text-field placeholder="6" id="numCancionesMostradasTF"></vaadin-text-field>
+ </vaadin-vertical-layout>
+ <vaadin-vertical-layout theme="spacing" style="align-items: center;">
+  <label id="limiteCancionesReproduciblesL">Límite de canciones reproducibles por el cibernauta</label>
+  <vaadin-text-field placeholder="10" id="limiteCancionesReproduciblesTF"></vaadin-text-field>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

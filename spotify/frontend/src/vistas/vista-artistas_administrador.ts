@@ -11,18 +11,23 @@ export class VistaArtistas_administrador extends LitElement {
           display: block;
           height: 100%;
       }
+
+    .artistaAdministrador {
+    	margin: var(--lumo-space-s); 
+    	padding: var(--lumo-space-s);
+    }
       `;
   }
 
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL">Artistas</label>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Artistas</label>
  <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%;">
-  <vista-artista_administrador></vista-artista_administrador>
-  <vista-artista_administrador></vista-artista_administrador>
-  <vista-artista_administrador></vista-artista_administrador>
-  <vista-artista_administrador></vista-artista_administrador>
+  <vista-artista_administrador class="artistaAdministrador"></vista-artista_administrador>
+  <vista-artista_administrador class="artistaAdministrador"></vista-artista_administrador>
+  <vista-artista_administrador class="artistaAdministrador"></vista-artista_administrador>
+  <vista-artista_administrador class="artistaAdministrador"></vista-artista_administrador>
  </vaadin-scroller>
 </vaadin-vertical-layout>
 `;

@@ -17,12 +17,12 @@ export class VistaAlbumes_administrador extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="width: 100%;">Álbumes</label>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Álbumes</label>
  <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%;">
-  <vista-album_administrador></vista-album_administrador>
-  <vista-album_administrador></vista-album_administrador>
-  <vista-album_administrador></vista-album_administrador>
-  <vista-album_administrador></vista-album_administrador>
+  <vista-album_administrador class="albumAdministrador"></vista-album_administrador>
+  <vista-album_administrador class="albumAdministrador"></vista-album_administrador>
+  <vista-album_administrador class="albumAdministrador"></vista-album_administrador>
+  <vista-album_administrador class="albumAdministrador"></vista-album_administrador>
  </vaadin-scroller>
 </vaadin-vertical-layout>
 `;

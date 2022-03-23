@@ -18,13 +18,13 @@ export class VistaEdicion_y_creacion_artista extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-around; align-items: center;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-around; align-items: center; padding: var(--lumo-space-s);">
  <label id="tituloL">Artista</label>
  <label id="errorL">Mensaje de error correspondiente</label>
  <vaadin-horizontal-layout theme="spacing">
-  <img id="fotoImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <img id="fotoImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg" style="max-width: 500px; max-height: 500px;">
   <vaadin-button id="elegirFotoB">
-   Elegir archivo
+    Elegir archivo 
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing">
@@ -34,7 +34,7 @@ export class VistaEdicion_y_creacion_artista extends LitElement {
  <vaadin-horizontal-layout theme="spacing">
   <label id="nickL">Nick</label>
   <vaadin-text-field id="nickTF">
-   Text
+    Text 
   </vaadin-text-field>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing">
@@ -47,10 +47,10 @@ export class VistaEdicion_y_creacion_artista extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-button id="guardarB">
-   Guardar
+    Guardar 
   </vaadin-button>
   <vaadin-button id="cancelarB">
-   Cancelar
+    Cancelar 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

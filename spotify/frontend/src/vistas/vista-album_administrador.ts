@@ -11,21 +11,26 @@ export class VistaAlbum_administrador extends LitElement {
           display: block;
           height: 100%;
       }
+
+    .albumAdministrador {
+	    	margin: var(--lumo-space-s); 
+	    	padding: var(--lumo-space-s);
+	    }
       `;
   }
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="albumL">Nombre Álbum</label>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-  <img id="albumImg" style="width: 100%; height: 100%;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;">
+ <label id="albumL" style="align-self: center; margin: var(--lumo-space-s);">Nombre Álbum</label>
+ <vaadin-horizontal-layout theme="spacing" style="width: 85%; height: 90%; align-self: center; align-items: center; justify-content: center;">
+  <img id="albumImg" style="width: 100%; height: 100%; max-width: 600px; max-height: 600px;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <vaadin-vertical-layout theme="spacing" style="width: 50%; height: 60%;">
    <vaadin-button id="editarAlbumB" style="width: 100%; height: 100%;">
-    Editar Álbum
+     Editar Álbum 
    </vaadin-button>
    <vaadin-button id="eliminarAlbumB" style="width: 100%; height: 100%;">
-    Eliminar Álbum
+     Eliminar Álbum 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>

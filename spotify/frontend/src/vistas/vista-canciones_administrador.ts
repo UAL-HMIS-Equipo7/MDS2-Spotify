@@ -11,18 +11,23 @@ export class VistaCanciones_administrador extends LitElement {
           display: block;
           height: 100%;
       }
+
+	.cancionAdministrador {
+	    	margin: var(--lumo-space-s); 
+	    	padding: var(--lumo-space-s);
+	    }
       `;
   }
 
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: flex-start; width: 100%;">Canciones</label>
- <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%;">
-  <vista-cancion_administrador style="width: 100%; height: 100%;"></vista-cancion_administrador>
-  <vista-cancion_administrador style="width: 100%; height: 100%;"></vista-cancion_administrador>
-  <vista-cancion_administrador style="width: 100%; height: 100%;"></vista-cancion_administrador>
-  <vista-cancion_administrador style="width: 100%; height: 100%;"></vista-cancion_administrador>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Canciones</label>
+ <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%; align-self: center;">
+  <vista-cancion_administrador class="cancionAdministrador"></vista-cancion_administrador>
+  <vista-cancion_administrador class="cancionAdministrador"></vista-cancion_administrador>
+  <vista-cancion_administrador class="cancionAdministrador"></vista-cancion_administrador>
+  <vista-cancion_administrador class="cancionAdministrador"></vista-cancion_administrador>
  </vaadin-scroller>
 </vaadin-vertical-layout>
 `;
