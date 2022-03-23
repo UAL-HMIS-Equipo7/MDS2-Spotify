@@ -1,6 +1,8 @@
 package interfaz;
 
-public class Edicion_y_Creacion_artista {
+import vistas.VistaEdicion_y_creacion_artista;
+
+public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista {
 //	private event _guardar_cambios_artista;
 //	private Label _tituloL;
 //	private Image _fotoImg;
@@ -16,14 +18,14 @@ public class Edicion_y_Creacion_artista {
 //	private Button _guardarB;
 //	private Button _cancelarB;
 //	private Label _errorL;
-//	public Ver_menu_de_altas _ver_menu_de_altas;
-//	public Artista_administrador _artista_administrador;
-//
-//	public void Guardar_cambios_artista() {
-//		throw new UnsupportedOperationException();
-//	}
-//
-//	public void Validar_datos_artista() {
-//		throw new UnsupportedOperationException();
-//	}
+	public Ver_menu_de_altas _ver_menu_de_altas;
+	public Artista_administrador _artista_administrador;
+
+	public void Guardar_cambios_artista() {
+		throw new UnsupportedOperationException();
+	}
+
+	public void Validar_datos_artista() {
+		throw new UnsupportedOperationException();
+	}
 }

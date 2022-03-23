@@ -4,5 +4,5 @@ package interfaz;
 
 public class Artista extends Actor_comun {
 //	public iArtista _iArtista;
-//	public Cabecera_Artista _cabecera_Artista;
+	public Cabecera_Artista _cabecera_Artista;
 }

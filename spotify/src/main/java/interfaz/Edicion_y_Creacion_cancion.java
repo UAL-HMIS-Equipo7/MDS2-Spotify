@@ -1,6 +1,8 @@
 package interfaz;
 
-public class Edicion_y_Creacion_cancion {
+import vistas.VistaEdicion_y_creacion_cancion;
+
+public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion {
 //	private event _guardar_cambios_cancion;
 //	private Label _cancionTituloL;
 //	private Label _tituloL;
@@ -23,14 +25,14 @@ public class Edicion_y_Creacion_cancion {
 //	private Button _guardarB;
 //	private Button _cancelarB;
 //	private Label _errorL;
-//	public Cancion_administrador _cancion_administrador;
-//	public Ver_menu_de_altas _ver_menu_de_altas;
-//
-//	public void Guardar_cambios_cancion() {
-//		throw new UnsupportedOperationException();
-//	}
-//
-//	public void Validar_datos_cancion() {
-//		throw new UnsupportedOperationException();
-//	}
+	public Cancion_administrador _cancion_administrador;
+	public Ver_menu_de_altas _ver_menu_de_altas;
+
+	public void Guardar_cambios_cancion() {
+		throw new UnsupportedOperationException();
+	}
+
+	public void Validar_datos_cancion() {
+		throw new UnsupportedOperationException();
+	}
 }

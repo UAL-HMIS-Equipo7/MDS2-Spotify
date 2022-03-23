@@ -1,6 +1,8 @@
 package interfaz;
 
-public class Registrarse {
+import vistas.VistaRegistrarse;
+
+public class Registrarse extends VistaRegistrarse {
 //	private Image _emailImg;
 //	private TextField _emailTF;
 //	private Image _nickImg;
@@ -17,10 +19,10 @@ public class Registrarse {
 //	private Button _atrasB;
 //	private Label _errorL;
 //	private Label _tituloL;
-//	public Iniciar_sesion _iniciar_sesion;
-//	public Confirmacion_de_correo _confirmacion_de_correo;
-//
-//	public void Validar_datos_de_registro() {
-//		throw new UnsupportedOperationException();
-//	}
+	public Iniciar_sesion _iniciar_sesion;
+	public Confirmacion_de_correo _confirmacion_de_correo;
+
+	public void Validar_datos_de_registro() {
+		throw new UnsupportedOperationException();
+	}
 }

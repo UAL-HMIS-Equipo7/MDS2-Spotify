@@ -1,6 +1,8 @@
 package interfaz;
 
-public class Editar_usuario {
+import vistas.VistaEditar_usuario;
+
+public class Editar_usuario extends VistaEditar_usuario {
 //	private event _guardar_cambios_usuario;
 //	private Label _tituloL;
 //	private Image _fotoImg;
@@ -14,13 +16,13 @@ public class Editar_usuario {
 //	private Button _guardarB;
 //	private Button _cancelarB;
 //	private Label _errorL;
-//	public Usuario_administrador _usuario_administrador;
-//
-//	public void Guardar_cambios_usuario() {
-//		throw new UnsupportedOperationException();
-//	}
-//
-//	public void Validar_datos_usuario() {
-//		throw new UnsupportedOperationException();
-//	}
+	public Usuario_administrador _usuario_administrador;
+
+	public void Guardar_cambios_usuario() {
+		throw new UnsupportedOperationException();
+	}
+
+	public void Validar_datos_usuario() {
+		throw new UnsupportedOperationException();
+	}
 }

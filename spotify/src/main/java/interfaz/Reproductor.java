@@ -1,6 +1,8 @@
 package interfaz;
 
-public class Reproductor {
+import vistas.VistaReproductor;
+
+public class Reproductor extends VistaReproductor {
 //	private event _reanudar_Pausar;
 //	private event _modificar_volumen;
 //	private Button _reanudarPausarB;
