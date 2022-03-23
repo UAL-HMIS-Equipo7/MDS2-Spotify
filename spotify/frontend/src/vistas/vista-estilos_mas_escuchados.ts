@@ -11,22 +11,27 @@ export class VistaEstilos_mas_escuchados extends LitElement {
           display: block;
           height: 100%;
       }
+
+	.imagenEstilo {
+    	max-width: 350px;
+    	max-heigth: 350px;
+    }
       `;
   }
 
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL">Estilos más escuchados</label>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-  <vista-imagen_estilos></vista-imagen_estilos>
-  <vista-imagen_estilos></vista-imagen_estilos>
-  <vista-imagen_estilos></vista-imagen_estilos>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Estilos más escuchados</label>
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-m); align-self: center;">
+  <vista-imagen_estilos class="imagenEstilo"></vista-imagen_estilos>
+  <vista-imagen_estilos class="imagenEstilo"></vista-imagen_estilos>
+  <vista-imagen_estilos class="imagenEstilo"></vista-imagen_estilos>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-  <vista-imagen_estilos></vista-imagen_estilos>
-  <vista-imagen_estilos></vista-imagen_estilos>
-  <vista-imagen_estilos></vista-imagen_estilos>
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-m); align-self: center;">
+  <vista-imagen_estilos class="imagenEstilo"></vista-imagen_estilos>
+  <vista-imagen_estilos class="imagenEstilo"></vista-imagen_estilos>
+  <vista-imagen_estilos class="imagenEstilo"></vista-imagen_estilos>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

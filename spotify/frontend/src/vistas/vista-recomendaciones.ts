@@ -18,10 +18,12 @@ export class VistaRecomendaciones extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center;">Recomendaciones</label>
- <vista-canciones_recomendadas style="align-self: center;"></vista-canciones_recomendadas>
- <vista-albumes_recomendados style="align-self: center;"></vista-albumes_recomendados>
- <vista-listas_recomendadas style="width: 100%; height: 100%;"></vista-listas_recomendadas>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Recomendaciones</label>
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 90%; justify-content: center;">
+  <vista-canciones_recomendadas style="align-self: center; height: 30%;"></vista-canciones_recomendadas>
+  <vista-albumes_recomendados style="align-self: center; height: 30%;"></vista-albumes_recomendados>
+  <vista-listas_recomendadas style="height: 30%; align-self: center;"></vista-listas_recomendadas>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

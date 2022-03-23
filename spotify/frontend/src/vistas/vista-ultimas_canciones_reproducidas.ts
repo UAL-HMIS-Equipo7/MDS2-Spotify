@@ -17,23 +17,23 @@ export class VistaUltimas_canciones_reproducidas extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL">Últimas Canciones Reproducidas</label>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
- </vaadin-horizontal-layout>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Últimas Canciones Reproducidas</label>
+ <vaadin-vertical-layout theme="spacing" style="height: 70%; justify-content: space-evenly;">
+  <vaadin-horizontal-layout theme="spacing">
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
+  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing">
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
+   <vista-cancion></vista-cancion>
+  </vaadin-horizontal-layout>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }
