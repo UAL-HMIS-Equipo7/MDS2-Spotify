@@ -26,7 +26,7 @@ export class VistaCibernauta extends LitElement {
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 80%; flex-grow: 0; padding: var(--lumo-space-m);">
-  <vista-canciones_ultimos_exitos style="width: 100%; height: 100%;"></vista-canciones_ultimos_exitos>
+  <vista-canciones_ultimos_exitos style="width: 100%; height: 100%;" id="vistaCanciones_ultimos_exitos"></vista-canciones_ultimos_exitos>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
