@@ -3,6 +3,9 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-realizar_busqueda template.
@@ -14,7 +17,38 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./src/vistas/vista-realizar_busqueda.ts")
 public class VistaRealizar_busqueda extends LitTemplate {
 
-    /**
+    public Label getMensajeL() {
+		return mensajeL;
+	}
+
+	public void setMensajeL(Label mensajeL) {
+		this.mensajeL = mensajeL;
+	}
+
+	public Label getErrorL() {
+		return errorL;
+	}
+
+	public void setErrorL(Label errorL) {
+		this.errorL = errorL;
+	}
+
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+
+	@Id("mensajeL")
+	private Label mensajeL;
+	@Id("errorL")
+	private Label errorL;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+
+	/**
      * Creates a new VistaRealizar_busqueda.
      */
     public VistaRealizar_busqueda() {

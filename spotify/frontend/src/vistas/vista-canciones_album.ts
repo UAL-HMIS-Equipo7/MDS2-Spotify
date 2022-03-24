@@ -18,7 +18,7 @@ export class VistaCanciones_album extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label style="align-self: center;">Listado de Canciones</label>
+ <label style="align-self: center; margin: var(--lumo-space-m);" id="label">Listado de Canciones</label>
  <vaadin-scroller id="navegacionSB" style="width: 100%;">
   <vaadin-horizontal-layout theme="spacing" style="justify-content: space-evenly;">
    <vista-cancion></vista-cancion>

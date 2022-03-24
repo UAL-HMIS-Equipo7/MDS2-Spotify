@@ -22,7 +22,7 @@ export class VistaArtistas_similares extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label style="align-self: center; margin: var(--lumo-space-m);">Artistas Similares</label>
+ <label style="align-self: center; margin: var(--lumo-space-m);" id="label">Artistas Similares</label>
  <vaadin-scroller style="width: 100%; height: 100%;" id="navegacionSB">
   <vaadin-horizontal-layout theme="spacing" style="height: 100%; width: 98%;">
    <vista-foto_artista class="artistasSimilares"></vista-foto_artista>

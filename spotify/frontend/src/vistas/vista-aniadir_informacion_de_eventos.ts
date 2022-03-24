@@ -28,7 +28,7 @@ export class VistaAniadir_informacion_de_eventos extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-text-field label="" placeholder="Introducir fecha y hora" id="fechaHoraTF" style="align-self: center;"></vaadin-text-field>
  <label id="descripcionL" style="align-self: center;">Descripción</label>
- <vaadin-text-area label="" placeholder="" style="align-self: center; width: 60%; height: 40%;"></vaadin-text-area>
+ <vaadin-text-area label="" placeholder="" style="align-self: center; width: 60%; height: 40%;" id="vaadinTextArea"></vaadin-text-area>
  <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
   <label id="precioL" style="align-self: center;">Precio</label>
   <vaadin-text-field placeholder="Introducir precio" id="precioTF"></vaadin-text-field>
