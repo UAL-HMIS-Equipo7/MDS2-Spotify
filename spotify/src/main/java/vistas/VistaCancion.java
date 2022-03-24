@@ -3,6 +3,9 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-cancion template.
@@ -14,7 +17,28 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./src/vistas/vista-cancion.ts")
 public class VistaCancion extends LitTemplate {
 
-    /**
+    public Image getCancionImg() {
+		return cancionImg;
+	}
+
+	public void setCancionImg(Image cancionImg) {
+		this.cancionImg = cancionImg;
+	}
+
+	public Button getTituloB() {
+		return tituloB;
+	}
+
+	public void setTituloB(Button tituloB) {
+		this.tituloB = tituloB;
+	}
+
+	@Id("cancionImg")
+	private Image cancionImg;
+	@Id("tituloB")
+	private Button tituloB;
+
+	/**
      * Creates a new VistaCancion.
      */
     public VistaCancion() {

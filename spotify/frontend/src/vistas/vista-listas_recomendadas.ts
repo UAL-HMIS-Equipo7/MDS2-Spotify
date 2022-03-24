@@ -15,7 +15,7 @@ export class VistaListas_recomendadas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
  <vista-lista_de_reproduccion_ajena style="width: 100%; height: 100%;"></vista-lista_de_reproduccion_ajena>
 </vaadin-vertical-layout>
 `;

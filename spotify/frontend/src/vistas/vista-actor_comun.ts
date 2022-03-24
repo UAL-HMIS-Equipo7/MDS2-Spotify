@@ -25,11 +25,11 @@ export class VistaActor_comun extends LitElement {
  </vaadin-button>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
   <vaadin-vertical-layout theme="spacing" style="width: 70%;">
-   <vista-ultimas_canciones_reproducidas style="height: 30%;"></vista-ultimas_canciones_reproducidas>
-   <vista-canciones_favoritas style="height: 30%;"></vista-canciones_favoritas>
+   <vista-ultimas_canciones_reproducidas style="height: 30%;" id="vistaUltimas_canciones_reproducidas"></vista-ultimas_canciones_reproducidas>
+   <vista-canciones_favoritas style="height: 30%;" id="vistaCanciones_favoritas"></vista-canciones_favoritas>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 30%; height: 100%; align-items: center;">
-   <vista-recomendaciones style="height: 50%;"></vista-recomendaciones>
+   <vista-recomendaciones style="height: 50%;" id="vistaRecomendaciones"></vista-recomendaciones>
    <vaadin-button id="menuAdministracionB">
      Menú Administración 
    </vaadin-button>
