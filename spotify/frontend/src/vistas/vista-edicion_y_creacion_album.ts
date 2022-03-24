@@ -35,10 +35,10 @@ export class VistaEdicion_y_creacion_album extends LitElement {
   <vaadin-text-field label="" placeholder="" id="artistaTF"></vaadin-text-field>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-items: center;">
-  <label>Fecha de edición</label>
+  <label id="label">Fecha de edición</label>
   <vaadin-text-field label="" placeholder="" id="fechaEdicionTF"></vaadin-text-field>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing">
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
   <vaadin-button id="guardarB">
     Guardar 
   </vaadin-button>

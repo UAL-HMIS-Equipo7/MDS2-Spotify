@@ -28,12 +28,12 @@ export class VistaRealizar_busqueda_de_administrador extends LitElement {
   <label style="align-self: center; margin-left: var(--lumo-space-xl);" id="errorL">No hay ningún resultado para la búsqueda realizada</label>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 40%; justify-content: space-around; margin-top: var(--lumo-space-m); margin-bottom: var(--lumo-space-m);">
-  <vista-canciones_administrador style="width: 40%; height: 100%;"></vista-canciones_administrador>
-  <vista-albumes_administrador style="width: 40%; height: 100%;"></vista-albumes_administrador>
+  <vista-canciones_administrador style="width: 40%; height: 100%;" id="vistaCanciones_administrador"></vista-canciones_administrador>
+  <vista-albumes_administrador style="width: 40%; height: 100%;" id="vistaAlbumes_administrador"></vista-albumes_administrador>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 40%; justify-content: space-around; align-self: center; align-items: center; margin-bottom: var(--lumo-space-m); margin-top: var(--lumo-space-m);">
-  <vista-artistas_administrador style="width: 40%; height: 100%;"></vista-artistas_administrador>
-  <vista-usuarios_administrador style="width: 40%; height: 100%;"></vista-usuarios_administrador>
+  <vista-artistas_administrador style="width: 40%; height: 100%;" id="vistaArtistas_administrador"></vista-artistas_administrador>
+  <vista-usuarios_administrador style="width: 40%; height: 100%;" id="vistaUsuarios_administrador"></vista-usuarios_administrador>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

@@ -24,7 +24,7 @@ export class VistaCanciones_a_aniadir_album extends LitElement {
   <vaadin-button id="anteriorB">
     Anterior 
   </vaadin-button>
-  <vista-cancion_album></vista-cancion_album>
+  <vista-cancion_album id="vistaCancion_album"></vista-cancion_album>
   <vaadin-button id="posteriorB">
     Posterior 
   </vaadin-button>

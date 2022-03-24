@@ -27,7 +27,7 @@ export class VistaEdicion_y_creacion_artista extends LitElement {
     Elegir archivo 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing">
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
   <label id="emailL">Email</label>
   <vaadin-text-field id="emailTF"></vaadin-text-field>
  </vaadin-horizontal-layout>
@@ -38,7 +38,7 @@ export class VistaEdicion_y_creacion_artista extends LitElement {
   </vaadin-text-field>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing">
-  <label>Contraseña</label>
+  <label id="label">Contraseña</label>
   <vaadin-text-field id="contraseniaTF"></vaadin-text-field>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing">

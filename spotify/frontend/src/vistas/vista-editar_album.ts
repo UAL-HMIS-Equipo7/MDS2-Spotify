@@ -17,8 +17,8 @@ export class VistaEditar_album extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vista-edicion_y_creacion_album style="width: 100%; height: 100%;"></vista-edicion_y_creacion_album>
- <vista-canciones_en_album style="width: 100%; height: 100%;"></vista-canciones_en_album>
+ <vista-edicion_y_creacion_album style="width: 100%; height: 100%;" id="vistaEdicion_y_creacion_album"></vista-edicion_y_creacion_album>
+ <vista-canciones_en_album style="width: 100%; height: 100%;" id="vistaCanciones_en_album"></vista-canciones_en_album>
 </vaadin-vertical-layout>
 `;
   }

@@ -23,14 +23,14 @@ export class VistaCanciones_en_album extends LitElement {
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-text-field placeholder="Añadir canción" id="aniadirCancionTF"></vaadin-text-field>
   <vaadin-button id="aniadirCancionB">
-   Añadir
+    Añadir 
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 40%;">
   <vaadin-button id="anteriorB" style="width: 100%;">
     Anterior 
   </vaadin-button>
-  <vista-cancion_album></vista-cancion_album>
+  <vista-cancion_album id="vistaCancion_album"></vista-cancion_album>
   <vaadin-button id="posteriorB" style="width: 100%;">
     Posterior 
   </vaadin-button>
