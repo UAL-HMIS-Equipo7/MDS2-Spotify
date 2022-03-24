@@ -18,16 +18,16 @@ export class VistaVer_cancion extends LitElement {
   render() {
     return html`
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 98%; align-self: center;">
   <img id="fotoCancionImg" style="align-self: center;" src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&amp;quality=20">
   <label id="tituloL" style="align-self: center;">TÍTULO</label>
   <vaadin-button id="aniadirFavoritosB" style="align-self: center;">
-   Añadir a favoritos
+    Añadir a favoritos 
   </vaadin-button>
   <label id="aniadirListaL" style="align-self: center;">Añadir a lista de reproducción</label>
   <vaadin-combo-box id="aniadirListaB" style="align-self: center;"></vaadin-combo-box>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 98%; align-self: center;">
   <label id="creditosTituloL" style="align-self: center;">Créditos</label>
   <label id="creditosTituloCancionL" style="align-self: center;">Título</label>
   <label id="creditosTituloAlbumL" style="align-self: center;">Título del álbum</label>

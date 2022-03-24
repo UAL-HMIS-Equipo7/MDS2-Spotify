@@ -17,15 +17,15 @@ export class VistaVer_lista_de_reproduccion_propia extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing">
+<vaadin-vertical-layout style="width: 100%; height: 100%; margin: var(--lumo-space-s); align-items: center; justify-content: center;">
+ <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
   <vaadin-vertical-layout theme="spacing">
    <label id="editarL">Opciones de edición</label>
    <vaadin-button id="editarB">
-    Editar
+     Editar 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vista-ver_lista_de_reproduccion></vista-ver_lista_de_reproduccion>
+  <vista-ver_lista_de_reproduccion style="align-self: center;"></vista-ver_lista_de_reproduccion>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

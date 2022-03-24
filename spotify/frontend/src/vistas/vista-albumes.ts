@@ -12,21 +12,26 @@ export class VistaAlbumes extends LitElement {
           display: block;
           height: 100%;
       }
+
+    .albumes {
+	    margin: var(--lumo-space-m); height: 98%;
+	    }
+
       `;
   }
 
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center;">Álbumes</label>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Álbumes</label>
  <vaadin-scroller style="align-self: center;">
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-   <vista-album></vista-album>
-   <vista-album></vista-album>
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: center; align-items: center; margin: var(--lumo-space-s);">
+   <vista-album class="albumes"></vista-album>
+   <vista-album class="albumes"></vista-album>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-   <vista-album></vista-album>
-   <vista-album></vista-album>
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: center; margin: var(--lumo-space-s);">
+   <vista-album class="albumes"></vista-album>
+   <vista-album class="albumes"></vista-album>
   </vaadin-horizontal-layout>
  </vaadin-scroller>
 </vaadin-vertical-layout>

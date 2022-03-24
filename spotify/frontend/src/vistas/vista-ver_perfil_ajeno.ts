@@ -17,17 +17,17 @@ export class VistaVer_perfil_ajeno extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; margin: var(--lumo-space-xs);">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-  <vaadin-vertical-layout theme="spacing" style="align-items: center;">
-   <img id="fotoImg" src="https://skillz4kidzmartialarts.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <vaadin-vertical-layout theme="spacing" style="align-items: center; margin: var(--lumo-space-m);">
+   <img id="fotoImg" src="https://skillz4kidzmartialarts.com/wp-content/uploads/2017/04/default-image-620x600.jpg" style="width: 30%;">
    <label id="emailL">Email</label>
    <label id="nickL">Nick</label>
    <vaadin-button id="seguirB">
-    Seguir
+     Seguir 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 100%;">
+  <vaadin-vertical-layout theme="spacing" style="width: 100%; margin: var(--lumo-space-m);">
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-evenly;">
     <label id="seguidoresL">Seguidores: X</label>
     <label id="seguidosL">Seguidos: X</label>

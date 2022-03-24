@@ -17,7 +17,7 @@ export class VistaContactar_con_la_empresa extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-evenly;">
  <label id="soporteL" style="align-self: center;">SOPORTE</label>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-self: center; justify-content: center;">
   <label id="asuntoL" style="align-self: center;">Asunto</label>
@@ -27,10 +27,10 @@ export class VistaContactar_con_la_empresa extends LitElement {
  <vaadin-text-field placeholder="Placeholder" id="incidenciaTF" style="align-self: center;"></vaadin-text-field>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center;">
   <vaadin-button id="enviarB">
-   Enviar
+    Enviar 
   </vaadin-button>
   <vaadin-button id="cancelarB">
-   Cancelar
+    Cancelar 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

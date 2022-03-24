@@ -17,11 +17,11 @@ export class VistaArtistas extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; margin: var(--lumo-space-s);">
   <vista-foto_artista style="width: 100%; height: 100%;"></vista-foto_artista>
   <vista-foto_artista style="width: 100%; height: 100%;"></vista-foto_artista>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; margin: var(--lumo-space-s);">
   <vista-foto_artista style="width: 100%; height: 100%;"></vista-foto_artista>
   <vista-foto_artista style="width: 100%; height: 100%;"></vista-foto_artista>
  </vaadin-horizontal-layout>

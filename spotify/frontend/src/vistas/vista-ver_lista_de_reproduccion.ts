@@ -17,19 +17,19 @@ export class VistaVer_lista_de_reproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; margin: var(--lumo-space-s);">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; margin: var(--lumo-space-s);">
   <vaadin-horizontal-layout theme="spacing">
-   <vaadin-button id="compartirB">
-    Compartir
+   <vaadin-button id="compartirB" style="width: 20%;">
+     Compartir 
    </vaadin-button>
    <vista-canciones_de_lista style="width: 100%; height: 100%;"></vista-canciones_de_lista>
-   <vaadin-button id="seguirB">
-    Seguir
+   <vaadin-button id="seguirB" style="width: 20%;">
+     Seguir 
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
+ <vaadin-vertical-layout theme="spacing" style="width: 50%; height: 100%;">
   <label id="informacionL" style="align-self: center;">Información de la lista</label>
   <label id="tituloL" style="align-self: center;">Título</label>
   <a href="https://vaadin.com" id="autorB" style="align-self: center;">Autor de la lista</a>

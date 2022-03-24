@@ -12,21 +12,25 @@ export class VistaArtistas_similares extends LitElement {
           display: block;
           height: 100%;
       }
+
+    .artistasSimilares {
+    	height: 90%; margin: var(--lumo-space-l); padding: var(--lumo-space-s);
+      }
       `;
   }
 
   render() {
     return html`
-<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
- <label style="align-self: center;">Artistas Similares</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;">
+ <label style="align-self: center; margin: var(--lumo-space-m);">Artistas Similares</label>
  <vaadin-scroller style="width: 100%; height: 100%;" id="navegacionSB">
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-   <vista-foto_artista></vista-foto_artista>
-   <vista-foto_artista></vista-foto_artista>
+  <vaadin-horizontal-layout theme="spacing" style="height: 100%; width: 98%;">
+   <vista-foto_artista class="artistasSimilares"></vista-foto_artista>
+   <vista-foto_artista class="artistasSimilares"></vista-foto_artista>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
-   <vista-foto_artista></vista-foto_artista>
-   <vista-foto_artista></vista-foto_artista>
+  <vaadin-horizontal-layout theme="spacing" style="width: 98%; height: 100%;">
+   <vista-foto_artista class="artistasSimilares"></vista-foto_artista>
+   <vista-foto_artista class="artistasSimilares"></vista-foto_artista>
   </vaadin-horizontal-layout>
  </vaadin-scroller>
 </vaadin-vertical-layout>

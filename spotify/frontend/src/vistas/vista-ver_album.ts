@@ -23,7 +23,7 @@ export class VistaVer_album extends LitElement {
   <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-grow: 0; align-items: center;">
    <label id="informacionL">Información</label>
    <label id="tituloL">Título</label>
-   <vista-autores_album></vista-autores_album>
+   <vista-autores_album style="padding: var(--lumo-space-xs);"></vista-autores_album>
    <label id="fechaEdicionL">01/01/2020</label>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>

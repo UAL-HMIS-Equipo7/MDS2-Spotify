@@ -17,7 +17,7 @@ export class VistaVer_lista_seguidores extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; align-items: center;">
- <label id="tituloL">Seguidores</label>
+ <label id="tituloL" style="margin: var(--lumo-space-m);">Seguidores</label>
  <vaadin-scroller id="navegacionSB" style="align-self: center;">
   <vista-usuarios></vista-usuarios>
  </vaadin-scroller>
