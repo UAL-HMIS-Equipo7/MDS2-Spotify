@@ -17,7 +17,7 @@ export class VistaVer_evento extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; margin: var(--lumo-space-s); justify-content: space-around; padding: var(--lumo-space-m);">
- <vaadin-button>
+ <vaadin-button id="vaadinButton">
    Atras 
  </vaadin-button>
  <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Información concierto</label>

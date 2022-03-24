@@ -3,6 +3,12 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-modificar_lista_de_reproduccion template.
@@ -14,7 +20,63 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./src/vistas/vista-modificar_lista_de_reproduccion.ts")
 public class VistaModificar_lista_de_reproduccion extends LitTemplate {
 
-    /**
+    public Button getEliminarB() {
+		return eliminarB;
+	}
+	public void setEliminarB(Button eliminarB) {
+		this.eliminarB = eliminarB;
+	}
+	public Label getListadoL() {
+		return listadoL;
+	}
+	public void setListadoL(Label listadoL) {
+		this.listadoL = listadoL;
+	}
+	public TextField getListadoTF() {
+		return listadoTF;
+	}
+	public void setListadoTF(TextField listadoTF) {
+		this.listadoTF = listadoTF;
+	}
+	public Image getAniadirB() {
+		return aniadirB;
+	}
+	public void setAniadirB(Image aniadirB) {
+		this.aniadirB = aniadirB;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+	public Image getFlechaIzquierdaB() {
+		return flechaIzquierdaB;
+	}
+	public void setFlechaIzquierdaB(Image flechaIzquierdaB) {
+		this.flechaIzquierdaB = flechaIzquierdaB;
+	}
+	public Image getFlechaDerechaB() {
+		return flechaDerechaB;
+	}
+	public void setFlechaDerechaB(Image flechaDerechaB) {
+		this.flechaDerechaB = flechaDerechaB;
+	}
+	@Id("eliminarB")
+	private Button eliminarB;
+	@Id("listadoL")
+	private Label listadoL;
+	@Id("listadoTF")
+	private TextField listadoTF;
+	@Id("aniadirB")
+	private Image aniadirB;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("flechaIzquierdaB")
+	private Image flechaIzquierdaB;
+	@Id("flechaDerechaB")
+	private Image flechaDerechaB;
+	/**
      * Creates a new VistaModificar_lista_de_reproduccion.
      */
     public VistaModificar_lista_de_reproduccion() {

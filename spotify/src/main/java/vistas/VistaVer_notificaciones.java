@@ -3,6 +3,9 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-ver_notificaciones template.
@@ -14,7 +17,28 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./src/vistas/vista-ver_notificaciones.ts")
 public class VistaVer_notificaciones extends LitTemplate {
 
-    /**
+    public Button getCerrarB() {
+		return cerrarB;
+	}
+
+	public void setCerrarB(Button cerrarB) {
+		this.cerrarB = cerrarB;
+	}
+
+	public Label getNumeroNotificacionesL() {
+		return numeroNotificacionesL;
+	}
+
+	public void setNumeroNotificacionesL(Label numeroNotificacionesL) {
+		this.numeroNotificacionesL = numeroNotificacionesL;
+	}
+
+	@Id("cerrarB")
+	private Button cerrarB;
+	@Id("numeroNotificacionesL")
+	private Label numeroNotificacionesL;
+
+	/**
      * Creates a new VistaVer_notificaciones.
      */
     public VistaVer_notificaciones() {

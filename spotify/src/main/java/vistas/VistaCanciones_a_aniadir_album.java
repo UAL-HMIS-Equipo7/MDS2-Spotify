@@ -26,6 +26,38 @@ public class VistaCanciones_a_aniadir_album extends LitTemplate {
 	private Element vistaCancion_album;
 	@Id("posteriorB")
 	private Button posteriorB;
+	
+	public TextField getAniadirCancionTF() {
+		return aniadirCancionTF;
+	}
+
+	public void setAniadirCancionTF(TextField aniadirCancionTF) {
+		this.aniadirCancionTF = aniadirCancionTF;
+	}
+
+	public Button getAnteriorB() {
+		return anteriorB;
+	}
+
+	public void setAnteriorB(Button anteriorB) {
+		this.anteriorB = anteriorB;
+	}
+
+	public Element getVistaCancion_album() {
+		return vistaCancion_album;
+	}
+
+	public void setVistaCancion_album(Element vistaCancion_album) {
+		this.vistaCancion_album = vistaCancion_album;
+	}
+
+	public Button getPosteriorB() {
+		return posteriorB;
+	}
+
+	public void setPosteriorB(Button posteriorB) {
+		this.posteriorB = posteriorB;
+	}
 
 	/**
      * Creates a new VistaCanciones_a_aniadir_album.

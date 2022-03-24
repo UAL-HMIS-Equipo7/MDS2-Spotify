@@ -3,6 +3,9 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.orderedlayout.Scroller;
 
 /**
  * A Designer generated component for the vista-ver_lista_seguidores template.
@@ -14,7 +17,28 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./src/vistas/vista-ver_lista_seguidores.ts")
 public class VistaVer_lista_seguidores extends LitTemplate {
 
-    /**
+    public Label getTituloL() {
+		return tituloL;
+	}
+
+	public void setTituloL(Label tituloL) {
+		this.tituloL = tituloL;
+	}
+
+	public Scroller getNavegacionSB() {
+		return navegacionSB;
+	}
+
+	public void setNavegacionSB(Scroller navegacionSB) {
+		this.navegacionSB = navegacionSB;
+	}
+
+	@Id("tituloL")
+	private Label tituloL;
+	@Id("navegacionSB")
+	private Scroller navegacionSB;
+
+	/**
      * Creates a new VistaVer_lista_seguidores.
      */
     public VistaVer_lista_seguidores() {
