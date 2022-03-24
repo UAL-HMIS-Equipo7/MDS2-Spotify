@@ -19,7 +19,7 @@ export class VistaRealizar_busqueda extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="mensajeL">Se han encontrado los siguientes resultados</label>
+ <label id="mensajeL" style="align-self: center; margin: var(--lumo-space-s);">Se han encontrado los siguientes resultados</label>
  <label id="errorL" style="align-self: center;">No se han encontrado resultados</label>
  <vaadin-horizontal-layout theme="spacing">
   <vista-resultados_canciones></vista-resultados_canciones>

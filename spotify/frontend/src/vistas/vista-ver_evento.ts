@@ -16,13 +16,13 @@ export class VistaVer_evento extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; margin: var(--lumo-space-s); justify-content: space-around; padding: var(--lumo-space-m);">
  <vaadin-button>
-  Atras
+   Atras 
  </vaadin-button>
- <label id="tituloL" style="align-self: center;">Información concierto</label>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Información concierto</label>
  <img id="fotoEventoImg" style="align-self: center;" src="https://m.media-amazon.com/images/I/51e6kpkyuIL._AC_SY355_.jpg">
- <label id="fechaHoraL" style="align-self: center;">Fecha y hora</label>
+ <label id="fechaHoraL" style="align-self: center; margin: var(--lumo-space-s);">Fecha y hora</label>
  <label id="descripcionTItuloL" style="align-self: center;">Descripción</label>
  <vaadin-text-field placeholder="Placeholder" id="descripcionTF" style="align-self: center;"></vaadin-text-field>
  <label id="precioL" style="align-self: center;">Precio</label>

@@ -14,7 +14,7 @@ export class VistaImagen_artistas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-s);">
  <img id="artistaImg" style="width: 100%; height: 100%;" src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&amp;quality=20">
 </vaadin-vertical-layout>
 `;

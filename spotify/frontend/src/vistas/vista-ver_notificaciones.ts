@@ -17,11 +17,11 @@ export class VistaVer_notificaciones extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-button id="cerrarB">
-  Cerrar 
+ <vaadin-button id="cerrarB" style="margin: var(--lumo-space-m);">
+   Cerrar 
  </vaadin-button>
  <label id="numeroNotificacionesL" style="align-self: center;">Tienes ?? notificaciones nuevas</label>
- <vista-notificaciones style="width: 100%; height: 100%;"></vista-notificaciones>
+ <vista-notificaciones style="width: 100%; height: 98%;"></vista-notificaciones>
 </vaadin-vertical-layout>
 `;
   }

@@ -12,21 +12,25 @@ export class VistaEventos extends LitElement {
           display: block;
           height: 100%;
       }
+
+    .eventos{
+    	width: 80%; height: 80%; align-self: center;
+    }
       `;
   }
 
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center;">Conciertos, festivales</label>
- <vaadin-scroller id="navegacionSB" style="width: 100%;">
-  <vaadin-horizontal-layout theme="spacing" style="height: 100%; width: 100%; justify-content: center;">
-   <vista-evento></vista-evento>
-   <vista-evento></vista-evento>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Conciertos, festivales</label>
+ <vaadin-scroller id="navegacionSB" style="width: 100%; margin: var(--lumo-space-s);">
+  <vaadin-horizontal-layout style="height: 100%; width: 100%;">
+   <vista-evento style="align-self: center;" class="eventos"></vista-evento>
+   <vista-evento style="align-self: center;" class="eventos"></vista-evento>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: center;">
-   <vista-evento></vista-evento>
-   <vista-evento></vista-evento>
+  <vaadin-horizontal-layout style="width: 100%; height: 100%;">
+   <vista-evento class="eventos"></vista-evento>
+   <vista-evento class="eventos"></vista-evento>
   </vaadin-horizontal-layout>
  </vaadin-scroller>
 </vaadin-vertical-layout>

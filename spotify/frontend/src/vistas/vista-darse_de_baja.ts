@@ -16,14 +16,14 @@ export class VistaDarse_de_baja extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;">
- <label id="mensajeL" style="align-self: center; height: 100%;">¿Está seguro que desea darse de baja? Podrá recuperar su cuenta antes de que pasen 30 días</label>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: center; align-self: center;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-evenly;">
+ <label id="mensajeL" style="flex-shrink: 0; align-self: center;">¿Está seguro que desea darse de baja? Podrá recuperar su cuenta antes de que pasen 30 días</label>
+ <vaadin-horizontal-layout theme="spacing" style="justify-content: center; align-self: center;">
   <vaadin-button id="confirmarB" style="align-self: center;">
-   Confirmar
+    Confirmar 
   </vaadin-button>
   <vaadin-button id="cancelarB" style="align-self: center;">
-   Cancelar
+    Cancelar 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

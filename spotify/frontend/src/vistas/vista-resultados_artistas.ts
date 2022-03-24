@@ -17,14 +17,14 @@ export class VistaResultados_artistas extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center;">Artistas</label>
- <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Artistas</label>
+ <vaadin-horizontal-layout theme="spacing" style="align-self: center; margin: var(--lumo-space-xs);">
   <vista-foto_artista></vista-foto_artista>
   <vista-foto_artista></vista-foto_artista>
   <vista-foto_artista></vista-foto_artista>
   <vista-foto_artista></vista-foto_artista>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
+ <vaadin-horizontal-layout theme="spacing" style="align-self: center; margin: var(--lumo-space-xs);">
   <vista-foto_artista></vista-foto_artista>
   <vista-foto_artista></vista-foto_artista>
   <vista-foto_artista></vista-foto_artista>

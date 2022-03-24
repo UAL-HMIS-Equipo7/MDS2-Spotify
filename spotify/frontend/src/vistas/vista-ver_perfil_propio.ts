@@ -19,30 +19,30 @@ export class VistaVer_perfil_propio extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-between;">
-  <vaadin-vertical-layout theme="spacing" style="align-items: center;">
-   <img id="fotoImg" src="https://skillz4kidzmartialarts.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <vaadin-vertical-layout theme="spacing" style="align-items: center; margin: var(--lumo-space-m); padding: var(--lumo-space-m);">
+   <img id="fotoImg" src="https://skillz4kidzmartialarts.com/wp-content/uploads/2017/04/default-image-620x600.jpg" style="width: 30%;">
    <label id="emailL">Email</label>
    <label id="nickL">Nick</label>
    <vaadin-button id="modificarInformacionB">
-    Modificar Información
+     Modificar Información 
    </vaadin-button>
    <vaadin-button id="darseBajaB">
-    Darse de baja
+     Darse de baja 
    </vaadin-button>
    <vaadin-button id="aniadirInformacionEventosB">
-    Añadir información de conciertos
+     Añadir información de conciertos 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing">
+  <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-m);">
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-around;">
     <vaadin-button id="seguidoresB">
-     Seguidores: X
+      Seguidores: X 
     </vaadin-button>
     <vaadin-button id="seguidosB">
-     Seguidos: X
+      Seguidos: X 
     </vaadin-button>
     <vaadin-button id="notificacionesB">
-     Notificaciones
+      Notificaciones 
     </vaadin-button>
    </vaadin-horizontal-layout>
    <vista-listas_de_reproduccion_perfil></vista-listas_de_reproduccion_perfil>

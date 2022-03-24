@@ -17,12 +17,12 @@ export class VistaCrear_lista_de_reproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-m);">
  <label id="tituloL" style="align-self: center;">Lista de reproducción</label>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: center;">
   <label id="tituloListaL" style="align-self: center;">Título</label>
   <vaadin-text-field label="" id="tituloListaTF" style="align-self: center;">
-   Text
+    Text 
   </vaadin-text-field>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: center;">
@@ -31,10 +31,10 @@ export class VistaCrear_lista_de_reproduccion extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-self: stretch; justify-content: center;">
   <vaadin-button id="guardarB">
-   Guardar
+    Guardar 
   </vaadin-button>
   <vaadin-button id="cancelarB">
-   Cancelar
+    Cancelar 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

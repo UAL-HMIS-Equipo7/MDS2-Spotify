@@ -20,8 +20,8 @@ export class VistaListas_de_reproduccion_perfil extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center;">Listas de reproducción</label>
- <vaadin-horizontal-layout theme="spacing">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Listas de reproducción</label>
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s);">
   <vaadin-button id="anteriorB">
     Anterior 
   </vaadin-button>
@@ -36,7 +36,7 @@ export class VistaListas_de_reproduccion_perfil extends LitElement {
   <label id="numPaginaL">1/?</label>
  </vaadin-horizontal-layout>
  <vaadin-button id="crearListaB" style="align-self: center;">
-  Crear Lista
+   Crear Lista 
  </vaadin-button>
 </vaadin-vertical-layout>
 `;
