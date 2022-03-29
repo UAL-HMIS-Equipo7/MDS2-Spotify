@@ -7,7 +7,11 @@ public class Artista_administrador extends VistaArtista_administrador {
 //	private Image _artistaImg;
 //	private Button _editarArtistaB;
 //	private Button _eliminarArtistaB;
-	public Artistas_administrador _artistas_administrador;
+
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	public Edicion_y_Creacion_artista _edicion_y_Creacion_artista;
+
+	public Artista_administrador() {
+		// TODO Auto-generated constructor stub
+	}
 }

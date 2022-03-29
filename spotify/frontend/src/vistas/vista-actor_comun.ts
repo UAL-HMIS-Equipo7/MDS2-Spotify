@@ -2,9 +2,6 @@ import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-recomendaciones';
-import './vista-ultimas_canciones_reproducidas';
-import './vista-canciones_favoritas';
 
 @customElement('vista-actor_comun')
 export class VistaActor_comun extends LitElement {
@@ -24,12 +21,8 @@ export class VistaActor_comun extends LitElement {
    Estadísticas de uso 
  </vaadin-button>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-  <vaadin-vertical-layout theme="spacing" style="width: 70%;">
-   <vista-ultimas_canciones_reproducidas style="height: 30%;" id="vistaUltimas_canciones_reproducidas"></vista-ultimas_canciones_reproducidas>
-   <vista-canciones_favoritas style="height: 30%;" id="vistaCanciones_favoritas"></vista-canciones_favoritas>
-  </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 30%; height: 100%; align-items: center;">
-   <vista-recomendaciones style="height: 50%;" id="vistaRecomendaciones"></vista-recomendaciones>
+  <vaadin-vertical-layout theme="spacing" style="width: 70%;" id="contenedorIzquierdo"></vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" style="width: 30%; height: 100%; align-items: center;" id="contenedorDerecho">
    <vaadin-button id="menuAdministracionB">
      Menú Administración 
    </vaadin-button>

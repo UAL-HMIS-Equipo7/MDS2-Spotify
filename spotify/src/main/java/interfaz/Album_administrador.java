@@ -7,7 +7,12 @@ public class Album_administrador extends VistaAlbum_administrador {
 //	private Image _albumImg;
 //	private Button _editarAlbumB;
 //	private Button _eliminarAlbumB;
-	public Albumes_administrador _albumes_administrador;
 	public Editar_album _editar_album;
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
+	
+	public Album_administrador() {
+		// TODO Auto-generated constructor stub
+		_editar_album = new Editar_album();
+		_confirmacion_eliminacion = new Confirmacion_eliminacion();
+	}
 }

@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.orderedlayout.Scroller;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-canciones_administrador template.
@@ -17,7 +18,15 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 @JsModule("./src/vistas/vista-canciones_administrador.ts")
 public class VistaCanciones_administrador extends LitTemplate {
 
-    public Label getTituloL() {
+    public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Label getTituloL() {
 		return tituloL;
 	}
 
@@ -37,6 +46,8 @@ public class VistaCanciones_administrador extends LitTemplate {
 	private Label tituloL;
 	@Id("navegacionSB")
 	private Scroller navegacionSB;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 
 	/**
      * Creates a new VistaCanciones_administrador.

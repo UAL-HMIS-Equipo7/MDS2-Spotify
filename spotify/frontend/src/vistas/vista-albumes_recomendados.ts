@@ -1,6 +1,5 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-album';
 
 @customElement('vista-albumes_recomendados')
 export class VistaAlbumes_recomendados extends LitElement {
@@ -15,9 +14,7 @@ export class VistaAlbumes_recomendados extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vista-album style="align-self: center;"></vista-album>
-</vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout"></vaadin-vertical-layout>
 `;
   }
 

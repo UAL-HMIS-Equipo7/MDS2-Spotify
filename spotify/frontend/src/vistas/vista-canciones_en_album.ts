@@ -3,7 +3,6 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import './vista-cancion_album';
 
 @customElement('vista-canciones_en_album')
 export class VistaCanciones_en_album extends LitElement {
@@ -18,7 +17,7 @@ export class VistaCanciones_en_album extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-evenly;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-evenly;" id="vaadinVerticalLayout">
  <label id="tituloL">Listado de canciones</label>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-text-field placeholder="Añadir canción" id="aniadirCancionTF"></vaadin-text-field>
@@ -26,11 +25,10 @@ export class VistaCanciones_en_album extends LitElement {
     Añadir 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 40%;">
+ <vaadin-horizontal-layout theme="spacing" style="width: 40%; align-items: center;">
   <vaadin-button id="anteriorB" style="width: 100%;">
     Anterior 
   </vaadin-button>
-  <vista-cancion_album id="vistaCancion_album"></vista-cancion_album>
   <vaadin-button id="posteriorB" style="width: 100%;">
     Posterior 
   </vaadin-button>
