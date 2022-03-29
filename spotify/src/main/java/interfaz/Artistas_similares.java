@@ -2,6 +2,7 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
@@ -9,6 +10,7 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 import interfaz.Foto_Artista;
 import vistas.VistaArtistas_similares;
 
+@CssImport("./styles/shared-styles.css")
 public class Artistas_similares extends VistaArtistas_similares {
 //	private Label _tituloL;
 //	private ScrollBar _navegacionSB;

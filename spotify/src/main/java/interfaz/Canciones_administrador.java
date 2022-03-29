@@ -2,6 +2,7 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -9,6 +10,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import interfaz.Cancion_administrador;
 import vistas.VistaCanciones_administrador;
 
+@CssImport("./styles/shared-styles.css")
 public class Canciones_administrador extends VistaCanciones_administrador {
 //	private Label _tituloL;
 //	private ScrollBar _navegacionSB;

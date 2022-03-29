@@ -2,12 +2,14 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import interfaz.NickArtista;
 import vistas.VistaArtistas;
 
+@CssImport("./styles/shared-styles.css")
 public class Artistas extends VistaArtistas {
 
 	public Vector<NickArtista> _list_NickArtista = new Vector<NickArtista>();
