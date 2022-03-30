@@ -11,7 +11,10 @@ public class Confirmacion_de_correo extends VistaConfirmacion_de_correo {
 //	private event _reenviar_correo;
 //	private Label _tituloL;
 	public Servicio_de_Correo_Electronico _servicio_de_Correo_Electronico;
-	public Registrarse _registrarse;
+	
+	public Confirmacion_de_correo() {
+		
+	}
 
 	public void Reenviar_correo() {
 		throw new UnsupportedOperationException();

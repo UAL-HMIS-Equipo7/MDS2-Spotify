@@ -11,7 +11,10 @@ public class Contactar_con_la_empresa extends VistaContactar_con_la_empresa {
 //	private TextField _incidenciaTF;
 //	private Button _enviarB;
 //	private Button _cancelarB;
-	public Cabecera_superior _cabecera_superior;
+	
+	public Contactar_con_la_empresa() {
+		
+	}
 
 	public void Enviar() {
 		throw new UnsupportedOperationException();

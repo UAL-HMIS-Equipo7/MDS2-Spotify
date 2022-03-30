@@ -2,7 +2,6 @@ import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import './vista-canciones_ultimos_exitos';
 
 @customElement('vista-cibernauta')
 export class VistaCibernauta extends LitElement {
@@ -25,9 +24,7 @@ export class VistaCibernauta extends LitElement {
     Iniciar Sesión 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 80%; flex-grow: 0; padding: var(--lumo-space-m);">
-  <vista-canciones_ultimos_exitos style="width: 100%; height: 100%;" id="vistaCanciones_ultimos_exitos"></vista-canciones_ultimos_exitos>
- </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 80%; flex-grow: 0; padding: var(--lumo-space-m);" id="vaadinHorizontalLayout"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }
