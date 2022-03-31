@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-listas_de_reproduccion_perfil template.
@@ -18,7 +19,15 @@ import com.vaadin.flow.component.textfield.TextField;
 @JsModule("./src/vistas/vista-listas_de_reproduccion_perfil.ts")
 public class VistaListas_de_reproduccion_perfil extends LitTemplate {
 
-    public Label getTituloL() {
+    public HorizontalLayout getContenedor() {
+		return contenedor;
+	}
+
+	public void setContenedor(HorizontalLayout contenedor) {
+		this.contenedor = contenedor;
+	}
+
+	public Label getTituloL() {
 		return tituloL;
 	}
 
@@ -78,7 +87,8 @@ public class VistaListas_de_reproduccion_perfil extends LitTemplate {
 	private Label numPaginaL;
 	@Id("crearListaB")
 	private Button crearListaB;
-
+	@Id("contenedor")
+	private HorizontalLayout contenedor;
 	/**
      * Creates a new VistaListas_de_reproduccion_perfil.
      */

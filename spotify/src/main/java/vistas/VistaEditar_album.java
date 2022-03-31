@@ -16,26 +16,17 @@ import com.vaadin.flow.component.template.Id;
 @JsModule("./src/vistas/vista-editar_album.ts")
 public class VistaEditar_album extends LitTemplate {
 
-    public Element getVistaEdicion_y_creacion_album() {
-		return vistaEdicion_y_creacion_album;
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
 	}
 
-	public void setVistaEdicion_y_creacion_album(Element vistaEdicion_y_creacion_album) {
-		this.vistaEdicion_y_creacion_album = vistaEdicion_y_creacion_album;
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
 	}
 
-	public Element getVistaCanciones_en_album() {
-		return vistaCanciones_en_album;
-	}
-
-	public void setVistaCanciones_en_album(Element vistaCanciones_en_album) {
-		this.vistaCanciones_en_album = vistaCanciones_en_album;
-	}
-
-	@Id("vistaEdicion_y_creacion_album")
-	private Element vistaEdicion_y_creacion_album;
-	@Id("vistaCanciones_en_album")
-	private Element vistaCanciones_en_album;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 
 	/**
      * Creates a new VistaEditar_album.

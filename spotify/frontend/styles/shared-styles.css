@@ -64,3 +64,12 @@
   	max-height: 300px;
 }
 
+.imagenEstilo {
+ 	max-width: 350px;
+ 	max-height: 350px;
+}
+
+.eventos{
+	width: 80%; height: 80%; align-self: center;
+}
+

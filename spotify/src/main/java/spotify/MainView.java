@@ -65,7 +65,7 @@ public class MainView extends VerticalLayout {
 //
 //        add(textField, button);
     	
-    	Cibernauta v = new Cibernauta();
+    	Listas_de_reproduccion_perfil v = new Listas_de_reproduccion_perfil();
     	add(v);
     }
 

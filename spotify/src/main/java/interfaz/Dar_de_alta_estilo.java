@@ -12,7 +12,10 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 //	private Button _guardarB;
 //	private Button _cancelarB;
 //	private Label _errorL;
-	public Ver_menu_de_altas _ver_menu_de_altas;
+	
+	public Dar_de_alta_estilo() {
+		
+	}
 
 	public void Guardar_cambios_estilo() {
 		throw new UnsupportedOperationException();

@@ -5,6 +5,14 @@ import interfaz.Crear_lista_de_reproduccion;
 
 public class Listas_de_reproduccion_perfil_propio extends Listas_de_reproduccion_perfil {
 //	private Button _crearListaB;
-	public Ver_perfil_propio _ver_perfil_propio;
-	public Vector<Crear_lista_de_reproduccion> _list_Crear_lista_de_reproduccion = new Vector<Crear_lista_de_reproduccion>();
+
+	public Crear_lista_de_reproduccion _crear_lista_de_reproduccion = new Crear_lista_de_reproduccion();
+	
+	public Listas_de_reproduccion_perfil_propio() {
+		super();
+		
+		_crear_lista_de_reproduccion = new Crear_lista_de_reproduccion();
+		
+		this.getCrearListaB().setVisible(true);
+	}
 }

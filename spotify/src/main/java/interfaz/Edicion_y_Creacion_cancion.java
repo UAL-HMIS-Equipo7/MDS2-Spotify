@@ -25,8 +25,10 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 //	private Button _guardarB;
 //	private Button _cancelarB;
 //	private Label _errorL;
-	public Cancion_administrador _cancion_administrador;
-	public Ver_menu_de_altas _ver_menu_de_altas;
+
+	public Edicion_y_Creacion_cancion() {
+		
+	}
 
 	public void Guardar_cambios_cancion() {
 		throw new UnsupportedOperationException();

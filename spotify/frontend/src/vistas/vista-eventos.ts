@@ -1,8 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-scroller.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-evento';
 
 @customElement('vista-eventos')
 export class VistaEventos extends LitElement {
@@ -23,16 +21,7 @@ export class VistaEventos extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Conciertos, festivales</label>
- <vaadin-scroller id="navegacionSB" style="width: 100%; margin: var(--lumo-space-s);">
-  <vaadin-horizontal-layout style="height: 100%; width: 100%;">
-   <vista-evento style="align-self: center;" class="eventos"></vista-evento>
-   <vista-evento style="align-self: center;" class="eventos"></vista-evento>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout style="width: 100%; height: 100%;">
-   <vista-evento class="eventos"></vista-evento>
-   <vista-evento class="eventos"></vista-evento>
-  </vaadin-horizontal-layout>
- </vaadin-scroller>
+ <vaadin-scroller id="navegacionSB" style="width: 100%; margin: var(--lumo-space-s);"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;
   }

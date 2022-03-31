@@ -12,5 +12,8 @@ public class Creditos extends VistaCreditos {
 //	private Label _ficheroL;
 //	private Label _estiloL;
 //	private Button _cerrarB;
-	public Reproductor__Cibernauta_ _reproductor__Cibernauta_;
+
+	public Creditos() {
+		
+	}
 }

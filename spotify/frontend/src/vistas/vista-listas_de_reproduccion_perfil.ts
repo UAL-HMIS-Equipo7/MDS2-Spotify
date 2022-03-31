@@ -3,8 +3,6 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import './vista-lista_de_reproduccion_ajena';
-import './vista-lista_de_reproduccion_propia';
 
 @customElement('vista-listas_de_reproduccion_perfil')
 export class VistaListas_de_reproduccion_perfil extends LitElement {
@@ -19,18 +17,17 @@ export class VistaListas_de_reproduccion_perfil extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: center;">
  <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Listas de reproducción</label>
- <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s);">
-  <vaadin-button id="anteriorB">
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s); width: 90%; justify-content: center;">
+  <vaadin-button id="anteriorB" style="margin-right: var(--lumo-space-m);">
     Anterior 
   </vaadin-button>
-  <vista-lista_de_reproduccion_ajena></vista-lista_de_reproduccion_ajena>
-  <vista-lista_de_reproduccion_propia></vista-lista_de_reproduccion_propia>
-  <vaadin-button id="siguienteB">
+  <vaadin-button id="siguienteB" style="margin-left: var(--lumo-space-m);">
     Siguiente 
   </vaadin-button>
  </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" id="contenedor" style="width: 90%;"></vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
   <vaadin-text-field placeholder="Listas por página" id="listasPorPaginaTF"></vaadin-text-field>
   <label id="numPaginaL">1/?</label>

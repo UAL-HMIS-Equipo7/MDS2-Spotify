@@ -16,7 +16,10 @@ public class Editar_usuario extends VistaEditar_usuario {
 //	private Button _guardarB;
 //	private Button _cancelarB;
 //	private Label _errorL;
-	public Usuario_administrador _usuario_administrador;
+	
+	public Editar_usuario() {
+		
+	}
 
 	public void Guardar_cambios_usuario() {
 		throw new UnsupportedOperationException();
