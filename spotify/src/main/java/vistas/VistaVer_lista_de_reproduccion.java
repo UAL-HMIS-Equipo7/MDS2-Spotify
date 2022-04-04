@@ -7,6 +7,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-ver_lista_de_reproduccion template.
@@ -68,6 +69,8 @@ public class VistaVer_lista_de_reproduccion extends LitTemplate {
 	private Label tituloL;
 	@Id("autorB")
 	private Element autorB;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
 
 	/**
      * Creates a new VistaVer_lista_de_reproduccion.

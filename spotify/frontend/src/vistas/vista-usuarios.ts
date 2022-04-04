@@ -16,7 +16,7 @@ export class VistaUsuarios extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
   <vista-usuario></vista-usuario>
   <vista-usuario></vista-usuario>

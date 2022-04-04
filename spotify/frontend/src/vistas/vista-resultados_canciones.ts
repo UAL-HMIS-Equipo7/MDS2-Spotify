@@ -18,12 +18,12 @@ export class VistaResultados_canciones extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <label id="tituloL" style="align-self: center;">Canciones</label>
- <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
+ <vaadin-horizontal-layout theme="spacing" id="contenedorSuperior">
   <vista-cancion></vista-cancion>
   <vista-cancion></vista-cancion>
   <vista-cancion></vista-cancion>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1">
+ <vaadin-horizontal-layout theme="spacing" id="contenedorInferior">
   <vista-cancion></vista-cancion>
   <vista-cancion></vista-cancion>
   <vista-cancion></vista-cancion>

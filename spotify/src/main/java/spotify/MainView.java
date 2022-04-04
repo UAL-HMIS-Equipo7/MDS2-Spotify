@@ -64,9 +64,10 @@ public class MainView extends VerticalLayout {
 //        addClassName("centered-content");
 //
 //        add(textField, button);
+
+    	Ultimas_canciones_reproducidas vp = new Ultimas_canciones_reproducidas();
     	
-    	Listas_de_reproduccion_perfil v = new Listas_de_reproduccion_perfil();
-    	add(v);
+    	add(vp);
     }
 
 }

@@ -16,7 +16,7 @@ export class VistaVer_notificaciones extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
  <vaadin-button id="cerrarB" style="margin: var(--lumo-space-m);">
    Cerrar 
  </vaadin-button>

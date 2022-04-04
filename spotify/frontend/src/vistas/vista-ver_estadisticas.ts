@@ -19,7 +19,7 @@ export class VistaVer_estadisticas extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Estadísticas de uso</label>
- <vaadin-horizontal-layout theme="spacing" style="width: 90%; height: 100%; align-self: center; padding: var(--lumo-space-s);">
+ <vaadin-horizontal-layout theme="spacing" style="width: 90%; height: 100%; align-self: center; padding: var(--lumo-space-s);" id="vaadinHorizontalLayout">
   <vista-estilos_mas_escuchados style="width: 100%; height: 80%; align-self: center;" id="vistaEstilos_mas_escuchados"></vista-estilos_mas_escuchados>
   <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 40%; justify-content: center;">
    <label id="tiempoTituloL" style="align-self: center;">Tiempo reproducido</label>
