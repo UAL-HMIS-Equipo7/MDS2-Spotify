@@ -12,6 +12,7 @@ public class Panel_artista extends VistaPanel_artista {
 	public Artistas_similares _artistas_similares;
 	
 	public Panel_artista() {
+
 		 _canciones_mas_exitosas = new Canciones_mas_exitosas();
 		 _albumes = new Albumes();
 		 _eventos = new Eventos();

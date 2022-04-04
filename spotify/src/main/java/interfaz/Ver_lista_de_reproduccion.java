@@ -22,8 +22,8 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion_pr
 
 	public Ver_lista_de_reproduccion() {
 		
-		_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
-		_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista();
+//		_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
+//		_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista();
 		_canciones_de_lista = new Canciones_de_lista();
 		_canciones_de_lista.setClassName("fullSize");
 		
