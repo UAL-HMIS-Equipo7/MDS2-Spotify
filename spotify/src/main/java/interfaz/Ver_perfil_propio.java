@@ -18,9 +18,9 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 	
 	public Ver_perfil_propio() {
 		_listas_de_reproduccion_perfil_propio = new Listas_de_reproduccion_perfil_propio();
-		_ver_lista_seguidos = new Ver_lista_seguidos();
-		_ver_lista_seguidores = new Ver_lista_seguidores();
-		_ver_notificaciones = new Ver_notificaciones();
+//		_ver_lista_seguidos = new Ver_lista_seguidos();
+//		_ver_lista_seguidores = new Ver_lista_seguidores();
+//		_ver_notificaciones = new Ver_notificaciones();
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		vl.add(_listas_de_reproduccion_perfil_propio);

@@ -11,7 +11,7 @@ public class Usuario_administrador extends VistaUsuario_administrador {
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	
 	public Usuario_administrador() {
-		_editar_usuario = new Editar_usuario();
-		_confirmacion_eliminacion = new Confirmacion_eliminacion();
+//		_editar_usuario = new Editar_usuario();
+//		_confirmacion_eliminacion = new Confirmacion_eliminacion();
 	}
 }

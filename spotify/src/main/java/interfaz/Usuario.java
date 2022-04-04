@@ -9,6 +9,6 @@ public class Usuario extends VistaUsuario {
 	
 	public Usuario() {
 		
-		_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista();
+//		_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista();
 	}
 }

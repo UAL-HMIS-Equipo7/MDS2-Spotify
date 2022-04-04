@@ -17,7 +17,6 @@ public class Menu_Administracion extends VistaMenu_administracion {
 	
 	public Menu_Administracion() {
 		
-		_realizar_busqueda_de_administrador = new Realizar_busqueda_de_administrador();
 	}
 	public void Editar_canciones_que_puede_escuchar_un_cibernauta() {
 		throw new UnsupportedOperationException();

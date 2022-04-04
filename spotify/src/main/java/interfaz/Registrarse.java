@@ -23,7 +23,7 @@ public class Registrarse extends VistaRegistrarse {
 	public Confirmacion_de_correo _confirmacion_de_correo;
 	
 	public Registrarse() {
-		_confirmacion_de_correo = new Confirmacion_de_correo();
+//		_confirmacion_de_correo = new Confirmacion_de_correo();
 	}
 
 	public void Validar_datos_de_registro() {

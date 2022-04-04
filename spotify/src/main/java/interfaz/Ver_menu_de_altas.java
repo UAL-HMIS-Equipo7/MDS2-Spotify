@@ -18,9 +18,9 @@ public class Ver_menu_de_altas extends VistaVer_menu_de_altas {
 	public Edicion_y_Creacion_artista _edicion_y_Creacion_artista;
 	
 	public Ver_menu_de_altas() {
-		_edicion_y_Creacion_cancion = new Edicion_y_Creacion_cancion();
-		_dar_de_alta_estilo = new Dar_de_alta_estilo();
-		_dar_de_alta_album = new Dar_de_alta_album();
-		_edicion_y_Creacion_artista = new Edicion_y_Creacion_artista();
+//		_edicion_y_Creacion_cancion = new Edicion_y_Creacion_cancion();
+//		_dar_de_alta_estilo = new Dar_de_alta_estilo();
+//		_dar_de_alta_album = new Dar_de_alta_album();
+//		_edicion_y_Creacion_artista = new Edicion_y_Creacion_artista();
 	}
 }

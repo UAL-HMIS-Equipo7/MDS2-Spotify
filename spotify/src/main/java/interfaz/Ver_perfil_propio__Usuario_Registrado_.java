@@ -8,8 +8,8 @@ public class Ver_perfil_propio__Usuario_Registrado_ extends Ver_perfil_propio {
 	
 	public Ver_perfil_propio__Usuario_Registrado_() {
 		super();
-		_darse_de_baja = new Darse_de_baja();
-		_editar_informacion_del_perfil_no_artista = new Editar_informacion_del_perfil_no_artista();
+//		_darse_de_baja = new Darse_de_baja();
+//		_editar_informacion_del_perfil_no_artista = new Editar_informacion_del_perfil_no_artista();
 		this.getAniadirInformacionEventosB().setVisible(false);
 	}
 }

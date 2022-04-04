@@ -9,7 +9,7 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 	public Ver_perfil_propio__Administrador_() {
 		// TODO Auto-generated constructor stub
 		super();
-		_editar_informacion_del_perfil_no_artista = new Editar_informacion_del_perfil_no_artista();
+//		_editar_informacion_del_perfil_no_artista = new Editar_informacion_del_perfil_no_artista();
 		this.getDarseBajaB().setVisible(false);
 		this.getAniadirInformacionEventosB().setVisible(false);
 
