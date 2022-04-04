@@ -33,7 +33,7 @@ export class VistaVer_perfil_propio extends LitElement {
      Añadir información de conciertos 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-m);">
+  <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-m);" id="vaadinVerticalLayout">
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-around;">
     <vaadin-button id="seguidoresB">
       Seguidores: X 

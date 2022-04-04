@@ -25,30 +25,6 @@ public class VistaRecomendaciones extends LitTemplate {
 		this.tituloL = tituloL;
 	}
 
-	public Element getVistaCanciones_recomendadas() {
-		return vistaCanciones_recomendadas;
-	}
-
-	public void setVistaCanciones_recomendadas(Element vistaCanciones_recomendadas) {
-		this.vistaCanciones_recomendadas = vistaCanciones_recomendadas;
-	}
-
-	public Element getVistaAlbumes_recomendados() {
-		return vistaAlbumes_recomendados;
-	}
-
-	public void setVistaAlbumes_recomendados(Element vistaAlbumes_recomendados) {
-		this.vistaAlbumes_recomendados = vistaAlbumes_recomendados;
-	}
-
-	public Element getVistaListas_recomendadas() {
-		return vistaListas_recomendadas;
-	}
-
-	public void setVistaListas_recomendadas(Element vistaListas_recomendadas) {
-		this.vistaListas_recomendadas = vistaListas_recomendadas;
-	}
-
 	public Element getContenedor() {
 		return contenedor;
 	}
@@ -59,12 +35,6 @@ public class VistaRecomendaciones extends LitTemplate {
 
 	@Id("tituloL")
 	private Label tituloL;
-	@Id("vistaCanciones_recomendadas")
-	private Element vistaCanciones_recomendadas;
-	@Id("vistaAlbumes_recomendados")
-	private Element vistaAlbumes_recomendados;
-	@Id("vistaListas_recomendadas")
-	private Element vistaListas_recomendadas;
 	@Id("contenedor")
 	private Element contenedor;
 

@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-ver_estadisticas template.
@@ -13,24 +14,25 @@ import com.vaadin.flow.dom.Element;
  * Designer will add and remove fields with @Id mappings but
  * does not overwrite or otherwise change this file.
  */
+
 @Tag("vista-ver_estadisticas")
 @JsModule("./src/vistas/vista-ver_estadisticas.ts")
 public class VistaVer_estadisticas extends LitTemplate {
 
-    public Label getTituloL() {
+    public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+
+	public Label getTituloL() {
 		return tituloL;
 	}
 
 	public void setTituloL(Label tituloL) {
 		this.tituloL = tituloL;
-	}
-
-	public Element getVistaEstilos_mas_escuchados() {
-		return vistaEstilos_mas_escuchados;
-	}
-
-	public void setVistaEstilos_mas_escuchados(Element vistaEstilos_mas_escuchados) {
-		this.vistaEstilos_mas_escuchados = vistaEstilos_mas_escuchados;
 	}
 
 	public Label getTiempoTituloL() {
@@ -81,18 +83,8 @@ public class VistaVer_estadisticas extends LitTemplate {
 		this.numArtistasL = numArtistasL;
 	}
 
-	public Element getVistaArtistas_mas_escuchados() {
-		return vistaArtistas_mas_escuchados;
-	}
-
-	public void setVistaArtistas_mas_escuchados(Element vistaArtistas_mas_escuchados) {
-		this.vistaArtistas_mas_escuchados = vistaArtistas_mas_escuchados;
-	}
-
 	@Id("tituloL")
 	private Label tituloL;
-	@Id("vistaEstilos_mas_escuchados")
-	private Element vistaEstilos_mas_escuchados;
 	@Id("tiempoTituloL")
 	private Label tiempoTituloL;
 	@Id("tiempoL")
@@ -105,8 +97,8 @@ public class VistaVer_estadisticas extends LitTemplate {
 	private Label numArtistasTituloL;
 	@Id("numArtistasL")
 	private Label numArtistasL;
-	@Id("vistaArtistas_mas_escuchados")
-	private Element vistaArtistas_mas_escuchados;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
 
 	/**
      * Creates a new VistaVer_estadisticas.

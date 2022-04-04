@@ -7,6 +7,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-realizar_busqueda_de_administrador template.
@@ -18,7 +19,23 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-realizar_busqueda_de_administrador.ts")
 public class VistaRealizar_busqueda_de_administrador extends LitTemplate {
 
-    public Button getAtrasB() {
+    public HorizontalLayout getContenedorSuperior() {
+		return contenedorSuperior;
+	}
+
+	public void setContenedorSuperior(HorizontalLayout contenedorSuperior) {
+		this.contenedorSuperior = contenedorSuperior;
+	}
+
+	public HorizontalLayout getContenedorInferior() {
+		return contenedorInferior;
+	}
+
+	public void setContenedorInferior(HorizontalLayout contenedorInferior) {
+		this.contenedorInferior = contenedorInferior;
+	}
+
+	public Button getAtrasB() {
 		return atrasB;
 	}
 
@@ -78,6 +95,12 @@ public class VistaRealizar_busqueda_de_administrador extends LitTemplate {
 	private Element vistaArtistas_administrador;
 	@Id("vistaUsuarios_administrador")
 	private Element vistaUsuarios_administrador;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("contenedorSuperior")
+	private HorizontalLayout contenedorSuperior;
+	@Id("contenedorInferior")
+	private HorizontalLayout contenedorInferior;
 
 	/**
      * Creates a new VistaRealizar_busqueda_de_administrador.

@@ -23,7 +23,7 @@ export class VistaUsuarios_administrador extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Usuarios</label>
- <vaadin-scroller style="width: 100%; height: 100%;" id="vaadinScroller">
+ <vaadin-scroller style="width: 100%; height: 100%;" id="navegacionSB">
   <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>
   <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>
   <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>

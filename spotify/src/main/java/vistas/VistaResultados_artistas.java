@@ -17,7 +17,23 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./src/vistas/vista-resultados_artistas.ts")
 public class VistaResultados_artistas extends LitTemplate {
 
-    public Label getTituloL() {
+    public HorizontalLayout getContenedorInferior() {
+		return contenedorInferior;
+	}
+
+	public void setContenedorInferior(HorizontalLayout contenedorInferior) {
+		this.contenedorInferior = contenedorInferior;
+	}
+
+	public HorizontalLayout getContenedorSuperior() {
+		return contenedorSuperior;
+	}
+
+	public void setContenedorSuperior(HorizontalLayout contenedorSuperior) {
+		this.contenedorSuperior = contenedorSuperior;
+	}
+
+	public Label getTituloL() {
 		return tituloL;
 	}
 
@@ -25,28 +41,14 @@ public class VistaResultados_artistas extends LitTemplate {
 		this.tituloL = tituloL;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
-	}
-
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
-
-	public HorizontalLayout getVaadinHorizontalLayout1() {
-		return vaadinHorizontalLayout1;
-	}
-
-	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
-		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
-	}
+	
 
 	@Id("tituloL")
 	private Label tituloL;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
+	@Id("contenedorInferior")
+	private HorizontalLayout contenedorInferior;
+	@Id("contenedorSuperior")
+	private HorizontalLayout contenedorSuperior;
 
 	/**
      * Creates a new VistaResultados_artistas.

@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-ver_notificaciones template.
@@ -17,7 +18,15 @@ import com.vaadin.flow.component.html.Label;
 @JsModule("./src/vistas/vista-ver_notificaciones.ts")
 public class VistaVer_notificaciones extends LitTemplate {
 
-    public Button getCerrarB() {
+    public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Button getCerrarB() {
 		return cerrarB;
 	}
 
@@ -37,6 +46,8 @@ public class VistaVer_notificaciones extends LitTemplate {
 	private Button cerrarB;
 	@Id("numeroNotificacionesL")
 	private Label numeroNotificacionesL;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 
 	/**
      * Creates a new VistaVer_notificaciones.

@@ -17,7 +17,15 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 @JsModule("./src/vistas/vista-usuarios_administrador.ts")
 public class VistaUsuarios_administrador extends LitTemplate {
 
-    public Label getTituloL() {
+    public Scroller getNavegacionSB() {
+		return navegacionSB;
+	}
+
+	public void setNavegacionSB(Scroller navegacionSB) {
+		this.navegacionSB = navegacionSB;
+	}
+
+	public Label getTituloL() {
 		return tituloL;
 	}
 
@@ -25,19 +33,10 @@ public class VistaUsuarios_administrador extends LitTemplate {
 		this.tituloL = tituloL;
 	}
 
-	public Scroller getVaadinScroller() {
-		return vaadinScroller;
-	}
-
-	public void setVaadinScroller(Scroller vaadinScroller) {
-		this.vaadinScroller = vaadinScroller;
-	}
-
 	@Id("tituloL")
 	private Label tituloL;
-	@Id("vaadinScroller")
-	private Scroller vaadinScroller;
-
+	@Id("navegacionSB")
+	private Scroller navegacionSB;
 	/**
      * Creates a new VistaUsuarios_administrador.
      */

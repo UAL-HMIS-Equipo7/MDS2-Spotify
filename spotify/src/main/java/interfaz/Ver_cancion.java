@@ -19,6 +19,10 @@ public class Ver_cancion extends VistaVer_cancion {
 //	private Label _creditoEstiloL;
 //	private Image _fotoCancionImg;
 	public Reproductor__No_Cibernauta_ _reproductor__No_Cibernauta_;
+	
+	public Ver_cancion() {
+		_reproductor__No_Cibernauta_ = new Reproductor__No_Cibernauta_();
+	}
 
 	public void Marcar_cancion_como_favorita() {
 		throw new UnsupportedOperationException();
