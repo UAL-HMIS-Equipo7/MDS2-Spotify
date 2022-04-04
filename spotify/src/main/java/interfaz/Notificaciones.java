@@ -10,7 +10,6 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 import interfaz.Notificacion;
 
 public class Notificaciones extends VistaNotificaciones {
-	public Ver_notificaciones _ver_notificaciones;
 	public Vector<Notificacion> _list_Notificacion = new Vector<Notificacion>();
 	
 	public Notificaciones() {
@@ -34,7 +33,6 @@ public class Notificaciones extends VistaNotificaciones {
 		
 		for (int i = 0; i < 5; i++) {
 			temp = new Notificacion();
-			temp.setClassName("notificacion");
 			
 			_list_Notificacion.add(temp);
 		}

@@ -6,7 +6,6 @@ public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_rep
 //	private event _eliminar_cancion;
 //	private event _aniadir_cancion;
 //	private event _eliminar_lista_de_reproduccion;
-	public Ver_lista_de_reproduccion_propia _ver_lista_de_reproduccion_propia;
 	public Crear_lista_de_reproduccion _crear_lista_de_reproduccion;
 
 	public void Eliminar_cancion() {
