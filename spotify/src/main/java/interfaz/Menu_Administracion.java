@@ -12,10 +12,13 @@ public class Menu_Administracion extends VistaMenu_administracion {
 //	private TextField _limiteCancionesReproduciblesTF;
 //	private Button _busquedaB;
 //	private TextField _busquedaTF;
-	public Administrador _administrador;
 	public Realizar_busqueda_de_administrador _realizar_busqueda_de_administrador;
 	public Ver_menu_de_altas _ver_menu_de_altas;
-
+	
+	public Menu_Administracion() {
+		
+		_realizar_busqueda_de_administrador = new Realizar_busqueda_de_administrador();
+	}
 	public void Editar_canciones_que_puede_escuchar_un_cibernauta() {
 		throw new UnsupportedOperationException();
 	}

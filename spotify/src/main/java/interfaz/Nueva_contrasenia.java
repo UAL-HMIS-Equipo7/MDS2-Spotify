@@ -10,8 +10,7 @@ public class Nueva_contrasenia extends VistaNueva_contrasenia {
 //	private Button _confirmarB;
 //	private Button _atrasB;
 //	private Label _errorL;
-	public Confirmacion_de_correo__Recuperar_contrasenia_ _confirmacion_de_correo__Recuperar_contrasenia_;
-
+	
 	public void Validar_contrasenia() {
 		throw new UnsupportedOperationException();
 	}

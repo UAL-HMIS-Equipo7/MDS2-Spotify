@@ -14,7 +14,6 @@ public class Ver_album extends VistaVer_album {
 	public Autores_album _autores_album;
 	
 	public Ver_album() {
-
 		_canciones_album = new Canciones_album();
 		_autores_album = new Autores_album();
 		
