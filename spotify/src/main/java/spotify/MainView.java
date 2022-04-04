@@ -65,7 +65,7 @@ public class MainView extends VerticalLayout {
 //
 //        add(textField, button);
     	
-    	Artista v = new Artista();
+    	Cancion v = new Cancion();
     	
     	v.getStyle().set("width", "100%");   
     	v.getStyle().set("height", "100%");
