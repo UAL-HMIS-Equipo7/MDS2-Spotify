@@ -33,8 +33,4 @@ public class Actor_comun extends VistaActor_comun {
 		
 		getMenuAdministracionB().setVisible(false);
 	}
-	
-	public void Inicializar() {
-
-	}
 }

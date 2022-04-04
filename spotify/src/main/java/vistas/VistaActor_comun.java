@@ -17,7 +17,15 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-actor_comun.ts")
 public class VistaActor_comun extends LitTemplate {
 
-    public Element getContenedorDerecho() {
+    public Element getLayoutPrincipal() {
+		return layoutPrincipal;
+	}
+
+	public void setLayoutPrincipal(Element layoutPrincipal) {
+		this.layoutPrincipal = layoutPrincipal;
+	}
+
+	public Element getContenedorDerecho() {
 		return contenedorDerecho;
 	}
 
@@ -57,6 +65,8 @@ public class VistaActor_comun extends LitTemplate {
 	private Element contenedorDerecho;
 	@Id("contenedorIzquierdo")
 	private Element contenedorIzquierdo;
+	@Id("LayoutPrincipal")
+	private Element layoutPrincipal;
 	/**
      * Creates a new VistaActor_comun.
      */

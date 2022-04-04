@@ -65,7 +65,10 @@ public class MainView extends VerticalLayout {
 //
 //        add(textField, button);
     	
-    	Listas_de_reproduccion_perfil v = new Listas_de_reproduccion_perfil();
+    	Artista v = new Artista();
+    	
+    	v.getStyle().set("width", "100%");   
+    	v.getStyle().set("height", "100%");
     	add(v);
     }
 
