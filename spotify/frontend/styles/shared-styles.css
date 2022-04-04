@@ -10,3 +10,66 @@
   max-width: 250px;
 }
 
+.hlAlbumes {
+	width: 100%; 
+	height: 100%; 
+	justify-content: center; 
+	align-items: center; 
+	margin: var(--lumo-space-s);
+}
+
+.albumAdministrador {
+	margin: var(--lumo-space-s); 
+	padding: var(--lumo-space-s);
+}
+
+.album {
+	margin: var(--lumo-space-m); height: 98%;
+}
+
+.artistaAdministrador {
+	margin: var(--lumo-space-s); 
+	padding: var(--lumo-space-s);
+}
+
+.imagenArtista {
+	max-width: 350px;
+	max-height: 350px;
+}
+
+.artistasSimilares {
+	height: 90%; 
+	margin: var(--lumo-space-l); 
+	padding: var(--lumo-space-s);
+}
+
+.hlArtistas {
+	width: 100%; 
+	height: 100%; 
+	margin: var(--lumo-space-s);
+}
+
+.fullSize {
+	width: 100%;
+	height: 100%;
+}
+
+.cancionAdministrador {
+   	margin: var(--lumo-space-s); 
+   	padding: var(--lumo-space-s);
+}
+
+.cancionCiber {
+  	max-width: 300px;
+  	max-height: 300px;
+}
+
+.imagenEstilo {
+ 	max-width: 350px;
+ 	max-height: 350px;
+}
+
+.eventos{
+	width: 80%; height: 80%; align-self: center;
+}
+

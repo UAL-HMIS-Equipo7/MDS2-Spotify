@@ -1,8 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-scroller.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-foto_artista';
 
 @customElement('vista-artistas_similares')
 export class VistaArtistas_similares extends LitElement {
@@ -23,16 +21,7 @@ export class VistaArtistas_similares extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <label style="align-self: center; margin: var(--lumo-space-m);" id="label">Artistas Similares</label>
- <vaadin-scroller style="width: 100%; height: 100%;" id="navegacionSB">
-  <vaadin-horizontal-layout theme="spacing" style="height: 100%; width: 98%;">
-   <vista-foto_artista class="artistasSimilares"></vista-foto_artista>
-   <vista-foto_artista class="artistasSimilares"></vista-foto_artista>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="width: 98%; height: 100%;">
-   <vista-foto_artista class="artistasSimilares"></vista-foto_artista>
-   <vista-foto_artista class="artistasSimilares"></vista-foto_artista>
-  </vaadin-horizontal-layout>
- </vaadin-scroller>
+ <vaadin-scroller style="width: 100%; height: 100%;" id="navegacionSB"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;
   }

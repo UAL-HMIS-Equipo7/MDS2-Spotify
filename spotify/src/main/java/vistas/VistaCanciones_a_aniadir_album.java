@@ -7,6 +7,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-canciones_a_aniadir_album template.
@@ -18,14 +19,23 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-canciones_a_aniadir_album.ts")
 public class VistaCanciones_a_aniadir_album extends LitTemplate {
 
-    @Id("aniadirCancionTF")
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	@Id("aniadirCancionTF")
 	private TextField aniadirCancionTF;
 	@Id("anteriorB")
 	private Button anteriorB;
-	@Id("vistaCancion_album")
-	private Element vistaCancion_album;
 	@Id("posteriorB")
 	private Button posteriorB;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 	
 	public TextField getAniadirCancionTF() {
 		return aniadirCancionTF;
@@ -41,14 +51,6 @@ public class VistaCanciones_a_aniadir_album extends LitTemplate {
 
 	public void setAnteriorB(Button anteriorB) {
 		this.anteriorB = anteriorB;
-	}
-
-	public Element getVistaCancion_album() {
-		return vistaCancion_album;
-	}
-
-	public void setVistaCancion_album(Element vistaCancion_album) {
-		this.vistaCancion_album = vistaCancion_album;
 	}
 
 	public Button getPosteriorB() {

@@ -15,6 +15,16 @@ public class Cabecera_superior extends VistaCabecera_superior {
 
 	public Contactar_con_la_empresa _contactar_con_la_empresa;
 	public Realizar_busqueda _realizar_busqueda;
+	
+	public Cabecera_superior() {
+		
+		_contactar_con_la_empresa = new Contactar_con_la_empresa();
+		_realizar_busqueda = new Realizar_busqueda();
+		
+		this.getVerPerfilAdministradorB().setVisible(false);
+		this.getVerPerfilArtistaB().setVisible(false);
+		this.getVerPerfilUsuarioB().setVisible(false);
+	}
 
 	public void Cerrar_sesion() {
 		throw new UnsupportedOperationException();

@@ -8,6 +8,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-canciones_en_album template.
@@ -19,7 +20,15 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-canciones_en_album.ts")
 public class VistaCanciones_en_album extends LitTemplate {
 
-    public Label getTituloL() {
+    public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Label getTituloL() {
 		return tituloL;
 	}
 
@@ -51,14 +60,6 @@ public class VistaCanciones_en_album extends LitTemplate {
 		this.anteriorB = anteriorB;
 	}
 
-	public Element getVistaCancion_album() {
-		return vistaCancion_album;
-	}
-
-	public void setVistaCancion_album(Element vistaCancion_album) {
-		this.vistaCancion_album = vistaCancion_album;
-	}
-
 	public Button getPosteriorB() {
 		return posteriorB;
 	}
@@ -75,11 +76,10 @@ public class VistaCanciones_en_album extends LitTemplate {
 	private Button aniadirCancionB;
 	@Id("anteriorB")
 	private Button anteriorB;
-	@Id("vistaCancion_album")
-	private Element vistaCancion_album;
 	@Id("posteriorB")
 	private Button posteriorB;
-
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 	/**
      * Creates a new VistaCanciones_en_album.
      */

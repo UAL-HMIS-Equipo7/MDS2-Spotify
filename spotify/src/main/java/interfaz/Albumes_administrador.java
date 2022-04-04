@@ -1,12 +1,50 @@
 package interfaz;
 
 import java.util.Vector;
+
+import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.orderedlayout.Scroller;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import interfaz.Album_administrador;
 import vistas.VistaAlbumes_administrador;
 
+@CssImport("./styles/shared-styles.css")
 public class Albumes_administrador extends VistaAlbumes_administrador {
 //	private Label _tituloL;
 //	private ScrollBar _navegacionSB;
-	public Realizar_busqueda_de_administrador _realizar_busqueda_de_administrador;
+
 	public Vector<Album_administrador> _list_Album_administrador = new Vector<Album_administrador>();
+	
+	public Albumes_administrador() {
+		
+		//A los elementos Album_administrador darle la clase de css (albumAdministrador)
+		
+		CargarAlbumesAdministrador();
+		
+		Scroller scroll = this.getNavegacionSB();
+		
+		Div div = new Div();
+		
+		for (Album_administrador album : _list_Album_administrador) {
+			div.add(album);
+		}
+		
+		scroll.setContent(div);
+	}
+	
+	public void CargarAlbumesAdministrador() {
+		
+		Album_administrador temp;
+		
+		for (int i = 0; i < 5; i++) {
+			temp = new Album_administrador();
+			temp.setClassName("albumAdministrador");
+			
+			_list_Album_administrador.add(temp);
+		}
+		
+	}
 }

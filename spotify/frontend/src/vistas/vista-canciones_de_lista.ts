@@ -1,7 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-cancion';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-scroller.js';
 
 @customElement('vista-canciones_de_lista')
 export class VistaCanciones_de_lista extends LitElement {
@@ -16,20 +15,9 @@ export class VistaCanciones_de_lista extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
  <label id="tituloPanelL" style="flex-shrink: 1; flex-grow: 0; align-self: center; margin: var(--lumo-space-m);">Listado de canciones</label>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-self: center;">
-  <vista-cancion style="width: 100%; height: 100%;"></vista-cancion>
-  <vista-cancion style="width: 100%; height: 100%;"></vista-cancion>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-self: center;">
-  <vista-cancion style="width: 100%; height: 100%;"></vista-cancion>
-  <vista-cancion style="width: 100%; height: 100%;"></vista-cancion>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-self: center; justify-content: center;">
-  <vista-cancion style="width: 100%; height: 100%;"></vista-cancion>
-  <vista-cancion style="width: 100%; height: 100%;"></vista-cancion>
- </vaadin-horizontal-layout>
+ <vaadin-scroller id="navegacionSB" style="width: 100%;"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;
   }

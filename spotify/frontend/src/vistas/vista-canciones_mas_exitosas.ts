@@ -1,8 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-scroller.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-cancion';
 
 @customElement('vista-canciones_mas_exitosas')
 export class VistaCanciones_mas_exitosas extends LitElement {
@@ -19,16 +17,7 @@ export class VistaCanciones_mas_exitosas extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Canciones más exitosas</label>
- <vaadin-scroller id="navegacionSB" style="align-self: center;">
-  <vaadin-horizontal-layout theme="spacing">
-   <vista-cancion></vista-cancion>
-   <vista-cancion></vista-cancion>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing">
-   <vista-cancion></vista-cancion>
-   <vista-cancion></vista-cancion>
-  </vaadin-horizontal-layout>
- </vaadin-scroller>
+ <vaadin-scroller id="navegacionSB" style="align-self: center;"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;
   }
