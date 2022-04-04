@@ -22,7 +22,7 @@ public class Actor_comun extends VistaActor_comun {
 		_recomendaciones = new Recomendaciones();
 		_recomendaciones.getElement().setAttribute("height", "30%");
 		
-		_ver_estadisticas = new Ver_estadisticas();
+//		_ver_estadisticas = new Ver_estadisticas();
 		
 		VerticalLayout vIzq = this.getContenedorIzquierdo().as(VerticalLayout.class);
 		vIzq.add(_ultimas_canciones_reproducidas);
