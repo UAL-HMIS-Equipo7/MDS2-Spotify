@@ -67,7 +67,11 @@ public class MainView extends VerticalLayout {
 
     	Ultimas_canciones_reproducidas vp = new Ultimas_canciones_reproducidas();
     	
-    	add(vp);
+    	Artista v = new Artista();
+    	
+    	v.getStyle().set("width", "100%");   
+    	v.getStyle().set("height", "100%");
+    	add(v);
     }
 
 }
