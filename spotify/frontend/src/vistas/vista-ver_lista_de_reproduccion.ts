@@ -19,7 +19,7 @@ export class VistaVer_lista_de_reproduccion extends LitElement {
     return html`
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; margin: var(--lumo-space-s);">
  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; margin: var(--lumo-space-s);">
-  <vaadin-horizontal-layout theme="spacing">
+  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
    <vaadin-button id="compartirB" style="width: 20%;">
      Compartir 
    </vaadin-button>

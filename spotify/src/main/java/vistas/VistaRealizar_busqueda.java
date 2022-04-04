@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-realizar_busqueda template.
@@ -17,7 +18,15 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./src/vistas/vista-realizar_busqueda.ts")
 public class VistaRealizar_busqueda extends LitTemplate {
 
-    public Label getMensajeL() {
+    public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Label getMensajeL() {
 		return mensajeL;
 	}
 
@@ -47,6 +56,8 @@ public class VistaRealizar_busqueda extends LitTemplate {
 	private Label errorL;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 
 	/**
      * Creates a new VistaRealizar_busqueda.

@@ -5,6 +5,8 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-ver_album template.
@@ -16,7 +18,23 @@ import com.vaadin.flow.component.template.Id;
 @JsModule("./src/vistas/vista-ver_album.ts")
 public class VistaVer_album extends LitTemplate {
 
-    public Label getInformacionL() {
+    public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Label getInformacionL() {
 		return informacionL;
 	}
 
@@ -46,6 +64,10 @@ public class VistaVer_album extends LitTemplate {
 	private Label tituloL;
 	@Id("fechaEdicionL")
 	private Label fechaEdicionL;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 
 	/**
      * Creates a new VistaVer_album.

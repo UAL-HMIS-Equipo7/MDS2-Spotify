@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-ver_lista_de_reproduccion_propia template.
@@ -17,7 +18,15 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-ver_lista_de_reproduccion_propia.ts")
 public class VistaVer_lista_de_reproduccion_propia extends LitTemplate {
 
-    public Label getEditarL() {
+    public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+
+	public Label getEditarL() {
 		return editarL;
 	}
 
@@ -37,6 +46,8 @@ public class VistaVer_lista_de_reproduccion_propia extends LitTemplate {
 	private Label editarL;
 	@Id("editarB")
 	private Button editarB;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
 
 	/**
      * Creates a new VistaVer_lista_de_reproduccion_propia.

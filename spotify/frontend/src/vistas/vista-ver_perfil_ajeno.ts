@@ -27,7 +27,7 @@ export class VistaVer_perfil_ajeno extends LitElement {
      Seguir 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; margin: var(--lumo-space-m);">
+  <vaadin-vertical-layout theme="spacing" style="width: 100%; margin: var(--lumo-space-m);" id="vaadinVerticalLayout">
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-evenly;">
     <label id="seguidoresL">Seguidores: X</label>
     <label id="seguidosL">Seguidos: X</label>
