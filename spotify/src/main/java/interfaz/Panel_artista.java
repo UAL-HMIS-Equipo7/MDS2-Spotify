@@ -14,8 +14,8 @@ public class Panel_artista extends VistaPanel_artista {
 	public Artistas_similares _artistas_similares;
 	
 	public Panel_artista() {
-		_ver_perfil_propio__Artista_= new Ver_perfil_propio__Artista_();
-		 _ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
+//		_ver_perfil_propio__Artista_= new Ver_perfil_propio__Artista_();
+//		 _ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
 		 _canciones_mas_exitosas = new Canciones_mas_exitosas();
 		 _albumes = new Albumes();
 		 _eventos = new Eventos();

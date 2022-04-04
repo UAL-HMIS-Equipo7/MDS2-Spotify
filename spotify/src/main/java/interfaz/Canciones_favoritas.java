@@ -17,7 +17,7 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 	public Ver_lista_de_reproduccion_propia _ver_lista_de_reproduccion_propia;
 	
 	public Canciones_favoritas() {
-		_ver_lista_de_reproduccion_propia = new Ver_lista_de_reproduccion_propia();
+//		_ver_lista_de_reproduccion_propia = new Ver_lista_de_reproduccion_propia();
 		
 		CargarCanciones();
 		

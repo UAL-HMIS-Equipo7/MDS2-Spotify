@@ -14,7 +14,6 @@ public class Reproductor__No_Cibernauta_ extends Reproductor {
 //	private Button _avanzarB;
 //	private Button _siguienteB;
 //	private Slider _barraVolumenSD;
-	public Actor_comun _actor_comun;
 	public Ver_cancion _ver_cancion;
 
 	public void Avanzar_10_segundos() {
