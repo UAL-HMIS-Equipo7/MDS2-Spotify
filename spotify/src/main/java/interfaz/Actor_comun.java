@@ -1,5 +1,12 @@
 package interfaz;
 
+import java.util.stream.Stream;
+
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Style;
 
@@ -17,20 +24,93 @@ public class Actor_comun extends VistaActor_comun {
 	public Ver_estadisticas _ver_estadisticas;
 	
 	public Actor_comun() {
+		
+		Inicializar(false);
+		
+	}
+	
+	public Actor_comun(boolean menuAdministracionVisible) {
+		
+		Inicializar(menuAdministracionVisible);
+		
+	}
+	
+	public void Inicializar(boolean menuAdministracionVisible) {
+		
+		VerticalLayout vl = getLayoutPrincipal().as(VerticalLayout.class);
+		
+		vl.removeAll();
+		
+		Button verEstadisticasB = new Button("Estadísticas de uso");
+		verEstadisticasB.getStyle().set("align-self", "flex-end");
+		verEstadisticasB.getStyle().set("margin", "var(--lumo-space-s)");
+		
+		HorizontalLayout hl = new HorizontalLayout();
+		hl.getStyle().set("width", "100%");
+		
+		VerticalLayout contenedorIzquierdo = new VerticalLayout();
+		contenedorIzquierdo.getStyle().set("width", "70%");
+		
+		VerticalLayout contenedorDerecho = new VerticalLayout();
+		contenedorDerecho.getStyle().set("width", "30%");
+		contenedorDerecho.getStyle().set("height", "100%");
+		contenedorDerecho.getStyle().set("align-items", "center");
+		
+		Button menuAdministracionB = new Button("Menú Administración");
+		menuAdministracionB.setVisible(menuAdministracionVisible);
+		
+		contenedorDerecho.add(menuAdministracionB);
+		
+		hl.add(contenedorIzquierdo);
+		hl.add(contenedorDerecho);
+		
+		vl.add(verEstadisticasB);
+		vl.add(hl);
+		
 		_ultimas_canciones_reproducidas = new Ultimas_canciones_reproducidas();
-		_canciones_favoritas = new Canciones_favoritas();
+		_canciones_favoritas = new Canciones_favoritas(vl);
 		_recomendaciones = new Recomendaciones();
-		_recomendaciones.getElement().setAttribute("height", "30%");
+		_recomendaciones.getStyle().set("height", "30%");
 		
-//		_ver_estadisticas = new Ver_estadisticas();
+		contenedorIzquierdo.add(_ultimas_canciones_reproducidas);
+		contenedorIzquierdo.add(_canciones_favoritas);
 		
-		VerticalLayout vIzq = this.getContenedorIzquierdo().as(VerticalLayout.class);
-		vIzq.add(_ultimas_canciones_reproducidas);
-		vIzq.add(_canciones_favoritas);
+		contenedorDerecho.add(_recomendaciones);
 		
-		VerticalLayout vDer = this.getContenedorDerecho().as(VerticalLayout.class);
-		vDer.addComponentAsFirst(_recomendaciones);
+		verEstadisticasB.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				vl.removeAll();
+				
+				_ver_estadisticas = new Ver_estadisticas();
+				
+				vl.add(_ver_estadisticas);
+			}
+		});
 		
-		getMenuAdministracionB().setVisible(false);
+//		VerticalLayout vIzq = this.getContenedorIzquierdo().as(VerticalLayout.class);
+//		vIzq.add(_ultimas_canciones_reproducidas);
+//		vIzq.add(_canciones_favoritas);
+//		
+//		VerticalLayout vDer = this.getContenedorDerecho().as(VerticalLayout.class);
+//		vDer.addComponentAsFirst(_recomendaciones);
+//		
+//		getMenuAdministracionB().setVisible(false);
+//		
+//		this.getVerEstadisticasB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				
+//				vl.removeAll();
+//				
+//				_ver_estadisticas = new Ver_estadisticas();
+//				
+//				vl.add(_ver_estadisticas);
+//				
+//			}
+//		});
+		
 	}
 }

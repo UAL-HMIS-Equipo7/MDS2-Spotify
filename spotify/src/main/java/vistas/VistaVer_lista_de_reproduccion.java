@@ -19,7 +19,15 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./src/vistas/vista-ver_lista_de_reproduccion.ts")
 public class VistaVer_lista_de_reproduccion extends LitTemplate {
 
-    public Button getCompartirB() {
+    public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+
+	public Button getCompartirB() {
 		return compartirB;
 	}
 

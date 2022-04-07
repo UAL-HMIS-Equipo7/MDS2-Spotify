@@ -2,7 +2,6 @@ import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import './vista-ver_lista_de_reproduccion';
 
 @customElement('vista-ver_lista_de_reproduccion_propia')
 export class VistaVer_lista_de_reproduccion_propia extends LitElement {
@@ -25,7 +24,6 @@ export class VistaVer_lista_de_reproduccion_propia extends LitElement {
      Editar 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vista-ver_lista_de_reproduccion style="align-self: center;"></vista-ver_lista_de_reproduccion>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

@@ -4,10 +4,11 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 import vistas.VistaUltimas_canciones_reproducidas;
+import vistas.VistaVer_lista_de_reproduccion;
 import vistas.VistaVer_lista_de_reproduccion_propia;
 @CssImport("./styles/shared-styles.css")
 
-public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion_propia {
+public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 //	private event _compartir_lista_de_reproduccion;
 //	private event _seguir_lista_de_reproduccion;
 //	private Button _compartirB;

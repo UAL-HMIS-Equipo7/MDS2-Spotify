@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 //import basededatos.iAdministrador;
 
 public class Administrador extends Actor_comun {
@@ -9,12 +11,13 @@ public class Administrador extends Actor_comun {
 	public Menu_Administracion _menu_Administracion;
 	
 	public Administrador() {
-		// TODO Auto-generated constructor stub
-		super();
+		super(true);
 		
 		_cabecera_Administrador = new Cabecera_Administrador();
-		_menu_Administracion = new Menu_Administracion();
+		//_menu_Administracion = new Menu_Administracion();
 		
-		this.getMenuAdministracionB().setVisible(true);
+		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
+		vl.add(_cabecera_Administrador);
+		
 	}
 }
