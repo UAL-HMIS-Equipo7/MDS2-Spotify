@@ -1,5 +1,10 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaBloqueo_inicio_sesion;
 
 public class Bloqueo_inicio_sesion extends VistaBloqueo_inicio_sesion {
@@ -10,5 +15,19 @@ public class Bloqueo_inicio_sesion extends VistaBloqueo_inicio_sesion {
 	
 	public Bloqueo_inicio_sesion() {
 		
+	}
+	
+	public Bloqueo_inicio_sesion(VerticalLayout layoutPadre) {
+		
+		this.getAtrasB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				// TODO Como implementamos el tema de volver atrás??
+				
+				
+				//llamar al Inicialize de Cibernauta??
+			}
+		});
 	}
 }

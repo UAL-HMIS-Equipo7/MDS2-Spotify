@@ -16,7 +16,7 @@ export class VistaCabecera_superior extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="align-items: center; margin: var(--lumo-space-xs);">
+<vaadin-horizontal-layout class="content" style="margin: var(--lumo-space-xs); justify-content: center; align-items: center;">
  <img id="inicioB" style="width: 10%; height: 10%; margin: var(--lumo-space-xs);" src="https://cdn.pixabay.com/photo/2013/07/12/15/53/home-150499_960_720.png">
  <label id="telefonoL" style="margin: var(--lumo-space-xs);">900900900</label>
  <a href="https://vaadin.com" id="contactoB" style="margin: var(--lumo-space-xs);">Correo@contacto</a>

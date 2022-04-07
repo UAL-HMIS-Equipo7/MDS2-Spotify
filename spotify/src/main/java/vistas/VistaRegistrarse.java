@@ -116,11 +116,11 @@ public class VistaRegistrarse extends LitTemplate {
 		this.opcionalL = opcionalL;
 	}
 
-	public Element getIniciarSesionB() {
+	public Button getIniciarSesionB() {
 		return iniciarSesionB;
 	}
 
-	public void setIniciarSesionB(Element iniciarSesionB) {
+	public void setIniciarSesionB(Button iniciarSesionB) {
 		this.iniciarSesionB = iniciarSesionB;
 	}
 
@@ -164,12 +164,12 @@ public class VistaRegistrarse extends LitTemplate {
 	private Button fotoFC;
 	@Id("opcionalL")
 	private Label opcionalL;
-	@Id("iniciarSesionB")
-	private Element iniciarSesionB;
 	@Id("errorL")
 	private Label errorL;
 	@Id("RegistrarseB")
 	private Button registrarseB;
+	@Id("iniciarSesionB")
+	private Button iniciarSesionB;
 
 	/**
      * Creates a new VistaRegistrarse.

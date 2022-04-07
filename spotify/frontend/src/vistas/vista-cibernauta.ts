@@ -16,7 +16,7 @@ export class VistaCibernauta extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center; align-items: center;" id="LayoutPrincipal">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 20%; padding: var(--lumo-space-l);">
   <img id="fotoImg" style="width: 100%; height: 100%; max-width: 150px;" src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU">
   <label id="nombreAppL" style="width: 100%; margin: var(--lumo-space-l); text-align: center; font-size:large;">Nombre App</label>

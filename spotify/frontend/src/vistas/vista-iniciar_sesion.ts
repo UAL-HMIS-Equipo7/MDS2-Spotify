@@ -48,10 +48,14 @@ export class VistaIniciar_sesion extends LitElement {
  </vaadin-horizontal-layout>
  <label id="errorL" style="align-self: center;" color="">Error Correspondiente</label>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 10%; align-self: center; justify-content: center;">
-  <a href="https://vaadin.com" id="registrarseB">Registrarse</a>
-  <a href="https://vaadin.com" id="recuperarContraseniaB">Recuperar Contraseña</a>
+  <vaadin-button id="registrarseB">
+   Registrarse
+  </vaadin-button>
+  <vaadin-button id="recuperarContraseniaB">
+   Recuperar Contraseña
+  </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-button style="align-self: center; margin: var(--lumo-space-m);" id="vaadinButton">
+ <vaadin-button style="align-self: center; margin: var(--lumo-space-m);" id="iniciarSesionB">
    Iniciar Sesión 
  </vaadin-button>
 </vaadin-vertical-layout>

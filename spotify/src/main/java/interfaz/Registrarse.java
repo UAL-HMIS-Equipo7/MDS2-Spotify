@@ -1,5 +1,10 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaRegistrarse;
 
 public class Registrarse extends VistaRegistrarse {
@@ -24,6 +29,43 @@ public class Registrarse extends VistaRegistrarse {
 	
 	public Registrarse() {
 //		_confirmacion_de_correo = new Confirmacion_de_correo();
+	}
+	
+	public Registrarse(VerticalLayout layoutPadre) {
+		
+		this.getIniciarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				_iniciar_sesion = new Iniciar_sesion(layoutPadre);
+				
+				layoutPadre.removeAll();
+				layoutPadre.add(_iniciar_sesion);
+			}
+		});
+		
+		this.getRegistrarseB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				// TODO Validación de registro
+				
+				_confirmacion_de_correo = new Confirmacion_de_correo(layoutPadre);
+				layoutPadre.removeAll();
+				layoutPadre.add(_confirmacion_de_correo);
+			}
+		});
+		
+		this.getAtrasB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				// TODO Como implementamos el tema de volver atrás??
+				
+				
+				//llamar al Inicialize de Cibernauta??
+			}
+		});
 	}
 
 	public void Validar_datos_de_registro() {

@@ -20,46 +20,56 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./src/vistas/vista-cibernauta.ts")
 public class VistaCibernauta extends LitTemplate {
 
-    public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
+    public Element getLayoutPrincipal() {
+		return layoutPrincipal;
 	}
 
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	public void setLayoutPrincipal(Element layoutPrincipal) {
+		this.layoutPrincipal = layoutPrincipal;
 	}
 
-	public Image getFotoImg() {
-		return fotoImg;
-	}
-
-	public void setFotoImg(Image fotoImg) {
-		this.fotoImg = fotoImg;
-	}
-
-	public Label getNombreAppL() {
-		return nombreAppL;
-	}
-
-	public void setNombreAppL(Label nombreAppL) {
-		this.nombreAppL = nombreAppL;
-	}
-
-	public Button getIniciarSesionB() {
-		return iniciarSesionB;
-	}
-
-	public void setIniciarSesionB(Button iniciarSesionB) {
-		this.iniciarSesionB = iniciarSesionB;
-	}
-
-	@Id("fotoImg")
-	private Image fotoImg;
-	@Id("nombreAppL")
-	private Label nombreAppL;
-	@Id("iniciarSesionB")
-	private Button iniciarSesionB;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
+//	public HorizontalLayout getVaadinHorizontalLayout() {
+//		return vaadinHorizontalLayout;
+//	}
+//
+//	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+//		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+//	}
+//
+//	public Image getFotoImg() {
+//		return fotoImg;
+//	}
+//
+//	public void setFotoImg(Image fotoImg) {
+//		this.fotoImg = fotoImg;
+//	}
+//
+//	public Label getNombreAppL() {
+//		return nombreAppL;
+//	}
+//
+//	public void setNombreAppL(Label nombreAppL) {
+//		this.nombreAppL = nombreAppL;
+//	}
+//
+//	public Button getIniciarSesionB() {
+//		return iniciarSesionB;
+//	}
+//
+//	public void setIniciarSesionB(Button iniciarSesionB) {
+//		this.iniciarSesionB = iniciarSesionB;
+//	}
+//
+//	@Id("fotoImg")
+//	private Image fotoImg;
+//	@Id("nombreAppL")
+//	private Label nombreAppL;
+//	@Id("iniciarSesionB")
+//	private Button iniciarSesionB;
+//	@Id("vaadinHorizontalLayout")
+//	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("LayoutPrincipal")
+	private Element layoutPrincipal;
 	/**
      * Creates a new VistaCibernauta.
      */

@@ -17,10 +17,6 @@ public class Ver_lista_de_reproduccion_propia extends VistaVer_lista_de_reproduc
 	
 	public Ver_lista_de_reproduccion_propia() {
 
-//		_modificar_lista_de_reproduccion = new Modificar_lista_de_reproduccion();
-//		_ver_lista_de_reproduccion = new Ver_lista_de_reproduccion();
-
-		//_modificar_lista_de_reproduccion = new Modificar_lista_de_reproduccion();
 		_ver_lista_de_reproduccion = new Ver_lista_de_reproduccion();
 
 		
@@ -32,10 +28,6 @@ public class Ver_lista_de_reproduccion_propia extends VistaVer_lista_de_reproduc
 	
 	public Ver_lista_de_reproduccion_propia(VerticalLayout vl) {
 
-//		_modificar_lista_de_reproduccion = new Modificar_lista_de_reproduccion();
-//		_ver_lista_de_reproduccion = new Ver_lista_de_reproduccion();
-
-		//_modificar_lista_de_reproduccion = new Modificar_lista_de_reproduccion();
 		_ver_lista_de_reproduccion = new Ver_lista_de_reproduccion();
 
 		

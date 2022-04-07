@@ -21,7 +21,15 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-iniciar_sesion.ts")
 public class VistaIniciar_sesion extends LitTemplate {
 
-    public Button getAtrasB() {
+    public Button getIniciarSesionB() {
+		return iniciarSesionB;
+	}
+
+	public void setIniciarSesionB(Button iniciarSesionB) {
+		this.iniciarSesionB = iniciarSesionB;
+	}
+
+	public Button getAtrasB() {
 		return atrasB;
 	}
 
@@ -101,28 +109,20 @@ public class VistaIniciar_sesion extends LitTemplate {
 		this.errorL = errorL;
 	}
 
-	public Element getRecuperarContraseniaB() {
+	public Button getRecuperarContraseniaB() {
 		return recuperarContraseniaB;
 	}
 
-	public void setRecuperarContraseniaB(Element recuperarContraseniaB) {
+	public void setRecuperarContraseniaB(Button recuperarContraseniaB) {
 		this.recuperarContraseniaB = recuperarContraseniaB;
 	}
 
-	public Element getRegistrarseB() {
+	public Button getRegistrarseB() {
 		return registrarseB;
 	}
 
-	public void setRegistrarseB(Element registrarseB) {
+	public void setRegistrarseB(Button registrarseB) {
 		this.registrarseB = registrarseB;
-	}
-
-	public Button getVaadinButton() {
-		return vaadinButton;
-	}
-
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
 	}
 
 	@Id("atrasB")
@@ -145,12 +145,12 @@ public class VistaIniciar_sesion extends LitTemplate {
 	private Button facebookB;
 	@Id("errorL")
 	private Label errorL;
-	@Id("recuperarContraseniaB")
-	private Element recuperarContraseniaB;
+	@Id("iniciarSesionB")
+	private Button iniciarSesionB;
 	@Id("registrarseB")
-	private Element registrarseB;
-	@Id("vaadinButton")
-	private Button vaadinButton;
+	private Button registrarseB;
+	@Id("recuperarContraseniaB")
+	private Button recuperarContraseniaB;
 
 	/**
      * Creates a new VistaIniciar_sesion.

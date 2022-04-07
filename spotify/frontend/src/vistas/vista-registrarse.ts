@@ -19,7 +19,7 @@ export class VistaRegistrarse extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-button id="atrasB" style="align-self: flex-start; margin: var(--lumo-space-m);">
-  Atrás
+   Atrás 
  </vaadin-button>
  <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Registro de usuario</label>
  <vaadin-horizontal-layout theme="spacing" style="align-self: center; margin: var(--lumo-space-s); justify-content: center;">
@@ -47,7 +47,9 @@ export class VistaRegistrarse extends LitElement {
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
  <label id="errorL" style="align-self: center; margin: var(--lumo-space-s);">Mensaje de error</label>
- <a href="https://vaadin.com" id="iniciarSesionB" style="align-self: center; margin: var(--lumo-space-m);">Iniciar sesion</a>
+ <vaadin-button id="iniciarSesionB" style="align-self: center;">
+  Iniciar Sesión
+ </vaadin-button>
  <vaadin-button id="RegistrarseB" style="align-self: center; margin: var(--lumo-space-s);">
    Registrarse 
  </vaadin-button>
