@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaDar_de_alta_estilo;
 
 public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
@@ -13,8 +15,9 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 //	private Button _cancelarB;
 //	private Label _errorL;
 	
-	public Dar_de_alta_estilo() {
+	public Dar_de_alta_estilo(VerticalLayout layoutPadre) {
 		
+		//Botones de Guardar y Cancelar
 	}
 
 	public void Guardar_cambios_estilo() {

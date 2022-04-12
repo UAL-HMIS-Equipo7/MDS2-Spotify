@@ -1,6 +1,7 @@
 package interfaz;
 
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaRealizar_busqueda_de_administrador;
 
@@ -12,11 +13,11 @@ public class Realizar_busqueda_de_administrador extends VistaRealizar_busqueda_d
 	public Artistas_administrador _artistas_administrador;
 	public Usuarios_administrador _usuarios_administrador;
 	
-	public Realizar_busqueda_de_administrador() {
-		_canciones_administrador = new Canciones_administrador();
-		_albumes_administrador = new Albumes_administrador();
-		_artistas_administrador = new Artistas_administrador();
-		_usuarios_administrador = new Usuarios_administrador();
+	public Realizar_busqueda_de_administrador(VerticalLayout layoutPadre) {
+		_canciones_administrador = new Canciones_administrador(layoutPadre);
+		_albumes_administrador = new Albumes_administrador(layoutPadre);
+		_artistas_administrador = new Artistas_administrador(layoutPadre);
+		_usuarios_administrador = new Usuarios_administrador(layoutPadre);
 		
 		HorizontalLayout hlcs = this.getContenedorSuperior();
 		hlcs.add(_canciones_administrador);

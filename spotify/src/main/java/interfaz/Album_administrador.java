@@ -1,5 +1,11 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaAlbum_administrador;
 
 public class Album_administrador extends VistaAlbum_administrador {
@@ -10,9 +16,32 @@ public class Album_administrador extends VistaAlbum_administrador {
 	public Editar_album _editar_album;
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	
-	public Album_administrador() {
-		// TODO Auto-generated constructor stub
-		_editar_album = new Editar_album();
-		_confirmacion_eliminacion = new Confirmacion_eliminacion();
+	public Album_administrador(VerticalLayout layoutPadre) {
+		
+		this.getEditarAlbumB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				layoutPadre.removeAll();
+
+				_editar_album = new Editar_album(layoutPadre);
+				layoutPadre.add(_editar_album);
+			}
+		});
+
+		this.getEliminarAlbumB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Dialog ventanaModal = new Dialog();
+
+				_confirmacion_eliminacion = new Confirmacion_eliminacion(ventanaModal);
+
+				ventanaModal.add(_confirmacion_eliminacion);
+				ventanaModal.open();
+
+			}
+		});
 	}
 }

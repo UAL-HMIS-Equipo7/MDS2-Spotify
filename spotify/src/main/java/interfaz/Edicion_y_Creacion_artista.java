@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaEdicion_y_creacion_artista;
 
 public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista {
@@ -19,7 +21,9 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 //	private Button _cancelarB;
 //	private Label _errorL;
 
-	public Edicion_y_Creacion_artista() {
+	public Edicion_y_Creacion_artista(VerticalLayout layoutPadre) {
+		
+		//Botones Guardar y Cancelar
 		
 	}
 

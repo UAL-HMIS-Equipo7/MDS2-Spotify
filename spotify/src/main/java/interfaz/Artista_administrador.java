@@ -1,5 +1,11 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaArtista_administrador;
 
 public class Artista_administrador extends VistaArtista_administrador {
@@ -11,7 +17,32 @@ public class Artista_administrador extends VistaArtista_administrador {
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	public Edicion_y_Creacion_artista _edicion_y_Creacion_artista;
 
-	public Artista_administrador() {
-		// TODO Auto-generated constructor stub
+	public Artista_administrador(VerticalLayout layoutPadre) {
+		
+		this.getEditarArtistaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				layoutPadre.removeAll();
+
+				_edicion_y_Creacion_artista = new Edicion_y_Creacion_artista(layoutPadre);
+				layoutPadre.add(_edicion_y_Creacion_artista);
+			}
+		});
+
+		this.getEliminarArtistaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Dialog ventanaModal = new Dialog();
+
+				_confirmacion_eliminacion = new Confirmacion_eliminacion(ventanaModal);
+
+				ventanaModal.add(_confirmacion_eliminacion);
+				ventanaModal.open();
+
+			}
+		});
 	}
 }

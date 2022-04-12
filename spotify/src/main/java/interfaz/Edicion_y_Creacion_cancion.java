@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaEdicion_y_creacion_cancion;
 
 public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion {
@@ -26,8 +28,9 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 //	private Button _cancelarB;
 //	private Label _errorL;
 
-	public Edicion_y_Creacion_cancion() {
+	public Edicion_y_Creacion_cancion(VerticalLayout layoutPadre) {
 		
+		//Botones Guardar y Cancelar
 	}
 
 	public void Guardar_cambios_cancion() {

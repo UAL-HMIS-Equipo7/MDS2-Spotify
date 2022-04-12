@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaEditar_usuario;
 
 public class Editar_usuario extends VistaEditar_usuario {
@@ -17,8 +19,9 @@ public class Editar_usuario extends VistaEditar_usuario {
 //	private Button _cancelarB;
 //	private Label _errorL;
 	
-	public Editar_usuario() {
+	public Editar_usuario(VerticalLayout layoutPadre) {
 		
+		//Botones de guardar y cancelar, a que interfaz los mandamos?
 	}
 
 	public void Guardar_cambios_usuario() {

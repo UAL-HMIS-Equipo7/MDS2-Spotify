@@ -23,6 +23,16 @@ public class Actor_comun extends VistaActor_comun {
 	public Recomendaciones _recomendaciones;
 	public Ver_estadisticas _ver_estadisticas;
 	
+	private Button menuAdministracionB;
+	
+	public Button getMenuAdministracionB() {
+		return menuAdministracionB;
+	}
+
+	public void setMenuAdministracionB(Button menuAdministracionB) {
+		this.menuAdministracionB = menuAdministracionB;
+	}
+
 	public Actor_comun() {
 		
 		Inicializar(false);
@@ -56,7 +66,7 @@ public class Actor_comun extends VistaActor_comun {
 		contenedorDerecho.getStyle().set("height", "100%");
 		contenedorDerecho.getStyle().set("align-items", "center");
 		
-		Button menuAdministracionB = new Button("Menú Administración");
+		menuAdministracionB = new Button("Menú Administración");
 		menuAdministracionB.setVisible(menuAdministracionVisible);
 		
 		contenedorDerecho.add(menuAdministracionB);

@@ -1,5 +1,11 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaMenu_administracion;
 
 public class Menu_Administracion extends VistaMenu_administracion {
@@ -15,9 +21,37 @@ public class Menu_Administracion extends VistaMenu_administracion {
 	public Realizar_busqueda_de_administrador _realizar_busqueda_de_administrador;
 	public Ver_menu_de_altas _ver_menu_de_altas;
 	
-	public Menu_Administracion() {
+	public Menu_Administracion(VerticalLayout layoutPadre) {
 		
+		this.getBusquedaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				layoutPadre.removeAll();
+				
+				//Pasar los datos del TF
+				_realizar_busqueda_de_administrador = new Realizar_busqueda_de_administrador(layoutPadre);
+				layoutPadre.add(_realizar_busqueda_de_administrador);
+			}
+		});
+		
+		this.getDarAltaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				Dialog ventanaModal = new Dialog();
+
+				_ver_menu_de_altas = new Ver_menu_de_altas(layoutPadre, ventanaModal);
+
+				ventanaModal.add(_ver_menu_de_altas);
+				ventanaModal.open();
+
+			}
+		});
 	}
+	
 	public void Editar_canciones_que_puede_escuchar_un_cibernauta() {
 		throw new UnsupportedOperationException();
 	}

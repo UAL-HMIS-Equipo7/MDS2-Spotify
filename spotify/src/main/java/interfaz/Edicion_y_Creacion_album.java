@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaEdicion_y_creacion_album;
 
 public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
@@ -17,8 +19,9 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 //	private Button _cancelarB;
 //	private Label _errorL;
 
-	public Edicion_y_Creacion_album() {
+	public Edicion_y_Creacion_album(VerticalLayout layoutPadre) {
 		
+		//Botones de Guardar y Cancelar
 	}
 
 	public void Guardar_cambios_album() {

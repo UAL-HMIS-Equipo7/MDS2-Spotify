@@ -17,10 +17,11 @@ public class Albumes_administrador extends VistaAlbumes_administrador {
 //	private ScrollBar _navegacionSB;
 
 	public Vector<Album_administrador> _list_Album_administrador = new Vector<Album_administrador>();
+	private VerticalLayout layoutPadre;
 	
-	public Albumes_administrador() {
+	public Albumes_administrador(VerticalLayout layoutPadre) {
 		
-		//A los elementos Album_administrador darle la clase de css (albumAdministrador)
+		this.layoutPadre = layoutPadre;
 		
 		CargarAlbumesAdministrador();
 		
@@ -40,7 +41,7 @@ public class Albumes_administrador extends VistaAlbumes_administrador {
 		Album_administrador temp;
 		
 		for (int i = 0; i < 5; i++) {
-			temp = new Album_administrador();
+			temp = new Album_administrador(layoutPadre);
 			temp.setClassName("albumAdministrador");
 			
 			_list_Album_administrador.add(temp);

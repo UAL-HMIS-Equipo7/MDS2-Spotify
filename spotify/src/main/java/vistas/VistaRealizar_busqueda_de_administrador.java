@@ -51,52 +51,10 @@ public class VistaRealizar_busqueda_de_administrador extends LitTemplate {
 		this.errorL = errorL;
 	}
 
-	public Element getVistaCanciones_administrador() {
-		return vistaCanciones_administrador;
-	}
-
-	public void setVistaCanciones_administrador(Element vistaCanciones_administrador) {
-		this.vistaCanciones_administrador = vistaCanciones_administrador;
-	}
-
-	public Element getVistaAlbumes_administrador() {
-		return vistaAlbumes_administrador;
-	}
-
-	public void setVistaAlbumes_administrador(Element vistaAlbumes_administrador) {
-		this.vistaAlbumes_administrador = vistaAlbumes_administrador;
-	}
-
-	public Element getVistaArtistas_administrador() {
-		return vistaArtistas_administrador;
-	}
-
-	public void setVistaArtistas_administrador(Element vistaArtistas_administrador) {
-		this.vistaArtistas_administrador = vistaArtistas_administrador;
-	}
-
-	public Element getVistaUsuarios_administrador() {
-		return vistaUsuarios_administrador;
-	}
-
-	public void setVistaUsuarios_administrador(Element vistaUsuarios_administrador) {
-		this.vistaUsuarios_administrador = vistaUsuarios_administrador;
-	}
-
 	@Id("atrasB")
 	private Button atrasB;
 	@Id("errorL")
 	private Label errorL;
-	@Id("vistaCanciones_administrador")
-	private Element vistaCanciones_administrador;
-	@Id("vistaAlbumes_administrador")
-	private Element vistaAlbumes_administrador;
-	@Id("vistaArtistas_administrador")
-	private Element vistaArtistas_administrador;
-	@Id("vistaUsuarios_administrador")
-	private Element vistaUsuarios_administrador;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("contenedorSuperior")
 	private HorizontalLayout contenedorSuperior;
 	@Id("contenedorInferior")

@@ -65,7 +65,7 @@ public class MainView extends VerticalLayout {
 //
 //        add(textField, button);
     	
-    	Cibernauta v = new Cibernauta();
+    	Administrador v = new Administrador();
     	
     	v.getStyle().set("width", "100%");   
     	v.getStyle().set("height", "100%");
