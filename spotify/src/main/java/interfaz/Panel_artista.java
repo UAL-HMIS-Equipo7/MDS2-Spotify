@@ -1,6 +1,7 @@
 package interfaz;
 
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaPanel_artista;
 

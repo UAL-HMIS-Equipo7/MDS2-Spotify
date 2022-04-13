@@ -19,12 +19,20 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-ver_perfil_propio.ts")
 public class VistaVer_perfil_propio extends LitTemplate {
 
-    public Element getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
+	public Element getContenedorIzquierdo() {
+		return contenedorIzquierdo;
 	}
 
-	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	public void setContenedorIzquierdo(Element contenedorIzquierdo) {
+		this.contenedorIzquierdo = contenedorIzquierdo;
+	}
+
+	public Element getContenedorDerecho() {
+		return contenedorDerecho;
+	}
+
+	public void setContenedorDerecho(Element contenedorDerecho) {
+		this.contenedorDerecho = contenedorDerecho;
 	}
 
 	public Image getFotoImg() {
@@ -117,8 +125,10 @@ public class VistaVer_perfil_propio extends LitTemplate {
 	private Button seguidosB;
 	@Id("notificacionesB")
 	private Button notificacionesB;
-	@Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
+	@Id("contenedorIzquierdo")
+	private Element contenedorIzquierdo;
+	@Id("contenedorDerecho")
+	private Element contenedorDerecho;
 
 	/**
      * Creates a new VistaVer_perfil_propio.

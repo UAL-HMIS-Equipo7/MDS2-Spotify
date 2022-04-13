@@ -16,7 +16,9 @@ public class Artista extends Actor_comun {
 	public Artista() {
 		super();
 		
-		_cabecera_Artista = new Cabecera_Artista();
+		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
+		
+		_cabecera_Artista = new Cabecera_Artista(vl);
 		//_cabecera_Artista.setClassName("cabecera");
 		
 		_cabecera_Artista.getInicioB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
@@ -28,7 +30,7 @@ public class Artista extends Actor_comun {
 			}
 		});
 		
-		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
+		
 		vl.add(_cabecera_Artista);
 	}
 }

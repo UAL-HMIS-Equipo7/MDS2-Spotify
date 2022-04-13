@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaContactar_con_la_empresa;
 
 public class Contactar_con_la_empresa extends VistaContactar_con_la_empresa {
@@ -12,8 +14,9 @@ public class Contactar_con_la_empresa extends VistaContactar_con_la_empresa {
 //	private Button _enviarB;
 //	private Button _cancelarB;
 	
-	public Contactar_con_la_empresa() {
+	public Contactar_con_la_empresa(VerticalLayout layoutPadre) {
 		
+		//Enviar y Cancelar Button
 	}
 
 	public void Enviar() {

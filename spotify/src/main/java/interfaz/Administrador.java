@@ -17,7 +17,9 @@ public class Administrador extends Actor_comun {
 	public Administrador() {
 		super(true);
 		
-		_cabecera_Administrador = new Cabecera_Administrador();
+		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
+		
+		_cabecera_Administrador = new Cabecera_Administrador(vl);
 		
 		_cabecera_Administrador.getInicioB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 
@@ -28,7 +30,7 @@ public class Administrador extends Actor_comun {
 			}
 		});
 		
-		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
+		
 		vl.add(_cabecera_Administrador);
 		
 		this.getMenuAdministracionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

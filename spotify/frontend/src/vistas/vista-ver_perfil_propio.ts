@@ -1,7 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-listas_de_reproduccion_perfil';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-ver_perfil_propio')
@@ -19,7 +18,7 @@ export class VistaVer_perfil_propio extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-between;">
-  <vaadin-vertical-layout theme="spacing" style="align-items: center; margin: var(--lumo-space-m); padding: var(--lumo-space-m);">
+  <vaadin-vertical-layout theme="spacing" style="align-items: center; margin: var(--lumo-space-m); padding: var(--lumo-space-m);" id="contenedorIzquierdo">
    <img id="fotoImg" src="https://skillz4kidzmartialarts.com/wp-content/uploads/2017/04/default-image-620x600.jpg" style="width: 30%;">
    <label id="emailL">Email</label>
    <label id="nickL">Nick</label>
@@ -33,7 +32,7 @@ export class VistaVer_perfil_propio extends LitElement {
      Añadir información de conciertos 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-m);" id="vaadinVerticalLayout">
+  <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-m); align-items: center;" id="contenedorDerecho">
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-around;">
     <vaadin-button id="seguidoresB">
       Seguidores: X 
@@ -45,7 +44,6 @@ export class VistaVer_perfil_propio extends LitElement {
       Notificaciones 
     </vaadin-button>
    </vaadin-horizontal-layout>
-   <vista-listas_de_reproduccion_perfil></vista-listas_de_reproduccion_perfil>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
