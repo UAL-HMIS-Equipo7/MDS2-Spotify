@@ -16,7 +16,7 @@ export class VistaVer_menu_de_altas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;" id="layoutPrincipal">
  <vaadin-button id="cerrarB" style="align-self: flex-start; margin: var(--lumo-space-l);">
    Cerrar 
  </vaadin-button>

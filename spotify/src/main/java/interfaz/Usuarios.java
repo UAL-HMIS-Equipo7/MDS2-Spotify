@@ -39,7 +39,7 @@ public class Usuarios extends VistaUsuarios {
 		Usuario temp;
 		
 		for(int i = 0; i < 8; i++) {
-			temp = new Usuario();
+			temp = new Usuario(this.getVaadinVerticalLayout().as(VerticalLayout.class));
 			
 			_list_Usuario.add(temp);
 		}

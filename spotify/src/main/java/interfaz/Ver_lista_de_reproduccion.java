@@ -1,5 +1,8 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
@@ -31,6 +34,26 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
 		
 		hl.add(_canciones_de_lista);
+		
+		this.getSeguirB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				Seguir_lista_de_reproduccion();
+				
+			}
+		});
+		
+		this.getCompartirB().addClickListener(new ComponentEventListener<ClickEvent<Button>>(){
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				Compartir_lista_de_reproduccion();
+				
+			}
+		});
 		
 		
 	}

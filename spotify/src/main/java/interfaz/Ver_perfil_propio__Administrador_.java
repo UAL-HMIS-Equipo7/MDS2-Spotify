@@ -3,6 +3,7 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
@@ -45,6 +46,22 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 				getEmailL().setVisible(false);
 				getModificarInformacionB().setVisible(false);
 			}
+		});
+		
+		this.getNotificacionesB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				Dialog ventanaModal = new Dialog();
+				
+				_ver_notificaciones = new Ver_notificaciones(ventanaModal);
+				
+				ventanaModal.add(_ver_notificaciones);
+				ventanaModal.open();
+				
+			}
+			
 		});
 
 	}

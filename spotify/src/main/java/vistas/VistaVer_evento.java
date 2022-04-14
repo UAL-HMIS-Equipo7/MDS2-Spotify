@@ -19,12 +19,12 @@ import com.vaadin.flow.component.textfield.TextField;
 @JsModule("./src/vistas/vista-ver_evento.ts")
 public class VistaVer_evento extends LitTemplate {
 
-    public Button getVaadinButton() {
-		return vaadinButton;
+    public Button getAtrasB() {
+		return atrasB;
 	}
 
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
+	public void setAtrasB(Button atrasB) {
+		this.atrasB = atrasB;
 	}
 
 	public Label getTituloL() {
@@ -75,8 +75,7 @@ public class VistaVer_evento extends LitTemplate {
 		this.precioL = precioL;
 	}
 
-	@Id("vaadinButton")
-	private Button vaadinButton;
+
 	@Id("tituloL")
 	private Label tituloL;
 	@Id("fotoEventoImg")
@@ -89,6 +88,8 @@ public class VistaVer_evento extends LitTemplate {
 	private TextField descripcionTF;
 	@Id("precioL")
 	private Label precioL;
+	@Id("atrasB")
+	private Button atrasB;
 
 	/**
      * Creates a new VistaVer_evento.

@@ -7,6 +7,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-ver_menu_de_altas template.
@@ -18,7 +19,15 @@ import com.vaadin.flow.component.html.Label;
 @JsModule("./src/vistas/vista-ver_menu_de_altas.ts")
 public class VistaVer_menu_de_altas extends LitTemplate {
 
-    public Button getCerrarB() {
+    public Element getLayoutPrincipal() {
+		return layoutPrincipal;
+	}
+
+	public void setLayoutPrincipal(Element layoutPrincipal) {
+		this.layoutPrincipal = layoutPrincipal;
+	}
+
+	public Button getCerrarB() {
 		return cerrarB;
 	}
 
@@ -108,6 +117,10 @@ public class VistaVer_menu_de_altas extends LitTemplate {
 	private Label artistaL;
 	@Id("artistaB")
 	private Image artistaB;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+	@Id("layoutPrincipal")
+	private Element layoutPrincipal;
 
 	/**
      * Creates a new VistaVer_menu_de_altas.
