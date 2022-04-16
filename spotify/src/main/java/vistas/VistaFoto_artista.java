@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-foto_artista template.
@@ -25,19 +26,18 @@ public class VistaFoto_artista extends LitTemplate {
 		this.fotoB = fotoB;
 	}
 
-	public Element getNickB() {
+	public Button getNickB() {
 		return nickB;
 	}
 
-	public void setNickB(Element nickB) {
+	public void setNickB(Button nickB) {
 		this.nickB = nickB;
 	}
 
 	@Id("fotoB")
 	private Image fotoB;
 	@Id("nickB")
-	private Element nickB;
-
+	private Button nickB;
 	/**
      * Creates a new VistaFoto_artista.
      */

@@ -14,7 +14,7 @@ public class Artista extends Actor_comun {
 	public Cabecera_Artista _cabecera_Artista;
 	
 	public Artista() {
-		super();
+		super(false);
 		
 		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
 		

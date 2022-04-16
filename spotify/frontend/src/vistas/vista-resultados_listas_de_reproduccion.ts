@@ -1,7 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-lista_de_reproduccion_ajena';
 
 @customElement('vista-resultados_listas_de_reproduccion')
 export class VistaResultados_listas_de_reproduccion extends LitElement {
@@ -16,17 +15,10 @@ export class VistaResultados_listas_de_reproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
  <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Listas de reproducción</label>
- <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s);" id="contenedorSuperior">
-  <vista-lista_de_reproduccion_ajena></vista-lista_de_reproduccion_ajena>
-  <vista-lista_de_reproduccion_ajena></vista-lista_de_reproduccion_ajena>
-  <vista-lista_de_reproduccion_ajena></vista-lista_de_reproduccion_ajena>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s);" id="contenedorInferior">
-  <vista-lista_de_reproduccion_ajena></vista-lista_de_reproduccion_ajena>
-  <vista-lista_de_reproduccion_ajena></vista-lista_de_reproduccion_ajena>
- </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s);" id="contenedorSuperior"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s);" id="contenedorInferior"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

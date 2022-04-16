@@ -1,5 +1,8 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+
+import spotify.AudioPlayer;
 import vistas.VistaReproductor;
 
 public class Reproductor extends VistaReproductor {
@@ -15,4 +18,15 @@ public class Reproductor extends VistaReproductor {
 //	public void Modificar_volumen() {
 //		throw new UnsupportedOperationException();
 //	}
+	
+	public AudioPlayer _audioPlayer;
+	
+	public Reproductor() {
+		
+		HorizontalLayout hl = this.getContenedor();
+		
+		_audioPlayer = new AudioPlayer();
+		
+		hl.add(_audioPlayer);
+	}
 }

@@ -24,8 +24,6 @@ public class VistaCabecera_superior extends LitTemplate {
 	private Image inicioB;
 	@Id("telefonoL")
 	private Label telefonoL;
-	@Id("contactoB")
-	private Element contactoB;
 	@Id("buscarB")
 	private Image buscarB;
 	@Id("buscarTF")
@@ -36,6 +34,13 @@ public class VistaCabecera_superior extends LitTemplate {
 	private Button verPerfilUsuarioB;
 	@Id("verPerfilArtistaB")
 	private Button verPerfilArtistaB;
+	@Id("verPerfilAdministradorB")
+	private Button verPerfilAdministradorB;
+	@Id("cerrarSesionB")
+	private Button cerrarSesionB;
+	@Id("contactoB")
+	private Button contactoB;
+	
 	public Image getInicioB() {
 		return inicioB;
 	}
@@ -52,11 +57,11 @@ public class VistaCabecera_superior extends LitTemplate {
 		this.telefonoL = telefonoL;
 	}
 
-	public Element getContactoB() {
+	public Button getContactoB() {
 		return contactoB;
 	}
 
-	public void setContactoB(Element contactoB) {
+	public void setContactoB(Button contactoB) {
 		this.contactoB = contactoB;
 	}
 
@@ -115,11 +120,6 @@ public class VistaCabecera_superior extends LitTemplate {
 	public void setCerrarSesionB(Button cerrarSesionB) {
 		this.cerrarSesionB = cerrarSesionB;
 	}
-
-	@Id("verPerfilAdministradorB")
-	private Button verPerfilAdministradorB;
-	@Id("cerrarSesionB")
-	private Button cerrarSesionB;
 
 	/**
      * Creates a new VistaCabecera_superior.

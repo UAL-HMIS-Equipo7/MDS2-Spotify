@@ -2,7 +2,6 @@ import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import './vista-canciones_de_lista';
 
 @customElement('vista-ver_lista_de_reproduccion')
 export class VistaVer_lista_de_reproduccion extends LitElement {
@@ -31,7 +30,9 @@ export class VistaVer_lista_de_reproduccion extends LitElement {
  <vaadin-vertical-layout theme="spacing" style="width: 50%; height: 100%;">
   <label id="informacionL" style="align-self: center;">Información de la lista</label>
   <label id="tituloL" style="align-self: center;">Título</label>
-  <a href="https://vaadin.com" id="autorB" style="align-self: center;">Autor de la lista</a>
+  <vaadin-button id="autorB" style="align-self: center;">
+   Autor
+  </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>
 `;

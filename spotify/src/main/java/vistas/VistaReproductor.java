@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-reproductor template.
@@ -17,7 +18,23 @@ import com.vaadin.flow.component.html.Label;
 @JsModule("./src/vistas/vista-reproductor.ts")
 public class VistaReproductor extends LitTemplate {
 
-    public Button getCreditosB() {
+    public Button getTituloB() {
+		return tituloB;
+	}
+
+	public void setTituloB(Button tituloB) {
+		this.tituloB = tituloB;
+	}
+
+	public HorizontalLayout getContenedor() {
+		return contenedor;
+	}
+
+	public void setContenedor(HorizontalLayout contenedor) {
+		this.contenedor = contenedor;
+	}
+
+	public Button getCreditosB() {
 		return creditosB;
 	}
 
@@ -37,6 +54,10 @@ public class VistaReproductor extends LitTemplate {
 	private Button creditosB;
 	@Id("tituloL")
 	private Label tituloL;
+	@Id("tituloB")
+	private Button tituloB;
+	@Id("contenedor")
+	private HorizontalLayout contenedor;
 
 	/**
      * Creates a new VistaReproductor.

@@ -19,7 +19,9 @@ export class VistaCabecera_superior extends LitElement {
 <vaadin-horizontal-layout class="content" style="margin: var(--lumo-space-xs); justify-content: center; align-items: center;">
  <img id="inicioB" style="width: 10%; height: 10%; margin: var(--lumo-space-xs);" src="https://cdn.pixabay.com/photo/2013/07/12/15/53/home-150499_960_720.png">
  <label id="telefonoL" style="margin: var(--lumo-space-xs);">900900900</label>
- <a href="https://vaadin.com" id="contactoB" style="margin: var(--lumo-space-xs);">Correo@contacto</a>
+ <vaadin-button id="contactoB" style="margin: var(--lumo-space-xs);">
+  Contactar
+ </vaadin-button>
  <img id="buscarB" style="width: 7%; height: 8%; margin: var(--lumo-space-xs);" src="http://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png">
  <vaadin-text-field label="" placeholder="Buscar" id="buscarTF" style="width: 15%; margin: var(--lumo-space-xs);"></vaadin-text-field>
  <img style="width: 15%; height: 15%; margin: var(--lumo-space-xs);" src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&amp;quality=20" id="perfilImg">

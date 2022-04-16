@@ -32,17 +32,16 @@ public class Actor_comun extends VistaActor_comun {
 	public void setMenuAdministracionB(Button menuAdministracionB) {
 		this.menuAdministracionB = menuAdministracionB;
 	}
-
-	public Actor_comun() {
-		
-		Inicializar(false);
-		
-	}
 	
 	public Actor_comun(boolean menuAdministracionVisible) {
 		
 		Inicializar(menuAdministracionVisible);
 		
+		VerticalLayout vl = getLayoutReproductor().as(VerticalLayout.class);
+		
+		_reproductor__No_Cibernauta_ = new Reproductor__No_Cibernauta_(getLayoutPrincipal().as(VerticalLayout.class));
+		
+		vl.add(_reproductor__No_Cibernauta_);
 	}
 	
 	public void Inicializar(boolean menuAdministracionVisible) {

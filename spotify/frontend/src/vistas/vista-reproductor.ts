@@ -17,11 +17,13 @@ export class VistaReproductor extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center; align-items: center;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center;">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center;" id="contenedor">
+  <vaadin-button id="tituloB">
+    TituloCancion 
+  </vaadin-button>
   <label id="tituloL" style="align-self: center;">TituloCancion</label>
-  <audio src="" controls="controls" type="audio/mpeg" preload="preload" style="align-self: center;" id="audioPlayer"></audio>
   <vaadin-button id="creditosB">
-   Créditos
+    Créditos 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

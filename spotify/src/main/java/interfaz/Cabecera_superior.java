@@ -28,11 +28,16 @@ public class Cabecera_superior extends VistaCabecera_superior {
 		this.getVerPerfilArtistaB().setVisible(false);
 		this.getVerPerfilUsuarioB().setVisible(false);
 		
-		this.getContactoB().addEventListener("click", e -> {
-			_contactar_con_la_empresa = new Contactar_con_la_empresa(layoutPadre);
+		this.getContactoB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
-			layoutPadre.removeAll();
-			layoutPadre.add(_contactar_con_la_empresa);
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				_contactar_con_la_empresa = new Contactar_con_la_empresa(layoutPadre);
+				
+				layoutPadre.removeAll();
+				layoutPadre.add(_contactar_con_la_empresa);
+			}
 		});
 		
 		this.getBuscarB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {

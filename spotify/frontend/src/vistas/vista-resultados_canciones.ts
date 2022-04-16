@@ -1,7 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-cancion';
 
 @customElement('vista-resultados_canciones')
 export class VistaResultados_canciones extends LitElement {
@@ -16,18 +15,10 @@ export class VistaResultados_canciones extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center;">Canciones</label>
- <vaadin-horizontal-layout theme="spacing" id="contenedorSuperior">
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" id="contenedorInferior">
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
-  <vista-cancion></vista-cancion>
- </vaadin-horizontal-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Canciones</label>
+ <vaadin-horizontal-layout theme="spacing" id="contenedorSuperior" style="align-items: center; justify-content: center;"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" id="contenedorInferior" style="align-items: center; justify-content: center;"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

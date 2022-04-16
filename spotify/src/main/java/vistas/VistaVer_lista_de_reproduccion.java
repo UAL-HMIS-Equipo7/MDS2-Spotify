@@ -59,11 +59,11 @@ public class VistaVer_lista_de_reproduccion extends LitTemplate {
 		this.tituloL = tituloL;
 	}
 
-	public Element getAutorB() {
+	public Button getAutorB() {
 		return autorB;
 	}
 
-	public void setAutorB(Element autorB) {
+	public void setAutorB(Button autorB) {
 		this.autorB = autorB;
 	}
 
@@ -75,10 +75,10 @@ public class VistaVer_lista_de_reproduccion extends LitTemplate {
 	private Label informacionL;
 	@Id("tituloL")
 	private Label tituloL;
-	@Id("autorB")
-	private Element autorB;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("autorB")
+	private Button autorB;
 
 	/**
      * Creates a new VistaVer_lista_de_reproduccion.

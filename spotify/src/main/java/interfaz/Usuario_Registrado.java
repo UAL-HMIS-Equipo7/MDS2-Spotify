@@ -12,7 +12,7 @@ public class Usuario_Registrado extends Actor_comun {
 	public Cabecera_Usuario_Registrado _cabecera_Usuario_Registrado;
 	
 	public Usuario_Registrado() {
-		super();
+		super(false);
 		
 		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
 		

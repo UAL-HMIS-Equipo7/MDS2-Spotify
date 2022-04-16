@@ -1,5 +1,10 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 public class Reproductor__No_Cibernauta_ extends Reproductor {
 //	private event _avanzar_10_segundos;
 //	private event _retroceder_10_segundos;
@@ -15,6 +20,26 @@ public class Reproductor__No_Cibernauta_ extends Reproductor {
 //	private Button _siguienteB;
 //	private Slider _barraVolumenSD;
 	public Ver_cancion _ver_cancion;
+	
+	public Reproductor__No_Cibernauta_(VerticalLayout layoutPadre) {
+		
+		super();
+		
+		this.getCreditosB().setVisible(false);
+		this.getTituloL().setVisible(false);
+		
+		this.getTituloB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				_ver_cancion = new Ver_cancion(layoutPadre);
+				
+				layoutPadre.removeAll();
+				layoutPadre.add(_ver_cancion);
+			}
+		});
+	}
 
 	public void Avanzar_10_segundos() {
 		throw new UnsupportedOperationException();

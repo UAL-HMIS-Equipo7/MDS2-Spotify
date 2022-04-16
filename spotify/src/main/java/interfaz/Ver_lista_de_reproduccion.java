@@ -34,11 +34,18 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 		
 		hl.add(_canciones_de_lista);
 		
-		this.getAutorB().addEventListener("click", e -> {
+		this.getAutorB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
-			//Comprobar si el autor es un artista o no, para mandarle a uno u otro
-			//_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(layoutPadre);
-			_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista(layoutPadre);
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				//Comprobar si el autor es un artista o no, para mandarle a uno u otro
+				//_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(layoutPadre);
+				_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista(layoutPadre);
+				
+				layoutPadre.removeAll();
+				layoutPadre.add(_ver_perfil_ajeno_de_no_artista);
+			}
 		});
 		
 		this.getSeguirB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

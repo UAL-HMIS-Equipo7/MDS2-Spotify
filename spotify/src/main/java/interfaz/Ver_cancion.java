@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaVer_cancion;
 
@@ -25,7 +26,7 @@ public class Ver_cancion extends VistaVer_cancion {
 //	private Label _creditoEstiloL;
 //	private Image _fotoCancionImg;
 	
-	public Ver_cancion() {
+	public Ver_cancion(VerticalLayout layoutPadre) {
 		
 		this.getAniadirFavoritosB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

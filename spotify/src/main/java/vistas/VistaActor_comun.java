@@ -17,7 +17,15 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-actor_comun.ts")
 public class VistaActor_comun extends LitTemplate {
 
-    public Element getLayoutCabecera() {
+    public Element getLayoutReproductor() {
+		return layoutReproductor;
+	}
+
+	public void setLayoutReproductor(Element layoutReproductor) {
+		this.layoutReproductor = layoutReproductor;
+	}
+
+	public Element getLayoutCabecera() {
 		return layoutCabecera;
 	}
 
@@ -77,6 +85,8 @@ public class VistaActor_comun extends LitTemplate {
 	private Element layoutPrincipal;
 	@Id("LayoutCabecera")
 	private Element layoutCabecera;
+	@Id("LayoutReproductor")
+	private Element layoutReproductor;
 	/**
      * Creates a new VistaActor_comun.
      */

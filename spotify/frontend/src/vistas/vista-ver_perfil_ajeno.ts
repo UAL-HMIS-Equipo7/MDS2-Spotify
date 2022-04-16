@@ -2,7 +2,6 @@ import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import './vista-listas_de_reproduccion_perfil';
 
 @customElement('vista-ver_perfil_ajeno')
 export class VistaVer_perfil_ajeno extends LitElement {
@@ -32,7 +31,6 @@ export class VistaVer_perfil_ajeno extends LitElement {
     <label id="seguidoresL">Seguidores: X</label>
     <label id="seguidosL">Seguidos: X</label>
    </vaadin-horizontal-layout>
-   <vista-listas_de_reproduccion_perfil></vista-listas_de_reproduccion_perfil>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

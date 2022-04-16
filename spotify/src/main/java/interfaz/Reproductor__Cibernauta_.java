@@ -15,6 +15,10 @@ public class Reproductor__Cibernauta_ extends Reproductor {
 	
 	public Reproductor__Cibernauta_(VerticalLayout layoutPadre) {
 		
+		super();
+		
+		this.getTituloB().setVisible(false);
+		
 		this.getCreditosB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
