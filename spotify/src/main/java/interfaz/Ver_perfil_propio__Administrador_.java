@@ -55,7 +55,7 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 				
 				Dialog ventanaModal = new Dialog();
 				
-				_ver_notificaciones = new Ver_notificaciones(ventanaModal);
+				_ver_notificaciones = new Ver_notificaciones(layoutPadre, ventanaModal);
 				
 				ventanaModal.add(_ver_notificaciones);
 				ventanaModal.open();

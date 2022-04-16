@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaUltimas_canciones_reproducidas;
 import vistas.VistaVer_lista_de_reproduccion;
@@ -24,16 +25,21 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 	public Ver_perfil_ajeno_de_artista _ver_perfil_ajeno_de_artista;
 	public Canciones_de_lista _canciones_de_lista;
 
-	public Ver_lista_de_reproduccion() {
+	public Ver_lista_de_reproduccion(VerticalLayout layoutPadre) {
 		
-//		_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
-//		_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista();
-		_canciones_de_lista = new Canciones_de_lista();
+		_canciones_de_lista = new Canciones_de_lista(layoutPadre);
 		_canciones_de_lista.setClassName("fullSize");
 		
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
 		
 		hl.add(_canciones_de_lista);
+		
+		this.getAutorB().addEventListener("click", e -> {
+			
+			//Comprobar si el autor es un artista o no, para mandarle a uno u otro
+			//_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(layoutPadre);
+			_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista(layoutPadre);
+		});
 		
 		this.getSeguirB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

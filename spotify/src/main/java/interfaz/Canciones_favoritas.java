@@ -20,24 +20,11 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 	public Vector<Cancion> _list_Cancion = new Vector<Cancion>();
 	public Ver_lista_de_reproduccion_propia _ver_lista_de_reproduccion_propia;
 	
-	public Canciones_favoritas() {
-		
-		CargarCanciones();
-		
-		HorizontalLayout hlSup = this.getContenedorSuperior();
-		
-		for (int i = 0; i < 5 && i < _list_Cancion.size(); i++) {
-			hlSup.add(_list_Cancion.get(i));
-		}
-		
-		HorizontalLayout hlInf = this.getContenedorInferior();
-		
-		for (int i = 5; i < 10 && i < _list_Cancion.size(); i++) {
-			hlInf.add(_list_Cancion.get(i));
-		}
-	}
+	private VerticalLayout layoutPadre;
 	
-	public Canciones_favoritas(VerticalLayout vl) {
+	public Canciones_favoritas(VerticalLayout layoutPadre) {
+		
+		this.layoutPadre = layoutPadre;
 		
 		CargarCanciones();
 		
@@ -58,10 +45,10 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_ver_lista_de_reproduccion_propia = new Ver_lista_de_reproduccion_propia(vl);
+				_ver_lista_de_reproduccion_propia = new Ver_lista_de_reproduccion_propia(layoutPadre);
 				
-				vl.removeAll();
-				vl.add(_ver_lista_de_reproduccion_propia);
+				layoutPadre.removeAll();
+				layoutPadre.add(_ver_lista_de_reproduccion_propia);
 			}
 		});
 	}
@@ -70,7 +57,7 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 		Cancion temp;
 		
 		for (int i = 0; i < 10; i++) {
-			temp = new Cancion();
+			temp = new Cancion(layoutPadre);
 			
 			_list_Cancion.add(temp);
 		}

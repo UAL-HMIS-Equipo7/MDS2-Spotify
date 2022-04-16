@@ -3,6 +3,7 @@ package interfaz;
 import java.util.Vector;
 
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import interfaz.Cancion;
 import vistas.VistaUltimas_canciones_reproducidas;
@@ -11,7 +12,11 @@ public class Ultimas_canciones_reproducidas extends VistaUltimas_canciones_repro
 //	private Label _tituloL;
 	public Vector<Cancion> _list_Cancion = new Vector<Cancion>();
 	
-	public Ultimas_canciones_reproducidas() {
+	private VerticalLayout layoutPadre;
+	
+	public Ultimas_canciones_reproducidas(VerticalLayout layoutPadre) {
+		
+		this.layoutPadre = layoutPadre;
 		
 		CargarCanciones();
 		
@@ -32,7 +37,7 @@ public class Ultimas_canciones_reproducidas extends VistaUltimas_canciones_repro
 		Cancion temp;
 		
 		for (int i = 0; i < 10; i++) {
-			temp = new Cancion();
+			temp = new Cancion(layoutPadre);
 			
 			_list_Cancion.add(temp);
 		}

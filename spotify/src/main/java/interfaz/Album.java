@@ -1,5 +1,10 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaAlbum;
 
 public class Album extends VistaAlbum {
@@ -7,8 +12,18 @@ public class Album extends VistaAlbum {
 
 	public Ver_album _ver_album;
 	
-	public Album() {
-		// TODO Auto-generated constructor stub
-		_ver_album = new Ver_album();
+	public Album(VerticalLayout layoutPadre) {
+		
+		this.getFotoB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Image> event) {
+				
+				_ver_album = new Ver_album(layoutPadre);
+				
+				layoutPadre.removeAll();
+				layoutPadre.add(_ver_album);
+			}
+		});
 	}
 }

@@ -11,12 +11,12 @@ public class Ver_lista_seguidos extends VistaVer_lista_seguidos {
 	public Usuarios _usuarios;
 	public Artistas _artistas;
 	
-	public Ver_lista_seguidos() {
+	public Ver_lista_seguidos(VerticalLayout layoutPadre) {
 		
 		Scroller scroll = this.getNavegacionSB();
 		
-		_usuarios = new Usuarios();
-		_artistas = new Artistas();
+		_usuarios = new Usuarios(layoutPadre);
+		_artistas = new Artistas(layoutPadre);
 		
 		VerticalLayout vlizq = new VerticalLayout();
 		VerticalLayout vlder = new VerticalLayout();

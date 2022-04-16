@@ -12,11 +12,15 @@ import interfaz.Albumes_recomendados;
 
 public class Recomendaciones extends VistaRecomendaciones {
 //	private Label _tituloL;
-	public Canciones_recomendadas _canciones_recomendadas = new Canciones_recomendadas();
-	public Listas_recomendadas _listas_recomendadas = new Listas_recomendadas();
-	public Albumes_recomendados _albumes_recomendados = new Albumes_recomendados();
+	public Canciones_recomendadas _canciones_recomendadas;
+	public Listas_recomendadas _listas_recomendadas;
+	public Albumes_recomendados _albumes_recomendados;
 
-	public Recomendaciones() {
+	public Recomendaciones(VerticalLayout layoutPadre) {
+		
+		_canciones_recomendadas = new Canciones_recomendadas(layoutPadre);
+		_listas_recomendadas = new Listas_recomendadas(layoutPadre);
+		_albumes_recomendados = new Albumes_recomendados(layoutPadre);
 		
 		_canciones_recomendadas.getStyle().set("align-self", "center");
 		_canciones_recomendadas.getStyle().set("height", "30%");

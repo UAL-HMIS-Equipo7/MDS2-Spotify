@@ -1,6 +1,21 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 public class NickArtista extends Foto_Artista {
 //	private Button _nickB;
-//	public Artistas _artistas;
+	
+	public NickArtista(VerticalLayout layoutPadre) {
+		super(layoutPadre);
+		
+		this.getNickB().setVisible(true);
+		
+		this.getNickB().addEventListener("click", e -> {
+			
+			_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(layoutPadre);
+			
+			layoutPadre.removeAll();
+			layoutPadre.add(_ver_perfil_ajeno_de_artista);
+		});
+	}
 }

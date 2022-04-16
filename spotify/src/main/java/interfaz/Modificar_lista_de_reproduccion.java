@@ -16,11 +16,11 @@ public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_rep
 	
 	private VerticalLayout vl;
 	
-	public Modificar_lista_de_reproduccion() {
+	public Modificar_lista_de_reproduccion(VerticalLayout layoutPadre) {
 		
 		vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		_crear_lista_de_reproduccion = new Crear_lista_de_reproduccion();
+		_crear_lista_de_reproduccion = new Crear_lista_de_reproduccion(layoutPadre);
 		vl.add(_crear_lista_de_reproduccion);
 		
 		this.getEliminarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

@@ -11,21 +11,22 @@ public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 
 	public Ver_perfil_ajeno_de_artista(VerticalLayout layoutPadre) {
 		super(layoutPadre);
-		_panel_artista = new Panel_artista();
+
+		_panel_artista = new Panel_artista(layoutPadre);
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(_panel_artista);
-		
-	this.getSeguirB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
+
+		this.getSeguirB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Seguir_artista();
-				
+
 			}
 		});
-		
+
 	}
-	
+
 	public void Seguir_artista() {
 		throw new UnsupportedOperationException();
 	}

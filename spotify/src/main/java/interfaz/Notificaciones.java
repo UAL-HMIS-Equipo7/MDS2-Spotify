@@ -4,15 +4,23 @@ import vistas.VistaNotificaciones;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.Scroller;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import interfaz.Notificacion;
 
 public class Notificaciones extends VistaNotificaciones {
 	public Vector<Notificacion> _list_Notificacion = new Vector<Notificacion>();
 	
-	public Notificaciones() {
+	private VerticalLayout layoutPadre;
+	private Dialog ventanaModal;
+	
+	public Notificaciones(VerticalLayout layoutPadre, Dialog ventanaModal) {
+		
+		this.layoutPadre = layoutPadre;
+		this.ventanaModal = ventanaModal;
 
 		CargarNotificaciones();
 		
@@ -32,7 +40,7 @@ public class Notificaciones extends VistaNotificaciones {
 		Notificacion temp;
 		
 		for (int i = 0; i < 5; i++) {
-			temp = new Notificacion();
+			temp = new Notificacion(layoutPadre, ventanaModal);
 			
 			_list_Notificacion.add(temp);
 		}

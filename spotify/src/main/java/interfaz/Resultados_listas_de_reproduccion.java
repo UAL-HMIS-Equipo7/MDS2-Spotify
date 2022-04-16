@@ -3,6 +3,7 @@ package interfaz;
 import java.util.Vector;
 
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import interfaz.Lista_de_reproduccion_ajena;
 import vistas.VistaResultados_listas_de_reproduccion;
@@ -11,7 +12,11 @@ public class Resultados_listas_de_reproduccion extends VistaResultados_listas_de
 //	private Label _tituloL;
 	public Vector<Lista_de_reproduccion_ajena> _list_Lista_de_reproduccion_ajena = new Vector<Lista_de_reproduccion_ajena>();
 	
-	public Resultados_listas_de_reproduccion() {
+	private VerticalLayout layoutPadre;
+	
+	public Resultados_listas_de_reproduccion(VerticalLayout layoutPadre) {
+		
+		this.layoutPadre = layoutPadre;
 		
 		CargarListaDeReproduccionAjena();
 		
@@ -32,7 +37,7 @@ public class Resultados_listas_de_reproduccion extends VistaResultados_listas_de
 		Lista_de_reproduccion_ajena temp;
 		
 		for (int i = 0; i < 10; i++) {
-			temp = new Lista_de_reproduccion_ajena();
+			temp = new Lista_de_reproduccion_ajena(layoutPadre);
 			
 			_list_Lista_de_reproduccion_ajena.add(temp);
 		}

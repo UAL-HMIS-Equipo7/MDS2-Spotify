@@ -6,6 +6,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import interfaz.Album;
 import vistas.VistaAlbumes;
@@ -15,11 +16,11 @@ public class Albumes extends VistaAlbumes {
 
 	public Vector<Album> _list_Album = new Vector<Album>();
 	
-	public Albumes() {
+	private VerticalLayout layoutPadre;
+	
+	public Albumes(VerticalLayout layoutPadre) {
 		
-		//Formato:
-		//HorizontalLayout (Style: width: 100%; height: 100%; justify-content: center; align-items: center; margin: var(--lumo-space-s); )
-		//Dos Album con clase "albumes" por cada horizontal
+		this.layoutPadre = layoutPadre;
 		
 		CargarAlbumes();
 		
@@ -51,7 +52,7 @@ public class Albumes extends VistaAlbumes {
 		Album temp;
 		
 		for (int i = 0; i < 6; i++) {
-			temp = new Album();
+			temp = new Album(layoutPadre);
 			temp.setClassName("album");
 			
 			_list_Album.add(temp);

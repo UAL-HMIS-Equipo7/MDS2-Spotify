@@ -11,12 +11,17 @@ import vistas.VistaUsuarios;
 public class Usuarios extends VistaUsuarios {
 	public Vector<Usuario> _list_Usuario = new Vector<Usuario>();
 	
-	public Usuarios() {
+	private VerticalLayout layoutPadre;
+	
+	public Usuarios(VerticalLayout layoutPadre) {
+		
+		this.layoutPadre = layoutPadre;
 		
 		CargarUsuario();
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
+		//TODO -> Añadir un scroller??
 		HorizontalLayout tempHl = new HorizontalLayout();
 		tempHl.getElement().setAttribute("justify-content", "space-evenly");
 		
@@ -31,7 +36,7 @@ public class Usuarios extends VistaUsuarios {
 			tempHl.add(_list_Usuario.get(i));
 		}
 		
-	vl.add(tempHl);
+		vl.add(tempHl);
 		
 	}
 	
@@ -39,7 +44,7 @@ public class Usuarios extends VistaUsuarios {
 		Usuario temp;
 		
 		for(int i = 0; i < 8; i++) {
-			temp = new Usuario(this.getVaadinVerticalLayout().as(VerticalLayout.class));
+			temp = new Usuario(layoutPadre);
 			
 			_list_Usuario.add(temp);
 		}

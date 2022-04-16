@@ -5,6 +5,7 @@ import java.util.Vector;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import interfaz.Cancion;
 import vistas.VistaCanciones_mas_exitosas;
@@ -15,7 +16,11 @@ public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 
 	public Vector<Cancion> _list_Cancion = new Vector<Cancion>();
 	
-	public Canciones_mas_exitosas() {
+	private VerticalLayout layoutPadre;
+	
+	public Canciones_mas_exitosas(VerticalLayout layoutPadre) {
+		
+		this.layoutPadre = layoutPadre;
 		
 		CargarCanciones();
 		
@@ -45,7 +50,7 @@ public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 		Cancion temp;
 		
 		for (int i = 0; i < 4; i++) {
-			temp = new Cancion();
+			temp = new Cancion(layoutPadre);
 			
 			_list_Cancion.add(temp);
 		}

@@ -14,7 +14,12 @@ public class Artistas extends VistaArtistas {
 
 	public Vector<NickArtista> _list_NickArtista = new Vector<NickArtista>();
 	
-	public Artistas() {		
+	private VerticalLayout layoutPadre;
+	
+	public Artistas(VerticalLayout layoutPadre) {		
+		
+		this.layoutPadre = layoutPadre;
+		
 		CargarArtistas();
 		
 		//TODO -> Añadir un scroller??
@@ -41,7 +46,7 @@ public class Artistas extends VistaArtistas {
 		NickArtista temp;
 		
 		for (int i = 0; i < 6; i++) {
-			temp = new NickArtista();
+			temp = new NickArtista(layoutPadre);
 			temp.setClassName("fullSize");
 			
 			_list_NickArtista.add(temp);

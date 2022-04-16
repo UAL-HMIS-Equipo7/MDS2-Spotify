@@ -6,6 +6,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import interfaz.Evento;
 import vistas.VistaEventos;
@@ -17,7 +18,11 @@ public class Eventos extends VistaEventos {
 
 	public Vector<Evento> _list_Evento = new Vector<Evento>();
 	
-	public Eventos() {
+	private VerticalLayout layoutPadre;
+	
+	public Eventos(VerticalLayout layoutPadre) {
+		
+		this.layoutPadre = layoutPadre;
 		
 		CargarEventos();
 		
@@ -49,7 +54,7 @@ public class Eventos extends VistaEventos {
 		Evento temp;
 		
 		for (int i = 0; i < 4; i++) {
-			temp = new Evento();
+			temp = new Evento(layoutPadre);
 			
 			_list_Evento.add(temp);
 		}

@@ -3,6 +3,7 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class TituloCancion extends Cancion {
@@ -11,6 +12,19 @@ public class TituloCancion extends Cancion {
 //	public Canciones_album _canciones_album;
 	
 	public TituloCancion(VerticalLayout layoutPadre) {
+		
+		super(layoutPadre);
+		
+		this.getTituloB().setVisible(true);
+		
+		this.getTituloB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				Reproducir__No_Cibernauta_();
+			}
+		});
 		
 		/*this.getTituloB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

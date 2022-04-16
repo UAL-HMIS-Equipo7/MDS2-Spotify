@@ -5,6 +5,7 @@ import java.util.Vector;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import interfaz.TituloCancion;
 import vistas.VistaCanciones_de_lista;
@@ -14,7 +15,11 @@ public class Canciones_de_lista extends VistaCanciones_de_lista {
 
 	public Vector<TituloCancion> _list_TituloCancion = new Vector<TituloCancion>();
 	
-	public Canciones_de_lista() {
+	private VerticalLayout layoutPadre;
+	
+	public Canciones_de_lista(VerticalLayout layoutPadre) {
+		
+		this.layoutPadre = layoutPadre;
 		
 		CargarTitulosCancion();
 		
@@ -46,7 +51,7 @@ public class Canciones_de_lista extends VistaCanciones_de_lista {
 		TituloCancion temp;
 		
 		for (int i = 0; i < 6; i++) {
-			temp = new TituloCancion();
+			temp = new TituloCancion(layoutPadre);
 			
 			_list_TituloCancion.add(temp);
 		}

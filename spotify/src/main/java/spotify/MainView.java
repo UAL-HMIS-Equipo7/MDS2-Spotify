@@ -62,27 +62,29 @@ public class MainView extends VerticalLayout {
     	usuario_registrado.getStyle().set("width", "100%");   
     	usuario_registrado.getStyle().set("height", "100%");
     	
-    	cibernauta._iniciar_sesion.getIniciarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				String usuario = cibernauta._iniciar_sesion.getEmailTF().getValue();
-				
-				remove(cibernauta);
-				 
-				//Switch con el usuario
-				if (usuario.contains("usuario")) {
-					add(usuario_registrado);
-				}
-				else if (usuario.contains("artista")) {
-					add(artista);
-				}
-				else {
-					add(administrador);
-				}
-			}
-		});
+    	//Esto falla pq no está inicializado el iniciar sesion
+    	
+//    	cibernauta._iniciar_sesion.getIniciarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				
+//				String usuario = cibernauta._iniciar_sesion.getEmailTF().getValue();
+//				
+//				remove(cibernauta);
+//				 
+//				//Switch con el usuario
+//				if (usuario.contains("usuario")) {
+//					add(usuario_registrado);
+//				}
+//				else if (usuario.contains("artista")) {
+//					add(artista);
+//				}
+//				else {
+//					add(administrador);
+//				}
+//			}
+//		});
     	
     	administrador._cabecera_Administrador.getCerrarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -115,9 +117,11 @@ public class MainView extends VerticalLayout {
 						add(cibernauta);
 					}
 				});
+		
+		//Faltan los listeners para darse de baja
     	
 		//Actor con el que se inicia la aplicacion
-    	add(administrador);
+    	add(artista);
     }
 
 }

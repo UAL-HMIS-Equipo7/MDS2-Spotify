@@ -14,8 +14,6 @@ public class Usuario extends VistaUsuario {
 	
 	public Usuario(VerticalLayout layoutPadre) {
 		
-//		_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista();
-		
 		this.getNickB().addEventListener("click", e ->{
 			
 			_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista(layoutPadre);

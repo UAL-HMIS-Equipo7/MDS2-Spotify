@@ -13,8 +13,8 @@ public class Ver_notificaciones extends VistaVer_notificaciones {
 //	private Button _cerrarB;
 	public Notificaciones _notificaciones;
 	
-	public Ver_notificaciones(Dialog ventanaModal) {
-		_notificaciones = new Notificaciones();
+	public Ver_notificaciones(VerticalLayout layoutPadre, Dialog ventanaModal) {
+		_notificaciones = new Notificaciones(layoutPadre, ventanaModal);
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(_notificaciones);

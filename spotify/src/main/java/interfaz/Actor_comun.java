@@ -77,9 +77,9 @@ public class Actor_comun extends VistaActor_comun {
 		vl.add(verEstadisticasB);
 		vl.add(hl);
 		
-		_ultimas_canciones_reproducidas = new Ultimas_canciones_reproducidas();
+		_ultimas_canciones_reproducidas = new Ultimas_canciones_reproducidas(vl);
 		_canciones_favoritas = new Canciones_favoritas(vl);
-		_recomendaciones = new Recomendaciones();
+		_recomendaciones = new Recomendaciones(vl);
 		_recomendaciones.getStyle().set("height", "30%");
 		
 		contenedorIzquierdo.add(_ultimas_canciones_reproducidas);
@@ -98,29 +98,5 @@ public class Actor_comun extends VistaActor_comun {
 				vl.add(_ver_estadisticas);
 			}
 		});
-		
-//		VerticalLayout vIzq = this.getContenedorIzquierdo().as(VerticalLayout.class);
-//		vIzq.add(_ultimas_canciones_reproducidas);
-//		vIzq.add(_canciones_favoritas);
-//		
-//		VerticalLayout vDer = this.getContenedorDerecho().as(VerticalLayout.class);
-//		vDer.addComponentAsFirst(_recomendaciones);
-//		
-//		getMenuAdministracionB().setVisible(false);
-//		
-//		this.getVerEstadisticasB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				
-//				vl.removeAll();
-//				
-//				_ver_estadisticas = new Ver_estadisticas();
-//				
-//				vl.add(_ver_estadisticas);
-//				
-//			}
-//		});
-		
 	}
 }

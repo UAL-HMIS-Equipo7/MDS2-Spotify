@@ -6,6 +6,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import interfaz.Foto_Artista;
 import vistas.VistaArtistas_similares;
@@ -17,7 +18,11 @@ public class Artistas_similares extends VistaArtistas_similares {
 
 	public Vector<Foto_Artista> _list_Artista = new Vector<Foto_Artista>();
 	
-	public Artistas_similares() {
+	private VerticalLayout layoutPadre;
+	
+	public Artistas_similares(VerticalLayout layoutPadre) {
+		
+		this.layoutPadre = layoutPadre;
 		
 		CargarFotosArtista();
 		
@@ -52,7 +57,7 @@ public class Artistas_similares extends VistaArtistas_similares {
 		Foto_Artista temp;
 		
 		for (int i = 0; i < 4; i++) {
-			temp = new Foto_Artista();
+			temp = new Foto_Artista(layoutPadre);
 			temp.setClassName("artistasSimilares");
 			temp.getNickB().setVisible(false);
 			

@@ -6,6 +6,8 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.template.Id;
 
+import interfaz.NombreArtista;
+
 /**
  * A Designer generated component for the vista-autores_album template.
  *
@@ -17,13 +19,13 @@ import com.vaadin.flow.component.template.Id;
 public class VistaAutores_album extends LitTemplate {
 
     @Id("artistasCB")
-	private ComboBox<String> artistasCB;
+	private ComboBox<NombreArtista> artistasCB;
 
-	public ComboBox<String> getArtistasCB() {
+	public ComboBox<NombreArtista> getArtistasCB() {
 		return artistasCB;
 	}
 
-	public void setArtistasCB(ComboBox<String> artistasCB) {
+	public void setArtistasCB(ComboBox<NombreArtista> artistasCB) {
 		this.artistasCB = artistasCB;
 	}
 

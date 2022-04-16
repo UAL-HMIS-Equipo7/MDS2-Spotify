@@ -18,7 +18,7 @@ public class Ver_perfil_propio__Artista_ extends Ver_perfil_propio {
 		super(layoutPadre);
 		
 		 _editar_foto_de_perfil__Artista_ = new Editar_foto_de_perfil__Artista_();
-		 _panel_artista = new Panel_artista();
+		 _panel_artista = new Panel_artista(layoutPadre);
 		 
 		 VerticalLayout vl = this.getContenedorDerecho().as(VerticalLayout.class);
 		 vl.add(_panel_artista);

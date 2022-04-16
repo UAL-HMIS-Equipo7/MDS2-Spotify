@@ -11,7 +11,11 @@ public class Canciones_recomendadas extends VistaCanciones_recomendadas {
 
 	public Vector<Cancion> _list_Cancion = new Vector<Cancion>();
 	
-	public Canciones_recomendadas() {
+	private VerticalLayout layoutPadre;
+	
+	public Canciones_recomendadas(VerticalLayout layoutPadre) {
+		
+		this.layoutPadre = layoutPadre;
 		
 		CargarCanciones();
 		
@@ -24,7 +28,7 @@ public class Canciones_recomendadas extends VistaCanciones_recomendadas {
 		Cancion temp;
 		
 		for (int i = 0; i < 4; i++) {
-			temp = new Cancion();
+			temp = new Cancion(layoutPadre);
 			temp.getElement().setAttribute("width", "100%");
 			temp.getElement().setAttribute("height", "100%");
 			
