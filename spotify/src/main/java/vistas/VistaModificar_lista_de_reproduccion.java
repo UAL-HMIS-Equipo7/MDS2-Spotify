@@ -9,6 +9,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-modificar_lista_de_reproduccion template.
@@ -20,7 +21,19 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./src/vistas/vista-modificar_lista_de_reproduccion.ts")
 public class VistaModificar_lista_de_reproduccion extends LitTemplate {
 
-    public Button getEliminarB() {
+    public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	public Button getEliminarB2() {
+		return eliminarB2;
+	}
+	public void setEliminarB2(Button eliminarB2) {
+		this.eliminarB2 = eliminarB2;
+	}
+	public Button getEliminarB() {
 		return eliminarB;
 	}
 	public void setEliminarB(Button eliminarB) {
@@ -62,8 +75,6 @@ public class VistaModificar_lista_de_reproduccion extends LitTemplate {
 	public void setFlechaDerechaB(Image flechaDerechaB) {
 		this.flechaDerechaB = flechaDerechaB;
 	}
-	@Id("eliminarB")
-	private Button eliminarB;
 	@Id("listadoL")
 	private Label listadoL;
 	@Id("listadoTF")
@@ -76,6 +87,12 @@ public class VistaModificar_lista_de_reproduccion extends LitTemplate {
 	private Image flechaIzquierdaB;
 	@Id("flechaDerechaB")
 	private Image flechaDerechaB;
+	@Id("eliminarB2")
+	private Button eliminarB2;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+	@Id("eliminarB")
+	private Button eliminarB;
 	/**
      * Creates a new VistaModificar_lista_de_reproduccion.
      */

@@ -65,7 +65,7 @@ public class MainView extends VerticalLayout {
 //
 //        add(textField, button);
     	
-    	Administrador v = new Administrador();
+    	Crear_lista_de_reproduccion v = new Crear_lista_de_reproduccion();
     	
     	v.getStyle().set("width", "100%");   
     	v.getStyle().set("height", "100%");
