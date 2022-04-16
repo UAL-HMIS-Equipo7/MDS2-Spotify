@@ -1,5 +1,7 @@
 package spotify;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -44,32 +46,78 @@ public class MainView extends VerticalLayout {
      */
     public MainView(@Autowired GreetService service) {
 
-//        // Use TextField for standard text input
-//        TextField textField = new TextField("Your name");
-//        textField.addThemeName("bordered");
-//
-//        // Button click listeners can be defined as lambda expressions
-//        Button button = new Button("Say hello",
-//                e -> Notification.show(service.greet(textField.getValue())));
-//
-//        // Theme variants give you predefined extra styles for components.
-//        // Example: Primary button has a more prominent look.
-//        button.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-//
-//        // You can specify keyboard shortcuts for buttons.
-//        // Example: Pressing enter in this view clicks the Button.
-//        button.addClickShortcut(Key.ENTER);
-//
-//        // Use custom CSS classes to apply styling. This is defined in shared-styles.css.
-//        addClassName("centered-content");
-//
-//        add(textField, button);
+    	Cibernauta cibernauta = new Cibernauta();
+    	cibernauta.getStyle().set("width", "100%");   
+    	cibernauta.getStyle().set("height", "100%");
     	
-    	Administrador v = new Administrador();
+    	Administrador administrador = new Administrador();
+    	administrador.getStyle().set("width", "100%");   
+    	administrador.getStyle().set("height", "100%");
     	
-    	v.getStyle().set("width", "100%");   
-    	v.getStyle().set("height", "100%");
-    	add(v);
+    	Artista artista = new Artista();
+    	artista.getStyle().set("width", "100%");   
+    	artista.getStyle().set("height", "100%");
+    	
+    	Usuario_Registrado usuario_registrado = new Usuario_Registrado();
+    	usuario_registrado.getStyle().set("width", "100%");   
+    	usuario_registrado.getStyle().set("height", "100%");
+    	
+    	cibernauta._iniciar_sesion.getIniciarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				String usuario = cibernauta._iniciar_sesion.getEmailTF().getValue();
+				
+				remove(cibernauta);
+				 
+				//Switch con el usuario
+				if (usuario.contains("usuario")) {
+					add(usuario_registrado);
+				}
+				else if (usuario.contains("artista")) {
+					add(artista);
+				}
+				else {
+					add(administrador);
+				}
+			}
+		});
+    	
+    	administrador._cabecera_Administrador.getCerrarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				remove(administrador);
+				add(cibernauta);
+			}
+		});
+    	
+		artista._cabecera_Artista.getCerrarSesionB()
+				.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+
+						remove(artista);
+						add(cibernauta);
+					}
+				});
+
+		usuario_registrado._cabecera_Usuario_Registrado.getCerrarSesionB()
+				.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+
+						remove(usuario_registrado);
+						add(cibernauta);
+					}
+				});
+    	
+		//Actor con el que se inicia la aplicacion
+    	add(administrador);
     }
 
 }
