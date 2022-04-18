@@ -13,7 +13,7 @@ public class Reproductor__Cibernauta_ extends Reproductor {
 
 	public Creditos _creditos;
 	
-	public Reproductor__Cibernauta_(VerticalLayout layoutPadre) {
+	public Reproductor__Cibernauta_() {
 		
 		super();
 		

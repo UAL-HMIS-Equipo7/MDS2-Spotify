@@ -7,6 +7,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorActor;
 import vistas.VistaIniciar_sesion;
 
 public class Iniciar_sesion extends VistaIniciar_sesion {
@@ -48,10 +49,18 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				//Esto debería estar en MainView para poder cambiar el usuario??
 				switch(usuario) {
 					case "usuario":
+						GestorActor.Usuario_Registrado();
 						break;
 					case "artista":
+						GestorActor.Artista();
 						break;
 					case "admin":
+						GestorActor.Administrador();
+						break;
+				
+					//TODO: DEBUG
+					default:
+						GestorActor.Usuario_Registrado();
 						break;
 				}
 				

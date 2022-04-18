@@ -117,8 +117,6 @@ public class VistaVer_menu_de_altas extends LitTemplate {
 	private Label artistaL;
 	@Id("artistaB")
 	private Image artistaB;
-	@Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
 	@Id("layoutPrincipal")
 	private Element layoutPrincipal;
 

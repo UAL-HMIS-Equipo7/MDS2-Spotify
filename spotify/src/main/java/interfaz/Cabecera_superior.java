@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorActor;
 import vistas.VistaCabecera_superior;
 
 public class Cabecera_superior extends VistaCabecera_superior {
@@ -58,8 +59,8 @@ public class Cabecera_superior extends VistaCabecera_superior {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				//Esto tiene que cambiar el actor que está usando la aplicación, desde el MainView, como lo hacemos, pasamos el MainView por parametro?
-				
+				//Cerrar_sesion();
+				GestorActor.Cibernauta();
 			}
 		});
 	}

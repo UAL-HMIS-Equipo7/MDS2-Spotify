@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorReproductor;
 import vistas.VistaCancion_cibernauta;
 
 public class Cancion__Cibernauta_ extends VistaCancion_cibernauta {
@@ -23,11 +24,8 @@ public class Cancion__Cibernauta_ extends VistaCancion_cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
-				_reproductor__Cibernauta_ = new Reproductor__Cibernauta_(layoutPadre);
-				_reproductor__Cibernauta_.getStyle().set("margin", "var(--lumo-space-m)");
-				
-				layoutPadre.add(_reproductor__Cibernauta_);
-				
+				//TODO: Datos de la cancion
+				//GestorReproductor.setCancion(null);
 			}
 		});
 	}

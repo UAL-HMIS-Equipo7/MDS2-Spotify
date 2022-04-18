@@ -8,6 +8,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorReproductor;
 import vistas.VistaCibernauta;
 
 //import basededatos.iCibernauta;
@@ -19,6 +20,7 @@ public class Cibernauta extends VistaCibernauta {
 //	public iCibernauta _iCibernauta;
 	public Iniciar_sesion _iniciar_sesion;
 	public Canciones_ultimos_exitos _canciones_ultimos_exitos;
+	public Reproductor__Cibernauta_ _reproductor__Cibernauta_;
 	
 	public Cibernauta() {
 //		_canciones_ultimos_exitos = new Canciones_ultimos_exitos();
@@ -72,6 +74,13 @@ public class Cibernauta extends VistaCibernauta {
 		
 		layoutPrincipal.add(hlSuperior);
 		layoutPrincipal.add(hlInferior);
+		
+		_reproductor__Cibernauta_ = new Reproductor__Cibernauta_();
+		_reproductor__Cibernauta_.getStyle().set("margin", "var(--lumo-space-m)");
+		
+		GestorReproductor.setReproductor(_reproductor__Cibernauta_);
+		
+		layoutPrincipal.add(_reproductor__Cibernauta_);
 		
 		iniciarSesionB.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

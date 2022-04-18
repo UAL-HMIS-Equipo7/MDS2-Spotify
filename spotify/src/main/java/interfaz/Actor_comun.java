@@ -10,6 +10,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Style;
 
+import spotify.GestorReproductor;
 import vistas.VistaActor_comun;
 
 //import basededatos.iActor_comun;
@@ -40,6 +41,8 @@ public class Actor_comun extends VistaActor_comun {
 		VerticalLayout vl = getLayoutReproductor().as(VerticalLayout.class);
 		
 		_reproductor__No_Cibernauta_ = new Reproductor__No_Cibernauta_(getLayoutPrincipal().as(VerticalLayout.class));
+		
+		GestorReproductor.setReproductor(_reproductor__No_Cibernauta_);
 		
 		vl.add(_reproductor__No_Cibernauta_);
 	}
