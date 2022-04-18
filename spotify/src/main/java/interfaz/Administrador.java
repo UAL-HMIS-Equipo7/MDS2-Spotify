@@ -6,6 +6,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
+
 //import basededatos.iAdministrador;
 
 public class Administrador extends Actor_comun {
@@ -19,7 +21,7 @@ public class Administrador extends Actor_comun {
 		
 		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
 		
-		_cabecera_Administrador = new Cabecera_Administrador(getLayoutPrincipal().as(VerticalLayout.class));
+		_cabecera_Administrador = new Cabecera_Administrador();
 		
 		_cabecera_Administrador.getInicioB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 
@@ -37,12 +39,9 @@ public class Administrador extends Actor_comun {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				VerticalLayout vl = getLayoutPrincipal().as(VerticalLayout.class);
 				
-				vl.removeAll();
-				
-				_menu_Administracion = new Menu_Administracion(vl);
-				vl.add(_menu_Administracion);
+				_menu_Administracion = new Menu_Administracion();
+				GestorVentana.CambiarVentana(_menu_Administracion);
 			}
 		});
 	}
@@ -55,12 +54,8 @@ public class Administrador extends Actor_comun {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				VerticalLayout vl = getLayoutPrincipal().as(VerticalLayout.class);
-
-				vl.removeAll();
-
-				_menu_Administracion = new Menu_Administracion(vl);
-				vl.add(_menu_Administracion);
+				_menu_Administracion = new Menu_Administracion();
+				GestorVentana.CambiarVentana(_menu_Administracion);
 			}
 		});
 	}

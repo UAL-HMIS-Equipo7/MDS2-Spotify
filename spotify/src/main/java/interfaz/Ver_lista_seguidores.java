@@ -11,12 +11,12 @@ public class Ver_lista_seguidores extends VistaVer_lista_seguidores {
 	public Artistas _artistas;
 	public Usuarios _usuarios;
 	
-	public Ver_lista_seguidores(VerticalLayout layoutPadre) {
+	public Ver_lista_seguidores() {
 
 		Scroller scroll = this.getNavegacionSB();
 		
-		_usuarios = new Usuarios(layoutPadre);
-		_artistas = new Artistas(layoutPadre);
+		_usuarios = new Usuarios();
+		_artistas = new Artistas();
 		
 		VerticalLayout vlizq = new VerticalLayout();
 		VerticalLayout vlder = new VerticalLayout();

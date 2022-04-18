@@ -16,11 +16,11 @@ public class Albumes extends VistaAlbumes {
 
 	public Vector<Album> _list_Album = new Vector<Album>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Albumes(VerticalLayout layoutPadre) {
+	
+	public Albumes() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarAlbumes();
 		
@@ -52,7 +52,7 @@ public class Albumes extends VistaAlbumes {
 		Album temp;
 		
 		for (int i = 0; i < 6; i++) {
-			temp = new Album(layoutPadre);
+			temp = new Album();
 			temp.setClassName("album");
 			
 			_list_Album.add(temp);

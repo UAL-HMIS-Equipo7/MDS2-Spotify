@@ -19,10 +19,6 @@ public class Confirmacion_de_correo extends VistaConfirmacion_de_correo {
 	
 	public Confirmacion_de_correo() {
 		
-	}
-	
-	public Confirmacion_de_correo(VerticalLayout layoutPadre) {
-		
 		
 		this.getReenviarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

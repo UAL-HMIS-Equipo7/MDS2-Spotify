@@ -11,8 +11,8 @@ public class Editar_album extends VistaEditar_album {
 	public Edicion_y_Creacion_album _edicion_y_Creacion_album;
 	public Canciones_en_album _canciones_en_album;
 	
-	public Editar_album(VerticalLayout layoutPadre) {
-		_edicion_y_Creacion_album = new Edicion_y_Creacion_album(layoutPadre);
+	public Editar_album() {
+		_edicion_y_Creacion_album = new Edicion_y_Creacion_album();
 		_canciones_en_album = new Canciones_en_album();
 		
 		_edicion_y_Creacion_album.setClassName("fullSize");

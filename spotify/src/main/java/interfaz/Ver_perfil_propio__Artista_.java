@@ -6,6 +6,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
+
 public class Ver_perfil_propio__Artista_ extends Ver_perfil_propio {
 //	private Button _darseBajaB;
 //	private Button _aniadirInformacionEventos;
@@ -14,11 +16,11 @@ public class Ver_perfil_propio__Artista_ extends Ver_perfil_propio {
 	public Editar_foto_de_perfil__Artista_ _editar_foto_de_perfil__Artista_;
 	public Panel_artista _panel_artista;
 	
-	public Ver_perfil_propio__Artista_(VerticalLayout layoutPadre) {
-		super(layoutPadre);
+	public Ver_perfil_propio__Artista_() {
+		super();
 		
 		 _editar_foto_de_perfil__Artista_ = new Editar_foto_de_perfil__Artista_();
-		 _panel_artista = new Panel_artista(layoutPadre);
+		 _panel_artista = new Panel_artista();
 		 
 		 VerticalLayout vl = this.getContenedorDerecho().as(VerticalLayout.class);
 		 vl.add(_panel_artista);
@@ -44,10 +46,10 @@ public class Ver_perfil_propio__Artista_ extends Ver_perfil_propio {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_aniadir_informacion_de_eventos = new Aniadir_informacion_de_eventos(layoutPadre);
+				_aniadir_informacion_de_eventos = new Aniadir_informacion_de_eventos();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_aniadir_informacion_de_eventos);
+				
+				GestorVentana.CambiarVentana(_aniadir_informacion_de_eventos);
 				
 			}
 		});

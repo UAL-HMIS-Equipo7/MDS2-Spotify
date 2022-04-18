@@ -14,11 +14,11 @@ public class Autores_album extends VistaAutores_album {
 
 	public Vector<NombreArtista> _list_NombreArtista = new Vector<NombreArtista>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Autores_album(VerticalLayout layoutPadre) {
+	
+	public Autores_album() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarNombresArtista();
 		
@@ -38,7 +38,7 @@ public class Autores_album extends VistaAutores_album {
 		NombreArtista temp;
 		
 		for (int i = 0; i < 6; i++) {
-			temp = new NombreArtista(layoutPadre);
+			temp = new NombreArtista();
 			
 			_list_NombreArtista.add(temp);
 		}

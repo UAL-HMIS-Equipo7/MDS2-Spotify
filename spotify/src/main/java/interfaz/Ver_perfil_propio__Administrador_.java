@@ -10,9 +10,9 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 //	private Button _modificarInformacionB;
 	public Editar_informacion_del_perfil_no_artista _editar_informacion_del_perfil_no_artista;
 	
-	public Ver_perfil_propio__Administrador_(VerticalLayout layoutPadre) {
+	public Ver_perfil_propio__Administrador_() {
 		// TODO Auto-generated constructor stub
-		super(layoutPadre);
+		super();
 
 		this.getDarseBajaB().setVisible(false);
 		this.getAniadirInformacionEventosB().setVisible(false);
@@ -55,7 +55,7 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 				
 				Dialog ventanaModal = new Dialog();
 				
-				_ver_notificaciones = new Ver_notificaciones(layoutPadre, ventanaModal);
+				_ver_notificaciones = new Ver_notificaciones(ventanaModal);
 				
 				ventanaModal.add(_ver_notificaciones);
 				ventanaModal.open();

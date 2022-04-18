@@ -15,7 +15,7 @@ public class Ver_evento extends VistaVer_evento {
 //	private TextField _descripcionTF;
 //	private Label _precioL;
 	
-	public Ver_evento(VerticalLayout layoutPadre) {
+	public Ver_evento() {
 		
 		this.getAtrasB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

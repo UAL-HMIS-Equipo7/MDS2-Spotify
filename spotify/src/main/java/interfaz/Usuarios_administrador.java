@@ -15,11 +15,11 @@ public class Usuarios_administrador extends VistaUsuarios_administrador
 //	private ScrollBar _navegacionSB;
 	public Vector<Usuario_administrador> _list_Usuario_administrador = new Vector<Usuario_administrador>();
 	
-	VerticalLayout layoutPadre;
+	;
 	
-	public Usuarios_administrador(VerticalLayout layoutPadre) {
+	public Usuarios_administrador() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarUsuariosAdministrador();
 		
@@ -39,7 +39,7 @@ public void CargarUsuariosAdministrador() {
 		Usuario_administrador temp;
 		
 		for (int i = 0; i < 5; i++) {
-			temp = new Usuario_administrador(layoutPadre);
+			temp = new Usuario_administrador();
 			temp.setClassName("usuarioAdministrador");
 			
 			_list_Usuario_administrador.add(temp);

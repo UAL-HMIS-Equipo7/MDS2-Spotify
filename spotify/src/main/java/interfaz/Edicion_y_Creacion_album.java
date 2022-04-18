@@ -19,7 +19,7 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 //	private Button _cancelarB;
 //	private Label _errorL;
 
-	public Edicion_y_Creacion_album(VerticalLayout layoutPadre) {
+	public Edicion_y_Creacion_album() {
 		
 		//Botones de Guardar y Cancelar
 	}

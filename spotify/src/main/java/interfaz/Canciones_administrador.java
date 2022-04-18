@@ -17,11 +17,11 @@ public class Canciones_administrador extends VistaCanciones_administrador {
 
 	public Vector<Cancion_administrador> _list_Cancion_administrador = new Vector<Cancion_administrador>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Canciones_administrador(VerticalLayout layoutPadre) {
+	
+	public Canciones_administrador() {
 		
-		this.layoutPadre = layoutPadre;
+		
 
 		CargarCancionesAdministrador();
 		
@@ -41,7 +41,7 @@ public class Canciones_administrador extends VistaCanciones_administrador {
 		Cancion_administrador temp;
 		
 		for (int i = 0; i < 4; i++) {
-			temp = new Cancion_administrador(layoutPadre);
+			temp = new Cancion_administrador();
 			temp.setClassName("cancionAdministrador");
 			
 			_list_Cancion_administrador.add(temp);

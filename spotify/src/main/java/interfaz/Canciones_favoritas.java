@@ -11,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import interfaz.Cancion;
 import interfaz.Ver_mas_canciones_favoritas;
+import spotify.GestorVentana;
 import vistas.VistaCanciones_favoritas;
 
 public class Canciones_favoritas extends VistaCanciones_favoritas {
@@ -20,11 +21,11 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 	public Vector<Cancion> _list_Cancion = new Vector<Cancion>();
 	public Ver_lista_de_reproduccion_propia _ver_lista_de_reproduccion_propia;
 	
-	private VerticalLayout layoutPadre;
 	
-	public Canciones_favoritas(VerticalLayout layoutPadre) {
+	
+	public Canciones_favoritas() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarCanciones();
 		
@@ -45,10 +46,10 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_ver_lista_de_reproduccion_propia = new Ver_lista_de_reproduccion_propia(layoutPadre);
+				_ver_lista_de_reproduccion_propia = new Ver_lista_de_reproduccion_propia();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_lista_de_reproduccion_propia);
+				
+				GestorVentana.CambiarVentana(_ver_lista_de_reproduccion_propia);
 			}
 		});
 	}
@@ -57,7 +58,7 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 		Cancion temp;
 		
 		for (int i = 0; i < 10; i++) {
-			temp = new Cancion(layoutPadre);
+			temp = new Cancion();
 			
 			_list_Cancion.add(temp);
 		}

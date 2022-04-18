@@ -12,12 +12,12 @@ public class Panel_artista extends VistaPanel_artista {
 	public Eventos _eventos;
 	public Artistas_similares _artistas_similares;
 	
-	public Panel_artista(VerticalLayout layoutPadre) {
+	public Panel_artista() {
 
-		 _canciones_mas_exitosas = new Canciones_mas_exitosas(layoutPadre);
-		 _albumes = new Albumes(layoutPadre);
-		 _eventos = new Eventos(layoutPadre);
-		_artistas_similares = new Artistas_similares(layoutPadre);
+		 _canciones_mas_exitosas = new Canciones_mas_exitosas();
+		 _albumes = new Albumes();
+		 _eventos = new Eventos();
+		_artistas_similares = new Artistas_similares();
 		
 		HorizontalLayout hl = this.getContenedorSuperior();
 		hl.add(_albumes);

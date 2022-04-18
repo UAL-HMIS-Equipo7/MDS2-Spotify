@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaVer_lista_de_reproduccion_propia;
 
 public class Ver_lista_de_reproduccion_propia extends VistaVer_lista_de_reproduccion_propia {
@@ -16,9 +17,9 @@ public class Ver_lista_de_reproduccion_propia extends VistaVer_lista_de_reproduc
 	public Ver_lista_de_reproduccion _ver_lista_de_reproduccion;
 	
 	
-	public Ver_lista_de_reproduccion_propia(VerticalLayout layoutPadre) {
+	public Ver_lista_de_reproduccion_propia() {
 
-		_ver_lista_de_reproduccion = new Ver_lista_de_reproduccion(layoutPadre);
+		_ver_lista_de_reproduccion = new Ver_lista_de_reproduccion();
 		
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
 		
@@ -29,9 +30,9 @@ public class Ver_lista_de_reproduccion_propia extends VistaVer_lista_de_reproduc
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				layoutPadre.removeAll();
-				_modificar_lista_de_reproduccion = new Modificar_lista_de_reproduccion(layoutPadre);
-				layoutPadre.add(_modificar_lista_de_reproduccion);
+				
+				_modificar_lista_de_reproduccion = new Modificar_lista_de_reproduccion();
+				GestorVentana.CambiarVentana(_modificar_lista_de_reproduccion);
 			}
 		});
 		

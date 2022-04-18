@@ -19,7 +19,7 @@ public class Editar_usuario extends VistaEditar_usuario {
 //	private Button _cancelarB;
 //	private Label _errorL;
 	
-	public Editar_usuario(VerticalLayout layoutPadre) {
+	public Editar_usuario() {
 		
 		//Botones de guardar y cancelar, a que interfaz los mandamos?
 	}

@@ -14,11 +14,11 @@ public class Artistas extends VistaArtistas {
 
 	public Vector<NickArtista> _list_NickArtista = new Vector<NickArtista>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Artistas(VerticalLayout layoutPadre) {		
+	
+	public Artistas() {		
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarArtistas();
 		
@@ -46,7 +46,7 @@ public class Artistas extends VistaArtistas {
 		NickArtista temp;
 		
 		for (int i = 0; i < 6; i++) {
-			temp = new NickArtista(layoutPadre);
+			temp = new NickArtista();
 			temp.setClassName("fullSize");
 			
 			_list_NickArtista.add(temp);

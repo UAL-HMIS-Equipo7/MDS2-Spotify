@@ -16,11 +16,11 @@ public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 
 	public Vector<Cancion> _list_Cancion = new Vector<Cancion>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Canciones_mas_exitosas(VerticalLayout layoutPadre) {
+	
+	public Canciones_mas_exitosas() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarCanciones();
 		
@@ -50,7 +50,7 @@ public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 		Cancion temp;
 		
 		for (int i = 0; i < 4; i++) {
-			temp = new Cancion(layoutPadre);
+			temp = new Cancion();
 			
 			_list_Cancion.add(temp);
 		}

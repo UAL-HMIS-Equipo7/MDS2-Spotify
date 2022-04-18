@@ -9,6 +9,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import spotify.GestorReproductor;
+import spotify.GestorVentana;
 import vistas.VistaCibernauta;
 
 //import basededatos.iCibernauta;
@@ -36,6 +37,8 @@ public class Cibernauta extends VistaCibernauta {
 		
 		VerticalLayout layoutPrincipal = this.getLayoutPrincipal().as(VerticalLayout.class);
 		layoutPrincipal.removeAll();
+		
+		GestorVentana.setLayoutPrincipal(layoutPrincipal);
 		
 		HorizontalLayout hlSuperior = new HorizontalLayout();
 		hlSuperior.getStyle().set("width", "100%");
@@ -66,7 +69,7 @@ public class Cibernauta extends VistaCibernauta {
 		hlSuperior.getStyle().set("heigth", "80%");
 		hlSuperior.getStyle().set("padding", "var(--lumo-space-m)");
 		
-		_canciones_ultimos_exitos = new Canciones_ultimos_exitos(layoutPrincipal);
+		_canciones_ultimos_exitos = new Canciones_ultimos_exitos();
 		_canciones_ultimos_exitos.getElement().setAttribute("width", "100%");
 		_canciones_ultimos_exitos.getElement().setAttribute("height", "100%");
 		
@@ -86,10 +89,9 @@ public class Cibernauta extends VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				_iniciar_sesion = new Iniciar_sesion(layoutPrincipal);
+				_iniciar_sesion = new Iniciar_sesion();
 				
-				layoutPrincipal.removeAll();
-				layoutPrincipal.add(_iniciar_sesion);
+				GestorVentana.CambiarVentana(_iniciar_sesion);
 			}
 		});
 	}

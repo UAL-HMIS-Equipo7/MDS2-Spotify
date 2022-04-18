@@ -7,6 +7,7 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaVer_menu_de_altas;
 
 public class Ver_menu_de_altas extends VistaVer_menu_de_altas {
@@ -24,17 +25,17 @@ public class Ver_menu_de_altas extends VistaVer_menu_de_altas {
 	public Dar_de_alta_album _dar_de_alta_album;
 	public Edicion_y_Creacion_artista _edicion_y_Creacion_artista;
 	
-	public Ver_menu_de_altas(VerticalLayout layoutPadre, Dialog ventanaModal) {
+	public Ver_menu_de_altas(Dialog ventanaModal) {
 		
 		this.getCancionB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
-				layoutPadre.removeAll();
 				
-				_edicion_y_Creacion_cancion = new Edicion_y_Creacion_cancion(layoutPadre);
-				layoutPadre.add(_edicion_y_Creacion_cancion);
+				
+				_edicion_y_Creacion_cancion = new Edicion_y_Creacion_cancion();
+				GestorVentana.CambiarVentana(_edicion_y_Creacion_cancion);
 				
 				ventanaModal.close();
 			}
@@ -45,10 +46,10 @@ public class Ver_menu_de_altas extends VistaVer_menu_de_altas {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 
-				layoutPadre.removeAll();
+				
 
-				_dar_de_alta_estilo = new Dar_de_alta_estilo(layoutPadre);
-				layoutPadre.add(_dar_de_alta_estilo);
+				_dar_de_alta_estilo = new Dar_de_alta_estilo();
+				GestorVentana.CambiarVentana(_dar_de_alta_estilo);
 
 				ventanaModal.close();
 			}
@@ -59,10 +60,10 @@ public class Ver_menu_de_altas extends VistaVer_menu_de_altas {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 
-				layoutPadre.removeAll();
+				
 
-				_dar_de_alta_album = new Dar_de_alta_album(layoutPadre);
-				layoutPadre.add(_dar_de_alta_album);
+				_dar_de_alta_album = new Dar_de_alta_album();
+				GestorVentana.CambiarVentana(_dar_de_alta_album);
 
 				ventanaModal.close();
 			}
@@ -73,10 +74,10 @@ public class Ver_menu_de_altas extends VistaVer_menu_de_altas {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 
-				layoutPadre.removeAll();
+				
 
-				_edicion_y_Creacion_artista = new Edicion_y_Creacion_artista(layoutPadre);
-				layoutPadre.add(_edicion_y_Creacion_artista);
+				_edicion_y_Creacion_artista = new Edicion_y_Creacion_artista();
+				GestorVentana.CambiarVentana(_edicion_y_Creacion_artista);
 
 				ventanaModal.close();
 			}

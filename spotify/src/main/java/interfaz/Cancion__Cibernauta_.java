@@ -15,10 +15,6 @@ public class Cancion__Cibernauta_ extends VistaCancion_cibernauta {
 	
 	public Cancion__Cibernauta_() {
 		
-	}
-	
-	public Cancion__Cibernauta_(VerticalLayout layoutPadre) {
-		
 		this.getFotoCancionB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override

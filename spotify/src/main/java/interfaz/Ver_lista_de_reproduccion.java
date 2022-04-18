@@ -7,6 +7,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaUltimas_canciones_reproducidas;
 import vistas.VistaVer_lista_de_reproduccion;
 import vistas.VistaVer_lista_de_reproduccion_propia;
@@ -25,9 +26,9 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 	public Ver_perfil_ajeno_de_artista _ver_perfil_ajeno_de_artista;
 	public Canciones_de_lista _canciones_de_lista;
 
-	public Ver_lista_de_reproduccion(VerticalLayout layoutPadre) {
+	public Ver_lista_de_reproduccion() {
 		
-		_canciones_de_lista = new Canciones_de_lista(layoutPadre);
+		_canciones_de_lista = new Canciones_de_lista();
 		_canciones_de_lista.setClassName("fullSize");
 		
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
@@ -40,11 +41,11 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				//Comprobar si el autor es un artista o no, para mandarle a uno u otro
-				//_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(layoutPadre);
-				_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista(layoutPadre);
+				//_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
+				_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_perfil_ajeno_de_no_artista);
+				
+				GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_no_artista);
 			}
 		});
 		

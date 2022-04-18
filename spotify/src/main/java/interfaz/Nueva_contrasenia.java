@@ -16,7 +16,7 @@ public class Nueva_contrasenia extends VistaNueva_contrasenia {
 //	private Button _atrasB;
 //	private Label _errorL;
 	
-	public Nueva_contrasenia(VerticalLayout layoutPadre) {
+	public Nueva_contrasenia() {
 		
 		this.getConfirmarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

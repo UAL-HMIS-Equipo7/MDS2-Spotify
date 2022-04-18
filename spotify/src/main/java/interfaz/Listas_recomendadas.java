@@ -13,11 +13,11 @@ public class Listas_recomendadas extends VistaListas_recomendadas {
 
 	public Vector<Lista_de_reproduccion_ajena> _list_Lista_de_reproduccion_ajena = new Vector<Lista_de_reproduccion_ajena>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Listas_recomendadas(VerticalLayout layoutPadre) {
+	
+	public Listas_recomendadas() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarListas();
 		
@@ -30,7 +30,7 @@ public class Listas_recomendadas extends VistaListas_recomendadas {
 		Lista_de_reproduccion_ajena temp;
 		
 		for (int i = 0; i < 2; i++) {
-			temp = new Lista_de_reproduccion_ajena(layoutPadre);
+			temp = new Lista_de_reproduccion_ajena();
 			temp.setClassName("fullSize");
 			
 			_list_Lista_de_reproduccion_ajena.add(temp);

@@ -14,12 +14,12 @@ import interfaz.Notificacion;
 public class Notificaciones extends VistaNotificaciones {
 	public Vector<Notificacion> _list_Notificacion = new Vector<Notificacion>();
 	
-	private VerticalLayout layoutPadre;
+	
 	private Dialog ventanaModal;
 	
-	public Notificaciones(VerticalLayout layoutPadre, Dialog ventanaModal) {
+	public Notificaciones(Dialog ventanaModal) {
 		
-		this.layoutPadre = layoutPadre;
+		
 		this.ventanaModal = ventanaModal;
 
 		CargarNotificaciones();
@@ -40,7 +40,7 @@ public class Notificaciones extends VistaNotificaciones {
 		Notificacion temp;
 		
 		for (int i = 0; i < 5; i++) {
-			temp = new Notificacion(layoutPadre, ventanaModal);
+			temp = new Notificacion(ventanaModal);
 			
 			_list_Notificacion.add(temp);
 		}

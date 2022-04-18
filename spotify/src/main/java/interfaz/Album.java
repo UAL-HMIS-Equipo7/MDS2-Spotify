@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaAlbum;
 
 public class Album extends VistaAlbum {
@@ -12,17 +13,17 @@ public class Album extends VistaAlbum {
 
 	public Ver_album _ver_album;
 	
-	public Album(VerticalLayout layoutPadre) {
+	public Album() {
 		
 		this.getFotoB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
-				_ver_album = new Ver_album(layoutPadre);
+				_ver_album = new Ver_album();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_album);
+				
+				GestorVentana.CambiarVentana(_ver_album);
 			}
 		});
 	}

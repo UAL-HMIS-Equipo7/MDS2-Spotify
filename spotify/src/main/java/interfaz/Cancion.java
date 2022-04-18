@@ -11,7 +11,7 @@ public class Cancion extends VistaCancion {
 //	private event _reproducir__No_Cibernauta_;
 //	private Image _cancionImg;
 	
-	public Cancion(VerticalLayout layoutPadre) {
+	public Cancion() {
 		this.getTituloB().setVisible(false);
 		
 		this.getCancionImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {

@@ -15,7 +15,7 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 //	private Button _cancelarB;
 //	private Label _errorL;
 	
-	public Dar_de_alta_estilo(VerticalLayout layoutPadre) {
+	public Dar_de_alta_estilo() {
 		
 		//Botones de Guardar y Cancelar
 	}

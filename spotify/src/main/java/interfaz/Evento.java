@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaEvento;
 
 public class Evento extends VistaEvento {
@@ -12,7 +13,7 @@ public class Evento extends VistaEvento {
 
 	public Ver_evento _ver_evento;
 	
-	public Evento(VerticalLayout layoutPadre) {
+	public Evento() {
 		
 		this.getNombreL().setVisible(false);
 		
@@ -21,10 +22,10 @@ public class Evento extends VistaEvento {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 			
-				_ver_evento = new Ver_evento(layoutPadre);
+				_ver_evento = new Ver_evento();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_evento);
+				
+				GestorVentana.CambiarVentana(_ver_evento);
 			}
 		});
 	}

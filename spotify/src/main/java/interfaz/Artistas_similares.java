@@ -18,11 +18,11 @@ public class Artistas_similares extends VistaArtistas_similares {
 
 	public Vector<Foto_Artista> _list_Artista = new Vector<Foto_Artista>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Artistas_similares(VerticalLayout layoutPadre) {
+	
+	public Artistas_similares() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarFotosArtista();
 		
@@ -57,7 +57,7 @@ public class Artistas_similares extends VistaArtistas_similares {
 		Foto_Artista temp;
 		
 		for (int i = 0; i < 4; i++) {
-			temp = new Foto_Artista(layoutPadre);
+			temp = new Foto_Artista();
 			temp.setClassName("artistasSimilares");
 			temp.getNickB().setVisible(false);
 			

@@ -11,11 +11,11 @@ import vistas.VistaUsuarios;
 public class Usuarios extends VistaUsuarios {
 	public Vector<Usuario> _list_Usuario = new Vector<Usuario>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Usuarios(VerticalLayout layoutPadre) {
+	
+	public Usuarios() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarUsuario();
 		
@@ -43,8 +43,8 @@ public class Usuarios extends VistaUsuarios {
 	public void CargarUsuario() {
 		Usuario temp;
 		
-		for(int i = 0; i < 8; i++) {
-			temp = new Usuario(layoutPadre);
+		for(int i = 0; i < 6; i++) {
+			temp = new Usuario();
 			
 			_list_Usuario.add(temp);
 		}

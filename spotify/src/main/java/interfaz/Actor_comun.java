@@ -11,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Style;
 
 import spotify.GestorReproductor;
+import spotify.GestorVentana;
 import vistas.VistaActor_comun;
 
 //import basededatos.iActor_comun;
@@ -40,7 +41,7 @@ public class Actor_comun extends VistaActor_comun {
 		
 		VerticalLayout vl = getLayoutReproductor().as(VerticalLayout.class);
 		
-		_reproductor__No_Cibernauta_ = new Reproductor__No_Cibernauta_(getLayoutPrincipal().as(VerticalLayout.class));
+		_reproductor__No_Cibernauta_ = new Reproductor__No_Cibernauta_();
 		
 		GestorReproductor.setReproductor(_reproductor__No_Cibernauta_);
 		
@@ -50,6 +51,8 @@ public class Actor_comun extends VistaActor_comun {
 	public void Inicializar(boolean menuAdministracionVisible) {
 		
 		VerticalLayout vl = getLayoutPrincipal().as(VerticalLayout.class);
+		
+		GestorVentana.setLayoutPrincipal(vl);
 		
 		vl.removeAll();
 		
@@ -79,9 +82,9 @@ public class Actor_comun extends VistaActor_comun {
 		vl.add(verEstadisticasB);
 		vl.add(hl);
 		
-		_ultimas_canciones_reproducidas = new Ultimas_canciones_reproducidas(vl);
-		_canciones_favoritas = new Canciones_favoritas(vl);
-		_recomendaciones = new Recomendaciones(vl);
+		_ultimas_canciones_reproducidas = new Ultimas_canciones_reproducidas();
+		_canciones_favoritas = new Canciones_favoritas();
+		_recomendaciones = new Recomendaciones();
 		_recomendaciones.getStyle().set("height", "30%");
 		
 		contenedorIzquierdo.add(_ultimas_canciones_reproducidas);

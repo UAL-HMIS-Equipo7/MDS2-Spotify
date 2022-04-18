@@ -11,9 +11,9 @@ public class TituloCancion extends Cancion {
 //	public Canciones_de_lista _canciones_de_lista;
 //	public Canciones_album _canciones_album;
 	
-	public TituloCancion(VerticalLayout layoutPadre) {
+	public TituloCancion() {
 		
-		super(layoutPadre);
+		super();
 		
 		this.getTituloB().setVisible(true);
 		
@@ -32,8 +32,8 @@ public class TituloCancion extends Cancion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				Ver_cancion _ver_cancion = new Ver_cancion();
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_cancion);
+				
+				GestorVentana.CambiarVentana(_ver_cancion);
 				
 			}
 		});*/

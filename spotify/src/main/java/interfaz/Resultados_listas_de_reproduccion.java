@@ -12,11 +12,11 @@ public class Resultados_listas_de_reproduccion extends VistaResultados_listas_de
 //	private Label _tituloL;
 	public Vector<Lista_de_reproduccion_ajena> _list_Lista_de_reproduccion_ajena = new Vector<Lista_de_reproduccion_ajena>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Resultados_listas_de_reproduccion(VerticalLayout layoutPadre) {
+	
+	public Resultados_listas_de_reproduccion() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarListaDeReproduccionAjena();
 		
@@ -37,7 +37,7 @@ public class Resultados_listas_de_reproduccion extends VistaResultados_listas_de
 		Lista_de_reproduccion_ajena temp;
 		
 		for (int i = 0; i < 10; i++) {
-			temp = new Lista_de_reproduccion_ajena(layoutPadre);
+			temp = new Lista_de_reproduccion_ajena();
 			
 			_list_Lista_de_reproduccion_ajena.add(temp);
 		}

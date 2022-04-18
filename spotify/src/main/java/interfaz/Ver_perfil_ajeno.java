@@ -13,9 +13,9 @@ public class Ver_perfil_ajeno extends VistaVer_perfil_ajeno {
 //	private Button _seguirB;
 	public Listas_de_reproduccion_perfil _listas_de_reproduccion_perfil;
 	
-	public  Ver_perfil_ajeno(VerticalLayout layoutPadre) {
+	public  Ver_perfil_ajeno() {
 		
-		_listas_de_reproduccion_perfil = new Listas_de_reproduccion_perfil(layoutPadre);
+		_listas_de_reproduccion_perfil = new Listas_de_reproduccion_perfil();
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(_listas_de_reproduccion_perfil);

@@ -12,11 +12,11 @@ public class Resultados_canciones extends VistaResultados_canciones {
 //	private Label _tituloL;
 	public Vector<Cancion> _list_Cancion = new Vector<Cancion>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Resultados_canciones(VerticalLayout layoutPadre) {
+	
+	public Resultados_canciones() {
 		
-		this.layoutPadre = layoutPadre;
+		
 
 		CargarCanciones();
 		
@@ -37,7 +37,7 @@ public class Resultados_canciones extends VistaResultados_canciones {
 		Cancion temp;
 		
 		for (int i = 0; i < 10; i++) {
-			temp = new Cancion(layoutPadre);
+			temp = new Cancion();
 			
 			_list_Cancion.add(temp);
 		}

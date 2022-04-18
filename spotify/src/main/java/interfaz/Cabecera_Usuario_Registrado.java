@@ -5,14 +5,16 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
+
 public class Cabecera_Usuario_Registrado extends Cabecera_superior {
 //	private Button _verPerfilUsuarioB;
 	
 	public Ver_perfil_propio__Usuario_Registrado_ _ver_perfil_propio__Usuario_Registrado_;
 	
-	public Cabecera_Usuario_Registrado(VerticalLayout layoutPadre) {
+	public Cabecera_Usuario_Registrado() {
 
-		super(layoutPadre);
+		super();
 		
 		this.getVerPerfilUsuarioB().setVisible(true);
 		
@@ -21,10 +23,10 @@ public class Cabecera_Usuario_Registrado extends Cabecera_superior {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				_ver_perfil_propio__Usuario_Registrado_ = new Ver_perfil_propio__Usuario_Registrado_(layoutPadre);
+				_ver_perfil_propio__Usuario_Registrado_ = new Ver_perfil_propio__Usuario_Registrado_();
 
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_perfil_propio__Usuario_Registrado_);
+				
+				GestorVentana.CambiarVentana(_ver_perfil_propio__Usuario_Registrado_);
 			}
 		});
 	}

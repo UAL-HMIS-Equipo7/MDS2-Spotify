@@ -21,11 +21,11 @@ public class Listas_de_reproduccion_perfil extends VistaListas_de_reproduccion_p
 	public Vector<Lista_de_reproduccion_ajena> _list_Lista_de_reproduccion_ajena = new Vector<Lista_de_reproduccion_ajena>();
 	public Vector<Lista_de_reproduccion_propia> _list_Lista_de_reproduccion_propia = new Vector<Lista_de_reproduccion_propia>();
 	
-	private VerticalLayout layoutPadre;
+	
 
-	public Listas_de_reproduccion_perfil(VerticalLayout layoutPadre) {
+	public Listas_de_reproduccion_perfil() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		this.getCrearListaB().setVisible(false);
 		
@@ -43,7 +43,7 @@ public class Listas_de_reproduccion_perfil extends VistaListas_de_reproduccion_p
 		Lista_de_reproduccion_ajena temp;
 		
 		for (int i = 0; i < 2; i++) {
-			temp = new Lista_de_reproduccion_ajena(layoutPadre);
+			temp = new Lista_de_reproduccion_ajena();
 			
 			_list_Lista_de_reproduccion_ajena.add(temp);
 		}
@@ -51,7 +51,7 @@ public class Listas_de_reproduccion_perfil extends VistaListas_de_reproduccion_p
 		Lista_de_reproduccion_propia temp2;
 		
 		for (int i = 0; i < 2; i++) {
-			temp2 = new Lista_de_reproduccion_propia(layoutPadre);
+			temp2 = new Lista_de_reproduccion_propia();
 			
 			_list_Lista_de_reproduccion_propia.add(temp2);
 		}

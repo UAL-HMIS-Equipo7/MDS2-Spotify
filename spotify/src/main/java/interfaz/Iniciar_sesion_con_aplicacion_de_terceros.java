@@ -11,8 +11,4 @@ public class Iniciar_sesion_con_aplicacion_de_terceros extends VistaIniciar_sesi
 	public Iniciar_sesion_con_aplicacion_de_terceros() {
 		
 	}
-	
-	public Iniciar_sesion_con_aplicacion_de_terceros(VerticalLayout layoutPadre) {
-		
-	}
 }

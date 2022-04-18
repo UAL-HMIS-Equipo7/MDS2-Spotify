@@ -5,6 +5,8 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
+
 public class Confirmacion_de_correo__Recuperar_contrasenia_ extends Confirmacion_de_correo {
 //	private Button _confirmarB;
 	
@@ -13,24 +15,16 @@ public class Confirmacion_de_correo__Recuperar_contrasenia_ extends Confirmacion
 	public Confirmacion_de_correo__Recuperar_contrasenia_() {
 		super();
 		
-		//_nueva_contrasenia = new Nueva_contrasenia();
-		
-		//Lo unico que cambia con respecto a su padre es a donde te lleva el boton de confirmar
-	}
-	
-	public Confirmacion_de_correo__Recuperar_contrasenia_(VerticalLayout layoutPadre) {
-		super(layoutPadre);
-		
 		this.getConfirmarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				// TODO Validación del código de correo
 				
-				_nueva_contrasenia = new Nueva_contrasenia(layoutPadre);
+				_nueva_contrasenia = new Nueva_contrasenia();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_nueva_contrasenia);
+				
+				GestorVentana.CambiarVentana(_nueva_contrasenia);
 				
 			}
 		});

@@ -8,9 +8,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 public class Ver_perfil_ajeno_de_no_artista extends Ver_perfil_ajeno {
 //	private event _seguir_usuario;
 
-	public Ver_perfil_ajeno_de_no_artista(VerticalLayout layoutPadre) {
+	public Ver_perfil_ajeno_de_no_artista() {
 		
-		super(layoutPadre);
+		super();
 		
 		this.getSeguirB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

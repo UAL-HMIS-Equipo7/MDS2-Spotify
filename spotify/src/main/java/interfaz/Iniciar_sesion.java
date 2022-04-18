@@ -8,6 +8,7 @@ import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import spotify.GestorActor;
+import spotify.GestorVentana;
 import vistas.VistaIniciar_sesion;
 
 public class Iniciar_sesion extends VistaIniciar_sesion {
@@ -33,10 +34,6 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	private int intentosInicioSesion = 0;
 	
 	public Iniciar_sesion() {
-		
-	}
-	
-	public Iniciar_sesion(VerticalLayout layoutPadre) {
 
 		this.getIniciarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -67,12 +64,12 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				intentosInicioSesion++;
 				
 				if (intentosInicioSesion >= 3) {
-					_bloqueo_inicio_sesion = new Bloqueo_inicio_sesion(layoutPadre);
+					_bloqueo_inicio_sesion = new Bloqueo_inicio_sesion();
 					
 					intentosInicioSesion = 0;
 					
-					layoutPadre.removeAll();
-					layoutPadre.add(_bloqueo_inicio_sesion);
+					
+					GestorVentana.CambiarVentana(_bloqueo_inicio_sesion);
 				}
 				
 			}
@@ -95,10 +92,10 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_registrarse = new Registrarse(layoutPadre);
+				_registrarse = new Registrarse();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_registrarse);
+				
+				GestorVentana.CambiarVentana(_registrarse);
 				
 			}
 		});
@@ -108,10 +105,10 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_recuperar_contrasenia = new Recuperar_contrasenia(layoutPadre);
+				_recuperar_contrasenia = new Recuperar_contrasenia();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_recuperar_contrasenia);
+				
+				GestorVentana.CambiarVentana(_recuperar_contrasenia);
 				
 			}
 		});
@@ -121,10 +118,10 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_iniciar_sesion_con_aplicacion_de_terceros = new Iniciar_sesion_con_aplicacion_de_terceros(layoutPadre);
+				_iniciar_sesion_con_aplicacion_de_terceros = new Iniciar_sesion_con_aplicacion_de_terceros();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_iniciar_sesion_con_aplicacion_de_terceros);
+				
+				GestorVentana.CambiarVentana(_iniciar_sesion_con_aplicacion_de_terceros);
 				
 			}
 		});
@@ -134,10 +131,10 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_iniciar_sesion_con_aplicacion_de_terceros = new Iniciar_sesion_con_aplicacion_de_terceros(layoutPadre);
+				_iniciar_sesion_con_aplicacion_de_terceros = new Iniciar_sesion_con_aplicacion_de_terceros();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_iniciar_sesion_con_aplicacion_de_terceros);
+				
+				GestorVentana.CambiarVentana(_iniciar_sesion_con_aplicacion_de_terceros);
 				
 			}
 		});
@@ -147,10 +144,10 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_iniciar_sesion_con_aplicacion_de_terceros = new Iniciar_sesion_con_aplicacion_de_terceros(layoutPadre);
+				_iniciar_sesion_con_aplicacion_de_terceros = new Iniciar_sesion_con_aplicacion_de_terceros();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_iniciar_sesion_con_aplicacion_de_terceros);
+				
+				GestorVentana.CambiarVentana(_iniciar_sesion_con_aplicacion_de_terceros);
 				
 			}
 		});

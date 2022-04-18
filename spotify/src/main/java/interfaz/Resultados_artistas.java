@@ -12,11 +12,11 @@ public class Resultados_artistas extends VistaResultados_artistas {
 //	private Label _tituloL;
 	public Vector<Foto_Artista> _list_Artista = new Vector<Foto_Artista>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Resultados_artistas(VerticalLayout layoutPadre) {
+	
+	public Resultados_artistas() {
 		
-		this.layoutPadre = layoutPadre;
+		
 
 		CargarFotoArtistas();
 		
@@ -37,7 +37,7 @@ public class Resultados_artistas extends VistaResultados_artistas {
 		Foto_Artista temp;
 		
 		for (int i = 0; i < 10; i++) {
-			temp = new Foto_Artista(layoutPadre);
+			temp = new Foto_Artista();
 			
 			_list_Artista.add(temp);
 		}

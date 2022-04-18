@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaUsuario_administrador;
 
 public class Usuario_administrador extends VistaUsuario_administrador {
@@ -16,17 +17,17 @@ public class Usuario_administrador extends VistaUsuario_administrador {
 	public Editar_usuario _editar_usuario;
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	
-	public Usuario_administrador(VerticalLayout layoutPadre) {
+	public Usuario_administrador() {
 		
 		this.getEditarUsuarioB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 			
-				layoutPadre.removeAll();
 				
-				_editar_usuario = new Editar_usuario(layoutPadre);
-				layoutPadre.add(_editar_usuario);
+				
+				_editar_usuario = new Editar_usuario();
+				GestorVentana.CambiarVentana(_editar_usuario);
 			}
 		});
 		

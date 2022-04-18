@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaFoto_artista;
 
 public class Foto_Artista extends VistaFoto_artista {
@@ -12,7 +13,7 @@ public class Foto_Artista extends VistaFoto_artista {
 
 	public Ver_perfil_ajeno_de_artista _ver_perfil_ajeno_de_artista;
 	
-	public Foto_Artista(VerticalLayout layoutPadre) {
+	public Foto_Artista() {
 		
 		this.getNickB().setVisible(false);
 		
@@ -21,10 +22,10 @@ public class Foto_Artista extends VistaFoto_artista {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
-				_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(layoutPadre);
+				_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_perfil_ajeno_de_artista);
+				
+				GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_artista);
 			}
 		});
 	}

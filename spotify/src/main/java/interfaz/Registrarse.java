@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaRegistrarse;
 
 public class Registrarse extends VistaRegistrarse {
@@ -28,19 +29,15 @@ public class Registrarse extends VistaRegistrarse {
 	public Confirmacion_de_correo _confirmacion_de_correo;
 	
 	public Registrarse() {
-//		_confirmacion_de_correo = new Confirmacion_de_correo();
-	}
-	
-	public Registrarse(VerticalLayout layoutPadre) {
 		
 		this.getIniciarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				_iniciar_sesion = new Iniciar_sesion(layoutPadre);
+				_iniciar_sesion = new Iniciar_sesion();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_iniciar_sesion);
+				
+				GestorVentana.CambiarVentana(_iniciar_sesion);
 			}
 		});
 		
@@ -50,9 +47,9 @@ public class Registrarse extends VistaRegistrarse {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				// TODO Validación de registro
 				
-				_confirmacion_de_correo = new Confirmacion_de_correo(layoutPadre);
-				layoutPadre.removeAll();
-				layoutPadre.add(_confirmacion_de_correo);
+				_confirmacion_de_correo = new Confirmacion_de_correo();
+				
+				GestorVentana.CambiarVentana(_confirmacion_de_correo);
 			}
 		});
 		

@@ -15,11 +15,11 @@ public class Canciones_de_lista extends VistaCanciones_de_lista {
 
 	public Vector<TituloCancion> _list_TituloCancion = new Vector<TituloCancion>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Canciones_de_lista(VerticalLayout layoutPadre) {
+	
+	public Canciones_de_lista() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarTitulosCancion();
 		
@@ -51,7 +51,7 @@ public class Canciones_de_lista extends VistaCanciones_de_lista {
 		TituloCancion temp;
 		
 		for (int i = 0; i < 6; i++) {
-			temp = new TituloCancion(layoutPadre);
+			temp = new TituloCancion();
 			
 			_list_TituloCancion.add(temp);
 		}

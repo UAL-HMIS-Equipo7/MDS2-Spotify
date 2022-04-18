@@ -18,11 +18,11 @@ public class Eventos extends VistaEventos {
 
 	public Vector<Evento> _list_Evento = new Vector<Evento>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Eventos(VerticalLayout layoutPadre) {
+	
+	public Eventos() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarEventos();
 		
@@ -54,7 +54,7 @@ public class Eventos extends VistaEventos {
 		Evento temp;
 		
 		for (int i = 0; i < 4; i++) {
-			temp = new Evento(layoutPadre);
+			temp = new Evento();
 			
 			_list_Evento.add(temp);
 		}

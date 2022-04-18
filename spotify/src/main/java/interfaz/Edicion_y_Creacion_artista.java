@@ -21,7 +21,7 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 //	private Button _cancelarB;
 //	private Label _errorL;
 
-	public Edicion_y_Creacion_artista(VerticalLayout layoutPadre) {
+	public Edicion_y_Creacion_artista() {
 		
 		//Botones Guardar y Cancelar
 		

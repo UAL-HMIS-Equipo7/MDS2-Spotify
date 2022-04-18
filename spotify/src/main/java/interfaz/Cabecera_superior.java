@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import spotify.GestorActor;
+import spotify.GestorVentana;
 import vistas.VistaCabecera_superior;
 
 public class Cabecera_superior extends VistaCabecera_superior {
@@ -23,7 +24,7 @@ public class Cabecera_superior extends VistaCabecera_superior {
 	public Contactar_con_la_empresa _contactar_con_la_empresa;
 	public Realizar_busqueda _realizar_busqueda;
 	
-	public Cabecera_superior(VerticalLayout layoutPadre) {
+	public Cabecera_superior() {
 		
 		this.getVerPerfilAdministradorB().setVisible(false);
 		this.getVerPerfilArtistaB().setVisible(false);
@@ -34,10 +35,10 @@ public class Cabecera_superior extends VistaCabecera_superior {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_contactar_con_la_empresa = new Contactar_con_la_empresa(layoutPadre);
+				_contactar_con_la_empresa = new Contactar_con_la_empresa();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_contactar_con_la_empresa);
+				
+				GestorVentana.CambiarVentana(_contactar_con_la_empresa);
 			}
 		});
 		
@@ -47,10 +48,10 @@ public class Cabecera_superior extends VistaCabecera_superior {
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
 				//Sacar el contenido del TF y pasarlo por parámetro
-				_realizar_busqueda = new Realizar_busqueda(layoutPadre);
+				_realizar_busqueda = new Realizar_busqueda();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_realizar_busqueda);
+				
+				GestorVentana.CambiarVentana(_realizar_busqueda);
 			}
 		});
 		

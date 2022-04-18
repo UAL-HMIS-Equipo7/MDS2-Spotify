@@ -28,7 +28,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 //	private Button _cancelarB;
 //	private Label _errorL;
 
-	public Edicion_y_Creacion_cancion(VerticalLayout layoutPadre) {
+	public Edicion_y_Creacion_cancion() {
 		
 		//Botones Guardar y Cancelar
 	}

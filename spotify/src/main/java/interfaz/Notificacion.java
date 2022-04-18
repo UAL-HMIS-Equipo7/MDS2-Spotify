@@ -6,22 +6,24 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
+
 public class Notificacion extends Evento {
 //	private Label _nombreL;
 	
-	public Notificacion(VerticalLayout layoutPadre, Dialog ventanaModal) {
+	public Notificacion(Dialog ventanaModal) {
 		
-		super(layoutPadre);
+		super();
 		
 		this.getFotoEventoImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 			
-				_ver_evento = new Ver_evento(layoutPadre);
+				_ver_evento = new Ver_evento();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_evento);
+				
+				GestorVentana.CambiarVentana(_ver_evento);
 				
 				ventanaModal.close();
 			}
@@ -29,10 +31,10 @@ public class Notificacion extends Evento {
 		
 		this.getNombreL().getElement().addEventListener("click", e -> {
 			
-			_ver_evento = new Ver_evento(layoutPadre);
+			_ver_evento = new Ver_evento();
 			
-			layoutPadre.removeAll();
-			layoutPadre.add(_ver_evento);
+			
+			GestorVentana.CambiarVentana(_ver_evento);
 			
 			ventanaModal.close();
 		});

@@ -5,6 +5,8 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
+
 public class Reproductor__No_Cibernauta_ extends Reproductor {
 //	private event _avanzar_10_segundos;
 //	private event _retroceder_10_segundos;
@@ -21,7 +23,7 @@ public class Reproductor__No_Cibernauta_ extends Reproductor {
 //	private Slider _barraVolumenSD;
 	public Ver_cancion _ver_cancion;
 	
-	public Reproductor__No_Cibernauta_(VerticalLayout layoutPadre) {
+	public Reproductor__No_Cibernauta_() {
 		
 		super();
 		
@@ -33,10 +35,10 @@ public class Reproductor__No_Cibernauta_ extends Reproductor {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_ver_cancion = new Ver_cancion(layoutPadre);
+				_ver_cancion = new Ver_cancion();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_cancion);
+				
+				GestorVentana.CambiarVentana(_ver_cancion);
 			}
 		});
 	}

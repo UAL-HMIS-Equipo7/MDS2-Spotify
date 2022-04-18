@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaVer_perfil_propio;
 
 public class Ver_perfil_propio extends VistaVer_perfil_propio {
@@ -20,11 +21,11 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 	public Ver_notificaciones _ver_notificaciones;
 	public Listas_de_reproduccion_perfil_propio _listas_de_reproduccion_perfil_propio;
 	
-	public Ver_perfil_propio(VerticalLayout layoutPadre) {
+	public Ver_perfil_propio() {
 		
 		VerticalLayout vl = this.getContenedorDerecho().as(VerticalLayout.class);
 		
-		_listas_de_reproduccion_perfil_propio = new Listas_de_reproduccion_perfil_propio(layoutPadre);
+		_listas_de_reproduccion_perfil_propio = new Listas_de_reproduccion_perfil_propio();
 		vl.add(_listas_de_reproduccion_perfil_propio);
 		
 		this.getSeguidosB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -32,10 +33,10 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_ver_lista_seguidos = new Ver_lista_seguidos(layoutPadre);
+				_ver_lista_seguidos = new Ver_lista_seguidos();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_lista_seguidos);
+				
+				GestorVentana.CambiarVentana(_ver_lista_seguidos);
 			}
 		});
 		
@@ -44,10 +45,10 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				_ver_lista_seguidores = new Ver_lista_seguidores(layoutPadre);
+				_ver_lista_seguidores = new Ver_lista_seguidores();
 				
-				layoutPadre.removeAll();
-				layoutPadre.add(_ver_lista_seguidores);
+				
+				GestorVentana.CambiarVentana(_ver_lista_seguidores);
 			}
 		});
 		
@@ -58,7 +59,7 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 				
 				Dialog ventanaModal = new Dialog();
 				
-				_ver_notificaciones = new Ver_notificaciones(layoutPadre, ventanaModal);
+				_ver_notificaciones = new Ver_notificaciones(ventanaModal);
 				ventanaModal.add(_ver_notificaciones);
 				
 				ventanaModal.open();

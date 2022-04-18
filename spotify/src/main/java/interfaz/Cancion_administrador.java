@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaCancion_administrador;
 
 public class Cancion_administrador extends VistaCancion_administrador {
@@ -19,17 +20,17 @@ public class Cancion_administrador extends VistaCancion_administrador {
 	public Edicion_y_Creacion_cancion _edicion_y_Creacion_cancion;
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	
-	public Cancion_administrador(VerticalLayout layoutPadre) {
+	public Cancion_administrador() {
 		
 		this.getEditarCancionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				layoutPadre.removeAll();
+				
 
-				_edicion_y_Creacion_cancion = new Edicion_y_Creacion_cancion(layoutPadre);
-				layoutPadre.add(_edicion_y_Creacion_cancion);
+				_edicion_y_Creacion_cancion = new Edicion_y_Creacion_cancion();
+				GestorVentana.CambiarVentana(_edicion_y_Creacion_cancion);
 			}
 		});
 

@@ -18,11 +18,11 @@ public class Artistas_administrador extends VistaArtistas_administrador {
 
 	public Vector<Artista_administrador> _list_Artista_administrador = new Vector<Artista_administrador>();
 	
-	private VerticalLayout layoutPadre;
 	
-	public Artistas_administrador(VerticalLayout layoutPadre) {
+	
+	public Artistas_administrador() {
 		
-		this.layoutPadre = layoutPadre;
+		
 		
 		CargarAlbumesAdministrador();
 		
@@ -42,7 +42,7 @@ public class Artistas_administrador extends VistaArtistas_administrador {
 		Artista_administrador temp;
 		
 		for (int i = 0; i < 5; i++) {
-			temp = new Artista_administrador(layoutPadre);
+			temp = new Artista_administrador();
 			temp.setClassName("artistaAdministrador");
 			
 			_list_Artista_administrador.add(temp);
