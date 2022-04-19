@@ -1,8 +1,12 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaRealizar_busqueda_de_administrador;
 
 public class Realizar_busqueda_de_administrador extends VistaRealizar_busqueda_de_administrador {
@@ -25,5 +29,13 @@ public class Realizar_busqueda_de_administrador extends VistaRealizar_busqueda_d
 		HorizontalLayout hlci = this.getContenedorInferior();
 		hlci.add(_artistas_administrador);
 		hlci.add(_usuarios_administrador);
+		
+		this.getAtrasB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				GestorVentana.Atras();
+			}
+		});
 	}
 }

@@ -13,19 +13,23 @@ public class Notificacion extends Evento {
 	
 	public Notificacion(Dialog ventanaModal) {
 		
-		super();
+		super(false);
+		
+		this.getNombreL().setVisible(true);
 		
 		this.getFotoEventoImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
+				
+				System.out.println("Estoy en notificación");
 			
 				_ver_evento = new Ver_evento();
 				
+				ventanaModal.close();
 				
 				GestorVentana.CambiarVentana(_ver_evento);
 				
-				ventanaModal.close();
 			}
 		});
 		
@@ -33,10 +37,10 @@ public class Notificacion extends Evento {
 			
 			_ver_evento = new Ver_evento();
 			
+			ventanaModal.close();
 			
 			GestorVentana.CambiarVentana(_ver_evento);
 			
-			ventanaModal.close();
 		});
 	}
 }

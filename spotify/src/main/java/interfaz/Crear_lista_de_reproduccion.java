@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaCrear_lista_de_reproduccion;
 
 public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccion {
@@ -17,9 +18,9 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				Guardar_cambios_lista();
+				//Guardar_cambios_lista();
 				//Volver a la anterior pantalla
-				
+				GestorVentana.Atras();
 			}
 		});
 		
@@ -29,7 +30,7 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				//Volver atras
-				
+				GestorVentana.Atras();
 			}
 		});
 		

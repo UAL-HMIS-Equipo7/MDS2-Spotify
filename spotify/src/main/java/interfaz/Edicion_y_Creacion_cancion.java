@@ -1,7 +1,11 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaEdicion_y_creacion_cancion;
 
 public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion {
@@ -31,6 +35,22 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 	public Edicion_y_Creacion_cancion() {
 		
 		//Botones Guardar y Cancelar
+		
+		this.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				GestorVentana.Atras();
+			}
+		});
+		
+		this.getCancelarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				GestorVentana.Atras();
+			}
+		});
 	}
 
 	public void Guardar_cambios_cancion() {

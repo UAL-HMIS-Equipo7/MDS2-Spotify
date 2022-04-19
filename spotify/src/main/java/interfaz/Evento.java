@@ -12,7 +12,7 @@ public class Evento extends VistaEvento {
 //	private Image _fotoEventoImg;
 
 	public Ver_evento _ver_evento;
-	
+
 	public Evento() {
 		
 		this.getNombreL().setVisible(false);
@@ -21,12 +21,32 @@ public class Evento extends VistaEvento {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
+				
+				System.out.println("Estoy en evento");
 			
 				_ver_evento = new Ver_evento();
-				
 				
 				GestorVentana.CambiarVentana(_ver_evento);
 			}
 		});
+	}
+	
+	public Evento(boolean debeAniadirClickListener) {
+		this.getNombreL().setVisible(false);
+		
+		if (debeAniadirClickListener) {
+			this.getFotoEventoImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+				
+				@Override
+				public void onComponentEvent(ClickEvent<Image> event) {
+					
+					System.out.println("Estoy en evento");
+				
+					_ver_evento = new Ver_evento();
+					
+					GestorVentana.CambiarVentana(_ver_evento);
+				}
+			});
+		}
 	}
 }

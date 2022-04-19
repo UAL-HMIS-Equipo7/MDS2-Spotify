@@ -47,22 +47,6 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 				getModificarInformacionB().setVisible(false);
 			}
 		});
-		
-		this.getNotificacionesB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				Dialog ventanaModal = new Dialog();
-				
-				_ver_notificaciones = new Ver_notificaciones(ventanaModal);
-				
-				ventanaModal.add(_ver_notificaciones);
-				ventanaModal.open();
-				
-			}
-			
-		});
 
 	}
 }

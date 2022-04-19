@@ -1,7 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-scroller.js';
-import './vista-usuario_administrador';
 
 @customElement('vista-usuarios_administrador')
 export class VistaUsuarios_administrador extends LitElement {
@@ -23,12 +22,7 @@ export class VistaUsuarios_administrador extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Usuarios</label>
- <vaadin-scroller style="width: 100%; height: 100%;" id="navegacionSB">
-  <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>
-  <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>
-  <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>
-  <vista-usuario_administrador class="usuarioAdministrador"></vista-usuario_administrador>
- </vaadin-scroller>
+ <vaadin-scroller style="width: 100%; height: 100%;" id="navegacionSB"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;
   }

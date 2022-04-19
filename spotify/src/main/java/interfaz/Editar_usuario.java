@@ -1,7 +1,11 @@
 package interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaEditar_usuario;
 
 public class Editar_usuario extends VistaEditar_usuario {
@@ -21,7 +25,23 @@ public class Editar_usuario extends VistaEditar_usuario {
 	
 	public Editar_usuario() {
 		
-		//Botones de guardar y cancelar, a que interfaz los mandamos?
+		//Botones de guardar y cancelar
+		
+		this.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				GestorVentana.Atras();
+			}
+		});
+		
+		this.getCancelarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				GestorVentana.Atras();
+			}
+		});
 	}
 
 	public void Guardar_cambios_usuario() {

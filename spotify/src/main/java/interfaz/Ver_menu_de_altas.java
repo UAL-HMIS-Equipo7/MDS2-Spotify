@@ -32,8 +32,6 @@ public class Ver_menu_de_altas extends VistaVer_menu_de_altas {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
-				
-				
 				_edicion_y_Creacion_cancion = new Edicion_y_Creacion_cancion();
 				GestorVentana.CambiarVentana(_edicion_y_Creacion_cancion);
 				
@@ -45,8 +43,6 @@ public class Ver_menu_de_altas extends VistaVer_menu_de_altas {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
-
-				
 
 				_dar_de_alta_estilo = new Dar_de_alta_estilo();
 				GestorVentana.CambiarVentana(_dar_de_alta_estilo);
@@ -60,8 +56,6 @@ public class Ver_menu_de_altas extends VistaVer_menu_de_altas {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 
-				
-
 				_dar_de_alta_album = new Dar_de_alta_album();
 				GestorVentana.CambiarVentana(_dar_de_alta_album);
 
@@ -73,8 +67,6 @@ public class Ver_menu_de_altas extends VistaVer_menu_de_altas {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
-
-				
 
 				_edicion_y_Creacion_artista = new Edicion_y_Creacion_artista();
 				GestorVentana.CambiarVentana(_edicion_y_Creacion_artista);

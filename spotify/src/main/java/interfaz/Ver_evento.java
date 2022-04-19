@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorVentana;
 import vistas.VistaVer_evento;
 
 public class Ver_evento extends VistaVer_evento {
@@ -23,7 +24,7 @@ public class Ver_evento extends VistaVer_evento {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				 
 				//Volver atras
-				
+				GestorVentana.Atras();
 			}
 		});
 

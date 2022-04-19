@@ -1,7 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-scroller.js';
-import './vista-evento';
 
 @customElement('vista-notificaciones')
 export class VistaNotificaciones extends LitElement {
@@ -17,11 +16,7 @@ export class VistaNotificaciones extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%;">
-  <vista-evento></vista-evento>
-  <vista-evento></vista-evento>
-  <vista-evento></vista-evento>
- </vaadin-scroller>
+ <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%;"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;
   }
