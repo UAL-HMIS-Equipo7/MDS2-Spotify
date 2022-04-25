@@ -16,7 +16,7 @@ public class Estilos_mas_escuchados extends VistaEstilos_mas_escuchados {
 	
 	public Estilos_mas_escuchados() {
 		
-		CargarImagenesEstilos();
+		CargarEstilosMasEscuchados();
 		
 		HorizontalLayout hlSup = this.getContenedorSuperior();
 		
@@ -31,7 +31,7 @@ public class Estilos_mas_escuchados extends VistaEstilos_mas_escuchados {
 		}
 	}
 	
-	public void CargarImagenesEstilos() {
+	public void CargarEstilosMasEscuchados() {
 		Imagen_estilos temp;
 		
 		for (int i = 0; i < 10; i++) {

@@ -18,7 +18,7 @@ public class Ultimas_canciones_reproducidas extends VistaUltimas_canciones_repro
 		
 		
 		
-		CargarCanciones();
+		CargarUltimasCancionesReproducidas();
 		
 		HorizontalLayout hlSup = this.getContenedorSuperior();
 		
@@ -33,7 +33,7 @@ public class Ultimas_canciones_reproducidas extends VistaUltimas_canciones_repro
 		}
 	}
 	
-	public void CargarCanciones() {
+	public void CargarUltimasCancionesReproducidas() {
 		Cancion temp;
 		
 		for (int i = 0; i < 10; i++) {

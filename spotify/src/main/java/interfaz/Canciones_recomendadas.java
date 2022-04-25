@@ -17,14 +17,14 @@ public class Canciones_recomendadas extends VistaCanciones_recomendadas {
 		
 		
 		
-		CargarCanciones();
+		CargarCancionesRecomendadas();
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		vl.add(_list_Cancion.firstElement());
 	}
 	
-	public void CargarCanciones() {
+	public void CargarCancionesRecomendadas() {
 		Cancion temp;
 		
 		for (int i = 0; i < 4; i++) {

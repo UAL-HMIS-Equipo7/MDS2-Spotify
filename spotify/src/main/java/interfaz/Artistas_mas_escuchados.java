@@ -18,7 +18,7 @@ public class Artistas_mas_escuchados extends VistaArtistas_mas_escuchados {
 	
 	public Artistas_mas_escuchados() {
 		
-		CargarImagenesArtistas();
+		CargarArtistasMasEscuchados();
 		
 		HorizontalLayout hlSup = this.getContenedorSuperior();
 		
@@ -35,7 +35,7 @@ public class Artistas_mas_escuchados extends VistaArtistas_mas_escuchados {
 		
 	}
 	
-	public void CargarImagenesArtistas() {
+	public void CargarArtistasMasEscuchados() {
 		Imagen_artistas temp;
 		
 		for (int i = 0; i < 6; i++) {

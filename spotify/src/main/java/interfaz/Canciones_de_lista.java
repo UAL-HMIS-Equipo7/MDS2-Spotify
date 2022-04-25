@@ -21,7 +21,7 @@ public class Canciones_de_lista extends VistaCanciones_de_lista {
 		
 		
 		
-		CargarTitulosCancion();
+		CargarCancionesLista();
 		
 		Scroller scroll = this.getNavegacionSB();
 		
@@ -47,7 +47,7 @@ public class Canciones_de_lista extends VistaCanciones_de_lista {
 		scroll.setContent(div);
 	}
 	
-	public void CargarTitulosCancion() {
+	public void CargarCancionesLista() {
 		TituloCancion temp;
 		
 		for (int i = 0; i < 6; i++) {

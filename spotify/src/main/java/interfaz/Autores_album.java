@@ -20,7 +20,7 @@ public class Autores_album extends VistaAutores_album {
 		
 		
 		
-		CargarNombresArtista();
+		CargarAutoresAlbum();
 		
 		ComboBox<NombreArtista> cb = this.getArtistasCB();
 		
@@ -34,7 +34,7 @@ public class Autores_album extends VistaAutores_album {
 		cb.setItems(_list_NombreArtista);;
 	}
 	
-	public void CargarNombresArtista() {
+	public void CargarAutoresAlbum() {
 		NombreArtista temp;
 		
 		for (int i = 0; i < 6; i++) {

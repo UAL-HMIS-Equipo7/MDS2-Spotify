@@ -24,7 +24,7 @@ public class Artistas_similares extends VistaArtistas_similares {
 		
 		
 		
-		CargarFotosArtista();
+		CargarArtistasSimilares();
 		
 		Scroller scroll = this.getNavegacionSB();
 		
@@ -52,7 +52,7 @@ public class Artistas_similares extends VistaArtistas_similares {
 		scroll.setContent(div);
 	}
 	
-	public void CargarFotosArtista() {
+	public void CargarArtistasSimilares() {
 		
 		Foto_Artista temp;
 		

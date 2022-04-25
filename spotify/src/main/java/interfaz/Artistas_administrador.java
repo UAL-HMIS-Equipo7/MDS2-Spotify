@@ -24,7 +24,7 @@ public class Artistas_administrador extends VistaArtistas_administrador {
 		
 		
 		
-		CargarAlbumesAdministrador();
+		CargarArtistasAdministrador();
 		
 		Scroller scroll = this.getNavegacionSB();
 		
@@ -37,7 +37,7 @@ public class Artistas_administrador extends VistaArtistas_administrador {
 		scroll.setContent(div);
 	}
 	
-	public void CargarAlbumesAdministrador() {
+	public void CargarArtistasAdministrador() {
 		
 		Artista_administrador temp;
 		

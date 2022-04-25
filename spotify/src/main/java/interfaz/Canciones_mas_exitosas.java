@@ -22,7 +22,7 @@ public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 		
 		
 		
-		CargarCanciones();
+		CargarCancionesExitosas();
 		
 		Scroller scroll = this.getNavegacionSB();
 		
@@ -46,7 +46,7 @@ public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 		scroll.setContent(div);
 	}
 	
-	public void CargarCanciones() {
+	public void CargarCancionesExitosas() {
 		Cancion temp;
 		
 		for (int i = 0; i < 4; i++) {

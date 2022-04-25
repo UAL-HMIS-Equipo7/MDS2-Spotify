@@ -19,14 +19,14 @@ public class Listas_recomendadas extends VistaListas_recomendadas {
 		
 		
 		
-		CargarListas();
+		CargarListasRecomendadas();
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		vl.add(_list_Lista_de_reproduccion_ajena.firstElement());
 	}
 	
-	public void CargarListas() {
+	public void CargarListasRecomendadas() {
 		Lista_de_reproduccion_ajena temp;
 		
 		for (int i = 0; i < 2; i++) {

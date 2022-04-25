@@ -21,8 +21,6 @@ public class Evento extends VistaEvento {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
-				
-				System.out.println("Estoy en evento");
 			
 				_ver_evento = new Ver_evento();
 				
@@ -39,8 +37,6 @@ public class Evento extends VistaEvento {
 				
 				@Override
 				public void onComponentEvent(ClickEvent<Image> event) {
-					
-					System.out.println("Estoy en evento");
 				
 					_ver_evento = new Ver_evento();
 					

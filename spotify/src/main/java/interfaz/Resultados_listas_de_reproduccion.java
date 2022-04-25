@@ -18,7 +18,7 @@ public class Resultados_listas_de_reproduccion extends VistaResultados_listas_de
 		
 		
 		
-		CargarListaDeReproduccionAjena();
+		CargarListasDeReproduccionAjena();
 		
 		HorizontalLayout hlSup = this.getContenedorSuperior();
 		
@@ -33,7 +33,7 @@ public class Resultados_listas_de_reproduccion extends VistaResultados_listas_de
 		}
 	}
 	
-	public void CargarListaDeReproduccionAjena() {
+	public void CargarListasDeReproduccionAjena() {
 		Lista_de_reproduccion_ajena temp;
 		
 		for (int i = 0; i < 10; i++) {

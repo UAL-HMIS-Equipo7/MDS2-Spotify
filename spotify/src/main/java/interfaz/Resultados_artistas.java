@@ -18,7 +18,7 @@ public class Resultados_artistas extends VistaResultados_artistas {
 		
 		
 
-		CargarFotoArtistas();
+		CargarArtistas();
 		
 		HorizontalLayout hlSup = this.getContenedorSuperior();
 		
@@ -33,7 +33,7 @@ public class Resultados_artistas extends VistaResultados_artistas {
 		}
 	}
 	
-	public void CargarFotoArtistas() {
+	public void CargarArtistas() {
 		Foto_Artista temp;
 		
 		for (int i = 0; i < 10; i++) {

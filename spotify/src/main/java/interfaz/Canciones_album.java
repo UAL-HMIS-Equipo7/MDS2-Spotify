@@ -21,7 +21,7 @@ public class Canciones_album extends VistaCanciones_album {
 		
 		
 		
-		CargarTitulosCancion();
+		CargarCancionesAlbum();
 		
 		Scroller scroll = this.getNavegacionSB();
 		
@@ -47,7 +47,7 @@ public class Canciones_album extends VistaCanciones_album {
 		scroll.setContent(div);
 	}
 	
-	public void CargarTitulosCancion() {
+	public void CargarCancionesAlbum() {
 		TituloCancion temp;
 		
 		for (int i = 0; i < 6; i++) {

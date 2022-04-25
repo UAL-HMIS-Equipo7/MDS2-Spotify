@@ -27,7 +27,7 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 		
 		
 		
-		CargarCanciones();
+		CargarCancionesFavoritas();
 		
 		HorizontalLayout hlSup = this.getContenedorSuperior();
 		
@@ -54,7 +54,7 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 		});
 	}
 	
-	public void CargarCanciones() {
+	public void CargarCancionesFavoritas() {
 		Cancion temp;
 		
 		for (int i = 0; i < 10; i++) {

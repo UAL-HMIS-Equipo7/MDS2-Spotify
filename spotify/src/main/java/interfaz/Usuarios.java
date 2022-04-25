@@ -17,7 +17,7 @@ public class Usuarios extends VistaUsuarios {
 		
 		
 		
-		CargarUsuario();
+		CargarUsuarios();
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
@@ -40,7 +40,7 @@ public class Usuarios extends VistaUsuarios {
 		
 	}
 	
-	public void CargarUsuario() {
+	public void CargarUsuarios() {
 		Usuario temp;
 		
 		for(int i = 0; i < 6; i++) {

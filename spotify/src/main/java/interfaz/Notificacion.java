@@ -21,8 +21,6 @@ public class Notificacion extends Evento {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
-				
-				System.out.println("Estoy en notificación");
 			
 				_ver_evento = new Ver_evento();
 				
