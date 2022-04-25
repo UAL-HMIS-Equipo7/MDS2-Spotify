@@ -31,6 +31,7 @@ public class Confirmacion_eliminacion extends VistaConfirmacion_eliminacion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				//Eliminar el elemento en BD
+				Eliminar_elemento();
 				ventanaModal.close();
 			}
 		});
