@@ -31,6 +31,7 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				Guardar_cambios_album();
 				GestorVentana.Atras();
 			}
 		});
