@@ -15,8 +15,8 @@ public class Ver_lista_seguidos extends VistaVer_lista_seguidos {
 		
 		Scroller scroll = this.getNavegacionSB();
 		
-		_usuarios = new Usuarios();
-		_artistas = new Artistas();
+		_usuarios = new Usuarios(1);
+		_artistas = new Artistas(1);
 		
 		VerticalLayout vlizq = new VerticalLayout();
 		VerticalLayout vlder = new VerticalLayout();

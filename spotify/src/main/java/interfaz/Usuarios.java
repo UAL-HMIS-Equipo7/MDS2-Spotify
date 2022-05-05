@@ -11,11 +11,11 @@ import vistas.VistaUsuarios;
 public class Usuarios extends VistaUsuarios {
 	public Vector<Usuario> _list_Usuario = new Vector<Usuario>();
 	
+	private int _tipoLista;
 	
-	
-	public Usuarios() {
+	public Usuarios(int tipoLista) {
 		
-		
+		_tipoLista = tipoLista;
 		
 		CargarUsuarios();
 		
@@ -41,6 +41,14 @@ public class Usuarios extends VistaUsuarios {
 	}
 	
 	public void CargarUsuarios() {
+		
+		if (_tipoLista == 0) {
+			//CargarUsuarioSeguidores
+		}
+		else if (_tipoLista == 1) {
+			//CargarUsuariosSeguidos
+		}
+		
 		Usuario temp;
 		
 		for(int i = 0; i < 6; i++) {

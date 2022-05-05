@@ -15,8 +15,8 @@ public class Ver_lista_seguidores extends VistaVer_lista_seguidores {
 
 		Scroller scroll = this.getNavegacionSB();
 		
-		_usuarios = new Usuarios();
-		_artistas = new Artistas();
+		_usuarios = new Usuarios(0);
+		_artistas = new Artistas(0);
 		
 		VerticalLayout vlizq = new VerticalLayout();
 		VerticalLayout vlder = new VerticalLayout();

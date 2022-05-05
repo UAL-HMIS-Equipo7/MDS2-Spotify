@@ -14,11 +14,11 @@ public class Artistas extends VistaArtistas {
 
 	public Vector<NickArtista> _list_NickArtista = new Vector<NickArtista>();
 	
-	
-	
-	public Artistas() {		
+	private int _tipoLista;
+
+	public Artistas(int tipoLista) {		
 		
-		
+		_tipoLista = tipoLista;
 		
 		CargarArtistas();
 		
@@ -43,6 +43,14 @@ public class Artistas extends VistaArtistas {
 	}
 	
 	public void CargarArtistas() {
+		
+		if (_tipoLista == 0) {
+			//CargarUsuarioSeguidores
+		}
+		else if (_tipoLista == 1) {
+			//CargarUsuariosSeguidos
+		}
+		
 		NickArtista temp;
 		
 		for (int i = 0; i < 6; i++) {
