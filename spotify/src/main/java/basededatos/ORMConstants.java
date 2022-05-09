@@ -1,0 +1,85 @@
+/**
+ * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
+ * 
+ * This is an automatic generated file. It will be regenerated every time 
+ * you generate persistence class.
+ * 
+ * Modifying its content may cause the program not work, or your work may lost.
+ */
+
+/**
+ * Licensee: Manuel David Montesinos Navarrete(University of Almeria)
+ * License Type: Academic
+ */
+package basededatos;
+
+public interface ORMConstants extends org.orm.util.ORMBaseConstants {
+	final int KEY_ALBUM_AUTORES = -92225887;
+	
+	final int KEY_ALBUM_INCLUYE_A = -1609460635;
+	
+	final int KEY_ARTISTA_ALBUMES = -1202030088;
+	
+	final int KEY_ARTISTA_APARECE_EN = -1517444986;
+	
+	final int KEY_ARTISTA_CANCIONES = 425689054;
+	
+	final int KEY_ARTISTA_ESTILO = -1164195221;
+	
+	final int KEY_ARTISTA_EVENTOS = -1658122087;
+	
+	final int KEY_CANCION_ESTILOS = 2025414403;
+	
+	final int KEY_CANCION_INCLUIDA_EN_ALBUMES = -1165807651;
+	
+	final int KEY_CANCION_INCLUIDA_EN_LISTAS = 413595856;
+	
+	final int KEY_CANCION_INTEPRETES = -351840641;
+	
+	final int KEY_CANCION_USUARIO = -953705116;
+	
+	final int KEY_DATOS_ACCESO_USUARIO = 108562579;
+	
+	final int KEY_ESTADISTICA_ARTISTAS_MAS_ESCUCHADOS = 1943713977;
+	
+	final int KEY_ESTADISTICA_ESTILOS_MAS_ESCUCHADOS = -911909193;
+	
+	final int KEY_ESTADISTICA_USUARIO = 1568759541;
+	
+	final int KEY_ESTILO_APARECE_EN = -1367877030;
+	
+	final int KEY_ESTILO_ARTISTAS = 1652676946;
+	
+	final int KEY_ESTILO_CANCIONES = -400770166;
+	
+	final int KEY_EVENTO_PUBLICADO_POR = 328759341;
+	
+	final int KEY_EVENTO_USUARIO = 1411342884;
+	
+	final int KEY_LISTA_DE_REPRODUCCION_AUTOR = -100058269;
+	
+	final int KEY_LISTA_DE_REPRODUCCION_CANCIONES_INCLUIDAS = -849696136;
+	
+	final int KEY_LISTA_DE_REPRODUCCION_PROPIETARIO_FAVORITO = -66322791;
+	
+	final int KEY_LISTA_DE_REPRODUCCION_SEGUIDOR = -504736706;
+	
+	final int KEY_USUARIO_GENERICO_DATOS = 1172850565;
+	
+	final int KEY_USUARIO_GENERICO_ESTADISTICA = 1106002800;
+	
+	final int KEY_USUARIO_GENERICO_FAVORITA = 80215438;
+	
+	final int KEY_USUARIO_GENERICO_LISTA_SEGUIDA = 1473707252;
+	
+	final int KEY_USUARIO_GENERICO_LISTAS = -2059942202;
+	
+	final int KEY_USUARIO_GENERICO_NOTIFICACIONES = -693467200;
+	
+	final int KEY_USUARIO_GENERICO_SEGUIDO = -1936669378;
+	
+	final int KEY_USUARIO_GENERICO_SEGUIDOR = 92791540;
+	
+	final int KEY_USUARIO_GENERICO_ULTIMAS_REPRODUCIDAS = 1984326599;
+	
+}

@@ -20,7 +20,14 @@ public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_rep
 		
 		vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		_crear_lista_de_reproduccion = new Crear_lista_de_reproduccion();
+		_crear_lista_de_reproduccion = new Crear_lista_de_reproduccion(){
+			@Override
+			public void Guardar_cambios_lista() {
+				
+				//Override para tener acceso a la lista de canciones
+				
+			}
+		};
 		vl.add(_crear_lista_de_reproduccion);
 		
 		this.getEliminarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

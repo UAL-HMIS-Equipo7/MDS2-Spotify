@@ -18,7 +18,7 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				//Guardar_cambios_lista();
+				Guardar_cambios_lista();
 				//Volver a la anterior pantalla
 				GestorVentana.Atras();
 			}
