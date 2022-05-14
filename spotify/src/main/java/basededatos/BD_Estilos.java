@@ -8,6 +8,7 @@ public class BD_Estilos {
 	public Vector<Estilo> _contiene_eventos = new Vector<Estilo>();
 
 	public void Crear_Estilo(Estilo aEstilo) {
+		//Pasar mejor los parametros sueltos??
 		throw new UnsupportedOperationException();
 	}
 }

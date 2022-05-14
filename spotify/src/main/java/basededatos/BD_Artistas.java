@@ -20,7 +20,7 @@ public class BD_Artistas {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			artistas = ArtistaDAO.listArtistaByCriteria(criteria);
-
+			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}

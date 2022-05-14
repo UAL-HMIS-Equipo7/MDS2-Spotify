@@ -27,7 +27,7 @@ public class BD_Albumes {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			albumes = AlbumDAO.listAlbumByCriteria(criteria);
-
+			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
@@ -49,7 +49,7 @@ public class BD_Albumes {
 			Album randomAlbum = albumes[randomIndex];
 			albumes = new Album[] {randomAlbum};
 			
-
+			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
