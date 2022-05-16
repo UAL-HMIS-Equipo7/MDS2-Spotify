@@ -107,8 +107,7 @@ public class BD_Albumes {
 	public void Actualizar_Album(Album aAlbum) throws PersistentException {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			//Se actualiza asi??
-			AlbumDAO.refresh(aAlbum);
+			AlbumDAO.save(aAlbum);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

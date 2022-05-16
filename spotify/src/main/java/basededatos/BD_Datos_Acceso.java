@@ -41,7 +41,7 @@ public class BD_Datos_Acceso {
 		
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Datos_Acceso datos = Datos_AccesoDAO.listDatos_AccesoByCriteria(criteria)[0];
+			Datos_Acceso datos = Datos_AccesoDAO.loadDatos_AccesoByCriteria(criteria);
 			datos.setPassword(aNuevaContrasenia);
 			Datos_AccesoDAO.save(datos);
 			t.commit();
@@ -59,7 +59,7 @@ public class BD_Datos_Acceso {
 		
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			datos = Datos_AccesoDAO.listDatos_AccesoByCriteria(criteria)[0];
+			datos = Datos_AccesoDAO.loadDatos_AccesoByCriteria(criteria);
 			
 			LocalDate fecha = LocalDate.parse(datos.getFechaYHoraBloqueo());
 			

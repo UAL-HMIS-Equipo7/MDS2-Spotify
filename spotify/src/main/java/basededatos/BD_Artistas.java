@@ -1,5 +1,7 @@
 package basededatos;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -57,8 +59,7 @@ public class BD_Artistas {
 	public void Actualizar_Artista(Artista aArtista) throws PersistentException {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			//Se actualiza asi??
-			ArtistaDAO.refresh(aArtista);
+			ArtistaDAO.save(aArtista);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
@@ -100,26 +101,59 @@ public class BD_Artistas {
 	}
 
 	public Artista[] Cargar_Artistas_Lista_Seguidores(int aIdUsuarioGenerico) throws PersistentException {
-		Artista artistasSeguidores[] = new Artista[0];
+		List<Artista> artistasSeguidores = new Vector<Artista>();
 		
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
 			
-			ArtistaCriteria criteria = new ArtistaCriteria();
-			//Como hacer el criteria para buscar artistas donde la aIdUsuarioGenerico esta en su lista de seguidos??
+			Iterator<Usuario_generico> iterador = usuario.seguidor.getIterator();
 			
-			artistasSeguidores = ArtistaDAO.listArtistaByCriteria(criteria);
+			Usuario_generico temp;
+			
+			while(iterador.hasNext()) {
+				temp = iterador.next();
+				
+				if (temp instanceof Artista){
+			      artistasSeguidores.add((Artista)temp);
+			    }
+			}
+
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
 		
-		return artistasSeguidores;
+		return artistasSeguidores.toArray(new Artista[artistasSeguidores.size()]);
 	}
 
-	public Artista[] Cargar_Artistas_Lista_Seguidos(int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+	public Artista[] Cargar_Artistas_Lista_Seguidos(int aIdUsuarioGenerico) throws PersistentException {
+		List<Artista> artistasSeguidos = new Vector<Artista>();
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
+			
+			Iterator<Usuario_generico> iterador = usuario.seguido.getIterator();
+			
+			Usuario_generico temp;
+			
+			while(iterador.hasNext()) {
+				temp = iterador.next();
+				
+				if (temp instanceof Artista){
+					artistasSeguidos.add((Artista)temp);
+			    }
+			}
+
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return artistasSeguidos.toArray(new Artista[artistasSeguidos.size()]);
 	}
 
 	public void Seguir_Artista(int aIdUsuarioGenerico, int aIdArtista) throws PersistentException {

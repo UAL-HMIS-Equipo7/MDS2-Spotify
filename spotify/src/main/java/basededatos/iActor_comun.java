@@ -61,4 +61,6 @@ public interface iActor_comun {
 	public void Seguir_Artista(int aIdUsuarioGenerico, int aIdArtista);
 
 	public void Seguir_Usuario(int aIdSeguidor, int aIdSeguido);
+	
+	public void Actualizar_Estadisticas(int aIdCancion, int aIdUsuarioGenerico);
 }

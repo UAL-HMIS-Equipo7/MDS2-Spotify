@@ -82,17 +82,16 @@ public class BD_Canciones {
 	public void Actualizar_Cancion(Cancion aCancion) throws PersistentException {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			//Se actualiza asi??
-			CancionDAO.refresh(aCancion);
+			CancionDAO.save(aCancion);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
 	}
 
-	public Cancion[] Cargar_Canciones_Administrador(String aParametrosBusqueda) {
+	public Cancion[] Cargar_Canciones_Administrador(String aParametrosBusqueda) throws PersistentException {
 		//Podriamos usar el método de busqueda ya creado?? (Realizar_Busqueda_Canciones)
-		throw new UnsupportedOperationException();
+		return Realizar_Busqueda_Canciones(aParametrosBusqueda);
 	}
 
 	public Cancion[] Cargar_Canciones_Album(int aIdAlbum) throws PersistentException {
@@ -154,8 +153,8 @@ public class BD_Canciones {
 			
 			Random generator = new Random();
 			int randomIndex = generator.nextInt(canciones.length);
-			Cancion randomAlbum = canciones[randomIndex];
-			canciones = new Cancion[] {randomAlbum};
+			Cancion randomCancion = canciones[randomIndex];
+			canciones = new Cancion[] {randomCancion};
 			
 			t.commit();
 		} catch (Exception e) {
@@ -170,8 +169,15 @@ public class BD_Canciones {
 		try {
 			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
 			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
+			
 			usuario.ultimas_reproducidas.add(cancion);
 			Usuario_genericoDAO.save(usuario);
+			
+			int numReproducciones = cancion.getNumReproducciones();
+			numReproducciones++;
+			cancion.setNumReproducciones(numReproducciones);
+			CancionDAO.save(cancion);
+			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
@@ -181,7 +187,7 @@ public class BD_Canciones {
 	public void Eliminar_Cancion(int aIdCancion) throws PersistentException {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Cancion cancion = CancionDAO.loadCancionByORMID(aIdCancion);
+			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
 			CancionDAO.delete(cancion);
 			t.commit();
 		} catch (Exception e) {

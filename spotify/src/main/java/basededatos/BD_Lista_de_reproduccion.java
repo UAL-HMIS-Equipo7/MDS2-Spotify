@@ -68,8 +68,21 @@ public class BD_Lista_de_reproduccion {
 		return listas;
 	}
 
-	public Lista_de_reproduccion[] Cargar_Listas_Perfil(int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+	public Lista_de_reproduccion[] Cargar_Listas_Perfil(int aIdUsuarioGenerico) throws PersistentException {
+		Lista_de_reproduccion[] listas = new Lista_de_reproduccion[0];
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
+			listas = usuario.listas.toArray();
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return listas;
 	}
 
 	public int Crear_Lista_de_Reproduccion(int aIdUsuarioGenericoAutor, String aTitulo) throws PersistentException {

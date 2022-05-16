@@ -1,6 +1,9 @@
 package basededatos;
 
 import interfaz.Administrador;
+
+import org.orm.PersistentException;
+
 import interfaz.Actor_comun;
 import interfaz.Usuario_Registrado;
 import interfaz.Cibernauta;
@@ -9,27 +12,43 @@ import interfaz.Servicio_de_autenticacion_externo;
 import interfaz.Servicio_de_Correo_Electronico;
 
 public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibernauta, iArtista, iActor_comun, iServicio_de_autenticacion_externo, iServicio_de_Correo_Electronico {
-	public BD_Usuarios_Registrados _bD_Usuarios_Registrados;
-	public BD_Administradores _bD_Administradores;
-	public BD_Estadisticas _bD_Estadisticas;
-	public BD_Artistas _bD_Artistas;
-	public BD_Albumes _bD_Albumes;
-	public BD_Eventos _bD_Eventos;
-	public BD_Estilos _bD_Estilos;
-	public BD_Canciones _bD_Canciones;
-	public BD_Lista_de_reproduccion _bD_Lista_de_reproduccion;
-	public BD_Datos_Acceso _bD_Datos_Acceso;
+	public BD_Usuarios_Registrados _bD_Usuarios_Registrados = new BD_Usuarios_Registrados();
+	public BD_Administradores _bD_Administradores = new BD_Administradores();
+	public BD_Estadisticas _bD_Estadisticas = new BD_Estadisticas();
+	public BD_Artistas _bD_Artistas = new BD_Artistas();
+	public BD_Albumes _bD_Albumes = new BD_Albumes();
+	public BD_Eventos _bD_Eventos = new BD_Eventos();
+	public BD_Estilos _bD_Estilos = new BD_Estilos();
+	public BD_Canciones _bD_Canciones = new BD_Canciones();
+	public BD_Lista_de_reproduccion _bD_Lista_de_reproduccion = new BD_Lista_de_reproduccion();
+	public BD_Datos_Acceso _bD_Datos_Acceso = new BD_Datos_Acceso();
 
 	public Album[] Realizar_Busqueda_Albumes(String aParametrosBusqueda) {
-		throw new UnsupportedOperationException();
+		Album[] albumes = null;
+		
+		try {
+			albumes = _bD_Albumes.Realizar_Busqueda_Albumes(aParametrosBusqueda);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return albumes;
 	}
 
 	public void Borrar_Album(int aIdAlbum) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Albumes.Borrar_Album(aIdAlbum);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void Eliminar_Usuario(int aIdUsuario) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Usuarios_Registrados.Eliminar_usuario(aIdUsuario);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void Actualizar_Usuario(Usuario_Registrado aUsuario) {
@@ -41,14 +60,14 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public void Actualizar_Cancion(Cancion aCancion) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Canciones.Actualizar_Cancion(aCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void Crear_Artista(Artista aArtista) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Actualizar_Artista(Artista aArtista) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -57,11 +76,23 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public Cancion[] Cargar_Canciones_Administrador(String aParametrosBusqueda) {
-		throw new UnsupportedOperationException();
+		Cancion[] canciones = null;
+
+		try {
+			canciones = _bD_Canciones.Cargar_Canciones_Administrador(aParametrosBusqueda);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return canciones;
 	}
 
 	public void Eliminar_Artista(int aIdArtista) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Artistas.Eliminar_Artista(aIdArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void Eliminar_Cancion(int aIdCancion) {
@@ -81,63 +112,167 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public Album[] Cargar_Albumes_Artista(int aIdArtista) {
-		throw new UnsupportedOperationException();
+		Album[] albumes = null;
+		
+		try {
+			albumes = _bD_Albumes.Cargar_Albumes_Artistas(aIdArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return albumes;
 	}
 
 	public Album[] Cargar_Albumes_Recomendados(int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+		Album[] albumes = null;
+		
+		try {
+			albumes = _bD_Albumes.Cargar_Albumes_Recomendados(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return albumes;
 	}
 
 	public void Seguir_lista_de_reproduccion(int aIdUsuarioGenerico, int aIdLista) {
-		throw new UnsupportedOperationException();
+		
+		try {
+			_bD_Lista_de_reproduccion.Seguir_lista_de_reproduccion(aIdUsuarioGenerico, aIdLista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public void Marcar_cancion_favorita(int aIdUsuarioGenerico, int aIdCancion) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Canciones.Marcar_cancion_favorita(aIdUsuarioGenerico, aIdCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void Aniadir_cancion_a_lista(int aIdCancion, int aIdLista) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Canciones.Aniadir_cancion_a_lista(aIdCancion, aIdLista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Cancion[] Cargar_Ultimas_Canciones_Reproducidas(int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+		Cancion[] canciones = null;
+
+		try {
+			canciones = _bD_Canciones.Cargar_Ultimas_Canciones_Reproducidas(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return canciones;
 	}
 
 	public Lista_de_reproduccion[] Realizar_Busqueda_Listas_Ajenas(String aParametrosBusqueda, int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+		Lista_de_reproduccion[] listas = null;
+
+		try {
+			listas = _bD_Lista_de_reproduccion.Realizar_Busqueda_Listas_Ajenas(aParametrosBusqueda, aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return listas;
 	}
 
 	public Cancion[] Realizar_Busqueda_Canciones(String aParametrosBusqueda) {
-		throw new UnsupportedOperationException();
+		Cancion[] canciones = null;
+
+		try {
+			canciones = _bD_Canciones.Realizar_Busqueda_Canciones(aParametrosBusqueda);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return canciones;
 	}
 
 	public Evento[] Cargar_Notificaciones(int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+		Evento[] notificaciones = null;
+
+		try {
+			notificaciones = _bD_Eventos.Cargar_Notificaciones(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return notificaciones;
 	}
 
 	public void Marcar_Notificacion_Recibida(int aIdUsuarioGenerico, int aIdEvento) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Eventos.Marcar_Notificacion_Recibida(aIdUsuarioGenerico, aIdEvento);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Lista_de_reproduccion[] Cargar_Listas_Recomendadas(int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+		Lista_de_reproduccion[] listas = null;
+
+		try {
+			listas = _bD_Lista_de_reproduccion.Cargar_Listas_Recomendadas(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return listas;
 	}
 
 	public Lista_de_reproduccion[] Cargar_Listas_Perfil(int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+		Lista_de_reproduccion[] listas = null;
+
+		try {
+			listas = _bD_Lista_de_reproduccion.Cargar_Listas_Perfil(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return listas;
 	}
 
 	public Evento[] Cargar_Eventos_Artista(int aIdArtista) {
-		throw new UnsupportedOperationException();
+		Evento[] eventos = null;
+
+		try {
+			eventos = _bD_Eventos.Cargar_Eventos_Artista(aIdArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return eventos;
 	}
 
 	public Estilo[] Cargar_Estilos_Mas_Escuchados(int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+		Estilo[] estilos = null;
+
+		try {
+			estilos = _bD_Estadisticas.Cargar_Estilos_Mas_Escuchados(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return estilos;
 	}
 
 	public int Crear_Lista_de_Reproduccion(int aIdUsuarioGenericoAutor, String aTitulo) {
-		throw new UnsupportedOperationException();
+		int id_lista = -1;
+		try {
+			id_lista = _bD_Lista_de_reproduccion.Crear_Lista_de_Reproduccion(aIdUsuarioGenericoAutor, aTitulo);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return id_lista;
 	}
 
 	public String[] Cargar_Autores_Album(int aIdAlbum) {
@@ -145,23 +280,63 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public Cancion[] Cargar_Canciones_Album(int aIdAlbum) {
-		throw new UnsupportedOperationException();
+		Cancion[] canciones = null;
+
+		try {
+			canciones = _bD_Canciones.Cargar_Canciones_Album(aIdAlbum);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return canciones;
 	}
 
 	public Cancion[] Cargar_Canciones_Lista(int aIdListaReproduccion) {
-		throw new UnsupportedOperationException();
+		Cancion[] canciones = null;
+
+		try {
+			canciones = _bD_Canciones.Cargar_Canciones_Lista(aIdListaReproduccion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return canciones;
 	}
 
 	public Lista_de_reproduccion Cargar_Canciones_Favoritas(int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+		Lista_de_reproduccion lista = null;
+		
+		try {
+			lista = _bD_Lista_de_reproduccion.Cargar_Canciones_Favoritas(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return lista;
 	}
 
 	public Cancion[] Cargar_Canciones_Recomendadas(int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+		Cancion[] canciones = null;
+
+		try {
+			canciones = _bD_Canciones.Cargar_Canciones_Recomendadas(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return canciones;
 	}
 
 	public Cancion[] Cargar_Canciones_Exitosas(int aIdArtista) {
-		throw new UnsupportedOperationException();
+		Cancion[] canciones = null;
+
+		try {
+			canciones = _bD_Canciones.Cargar_Canciones_Exitosas(aIdArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return canciones;
 	}
 
 	public void Aniadir_Cancion_Reproducida(int aIdCancion, int aIdUsuarioGenerico) {
@@ -177,15 +352,38 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public int Registrar_Usuario(String aEmail, String aNick, String aContrasenia, String aFoto) {
-		throw new UnsupportedOperationException();
+		int id_usuario = -1;
+		
+		try {
+			int id_datosAcceso = _bD_Datos_Acceso.Dar_De_Alta_Cuenta(aEmail, aContrasenia, "usuario");
+			id_usuario = _bD_Usuarios_Registrados.Crear_Usuario(id_datosAcceso, aNick, aFoto);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return id_usuario;
 	}
 
 	public void Actualizar_Contrasenia(String aEmail, String aNuevaContrasenia) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Datos_Acceso.Actualizar_Contrasenia(aEmail, aNuevaContrasenia);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Usuario_generico Iniciar_Sesion(String aEmail, String aContrasenia) {
-		throw new UnsupportedOperationException();
+		try {
+			Datos_Acceso datos = _bD_Datos_Acceso.Realizar_Intento_Inicio_Sesion(aEmail, aContrasenia);
+			
+			//TODO
+			//Hacemos un switch en funcion del tipo de usuario, o directamente cogemos la referencia que hay en datos acceso?
+			
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	public void Crear_Evento(int aIdArtista, Evento aEvento) {
@@ -193,7 +391,11 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public void Actualizar_Foto_Perfil(int aIdArtista, String aNuevaFoto) {
-		throw new UnsupportedOperationException();
+		try {
+			 _bD_Artistas.Actualizar_Foto_Perfil(aIdArtista, aNuevaFoto);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Administrador get_Administrador() {
@@ -226,56 +428,115 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 
 	@Override
 	public basededatos.Artista[] Realizar_Busqueda_Artistas(String aParametrosBusqueda) {
-		// TODO Auto-generated method stub
-		return null;
+		basededatos.Artista[] artistas = null;
+		
+		try {
+			artistas = _bD_Artistas.Realizar_Busqueda_Artistas(aParametrosBusqueda);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return artistas;
 	}
 
 	@Override
 	public basededatos.Artista[] Cargar_Artistas_Mas_Escuchados(int aIdUsuarioGenerico) {
-		// TODO Auto-generated method stub
-		return null;
+		basededatos.Artista[] artistas = null;
+		
+		try {
+			artistas = _bD_Estadisticas.Cargar_Artistas_Mas_Escuchados(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return artistas;
 	}
 
 	@Override
 	public basededatos.Artista[] Cargar_Artistas_Lista_Seguidores(int aIdUsuarioGenerico) {
-		// TODO Auto-generated method stub
-		return null;
+		basededatos.Artista[] artistas = null;
+		
+		try {
+			artistas = _bD_Artistas.Cargar_Artistas_Lista_Seguidores(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return artistas;
 	}
 
 	@Override
 	public basededatos.Artista[] Cargar_Artistas_Lista_Seguidos(int aIdUsuarioGenerico) {
-		// TODO Auto-generated method stub
-		return null;
+		basededatos.Artista[] artistas = null;
+		
+		try {
+			artistas = _bD_Artistas.Cargar_Artistas_Lista_Seguidos(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return artistas;
 	}
 
 	@Override
 	public basededatos.Usuario_Registrado[] Cargar_Usuarios_Lista_Seguidores(int aIdUsuarioGenerico) {
-		// TODO Auto-generated method stub
-		return null;
+		basededatos.Usuario_Registrado[] usuarios = null;
+		
+		try {
+			usuarios = _bD_Usuarios_Registrados.Cargar_Usuarios_Lista_Seguidores(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return usuarios;
 	}
 
 	@Override
 	public basededatos.Usuario_Registrado[] Cargar_Usuarios_Lista_Seguidos(int aIdUsuarioGenerico) {
-		// TODO Auto-generated method stub
-		return null;
+		basededatos.Usuario_Registrado[] usuarios = null;
+		
+		try {
+			usuarios = _bD_Usuarios_Registrados.Cargar_Usuarios_Lista_Seguidos(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return usuarios;
 	}
 
 	@Override
 	public basededatos.Artista[] Cargar_Artistas_Similares(int aIdArtista) {
-		// TODO Auto-generated method stub
-		return null;
+		basededatos.Artista[] artistas = null;
+		
+		try {
+			artistas = _bD_Artistas.Cargar_Artistas_Similares(aIdArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return artistas;
 	}
 
 	@Override
 	public basededatos.Usuario_Registrado[] Realizar_Busqueda_Usuarios(String aParametrosBusqueda) {
-		// TODO Auto-generated method stub
-		return null;
+		basededatos.Usuario_Registrado[] usuarios = null;
+		
+		try {
+			usuarios = _bD_Usuarios_Registrados.Realizar_Busqueda_Usuarios(aParametrosBusqueda);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return usuarios;
 	}
 
 	@Override
 	public void Actualizar_Usuario(basededatos.Usuario_Registrado aUsuario) {
-		// TODO Auto-generated method stub
-		
+		try {
+			 _bD_Usuarios_Registrados.Actualizar_Usuario(aUsuario);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -286,6 +547,15 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 
 	@Override
 	public void Actualizar_Artista(basededatos.Artista aArtista) {
+		try {
+			_bD_Artistas.Actualizar_Artista(aArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void Actualizar_Estadisticas(int aIdCancion, int aIdUsuarioGenerico) {
 		// TODO Auto-generated method stub
 		
 	}
