@@ -74,9 +74,30 @@ public class BD_Canciones {
 		return canciones;
 	}
 
-	public void Crear_Cancion(Cancion aCancion) throws PersistentException {
-		//Pasamos mejor los parametros sueltos??
-		throw new UnsupportedOperationException();
+	public int Crear_Cancion(String titulo, int idEstilo, String tituloAlbum, String compositores, String productores, String ficheroMultimediaRuta, String ficheroMultimediaAltaCalidadRuta, String interpretes) throws PersistentException {
+		int id_cancion = -1;
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+
+			Cancion cancion = CancionDAO.createCancion();
+			Estilo estilo = EstiloDAO.getEstiloByORMID(idEstilo);
+			AlbumCriteria criteria = new AlbumCriteria();
+			criteria.titulo.like("%" + tituloAlbum.trim().toLowerCase() + "%");
+			Album alb = AlbumDAO.loadAlbumByCriteria(criteria);
+			cancion.setTitulo(titulo);
+			cancion.setCompositores(compositores);
+			cancion.setFicheroMultimediaAltaCalidadRuta(ficheroMultimediaAltaCalidadRuta);
+			cancion.setFicheroMultimediaRuta(ficheroMultimediaRuta);
+			cancion.setProductores(productores);
+			cancion.estilos.add(estilo);
+			cancion.setIncluida_en_albumes(alb);
+			String[] artistas = interpretes.split(",");
+			id_cancion = cancion.getId();
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return id_cancion;
 	}
 
 	public void Actualizar_Cancion(Cancion aCancion) throws PersistentException {

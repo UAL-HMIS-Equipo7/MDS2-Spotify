@@ -7,7 +7,7 @@ public class BD_Estilos {
 	public BDPrincipal _bDPrincipal_estilos;
 	public Vector<Estilo> _contiene_eventos = new Vector<Estilo>();
 
-	public void Crear_Estilo(Estilo aEstilo) {
+	public void Crear_Estilo(String nombre) {
 		//Pasar mejor los parametros sueltos??
 		throw new UnsupportedOperationException();
 	}

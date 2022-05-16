@@ -75,22 +75,22 @@ public class BD_Albumes {
 		throw new UnsupportedOperationException();
 	}
 
-	public int Crear_Album(Album aAlbum) throws PersistentException {
+	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, Artista[] listaArtistas, Cancion[] listaCanciones) throws PersistentException {
 		
 		int id_album = -1;
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 
 			Album alb = AlbumDAO.createAlbum();
-			alb.setTitulo(aAlbum.getTitulo());
-			alb.setImagenRuta(aAlbum.getImagenRuta());
-			alb.setFechaEdicion(aAlbum.getFechaEdicion());
+			alb.setTitulo(titulo);
+			alb.setImagenRuta(imagenRuta);
+			alb.setFechaEdicion(fechaEdicion);
 			
-			for (Artista artista : aAlbum.autores.toArray()) {
+			for (Artista artista : listaArtistas) {
 				alb.autores.add(artista);
 			}
 			
-			for (Cancion cancion : aAlbum.incluye_a.toArray()) {
+			for (Cancion cancion :listaCanciones) {
 				alb.incluye_a.add(cancion);
 			}
 
