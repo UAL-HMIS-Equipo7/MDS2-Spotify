@@ -12,7 +12,7 @@ public class BD_Eventos {
 	public Vector<Evento> _contiene_eventos = new Vector<Evento>();
 	public BDPrincipal _bDPrincipal_eventos;
 
-	public void Crear_Evento(int aIdArtista, Evento aEvento) {
+	public void Crear_Evento(int aIdArtista, String imagenRuta, String fechaYHora, String descripcion, int precio) {
 		//Pasar mejor los parametros sueltos del evento??
 		
 		//Aqui hay que notificar a todos los que sigan al artista
