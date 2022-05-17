@@ -12,15 +12,15 @@ public interface iAdministrador extends iActor_comun {
 
 	public void Actualizar_Usuario(Usuario_Registrado aUsuario);
 
-	public void Crear_Cancion(Cancion aCancion);
+	public void Crear_Cancion(String titulo, int idEstilo, String tituloAlbum, String compositores, String productores, String ficheroMultimediaRuta, String ficheroMultimediaAltaCalidadRuta, String interpretes);
 
 	public void Actualizar_Cancion(Cancion aCancion);
 
-	public void Crear_Artista(Artista aArtista);
+	public void Crear_Artista(String aEmail, String aNick, String aContrasenia, String aImagenRuta, int aIdEstilo);
 
 	public void Actualizar_Artista(Artista aArtista);
 
-	public void Crear_Estilo(Estilo aEstilo);
+	public void Crear_Estilo(String nombre);
 
 	public Cancion[] Cargar_Canciones_Administrador(String aParametrosBusqueda);
 
@@ -28,7 +28,7 @@ public interface iAdministrador extends iActor_comun {
 
 	public void Eliminar_Cancion(int aIdCancion);
 
-	public int Crear_Album(Album aAlbum);
+	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, Artista[] listaArtistas, Cancion[] listaCanciones);
 
 	public void Actualizar_Album(Album aAlbum);
 
