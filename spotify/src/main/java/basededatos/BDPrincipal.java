@@ -51,10 +51,6 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 	}
 
-	public void Actualizar_Usuario(Usuario_Registrado aUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void Crear_Cancion(Cancion aCancion) {
 		throw new UnsupportedOperationException();
 	}
@@ -96,7 +92,11 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public void Eliminar_Cancion(int aIdCancion) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Canciones.Eliminar_Cancion(aIdCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public int Crear_Album(Album aAlbum) {
@@ -104,11 +104,20 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public void Actualizar_Album(Album aAlbum) {
-		throw new UnsupportedOperationException();
+		try {
+			 _bD_Albumes.Actualizar_Album(aAlbum);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void Actualizar_Perfil(int aIdAdministrador, String aNuevoEmail, String aNuevoNick) {
-		throw new UnsupportedOperationException();
+		try {
+			//TODO: Falta el actualizar perfil para usuario
+			_bD_Administradores.Actualizar_Perfil(aIdAdministrador, aNuevoEmail, aNuevoNick);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Album[] Cargar_Albumes_Artista(int aIdArtista) {
@@ -276,6 +285,7 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public String[] Cargar_Autores_Album(int aIdAlbum) {
+		//TODO: String o Artista??
 		throw new UnsupportedOperationException();
 	}
 
@@ -340,15 +350,27 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public void Aniadir_Cancion_Reproducida(int aIdCancion, int aIdUsuarioGenerico) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Canciones.Aniadir_Cancion_Reproducida(aIdCancion, aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void Seguir_Artista(int aIdUsuarioGenerico, int aIdArtista) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Artistas.Seguir_Artista(aIdUsuarioGenerico, aIdArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void Seguir_Usuario(int aIdSeguidor, int aIdSeguido) {
-		throw new UnsupportedOperationException();
+		try {
+			_bD_Usuarios_Registrados.Seguir_Usuario(aIdSeguidor, aIdSeguido);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public int Registrar_Usuario(String aEmail, String aNick, String aContrasenia, String aFoto) {
@@ -556,7 +578,10 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 
 	@Override
 	public void Actualizar_Estadisticas(int aIdCancion, int aIdUsuarioGenerico) {
-		// TODO Auto-generated method stub
-		
+		try {
+			_bD_Estadisticas.Actualizar_Estadisticas(aIdCancion, aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 }
