@@ -17,7 +17,7 @@ public class Canciones_en_album extends VistaCanciones_en_album {
 
 	public Vector<Cancion_a_eliminar_album> _list_Cancion_a_eliminar_album = new Vector<Cancion_a_eliminar_album>();
 	
-	public Canciones_en_album() {
+	public Canciones_en_album(basededatos.Album album) {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		//Testing

@@ -9,6 +9,7 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.iAdministrador;
 import interfaz.Artista_administrador;
 
 @CssImport("./styles/shared-styles.css")
@@ -17,11 +18,13 @@ public class Artistas_administrador extends VistaArtistas_administrador {
 //	private ScrollBar _navegacionSB;
 
 	public Vector<Artista_administrador> _list_Artista_administrador = new Vector<Artista_administrador>();
+	private iAdministrador bd;
+	private String parametrosBusqueda;
 	
 	
-	
-	public Artistas_administrador() {
+	public Artistas_administrador(String paramBusqueda) {
 		
+		parametrosBusqueda = paramBusqueda;
 		
 		
 		CargarArtistasAdministrador();
@@ -39,10 +42,11 @@ public class Artistas_administrador extends VistaArtistas_administrador {
 	
 	public void CargarArtistasAdministrador() {
 		
+		basededatos.Artista[] artistas = bd.Realizar_Busqueda_Artistas(parametrosBusqueda);
 		Artista_administrador temp;
 		
-		for (int i = 0; i < 5; i++) {
-			temp = new Artista_administrador();
+		for (int i = 0; i < 5 && i < artistas.length; i++) {
+			temp = new Artista_administrador(artistas[i]);
 			temp.setClassName("artistaAdministrador");
 			
 			_list_Artista_administrador.add(temp);

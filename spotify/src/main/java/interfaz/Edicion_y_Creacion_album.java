@@ -5,6 +5,8 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import spotify.GestorVentana;
 import vistas.VistaEdicion_y_creacion_album;
 
@@ -22,9 +24,11 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 //	private Button _guardarB;
 //	private Button _cancelarB;
 //	private Label _errorL;
+	private iAdministrador bd = new BDPrincipal();
+	private basededatos.Album album;
 
-	public Edicion_y_Creacion_album() {
-		
+	public Edicion_y_Creacion_album(basededatos.Album album) {
+		this.album = album;
 		//Botones de Guardar y Cancelar
 		
 		this.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -46,6 +50,7 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 	}
 
 	public void Guardar_cambios_album() {
+	
 		throw new UnsupportedOperationException();
 	}
 
