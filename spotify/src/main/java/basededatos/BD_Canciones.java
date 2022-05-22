@@ -17,8 +17,31 @@ public class BD_Canciones {
 		try {
 			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
 			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
-			//Esto se queda guardado bien??
-			usuario.getFavorita().canciones_incluidas.add(cancion);
+
+			Lista_de_reproduccion favoritos = usuario.getFavorita();
+			favoritos.canciones_incluidas.add(cancion);
+			
+			usuario.setFavorita(favoritos);
+			Lista_de_reproduccionDAO.save(favoritos);
+			Usuario_genericoDAO.save(usuario);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+	}
+	
+	public void Quitar_cancion_favoritos(int aIdUsuarioGenerico, int aIdCancion) throws PersistentException {
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
+			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
+
+			Lista_de_reproduccion favoritos = usuario.getFavorita();
+			favoritos.canciones_incluidas.remove(cancion);
+			
+			usuario.setFavorita(favoritos);
+			Lista_de_reproduccionDAO.save(favoritos);
 			Usuario_genericoDAO.save(usuario);
 			
 			t.commit();
@@ -214,5 +237,28 @@ public class BD_Canciones {
 		} catch (Exception e) {
 			t.rollback();
 		}
+	}
+	
+	public Cancion[] Cargar_Canciones_Aleatorias(int aNumCanciones) throws PersistentException {
+		Cancion[] cancionesAleatorias = new Cancion[aNumCanciones];
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Cancion[] canciones = CancionDAO.listCancionByQuery(null, null);
+			
+			Random generator = new Random();
+			int randomIndex;
+			
+			for (int i = 0; i < aNumCanciones; i++) {
+				randomIndex = generator.nextInt(canciones.length);
+				cancionesAleatorias[i] = canciones[randomIndex];
+			}
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return cancionesAleatorias;
 	}
 }

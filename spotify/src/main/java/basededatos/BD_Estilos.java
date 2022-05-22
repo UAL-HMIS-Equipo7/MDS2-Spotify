@@ -27,4 +27,20 @@ public class BD_Estilos {
 			t.rollback();
 		}
 	}
+	
+	public Estilo[] Cargar_Estilos() throws PersistentException {
+		Estilo[] estilos = null;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+
+			estilos = EstiloDAO.listEstiloByQuery(null, null);
+
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return estilos;
+	}
 }

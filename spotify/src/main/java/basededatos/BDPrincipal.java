@@ -609,4 +609,70 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public void Quitar_cancion_favoritos(int aIdUsuarioGenerico, int aIdCancion) {
+		try {
+			_bD_Canciones.Quitar_cancion_favoritos(aIdUsuarioGenerico, aIdCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void Actualizar_Numero_Canciones_Mostradas(int aIdAdministrador, int aNuevoValor) {
+		try {
+			_bD_Administradores.Actualizar_Numero_Canciones_Mostradas(aIdAdministrador, aNuevoValor);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void Actualizar_Numero_Canciones_Reproducibles(int aIdAdministrador, int aNuevoValor) {
+		try {
+			_bD_Administradores.Actualizar_Numero_Canciones_Reproducibles(aIdAdministrador, aNuevoValor);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Estilo[] Cargar_Estilos() {
+		Estilo[] estilos = null;
+		
+		try {
+			estilos = _bD_Estilos.Cargar_Estilos();
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return estilos;
+	}
+
+	@Override
+	public int Cargar_Numero_Canciones_Mostradas() {
+		int num = -1;
+		
+		try {
+			num = _bD_Administradores.Cargar_Numero_Canciones_Mostradas();
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return num;
+	}
+
+	@Override
+	public Cancion[] Cargar_Canciones_Aleatorias(int aNumCanciones) {
+		Cancion[] canciones = null;
+		
+		try {
+			canciones = _bD_Canciones.Cargar_Canciones_Aleatorias(aNumCanciones);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return canciones;
+	}
 }

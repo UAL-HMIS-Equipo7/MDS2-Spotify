@@ -7,4 +7,8 @@ public interface iCibernauta {
 	public void Actualizar_Contrasenia(String aEmail, String aNuevaContrasenia);
 
 	public Usuario_generico Iniciar_Sesion(String aEmail, String aContrasenia);
+	
+	public int Cargar_Numero_Canciones_Mostradas();
+	
+	public Cancion[] Cargar_Canciones_Aleatorias(int aNumCanciones);
 }
