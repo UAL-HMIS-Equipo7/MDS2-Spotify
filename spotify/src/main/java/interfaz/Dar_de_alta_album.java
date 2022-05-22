@@ -6,6 +6,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import spotify.GestorVentana;
 import vistas.VistaDar_de_alta_album;
 
@@ -14,14 +16,21 @@ public class Dar_de_alta_album extends VistaDar_de_alta_album {
 
 	public Edicion_y_Creacion_album _edicion_y_Creacion_album;
 	public Canciones_a_aniadir_album _canciones_a_aniadir_album;
-	
+	private iAdministrador bd = new BDPrincipal();
 	public Dar_de_alta_album() {
-		_edicion_y_Creacion_album = new Edicion_y_Creacion_album()  {
+		_edicion_y_Creacion_album = new Edicion_y_Creacion_album(null)  {
 			@Override
 			public void Guardar_cambios_album() {
+			basededatos.Cancion[] canciones = new basededatos.Cancion[_canciones_a_aniadir_album._list_Cancion_album.size()];
+			for(int i = 0; i<_canciones_a_aniadir_album._list_Cancion_album.size();i++) {
+				canciones[i] = _canciones_a_aniadir_album._list_Cancion_album.get(i).cancion;
+			}
 				
+				
+					bd.Crear_Album(this.getTituloAlbumTF().getValue(), this.getFotoImg().getSrc(), this.getFechaEdicionTF().getValue(), ,canciones);
 				//Override para tener acceso a:
 				//_canciones_a_aniadir_album._list_Cancion_album
+				
 			}
 		};
 		_canciones_a_aniadir_album = new Canciones_a_aniadir_album();

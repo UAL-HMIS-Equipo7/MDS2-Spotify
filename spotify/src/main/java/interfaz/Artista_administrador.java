@@ -6,6 +6,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import spotify.GestorVentana;
 import vistas.VistaArtista_administrador;
 
@@ -17,9 +19,12 @@ public class Artista_administrador extends VistaArtista_administrador {
 
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	public Edicion_y_Creacion_artista _edicion_y_Creacion_artista;
+	private iAdministrador bd = new BDPrincipal();
+	private int id_artista;
 
-	public Artista_administrador() {
+	public Artista_administrador(basededatos.Artista artista) {
 		
+		id_artista = artista.getId();
 		this.getEditarArtistaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
@@ -42,8 +47,8 @@ public class Artista_administrador extends VistaArtista_administrador {
 					@Override
 					public void Eliminar_elemento() {
 						
-						
-						
+						bd.Eliminar_Artista(id_artista);
+								
 					}
 					
 				};

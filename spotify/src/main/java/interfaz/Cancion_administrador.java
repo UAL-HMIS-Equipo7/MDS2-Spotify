@@ -6,6 +6,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import spotify.GestorVentana;
 import vistas.VistaCancion_administrador;
 
@@ -19,8 +21,11 @@ public class Cancion_administrador extends VistaCancion_administrador {
 
 	public Edicion_y_Creacion_cancion _edicion_y_Creacion_cancion;
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
-	
-	public Cancion_administrador() {
+	private iAdministrador bd = new BDPrincipal();
+	private int id_cancion;
+	public Cancion_administrador(basededatos.Cancion cancion) {
+		
+		id_cancion = cancion.getId();
 		
 		this.getEditarCancionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
@@ -43,6 +48,7 @@ public class Cancion_administrador extends VistaCancion_administrador {
 				_confirmacion_eliminacion = new Confirmacion_eliminacion(ventanaModal) {
 					@Override
 					public void Eliminar_elemento() {
+						bd.Eliminar_Cancion(id_cancion);
 						System.out.println("Override cancion");
 					}
 					

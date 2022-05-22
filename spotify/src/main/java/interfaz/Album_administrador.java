@@ -17,16 +17,21 @@ public class Album_administrador extends VistaAlbum_administrador {
 	public Editar_album _editar_album;
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	
-	public Album_administrador() {
+	public Album_administrador(basededatos.Album album) {
+			
+		this.getAlbumL().setText(album.getTitulo());
+		this.getAlbumImg().setSrc(album.getImagenRuta());
+	
+		
 		
 		this.getEditarAlbumB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
+			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				
 
-				_editar_album = new Editar_album();
+				_editar_album = new Editar_album(album);
 				GestorVentana.CambiarVentana(_editar_album);
 			}
 		});

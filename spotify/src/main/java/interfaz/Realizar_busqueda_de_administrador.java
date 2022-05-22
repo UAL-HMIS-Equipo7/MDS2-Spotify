@@ -18,9 +18,9 @@ public class Realizar_busqueda_de_administrador extends VistaRealizar_busqueda_d
 	public Usuarios_administrador _usuarios_administrador;
 	
 	public Realizar_busqueda_de_administrador() {
-		_canciones_administrador = new Canciones_administrador();
-		_albumes_administrador = new Albumes_administrador();
-		_artistas_administrador = new Artistas_administrador();
+		_canciones_administrador = new Canciones_administrador("");
+		_albumes_administrador = new Albumes_administrador("");
+		_artistas_administrador = new Artistas_administrador("");
 		_usuarios_administrador = new Usuarios_administrador();
 		
 		HorizontalLayout hlcs = this.getContenedorSuperior();

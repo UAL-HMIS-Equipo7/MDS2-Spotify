@@ -14,8 +14,9 @@ public class Editar_album extends VistaEditar_album {
 	public Edicion_y_Creacion_album _edicion_y_Creacion_album;
 	public Canciones_en_album _canciones_en_album;
 	
-	public Editar_album() {
-		_edicion_y_Creacion_album = new Edicion_y_Creacion_album()  {
+	public Editar_album(basededatos.Album album) {
+		
+		_edicion_y_Creacion_album = new Edicion_y_Creacion_album(album)  {
 			@Override
 			public void Guardar_cambios_album() {
 				
@@ -24,7 +25,7 @@ public class Editar_album extends VistaEditar_album {
 			}
 		};
 		
-		_canciones_en_album = new Canciones_en_album();
+		_canciones_en_album = new Canciones_en_album(album);
 		
 		_edicion_y_Creacion_album.setClassName("fullSize");
 		_canciones_en_album.setClassName("fullSize");
