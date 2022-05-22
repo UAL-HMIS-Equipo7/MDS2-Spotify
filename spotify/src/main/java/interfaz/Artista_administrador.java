@@ -20,19 +20,20 @@ public class Artista_administrador extends VistaArtista_administrador {
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	public Edicion_y_Creacion_artista _edicion_y_Creacion_artista;
 	private iAdministrador bd = new BDPrincipal();
-	private int id_artista;
+	private basededatos.Artista _artista;
 
 	public Artista_administrador(basededatos.Artista artista) {
 		
-		id_artista = artista.getId();
+		_artista = artista;
+		
+		this.getArtistaImg().setSrc(_artista.getFotoRuta());
+		this.getArtistaL().setText(_artista.getNick());
+		
 		this.getEditarArtistaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-
-				
-
-				_edicion_y_Creacion_artista = new Edicion_y_Creacion_artista();
+				_edicion_y_Creacion_artista = new Edicion_y_Creacion_artista(_artista);
 				GestorVentana.CambiarVentana(_edicion_y_Creacion_artista);
 			}
 		});
@@ -46,11 +47,8 @@ public class Artista_administrador extends VistaArtista_administrador {
 				_confirmacion_eliminacion = new Confirmacion_eliminacion(ventanaModal) {
 					@Override
 					public void Eliminar_elemento() {
-						
-						bd.Eliminar_Artista(id_artista);
-								
+						bd.Eliminar_Artista(_artista.getORMID());		
 					}
-					
 				};
 
 				ventanaModal.add(_confirmacion_eliminacion);

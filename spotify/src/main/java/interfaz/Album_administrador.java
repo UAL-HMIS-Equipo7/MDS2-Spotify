@@ -6,6 +6,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import spotify.GestorVentana;
 import vistas.VistaAlbum_administrador;
 
@@ -17,21 +19,22 @@ public class Album_administrador extends VistaAlbum_administrador {
 	public Editar_album _editar_album;
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	
-	public Album_administrador(basededatos.Album album) {
-			
-		this.getAlbumL().setText(album.getTitulo());
-		this.getAlbumImg().setSrc(album.getImagenRuta());
+	basededatos.Album _album;
+	iAdministrador bd = new BDPrincipal();
 	
+	public Album_administrador(basededatos.Album album) {
 		
-		
+		_album = album;
+			
+		this.getAlbumL().setText(_album.getTitulo());
+		this.getAlbumImg().setSrc(_album.getImagenRuta());
+	
 		this.getEditarAlbumB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				
-
-				_editar_album = new Editar_album(album);
+				_editar_album = new Editar_album(_album);
 				GestorVentana.CambiarVentana(_editar_album);
 			}
 		});
@@ -45,17 +48,13 @@ public class Album_administrador extends VistaAlbum_administrador {
 				_confirmacion_eliminacion = new Confirmacion_eliminacion(ventanaModal) {
 					@Override
 					public void Eliminar_elemento() {
-						System.out.println("Override Album");
-						
-						//iAdministrador a;
-						//a.borrarAlbm();
+						bd.Borrar_Album(_album.getORMID());
 					}
 					
 				};
 
 				ventanaModal.add(_confirmacion_eliminacion);
 				ventanaModal.open();
-
 			}
 		});
 	}

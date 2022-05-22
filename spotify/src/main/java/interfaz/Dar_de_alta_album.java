@@ -1,5 +1,7 @@
 package interfaz;
 
+import java.time.LocalDateTime;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -17,20 +19,20 @@ public class Dar_de_alta_album extends VistaDar_de_alta_album {
 	public Edicion_y_Creacion_album _edicion_y_Creacion_album;
 	public Canciones_a_aniadir_album _canciones_a_aniadir_album;
 	private iAdministrador bd = new BDPrincipal();
+	
 	public Dar_de_alta_album() {
+		
 		_edicion_y_Creacion_album = new Edicion_y_Creacion_album(null)  {
 			@Override
 			public void Guardar_cambios_album() {
-			basededatos.Cancion[] canciones = new basededatos.Cancion[_canciones_a_aniadir_album._list_Cancion_album.size()];
-			for(int i = 0; i<_canciones_a_aniadir_album._list_Cancion_album.size();i++) {
-				canciones[i] = _canciones_a_aniadir_album._list_Cancion_album.get(i).cancion;
-			}
+				basededatos.Cancion[] canciones = new basededatos.Cancion[_canciones_a_aniadir_album._list_Cancion_album.size()];
 				
+				for(int i = 0; i<_canciones_a_aniadir_album._list_Cancion_album.size();i++) {
+					canciones[i] = _canciones_a_aniadir_album._list_Cancion_album.get(i).cancion;
+				}
 				
-					bd.Crear_Album(this.getTituloAlbumTF().getValue(), this.getFotoImg().getSrc(), this.getFechaEdicionTF().getValue(), ,canciones);
-				//Override para tener acceso a:
-				//_canciones_a_aniadir_album._list_Cancion_album
-				
+				//Modificar método para que tenga un string[] en lugar de artista[]
+				bd.Crear_Album(this.getTituloAlbumTF().getValue(), this.getFotoImg().getSrc(), LocalDateTime.now().toString(), null, canciones);
 			}
 		};
 		_canciones_a_aniadir_album = new Canciones_a_aniadir_album();

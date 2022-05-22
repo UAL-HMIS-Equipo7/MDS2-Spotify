@@ -24,18 +24,45 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 //	private Button _guardarB;
 //	private Button _cancelarB;
 //	private Label _errorL;
-	private iAdministrador bd = new BDPrincipal();
-	private basededatos.Album album;
+
+	private basededatos.Album _album;
 
 	public Edicion_y_Creacion_album(basededatos.Album album) {
-		this.album = album;
-		//Botones de Guardar y Cancelar
+		_album = album;
+		
+		if (_album != null) {
+			this.getTituloAlbumTF().setValue(_album.getTitulo());
+			this.getFotoImg().setSrc(_album.getImagenRuta());
+			this.getFechaEdicionTF().setValue(_album.getFechaEdicion());
+			
+			StringBuilder intepretes = new StringBuilder();
+			basededatos.Artista[] artistas = _album.autores.toArray();
+			
+			for (int i = 0; i < artistas.length; i++) {
+				intepretes.append(artistas[i].getNick() + ", ");
+			}
+			
+			this.getArtistaTF().setValue(intepretes.toString());
+		}
+		
+		//Implementar FileChooser
+		this.getElegirFotoB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				//getFotoImg().setSrc("");
+			}
+		});
 		
 		this.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				Validar_cambios_album();
 				Guardar_cambios_album();
+				
 				GestorVentana.Atras();
 			}
 		});
@@ -50,11 +77,11 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 	}
 
 	public void Guardar_cambios_album() {
-	
+		//Implementado con Override
 		throw new UnsupportedOperationException();
 	}
 
 	public void Validar_cambios_album() {
-		throw new UnsupportedOperationException();
+		//VALIDAR
 	}
 }

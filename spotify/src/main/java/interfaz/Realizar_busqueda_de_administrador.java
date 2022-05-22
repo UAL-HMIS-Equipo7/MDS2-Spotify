@@ -21,7 +21,7 @@ public class Realizar_busqueda_de_administrador extends VistaRealizar_busqueda_d
 		_canciones_administrador = new Canciones_administrador(parametrosBusqueda);
 		_albumes_administrador = new Albumes_administrador(parametrosBusqueda);
 		_artistas_administrador = new Artistas_administrador(parametrosBusqueda);
-		_usuarios_administrador = new Usuarios_administrador();
+		_usuarios_administrador = new Usuarios_administrador(parametrosBusqueda);
 		
 		HorizontalLayout hlcs = this.getContenedorSuperior();
 		hlcs.add(_canciones_administrador);
@@ -29,6 +29,15 @@ public class Realizar_busqueda_de_administrador extends VistaRealizar_busqueda_d
 		HorizontalLayout hlci = this.getContenedorInferior();
 		hlci.add(_artistas_administrador);
 		hlci.add(_usuarios_administrador);
+		
+		if (_canciones_administrador._list_Cancion_administrador.isEmpty() &&
+			_albumes_administrador._list_Album_administrador.isEmpty() &&
+			_artistas_administrador._list_Artista_administrador.isEmpty() &&
+			_usuarios_administrador._list_Usuario_administrador.isEmpty()) {
+			this.getErrorL().setVisible(true);
+		} else {
+			this.getErrorL().setVisible(false);
+		}
 		
 		this.getAtrasB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

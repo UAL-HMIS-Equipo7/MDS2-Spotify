@@ -5,6 +5,8 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import spotify.GestorVentana;
 import vistas.VistaDar_de_alta_estilo;
 
@@ -19,6 +21,8 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 //	private Button _cancelarB;
 //	private Label _errorL;
 	
+	private iAdministrador bd = new BDPrincipal();
+	
 	public Dar_de_alta_estilo() {
 		
 		//Botones de Guardar y Cancelar
@@ -26,6 +30,10 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				Validar_datos_estilo(); //bool??
+				Guardar_cambios_estilo();
+				
 				GestorVentana.Atras();
 			}
 		});
@@ -40,10 +48,10 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 	}
 
 	public void Guardar_cambios_estilo() {
-		throw new UnsupportedOperationException();
+		bd.Crear_Estilo(getNombreTF().getValue());
 	}
 
 	public void Validar_datos_estilo() {
-		throw new UnsupportedOperationException();
+		//VALIDAR
 	}
 }

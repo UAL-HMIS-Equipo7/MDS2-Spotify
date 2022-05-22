@@ -22,19 +22,19 @@ public class Cancion_administrador extends VistaCancion_administrador {
 	public Edicion_y_Creacion_cancion _edicion_y_Creacion_cancion;
 	public Confirmacion_eliminacion _confirmacion_eliminacion;
 	private iAdministrador bd = new BDPrincipal();
-	private int id_cancion;
+	private basededatos.Cancion _cancion;
 	public Cancion_administrador(basededatos.Cancion cancion) {
 		
-		id_cancion = cancion.getId();
+		_cancion = cancion;
+		
+		this.getCancionL().setText(_cancion.getTitulo());
+		this.getCancionImg().setSrc(_cancion.getFicheroMultimediaAltaCalidadRuta());
 		
 		this.getEditarCancionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-
-				
-
-				_edicion_y_Creacion_cancion = new Edicion_y_Creacion_cancion();
+				_edicion_y_Creacion_cancion = new Edicion_y_Creacion_cancion(cancion);
 				GestorVentana.CambiarVentana(_edicion_y_Creacion_cancion);
 			}
 		});
@@ -48,20 +48,18 @@ public class Cancion_administrador extends VistaCancion_administrador {
 				_confirmacion_eliminacion = new Confirmacion_eliminacion(ventanaModal) {
 					@Override
 					public void Eliminar_elemento() {
-						bd.Eliminar_Cancion(id_cancion);
-						System.out.println("Override cancion");
+						bd.Eliminar_Cancion(_cancion.getORMID());
 					}
-					
 				};
 
 				ventanaModal.add(_confirmacion_eliminacion);
 				ventanaModal.open();
-
 			}
 		});
 	}
 
 	public void Aniadir_cancion_a_vista_cibernauta() {
+		//ELIMINAR??
 		throw new UnsupportedOperationException();
 	}
 }
