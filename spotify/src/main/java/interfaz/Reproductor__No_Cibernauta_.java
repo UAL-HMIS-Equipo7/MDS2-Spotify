@@ -35,7 +35,7 @@ public class Reproductor__No_Cibernauta_ extends Reproductor {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_ver_cancion = new Ver_cancion();
+				_ver_cancion = new Ver_cancion(_cancion);
 				
 				
 				GestorVentana.CambiarVentana(_ver_cancion);

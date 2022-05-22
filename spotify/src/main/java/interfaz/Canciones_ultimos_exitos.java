@@ -6,11 +6,15 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta;
 import interfaz.Cancion__Cibernauta_;
 import vistas.VistaCanciones_ultimos_exitos;
 
 @CssImport("./styles/shared-styles.css")
 public class Canciones_ultimos_exitos extends VistaCanciones_ultimos_exitos {
+	
+	iCibernauta bd = new BDPrincipal();
 
 	public Vector<Cancion__Cibernauta_> _list_Cancion__Cibernauta_ = new Vector<Cancion__Cibernauta_>();
 	
@@ -32,10 +36,14 @@ public class Canciones_ultimos_exitos extends VistaCanciones_ultimos_exitos {
 	}
 	
 	public void CargarCancionesCibernauta() {
+		
+		int numCancionesMostrada = bd.Cargar_Numero_Canciones_Mostradas();
+		basededatos.Cancion[] canciones = bd.Cargar_Canciones_Aleatorias(numCancionesMostrada);
+		
 		Cancion__Cibernauta_ temp;
 		
-		for (int i = 0; i < 10; i++) {
-			temp = new Cancion__Cibernauta_();
+		for (int i = 0; i < canciones.length; i++) {
+			temp = new Cancion__Cibernauta_(canciones[i]);
 			temp.setClassName("cancionCiber");
 			
 			_list_Cancion__Cibernauta_.add(temp);

@@ -5,8 +5,12 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Anchor;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.Usuario_generico;
+import basededatos.iCibernauta;
 import spotify.GestorActor;
 import spotify.GestorVentana;
 import vistas.VistaIniciar_sesion;
@@ -33,6 +37,8 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	
 	private int intentosInicioSesion = 0;
 	
+	iCibernauta bd = new BDPrincipal();
+	
 	public Iniciar_sesion() {
 
 		this.getIniciarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -41,37 +47,49 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				//TODO Validación de Usuario + bloqueo usuario
-				String usuario = getEmailTF().getValue();
+				Validar_datos_de_usuario(); //Deberia ser bool para saber si son correctos o no?
 				
-				//Esto debería estar en MainView para poder cambiar el usuario??
-				switch(usuario) {
+				String email = getEmailTF().getValue();
+				String contrasenia = getContraseniaTF().getValue();
+				
+				System.out.println("Email: " + email + " - Contraseña: " + contrasenia);
+				
+				Usuario_generico usuario = bd.Iniciar_Sesion(email, contrasenia);
+				
+				if (usuario == null) {
+					intentosInicioSesion++;
+					
+					Notification.show("Inicio de sesión fallido");
+					
+					if (intentosInicioSesion >= 3) {
+						_bloqueo_inicio_sesion = new Bloqueo_inicio_sesion();
+						
+						intentosInicioSesion = 0;
+						
+						
+						GestorVentana.CambiarVentana(_bloqueo_inicio_sesion);
+					}
+				}
+				else {
+					String tipoUsuario = usuario.getDatos().getTipo();
+					
+					switch(tipoUsuario) {
 					case "usuario":
-						GestorActor.Usuario_Registrado();
+						GestorActor.Usuario_Registrado(usuario);
 						break;
 					case "artista":
-						GestorActor.Artista();
+						GestorActor.Artista(usuario);
 						break;
 					case "admin":
-						GestorActor.Administrador();
+						GestorActor.Administrador(usuario);
 						break;
 				
 					//TODO: DEBUG
 					default:
-						GestorActor.Usuario_Registrado();
+						GestorActor.Usuario_Registrado(usuario);
 						break;
+					}
 				}
-				
-				intentosInicioSesion++;
-				
-				if (intentosInicioSesion >= 3) {
-					_bloqueo_inicio_sesion = new Bloqueo_inicio_sesion();
-					
-					intentosInicioSesion = 0;
-					
-					
-					GestorVentana.CambiarVentana(_bloqueo_inicio_sesion);
-				}
-				
 			}
 		});
 		
@@ -79,11 +97,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				// TODO Como implementamos el tema de volver atrás??
-				
-				
-				//llamar al Inicialize de Cibernauta??
-
+				GestorActor.Cibernauta();
 			}
 		});
 		
@@ -155,6 +169,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	}
 
 	public void Validar_datos_de_usuario() {
-		throw new UnsupportedOperationException();
+		
+		//VALIDAR DATOS
 	}
 }

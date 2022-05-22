@@ -3,8 +3,12 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta;
+import spotify.GestorActor;
 import spotify.GestorVentana;
 import vistas.VistaRegistrarse;
 
@@ -27,6 +31,7 @@ public class Registrarse extends VistaRegistrarse {
 //	private Label _tituloL;
 	public Iniciar_sesion _iniciar_sesion;
 	public Confirmacion_de_correo _confirmacion_de_correo;
+	iCibernauta bd = new BDPrincipal();
 	
 	public Registrarse() {
 		
@@ -46,10 +51,19 @@ public class Registrarse extends VistaRegistrarse {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				// TODO Validación de registro
+				Validar_datos_de_registro(); //deberia ser bool?
 				
-				_confirmacion_de_correo = new Confirmacion_de_correo();
+				//TODO: FileChooser
+				int id = bd.Registrar_Usuario(getEmailTF().getValue(), getNickTF().getValue(), getContraseniaTF().getValue(), "");
 				
-				GestorVentana.CambiarVentana(_confirmacion_de_correo);
+				if (id == -1) {
+					Notification.show("Error al registrar usuario");
+				}
+				else {
+					_confirmacion_de_correo = new Confirmacion_de_correo(getEmailTF().getValue());
+					
+					GestorVentana.CambiarVentana(_confirmacion_de_correo);
+				}
 			}
 		});
 		
@@ -57,15 +71,12 @@ public class Registrarse extends VistaRegistrarse {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				// TODO Como implementamos el tema de volver atrás??
-				
-				
-				//llamar al Inicialize de Cibernauta??
+				GestorActor.Cibernauta();
 			}
 		});
 	}
 
 	public void Validar_datos_de_registro() {
-		throw new UnsupportedOperationException();
+		//VALIDAR
 	}
 }

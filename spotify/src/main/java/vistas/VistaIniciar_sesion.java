@@ -61,12 +61,12 @@ public class VistaIniciar_sesion extends LitTemplate {
 		this.emailTF = emailTF;
 	}
 
-	public PasswordField getVaadinPasswordField() {
-		return vaadinPasswordField;
+	public PasswordField getContraseniaTF() {
+		return contraseniaTF;
 	}
 
-	public void setVaadinPasswordField(PasswordField vaadinPasswordField) {
-		this.vaadinPasswordField = vaadinPasswordField;
+	public void setContraseniaTF(PasswordField contraseniaTF) {
+		this.contraseniaTF = contraseniaTF;
 	}
 
 	public Image getContraseniaImg() {
@@ -133,8 +133,6 @@ public class VistaIniciar_sesion extends LitTemplate {
 	private Image emailImg;
 	@Id("emailTF")
 	private TextField emailTF;
-	@Id("vaadinPasswordField")
-	private PasswordField vaadinPasswordField;
 	@Id("contraseniaImg")
 	private Image contraseniaImg;
 	@Id("googleB")
@@ -151,6 +149,8 @@ public class VistaIniciar_sesion extends LitTemplate {
 	private Button registrarseB;
 	@Id("recuperarContraseniaB")
 	private Button recuperarContraseniaB;
+	@Id("contraseniaTF")
+	private PasswordField contraseniaTF;
 
 	/**
      * Creates a new VistaIniciar_sesion.

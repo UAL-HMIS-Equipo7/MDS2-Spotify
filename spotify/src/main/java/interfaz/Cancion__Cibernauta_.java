@@ -13,15 +13,17 @@ public class Cancion__Cibernauta_ extends VistaCancion_cibernauta {
 
 	public Reproductor__Cibernauta_ _reproductor__Cibernauta_;
 	
-	public Cancion__Cibernauta_() {
+	public Cancion__Cibernauta_(basededatos.Cancion cancion) {
 		
-		this.getFotoCancionB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+		Image foto = getFotoCancionB();
+		
+		//foto.setSrc(cancion.getFicheroMultimediaRuta());
+		
+		foto.addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
-				
-				//TODO: Datos de la cancion
-				//GestorReproductor.setCancion(null);
+				GestorReproductor.setCancion(cancion);
 			}
 		});
 	}

@@ -26,7 +26,7 @@ public class Reproductor__Cibernauta_ extends Reproductor {
 				
 				Dialog ventanaModal = new Dialog();
 				
-				_creditos = new Creditos(ventanaModal);
+				_creditos = new Creditos(ventanaModal, _cancion);
 				
 				ventanaModal.add(_creditos);
 				ventanaModal.open();

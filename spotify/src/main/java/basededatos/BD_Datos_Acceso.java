@@ -1,10 +1,13 @@
 package basededatos;
 
 import java.time.Duration;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Vector;
-
+import org.hibernate.HibernateException;
+import org.hibernate.criterion.CriteriaQuery;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.engine.spi.TypedValue;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
@@ -55,36 +58,45 @@ public class BD_Datos_Acceso {
 		Datos_Acceso datos = null;
 		
 		Datos_AccesoCriteria criteria = new Datos_AccesoCriteria();
-		criteria.email.eq(aEmail);
+		criteria.email.like("%" + aEmail + "%");
 		
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			datos = Datos_AccesoDAO.loadDatos_AccesoByCriteria(criteria);
 			
-			LocalDate fecha = LocalDate.parse(datos.getFechaYHoraBloqueo());
+			datos = Datos_AccesoDAO.getDatos_AccesoByORMID(1);
 			
-			if (fecha.plus(Duration.of(15, ChronoUnit.MINUTES)).compareTo(LocalDate.now()) > 0) {
-				datos = null;
-			}
-			else {
-				String password = datos.getPassword();
-				
-				if (!password.equals(aContrasenia)) {
-					int intentos = datos.getNumeroIntentos();
-					intentos++;
-					
-					if (intentos == 3) {
-						datos.setNumeroIntentos(0);
-						datos.setFechaYHoraBloqueo(LocalDate.now().toString());
-					}
-					else {
-						datos.setNumeroIntentos(intentos);
-					}
-					Datos_AccesoDAO.save(datos);
-					
-					datos = null;
-				}
-			}
+//			datos = Datos_AccesoDAO.loadDatos_AccesoByCriteria(criteria);
+//			
+//			String fechaString = datos.getFechaYHoraBloqueo();
+//			
+//			if (fechaString != null && !fechaString.isEmpty()) {
+//				LocalDateTime fecha = LocalDateTime.parse(fechaString);
+//				LocalDateTime termina = fecha.plus(Duration.of(15, ChronoUnit.MINUTES));
+//				
+//				if (termina.compareTo(LocalDateTime.now()) > 0) {
+//					datos = null;
+//				}
+//			}
+//			
+//			if (datos != null) {
+//				String password = datos.getPassword();
+//				
+//				if (!password.equals(aContrasenia)) {
+//					int intentos = datos.getNumeroIntentos();
+//					intentos++;
+//					
+//					if (intentos == 3) {
+//						datos.setNumeroIntentos(0);
+//						datos.setFechaYHoraBloqueo(LocalDateTime.now().toString());
+//					}
+//					else {
+//						datos.setNumeroIntentos(intentos);
+//					}
+//					Datos_AccesoDAO.save(datos);
+//					
+//					datos = null;
+//				}
+//			}
 			
 			t.commit();
 		} catch (Exception e) {

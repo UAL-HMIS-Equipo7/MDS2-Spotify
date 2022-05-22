@@ -391,17 +391,20 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	public Usuario_generico Iniciar_Sesion(String aEmail, String aContrasenia) {
+		Usuario_generico usuario = null;
+		
 		try {
 			Datos_Acceso datos = _bD_Datos_Acceso.Realizar_Intento_Inicio_Sesion(aEmail, aContrasenia);
 			
 			//TODO
 			//Hacemos un switch en funcion del tipo de usuario, o directamente cogemos la referencia que hay en datos acceso?
+			usuario = datos.getUsuario();
 			
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return usuario;
 	}
 
 	public int Crear_Evento(int aIdArtista, String imagenRuta, String fechaYHora, String descripcion, int precio) {
@@ -693,5 +696,31 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 		
 		return canciones;
+	}
+
+	@Override
+	public int Cargar_Numero_Canciones_Mostradas(int idAdministrador) {
+		int num = -1;
+		
+		try {
+			num = _bD_Administradores.Cargar_Numero_Canciones_Mostradas(idAdministrador);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return num;
+	}
+
+	@Override
+	public int Cargar_Numero_Canciones_Reproducibles(int idAdministrador) {
+		int num = -1;
+		
+		try {
+			num = _bD_Administradores.Cargar_Numero_Canciones_Reproducibles(idAdministrador);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return num;
 	}
 }

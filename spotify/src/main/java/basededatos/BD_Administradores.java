@@ -65,12 +65,35 @@ public class BD_Administradores {
 	}
 	
 	public int Cargar_Numero_Canciones_Mostradas() throws PersistentException {
-		int num = -1;
+		return Cargar_Numero_Canciones_Mostradas(1);
+	}
+	
+	public int Cargar_Numero_Canciones_Mostradas(int idAdministrador) throws PersistentException {
+		int num = 0;
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Administrador admin = AdministradorDAO.listAdministradorByQuery(null, null)[0];
+			AdministradorCriteria criteria = new AdministradorCriteria();
+			criteria.id.eq(idAdministrador);
+			
+			//Administrador admin = AdministradorDAO.getAdministradorByORMID(idAdministrador);
+			Administrador admin = AdministradorDAO.loadAdministradorByCriteria(criteria);
 			
 			num = admin.getNumeroCancionesMostradas();
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return num;
+	}
+	
+	public int Cargar_Numero_Canciones_Reproducibles(int idAdministrador) throws PersistentException {
+		int num = 0;
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Administrador admin = AdministradorDAO.getAdministradorByORMID(idAdministrador);
+			
+			num = admin.getLimiteCancionesReproducibles();
 			
 			t.commit();
 		} catch (Exception e) {

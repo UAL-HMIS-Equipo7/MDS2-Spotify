@@ -2,10 +2,16 @@ package interfaz;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.InputEvent;
+import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
+import spotify.GestorActor;
 import spotify.GestorVentana;
 import vistas.VistaMenu_administracion;
 
@@ -22,17 +28,18 @@ public class Menu_Administracion extends VistaMenu_administracion {
 	public Realizar_busqueda_de_administrador _realizar_busqueda_de_administrador;
 	public Ver_menu_de_altas _ver_menu_de_altas;
 	
+	iAdministrador bd = new BDPrincipal();
+	int numCancionesMostradas;
+	int numCancionesReproducibles;
+	
 	public Menu_Administracion() {
 		
 		this.getBusquedaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				
-				
-				//Pasar los datos del TF
-				_realizar_busqueda_de_administrador = new Realizar_busqueda_de_administrador();
+				String params = getBusquedaTF().getValue();
+				_realizar_busqueda_de_administrador = new Realizar_busqueda_de_administrador(params);
 				GestorVentana.CambiarVentana(_realizar_busqueda_de_administrador);
 			}
 		});
@@ -51,13 +58,30 @@ public class Menu_Administracion extends VistaMenu_administracion {
 
 			}
 		});
+		
+		this.getNumCancionesMostradasTF().addKeyPressListener(Key.ENTER, e -> {
+			numCancionesMostradas = Integer.parseInt(this.getLimiteCancionesReproduciblesTF().getValue());
+			
+			Editar_canciones_que_puede_escuchar_un_cibernauta();
+	    });
+		
+		this.getLimiteCancionesReproduciblesTF().addKeyPressListener(Key.ENTER, e -> {
+			numCancionesReproducibles = Integer.parseInt(this.getLimiteCancionesReproduciblesTF().getValue());
+			
+	        Editar_numero_de_canciones_que_puede_escuchar_un_cibernauta();
+	    });
 	}
 	
 	public void Editar_canciones_que_puede_escuchar_un_cibernauta() {
-		throw new UnsupportedOperationException();
+		bd.Actualizar_Numero_Canciones_Mostradas(GestorActor.getIdUsuario(), numCancionesMostradas);
 	}
 
 	public void Editar_numero_de_canciones_que_puede_escuchar_un_cibernauta() {
-		throw new UnsupportedOperationException();
+		bd.Actualizar_Numero_Canciones_Reproducibles(GestorActor.getIdUsuario(), numCancionesReproducibles);
+	}
+	
+	public void Cargar_Datos_Cibernauta() {
+		numCancionesMostradas = bd.Cargar_Numero_Canciones_Mostradas(GestorActor.getIdUsuario());
+		numCancionesReproducibles = bd.Cargar_Numero_Canciones_Reproducibles(GestorActor.getIdUsuario());
 	}
 }

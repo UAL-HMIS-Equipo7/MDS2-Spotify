@@ -37,4 +37,8 @@ public interface iAdministrador extends iActor_comun {
 	public void Actualizar_Numero_Canciones_Mostradas(int aIdAdministrador, int aNuevoValor);
 	
 	public void Actualizar_Numero_Canciones_Reproducibles(int aIdAdministrador, int aNuevoValor);
+	
+	public int Cargar_Numero_Canciones_Mostradas(int idAdministrador);
+	
+	public int Cargar_Numero_Canciones_Reproducibles(int idAdministrador);
 }

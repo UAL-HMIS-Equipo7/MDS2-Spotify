@@ -9,12 +9,12 @@ public class GestorReproductor {
 		_reproductor = reproductor;
 	}
 	
-	public static void setCancion(String src) {
-		//TODO: Pasarle los datos que hagan falta de la cancion
-		_reproductor._audioPlayer.setSource(src);
+	public static void setCancion(basededatos.Cancion cancion) {
 		
-		//_reproductor.getTituloL().setText(src);
-		//_reproductor.getTituloB().setText(src);
-		//_reproductor.getTituloB().addClickListener(null);
+		_reproductor._cancion = cancion;
+		_reproductor._audioPlayer.setSource(cancion.getFicheroMultimediaRuta());
+		
+		_reproductor.getTituloL().setText(cancion.getTitulo());
+		_reproductor.getTituloB().setText(cancion.getTitulo());
 	}
 }

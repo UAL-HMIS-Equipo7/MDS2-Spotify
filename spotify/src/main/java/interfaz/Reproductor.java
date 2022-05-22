@@ -19,6 +19,8 @@ public class Reproductor extends VistaReproductor {
 //		throw new UnsupportedOperationException();
 //	}
 	
+	public basededatos.Cancion _cancion;
+	
 	public AudioPlayer _audioPlayer;
 	
 	public Reproductor() {

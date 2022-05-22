@@ -31,7 +31,7 @@ export class VistaIniciar_sesion extends LitElement {
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing">
     <img id="contraseniaImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg" style="max-width: 100px;">
-    <vaadin-password-field label="" placeholder="Contraseña" value="" id="vaadinPasswordField"></vaadin-password-field>
+    <vaadin-password-field label="" placeholder="Contraseña" value="" id="contraseniaTF"></vaadin-password-field>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 10%; height: 100%; flex-grow: 0; align-items: center;">
@@ -49,10 +49,10 @@ export class VistaIniciar_sesion extends LitElement {
  <label id="errorL" style="align-self: center;" color="">Error Correspondiente</label>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 10%; align-self: center; justify-content: center;">
   <vaadin-button id="registrarseB">
-   Registrarse
+    Registrarse 
   </vaadin-button>
   <vaadin-button id="recuperarContraseniaB">
-   Recuperar Contraseña
+    Recuperar Contraseña 
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-button style="align-self: center; margin: var(--lumo-space-m);" id="iniciarSesionB">

@@ -3,8 +3,10 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorActor;
 import spotify.GestorVentana;
 import vistas.VistaRecuperar_contrasenia;
 
@@ -24,8 +26,9 @@ public class Recuperar_contrasenia extends VistaRecuperar_contrasenia {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				// TODO Validación de correo
+				Validar_correo_electronico();
 				
-				_confirmacion_de_correo__Recuperar_contrasenia_ = new Confirmacion_de_correo__Recuperar_contrasenia_();
+				_confirmacion_de_correo__Recuperar_contrasenia_ = new Confirmacion_de_correo__Recuperar_contrasenia_(getCorreoTF().getValue());
 				
 				GestorVentana.CambiarVentana(_confirmacion_de_correo__Recuperar_contrasenia_);
 			}
@@ -35,15 +38,12 @@ public class Recuperar_contrasenia extends VistaRecuperar_contrasenia {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				// TODO Como implementamos el tema de volver atrás??
-				
-				
-				//llamar al Inicialize de Cibernauta??
+				GestorActor.Cibernauta();
 			}
 		});
 	}
 	
 	public void Validar_correo_electronico() {
-		throw new UnsupportedOperationException();
+		//VALIDACION
 	}
 }

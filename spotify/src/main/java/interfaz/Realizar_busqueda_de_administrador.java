@@ -17,7 +17,7 @@ public class Realizar_busqueda_de_administrador extends VistaRealizar_busqueda_d
 	public Artistas_administrador _artistas_administrador;
 	public Usuarios_administrador _usuarios_administrador;
 	
-	public Realizar_busqueda_de_administrador() {
+	public Realizar_busqueda_de_administrador(String parametrosBusqueda) {
 		_canciones_administrador = new Canciones_administrador();
 		_albumes_administrador = new Albumes_administrador();
 		_artistas_administrador = new Artistas_administrador();
