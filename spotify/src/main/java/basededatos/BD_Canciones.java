@@ -92,7 +92,8 @@ public class BD_Canciones {
 			cancion.estilos.add(estilo);
 			cancion.setIncluida_en_albumes(alb);
 			String[] artistas = interpretes.split(",");
-			id_cancion = cancion.getId();
+			id_cancion = cancion.getORMID();
+			CancionDAO.save(cancion);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

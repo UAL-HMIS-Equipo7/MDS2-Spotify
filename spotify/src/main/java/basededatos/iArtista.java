@@ -2,7 +2,7 @@ package basededatos;
 
 public interface iArtista extends iActor_comun {
 
-	public void Crear_Evento(int aIdArtista, Evento aEvento);
+	public int Crear_Evento(int aIdArtista, String imagenRuta, String fechaYHora, String descripcion, int precio);
 
 	public void Actualizar_Foto_Perfil(int aIdArtista, String aNuevaFoto);
 

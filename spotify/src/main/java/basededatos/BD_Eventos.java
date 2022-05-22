@@ -12,11 +12,25 @@ public class BD_Eventos {
 	public Vector<Evento> _contiene_eventos = new Vector<Evento>();
 	public BDPrincipal _bDPrincipal_eventos;
 
-	public void Crear_Evento(int aIdArtista, String imagenRuta, String fechaYHora, String descripcion, int precio) {
+	public int Crear_Evento(int aIdArtista, String imagenRuta, String fechaYHora, String descripcion, int precio) throws PersistentException {
 		//Pasar mejor los parametros sueltos del evento??
-		
-		//Aqui hay que notificar a todos los que sigan al artista
-		throw new UnsupportedOperationException();
+		int id_evento = -1;
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Evento evento = EventoDAO.createEvento();
+			Artista artista = ArtistaDAO.getArtistaByORMID(aIdArtista);
+			evento.setImagenRuta(imagenRuta);
+			evento.setFechaYHora(fechaYHora);
+			evento.setDescripcion(descripcion);
+			evento.setPrecio(precio);
+			evento.setPublicado_por(artista);
+			id_evento = evento.getORMID();
+			EventoDAO.save(evento);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return id_evento;
 	}
 
 	public Evento[] Cargar_Notificaciones(int aIdUsuarioGenerico) throws PersistentException {

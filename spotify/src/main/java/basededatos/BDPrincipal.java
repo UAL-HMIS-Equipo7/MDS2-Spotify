@@ -51,9 +51,6 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 	}
 
-	public void Crear_Cancion(Cancion aCancion) {
-		throw new UnsupportedOperationException();
-	}
 
 	public void Actualizar_Cancion(Cancion aCancion) {
 		try {
@@ -63,9 +60,6 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 	}
 
-	public void Crear_Estilo(Estilo aEstilo) {
-		throw new UnsupportedOperationException();
-	}
 
 	public Cancion[] Cargar_Canciones_Administrador(String aParametrosBusqueda) {
 		Cancion[] canciones = null;
@@ -95,8 +89,14 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 	}
 
-	public int Crear_Album(Album aAlbum) {
-		throw new UnsupportedOperationException();
+	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, Artista[] listaArtistas, Cancion[] listaCanciones) {
+		int id_album = -1;
+		try {
+			id_album = _bD_Albumes.Crear_Album(titulo, imagenRuta, fechaEdicion, null, listaCanciones);
+		}catch(PersistentException e) {
+			e.printStackTrace();
+		}
+		return id_album;
 	}
 
 	public void Actualizar_Album(Album aAlbum) {
@@ -404,8 +404,14 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		return null;
 	}
 
-	public void Crear_Evento(int aIdArtista, Evento aEvento) {
-		throw new UnsupportedOperationException();
+	public int Crear_Evento(int aIdArtista, String imagenRuta, String fechaYHora, String descripcion, int precio) {
+		int id_evento = -1;
+		try {
+			id_evento = _bD_Eventos.Crear_Evento(aIdArtista, imagenRuta, fechaYHora, descripcion, precio);
+		}catch(PersistentException e) {
+			e.printStackTrace();
+		}
+		return id_evento;
 	}
 
 	public void Actualizar_Foto_Perfil(int aIdArtista, String aNuevaFoto) {
@@ -576,37 +582,50 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	@Override
-	public void Crear_Artista(String aEmail, String aNick, String aContrasenia, String aImagenRuta, int aIdEstilo) {
-		
+	public int Crear_Artista(String aEmail, String aNick, String aContrasenia, String aImagenRuta, int aIdEstilo) {
+		int id_artista = -1;
 		try {
 			int id_datosAcceso = _bD_Datos_Acceso.Dar_De_Alta_Cuenta(aEmail, aContrasenia, "artista");
-			_bD_Artistas.Crear_Artista(id_datosAcceso, aNick, aImagenRuta, aIdEstilo);
+			id_artista = _bD_Artistas.Crear_Artista(id_datosAcceso, aNick, aImagenRuta, aIdEstilo);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
-		
+		return id_artista;
 	}
 
 	@Override
-	public void Crear_Cancion(String titulo, int idEstilo, String tituloAlbum, String compositores, String productores,
+	public int Crear_Cancion(String titulo, int idEstilo, String tituloAlbum, String compositores, String productores,
 			String ficheroMultimediaRuta, String ficheroMultimediaAltaCalidadRuta, String interpretes) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void Crear_Estilo(String nombre) {
+		int id_cancion = -1;
 		try {
-			_bD_Estilos.Crear_Estilo(nombre);
+			id_cancion = _bD_Canciones.Crear_Cancion(titulo, idEstilo, tituloAlbum, compositores, productores, ficheroMultimediaRuta, ficheroMultimediaAltaCalidadRuta, interpretes);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
+		return id_cancion;
+	}
+	
+
+	@Override
+	public int Crear_Estilo(String nombre) {
+		int id_estilo = -1;
+		try {
+			id_estilo =  _bD_Estilos.Crear_Estilo(nombre);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return id_estilo;
 	}
 
 	@Override
 	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, basededatos.Artista[] listaArtistas,
 			Cancion[] listaCanciones) {
-		// TODO Auto-generated method stub
-		return 0;
+		int id_album = -1;
+		try {
+		id_album = _bD_Albumes.Crear_Album(titulo, imagenRuta, fechaEdicion, listaArtistas, listaCanciones);
+		}catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return id_album;
 	}
 }
