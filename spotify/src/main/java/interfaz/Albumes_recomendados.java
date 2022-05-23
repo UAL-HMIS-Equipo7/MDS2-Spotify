@@ -33,7 +33,7 @@ public class Albumes_recomendados extends VistaAlbumes_recomendados {
 		Album temp;
 		
 		
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4 && i < albumes.length; i++) {
 			temp = new Album(albumes[i]);
 			temp.getElement().setAttribute("align-self", "center");
 			

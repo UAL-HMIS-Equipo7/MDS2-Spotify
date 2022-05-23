@@ -36,7 +36,7 @@ public interface iActor_comun {
 
 	public Artista[] Cargar_Artistas_Mas_Escuchados(int aIdUsuarioGenerico);
 
-	public String[] Cargar_Autores_Album(int aIdAlbum);
+	public Artista[] Cargar_Autores_Album(int aIdAlbum);
 
 	public Cancion[] Cargar_Canciones_Album(int aIdAlbum);
 

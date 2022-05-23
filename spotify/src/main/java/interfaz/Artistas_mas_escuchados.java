@@ -43,7 +43,7 @@ public class Artistas_mas_escuchados extends VistaArtistas_mas_escuchados {
 		basededatos.Artista[] artistas = bd.Cargar_Artistas_Mas_Escuchados(GestorActor.getIdUsuario());
 		Imagen_artistas temp;
 		
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 6 && i < artistas.length; i++) {
 			temp = new Imagen_artistas(artistas[i]);
 			temp.setClassName("imagenArtista");
 			

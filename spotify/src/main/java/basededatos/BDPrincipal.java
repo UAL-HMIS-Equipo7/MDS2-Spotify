@@ -280,10 +280,7 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		return id_lista;
 	}
 
-	public String[] Cargar_Autores_Album(int aIdAlbum) {
-		//TODO: String o Artista??
-		throw new UnsupportedOperationException();
-	}
+	
 
 	public Cancion[] Cargar_Canciones_Album(int aIdAlbum) {
 		Cancion[] canciones = null;
@@ -722,5 +719,16 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 		
 		return num;
+	}
+ 
+	@Override
+	public basededatos.Artista[] Cargar_Autores_Album(int aIdAlbum) {
+		basededatos.Artista[] artistas = null;
+		try {
+		artistas = _bD_Albumes.Cargar_Autores_Album(aIdAlbum);
+		}catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return artistas;
 	}
 }

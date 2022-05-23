@@ -58,7 +58,7 @@ public class Artistas_similares extends VistaArtistas_similares {
 		basededatos.Artista[] artistas = bd.Cargar_Artistas_Similares(this.artista.getORMID());
 		Foto_Artista temp;
 		
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4 && i < artistas.length; i++) {
 			temp = new Foto_Artista(artistas[i]);
 			temp.setClassName("artistasSimilares");
 			temp.getNickB().setVisible(false);

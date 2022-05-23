@@ -52,7 +52,7 @@ public class Albumes extends VistaAlbumes {
 		basededatos.Album[] albumes = bd.Cargar_Albumes_Artista(artista.getId());
  		Album temp;
 
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 6 && i < albumes.length; i++) {
 			temp = new Album(albumes[i]);
 			temp.setClassName("album");
 			

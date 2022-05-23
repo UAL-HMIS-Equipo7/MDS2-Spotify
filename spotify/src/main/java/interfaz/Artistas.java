@@ -58,7 +58,7 @@ public class Artistas extends VistaArtistas {
 		if(artistas!=null) {
 		NickArtista temp;
 		
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 6 && i < artistas.length; i++) {
 			temp = new NickArtista(artistas[i]);
 			temp.setClassName("fullSize");
 			
