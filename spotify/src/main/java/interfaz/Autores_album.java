@@ -7,18 +7,20 @@ import java.util.Vector;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iActor_comun;
 import interfaz.NombreArtista;
 
 public class Autores_album extends VistaAutores_album {
 //	private ComboBox _artistasCB;
 
 	public Vector<NombreArtista> _list_NombreArtista = new Vector<NombreArtista>();
+	private iActor_comun bd = new BDPrincipal();
+	private basededatos.Album album;
 	
-	
-	
-	public Autores_album() {
+	public Autores_album(basededatos.Album album) {
 		
-		
+	this.album = album;	
 		
 		CargarAutoresAlbum();
 		
@@ -35,10 +37,12 @@ public class Autores_album extends VistaAutores_album {
 	}
 	
 	public void CargarAutoresAlbum() {
+		basededatos.Artista[] autores = bd.Cargar_Autores_Album(this.album.getORMID());
 		NombreArtista temp;
 		
-		for (int i = 0; i < 6; i++) {
-			temp = new NombreArtista();
+		for (int i = 0; i < 6 && i < autores.length; i++) {
+			//TODO cambiar cargar autores album
+			temp = new NombreArtista(autores[i]);
 			
 			_list_NombreArtista.add(temp);
 		}

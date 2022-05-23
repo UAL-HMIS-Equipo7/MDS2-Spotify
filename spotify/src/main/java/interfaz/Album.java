@@ -13,7 +13,7 @@ public class Album extends VistaAlbum {
 
 	public Ver_album _ver_album;
 	
-	public Album() {
+	public Album(basededatos.Album album) {
 		
 		this.getFotoB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			

@@ -8,6 +8,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iArtista;
 import interfaz.Foto_Artista;
 import vistas.VistaArtistas_similares;
 
@@ -17,13 +19,12 @@ public class Artistas_similares extends VistaArtistas_similares {
 //	private ScrollBar _navegacionSB;
 
 	public Vector<Foto_Artista> _list_Artista = new Vector<Foto_Artista>();
+	private iArtista bd = new BDPrincipal();
+	private basededatos.Artista artista;
 	
-	
-	
-	public Artistas_similares() {
+	public Artistas_similares(basededatos.Artista artista) {		
 		
-		
-		
+		this.artista = artista;
 		CargarArtistasSimilares();
 		
 		Scroller scroll = this.getNavegacionSB();
@@ -54,10 +55,11 @@ public class Artistas_similares extends VistaArtistas_similares {
 	
 	public void CargarArtistasSimilares() {
 		
+		basededatos.Artista[] artistas = bd.Cargar_Artistas_Similares(this.artista.getORMID());
 		Foto_Artista temp;
 		
-		for (int i = 0; i < 4; i++) {
-			temp = new Foto_Artista();
+		for (int i = 0; i < 4 && i < artistas.length; i++) {
+			temp = new Foto_Artista(artistas[i]);
 			temp.setClassName("artistasSimilares");
 			temp.getNickB().setVisible(false);
 			

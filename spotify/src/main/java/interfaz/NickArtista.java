@@ -10,7 +10,7 @@ import spotify.GestorVentana;
 public class NickArtista extends Foto_Artista {
 //	private Button _nickB;
 	
-	public NickArtista() {
+	public NickArtista(basededatos.Artista artista) {
 		super();
 		
 		this.getNickB().setVisible(true);

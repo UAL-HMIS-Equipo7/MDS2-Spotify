@@ -69,10 +69,16 @@ public class BD_Albumes {
 		}
 	}
 
-	public String[] Cargar_Autores_Album(int aIdAlbum) {
-		//String o Artista?
-		
-		throw new UnsupportedOperationException();
+	public basededatos.Artista[] Cargar_Autores_Album(int aIdAlbum) throws PersistentException {
+		basededatos.Artista[] artistas = null;
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			artistas = AlbumDAO.getAlbumByORMID(aIdAlbum).autores.toArray();
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return artistas;
 	}
 
 	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, Artista[] listaArtistas, Cancion[] listaCanciones) throws PersistentException {

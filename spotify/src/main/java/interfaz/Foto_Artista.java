@@ -13,16 +13,17 @@ public class Foto_Artista extends VistaFoto_artista {
 
 	public Ver_perfil_ajeno_de_artista _ver_perfil_ajeno_de_artista;
 	
-	public Foto_Artista() {
+	public Foto_Artista(basededatos.Artista artista) {
 		
 		this.getNickB().setVisible(false);
 		
+		this.getFotoB().setSrc(artista.getFotoRuta());
 		this.getFotoB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
-				_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
+				_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(artista);
 				
 				
 				GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_artista);
