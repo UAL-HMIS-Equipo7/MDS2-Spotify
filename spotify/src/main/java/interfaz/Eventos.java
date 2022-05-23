@@ -8,6 +8,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iActor_comun;
 import interfaz.Evento;
 import vistas.VistaEventos;
 
@@ -18,17 +20,17 @@ public class Eventos extends VistaEventos {
 
 	public Vector<Evento> _list_Evento = new Vector<Evento>();
 	
+	private basededatos.Artista _artista;
+	private iActor_comun bd = new BDPrincipal();
 	
-	
-	public Eventos() {
+	public Eventos(basededatos.Artista artista) {
 		
-		
+		_artista = artista;
 		
 		CargarEventos();
 		
 		Scroller scroll = this.getNavegacionSB();
 		
-		//Testing elements
 		Div div = new Div();
 		
 		HorizontalLayout tempHl = new HorizontalLayout();
@@ -51,10 +53,13 @@ public class Eventos extends VistaEventos {
 	}
 	
 	public void CargarEventos() {
+		
+		basededatos.Evento[] eventos = bd.Cargar_Eventos_Artista(_artista.getORMID());
+		
 		Evento temp;
 		
-		for (int i = 0; i < 4; i++) {
-			temp = new Evento();
+		for (int i = 0; i < eventos.length; i++) {
+			temp = new Evento(eventos[i], true);
 			
 			_list_Evento.add(temp);
 		}

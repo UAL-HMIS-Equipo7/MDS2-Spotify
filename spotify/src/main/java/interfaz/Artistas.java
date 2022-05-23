@@ -7,6 +7,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
+import basededatos.Usuario_generico;
 import basededatos.iActor_comun;
 import interfaz.NickArtista;
 import spotify.GestorActor;
@@ -18,10 +19,13 @@ public class Artistas extends VistaArtistas {
 	public Vector<NickArtista> _list_NickArtista = new Vector<NickArtista>();
 	
 	private int _tipoLista;
+	private Usuario_generico _usuario;
 	private iActor_comun bd = new BDPrincipal();
-	public Artistas(int tipoLista) {		
+	
+	public Artistas(int tipoLista, Usuario_generico usuario) {		
 		
 		_tipoLista = tipoLista;
+		_usuario = usuario;
 		
 		CargarArtistas();
 		
@@ -48,22 +52,21 @@ public class Artistas extends VistaArtistas {
 	public void CargarArtistas() {
 		basededatos.Artista[] artistas = null;
 		if (_tipoLista == 0) {
-			 artistas = bd.Cargar_Artistas_Lista_Seguidores(GestorActor.getIdUsuario());
-			//CargarUsuarioSeguidores
+			 artistas = bd.Cargar_Artistas_Lista_Seguidores(_usuario.getORMID());
 		}
 		else if (_tipoLista == 1) {
-			//CargarUsuariosSeguidos
-			 artistas = bd.Cargar_Artistas_Lista_Seguidos(GestorActor.getIdUsuario());
+			 artistas = bd.Cargar_Artistas_Lista_Seguidos(_usuario.getORMID());
 		}
-		if(artistas!=null) {
-		NickArtista temp;
 		
-		for (int i = 0; i < 6 && i < artistas.length; i++) {
-			temp = new NickArtista(artistas[i]);
-			temp.setClassName("fullSize");
-			
-			_list_NickArtista.add(temp);
-		}
+		if(artistas!=null) {
+			NickArtista temp;
+
+			for (int i = 0; i < 6 && i < artistas.length; i++) {
+				temp = new NickArtista(artistas[i]);
+				temp.setClassName("fullSize");
+
+				_list_NickArtista.add(temp);
+			}
 		}
 	}
 }

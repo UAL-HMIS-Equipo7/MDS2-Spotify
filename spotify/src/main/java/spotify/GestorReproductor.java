@@ -12,9 +12,7 @@ public class GestorReproductor {
 	public static void setCancion(basededatos.Cancion cancion) {
 		
 		_reproductor._cancion = cancion;
-		_reproductor._audioPlayer.setSource(cancion.getFicheroMultimediaRuta());
 		
-		_reproductor.getTituloL().setText(cancion.getTitulo());
-		_reproductor.getTituloB().setText(cancion.getTitulo());
+		_reproductor.CargarCancion();
 	}
 }

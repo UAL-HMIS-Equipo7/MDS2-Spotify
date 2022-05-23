@@ -13,9 +13,9 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.upload.FinishedEvent;
 import com.vaadin.flow.component.upload.Upload;
 
-public class SubirImagen {
+public class SubirArchivos {
 	
-	public static String Upload(MemoryBuffer memBuffer) {
+	public static String Imagen(MemoryBuffer memBuffer) {
 		
 		String ruta = "img/"+memBuffer.getFileName();
 

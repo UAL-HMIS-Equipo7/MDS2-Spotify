@@ -12,9 +12,9 @@ public class Cabecera_Artista extends Cabecera_superior {
 
 	public Ver_perfil_propio__Artista_ _ver_perfil_propio__Artista_;
 	
-	public Cabecera_Artista() {
+	public Cabecera_Artista(basededatos.Artista artista) {
 
-		super();
+		super(artista);
 		
 		this.getVerPerfilArtistaB().setVisible(true);
 		
@@ -23,9 +23,8 @@ public class Cabecera_Artista extends Cabecera_superior {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				_ver_perfil_propio__Artista_ = new Ver_perfil_propio__Artista_();
+				_ver_perfil_propio__Artista_ = new Ver_perfil_propio__Artista_(artista);
 
-				
 				GestorVentana.CambiarVentana(_ver_perfil_propio__Artista_);
 			}
 		});

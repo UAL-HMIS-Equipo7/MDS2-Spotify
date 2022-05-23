@@ -22,6 +22,18 @@ public class GestorActor {
 		return _usuario;
 	}
 	
+	public static void RecargarActorActual() {
+		if (GestorActor._usuario instanceof basededatos.Administrador) {
+			Administrador((basededatos.Administrador)_usuario);
+		}
+		else if (GestorActor._usuario instanceof basededatos.Usuario_Registrado) {
+			Usuario_Registrado((basededatos.Usuario_Registrado)_usuario);
+		}
+		else if (GestorActor._usuario instanceof basededatos.Artista) {
+			Artista((basededatos.Artista)_usuario);
+		}
+	}
+	
 	public static void Cibernauta() {
 		GestorActor._usuario = null;
 		
@@ -33,10 +45,10 @@ public class GestorActor {
     	_layoutMainView.add(cibernauta);
 	}
 	
-	public static void Administrador(Usuario_generico usuario) {
+	public static void Administrador(basededatos.Administrador usuario) {
 		GestorActor._usuario = usuario;
 		
-		Administrador administrador = new Administrador();
+		Administrador administrador = new Administrador(usuario);
 		administrador.getStyle().set("width", "100%");   
 		administrador.getStyle().set("height", "100%");
     	
@@ -44,10 +56,10 @@ public class GestorActor {
     	_layoutMainView.add(administrador);
 	}
 	
-	public static void Usuario_Registrado(Usuario_generico usuario) {
+	public static void Usuario_Registrado(basededatos.Usuario_Registrado usuario) {
 		GestorActor._usuario = usuario;
 		
-		Usuario_Registrado usuarioRegistrado = new Usuario_Registrado();
+		Usuario_Registrado usuarioRegistrado = new Usuario_Registrado(usuario);
 		usuarioRegistrado.getStyle().set("width", "100%");   
 		usuarioRegistrado.getStyle().set("height", "100%");
     	
@@ -55,10 +67,10 @@ public class GestorActor {
     	_layoutMainView.add(usuarioRegistrado);
 	}
 	
-	public static void Artista(Usuario_generico usuario) {
+	public static void Artista(basededatos.Artista usuario) {
 		GestorActor._usuario = usuario;
 		
-		Artista artista = new Artista();
+		Artista artista = new Artista(usuario);
 		artista.getStyle().set("width", "100%");   
 		artista.getStyle().set("height", "100%");
     	

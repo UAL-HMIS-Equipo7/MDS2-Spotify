@@ -3,6 +3,7 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import spotify.GestorVentana;
@@ -12,8 +13,8 @@ public class Cabecera_Administrador extends Cabecera_superior {
 
 	public Ver_perfil_propio__Administrador_ _ver_perfil_propio__Administrador_;
 	
-	public Cabecera_Administrador() {
-		super();
+	public Cabecera_Administrador(basededatos.Administrador administrador) {
+		super(administrador);
 		
 		this.getVerPerfilAdministradorB().setVisible(true);
 		
@@ -22,8 +23,7 @@ public class Cabecera_Administrador extends Cabecera_superior {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_ver_perfil_propio__Administrador_ = new Ver_perfil_propio__Administrador_();
-				
+				_ver_perfil_propio__Administrador_ = new Ver_perfil_propio__Administrador_(administrador);
 				
 				GestorVentana.CambiarVentana(_ver_perfil_propio__Administrador_);
 			}

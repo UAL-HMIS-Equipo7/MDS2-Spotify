@@ -11,9 +11,9 @@ public class TituloCancion extends Cancion {
 //	public Canciones_de_lista _canciones_de_lista;
 //	public Canciones_album _canciones_album;
 	
-	public TituloCancion() {
+	public TituloCancion(basededatos.Cancion cancion) {
 		
-		super();
+		super(cancion);
 		
 		this.getTituloB().setVisible(true);
 		
@@ -25,19 +25,6 @@ public class TituloCancion extends Cancion {
 				Reproducir__No_Cibernauta_();
 			}
 		});
-		
-		/*this.getTituloB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				Ver_cancion _ver_cancion = new Ver_cancion();
-				
-				GestorVentana.CambiarVentana(_ver_cancion);
-				
-			}
-		});*/
-		
 	}
 	
 }

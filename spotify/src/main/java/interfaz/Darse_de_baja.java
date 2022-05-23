@@ -23,7 +23,7 @@ public class Darse_de_baja extends VistaDarse_de_baja {
 				
 				ventanaModal.close();
 				
-				//Dar_de_baja();
+				Dar_de_baja();
 				
 				GestorActor.Cibernauta();
 			}
@@ -35,13 +35,13 @@ public class Darse_de_baja extends VistaDarse_de_baja {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				ventanaModal.close();
-				
 			}
 		});
 		
 	}
 
 	public void Dar_de_baja() {
+		//Ha sido overrideado
 		throw new UnsupportedOperationException();
 	}
 }

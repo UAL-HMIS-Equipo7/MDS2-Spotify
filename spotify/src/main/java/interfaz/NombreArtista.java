@@ -2,6 +2,8 @@ package interfaz;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorActor;
+import spotify.GestorVentana;
 import vistas.VistaNombreartista;
 
 public class NombreArtista extends VistaNombreartista {
@@ -11,11 +13,19 @@ public class NombreArtista extends VistaNombreartista {
 	
 	public NombreArtista(basededatos.Artista artista) {
 		
+		this.getNombreL().setText(artista.getNick());
+		
 		this.getNombreL().getElement().addEventListener("click", e -> {
 			
 			//Comprobar si el artista so yo o no
-			//_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
-			_ver_perfil_propio__Artista_ = new Ver_perfil_propio__Artista_(artista);
+			if (GestorActor.getIdUsuario() == artista.getORMID()) {
+				_ver_perfil_propio__Artista_ = new Ver_perfil_propio__Artista_(artista);
+				GestorVentana.CambiarVentana(_ver_perfil_propio__Artista_);
+			}
+			else {
+				_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(artista);
+				GestorVentana.CambiarVentana(_ver_perfil_propio__Artista_);
+			}
 		});
 	}
 }

@@ -24,6 +24,7 @@ public class Actor_comun extends VistaActor_comun {
 	public Reproductor__No_Cibernauta_ _reproductor__No_Cibernauta_;
 	public Recomendaciones _recomendaciones;
 	public Ver_estadisticas _ver_estadisticas;
+	private basededatos.Usuario_generico _usuario;
 	
 	private Button menuAdministracionB;
 	
@@ -35,7 +36,9 @@ public class Actor_comun extends VistaActor_comun {
 		this.menuAdministracionB = menuAdministracionB;
 	}
 	
-	public Actor_comun(boolean menuAdministracionVisible) {
+	public Actor_comun(basededatos.Usuario_generico usuario, boolean menuAdministracionVisible) {
+		
+		_usuario = usuario;
 		
 		Inicializar(menuAdministracionVisible);
 		
@@ -82,9 +85,9 @@ public class Actor_comun extends VistaActor_comun {
 		vl.add(verEstadisticasB);
 		vl.add(hl);
 		
-		_ultimas_canciones_reproducidas = new Ultimas_canciones_reproducidas();
-		_canciones_favoritas = new Canciones_favoritas();
-		_recomendaciones = new Recomendaciones();
+		_ultimas_canciones_reproducidas = new Ultimas_canciones_reproducidas(_usuario);
+		_canciones_favoritas = new Canciones_favoritas(_usuario);
+		_recomendaciones = new Recomendaciones(_usuario);
 		_recomendaciones.getStyle().set("height", "30%");
 		
 		contenedorIzquierdo.add(_ultimas_canciones_reproducidas);
@@ -98,7 +101,7 @@ public class Actor_comun extends VistaActor_comun {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				vl.removeAll();
 				
-				_ver_estadisticas = new Ver_estadisticas();
+				_ver_estadisticas = new Ver_estadisticas(_usuario);
 				
 				vl.add(_ver_estadisticas);
 			}

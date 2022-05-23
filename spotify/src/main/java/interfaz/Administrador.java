@@ -16,19 +16,22 @@ public class Administrador extends Actor_comun {
 	public Cabecera_Administrador _cabecera_Administrador;
 	public Menu_Administracion _menu_Administracion;
 	
-	public Administrador() {
-		super(true);
+	private basededatos.Administrador _administrador;
+	
+	public Administrador(basededatos.Administrador administrador) {
+		super(administrador, true);
+		
+		_administrador = administrador;
 		
 		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
 		
-		_cabecera_Administrador = new Cabecera_Administrador();
+		_cabecera_Administrador = new Cabecera_Administrador(administrador);
 		
 		_cabecera_Administrador.getInicioB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				Inicializar();
-
 			}
 		});
 		
@@ -40,7 +43,7 @@ public class Administrador extends Actor_comun {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_menu_Administracion = new Menu_Administracion();
+				_menu_Administracion = new Menu_Administracion(_administrador);
 				GestorVentana.CambiarVentana(_menu_Administracion);
 			}
 		});
@@ -54,7 +57,7 @@ public class Administrador extends Actor_comun {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				_menu_Administracion = new Menu_Administracion();
+				_menu_Administracion = new Menu_Administracion(_administrador);
 				GestorVentana.CambiarVentana(_menu_Administracion);
 			}
 		});

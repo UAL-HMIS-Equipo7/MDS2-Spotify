@@ -33,15 +33,16 @@ public class Autores_album extends VistaAutores_album {
 //		}
 		
 		//cb.setItems(nombres);
-		cb.setItems(_list_NombreArtista);;
+		cb.setItems(_list_NombreArtista);
+
+		//Ver como resolver el combobox
 	}
 	
 	public void CargarAutoresAlbum() {
 		basededatos.Artista[] autores = bd.Cargar_Autores_Album(this.album.getORMID());
 		NombreArtista temp;
 		
-		for (int i = 0; i < 6 && i < autores.length; i++) {
-			//TODO cambiar cargar autores album
+		for (int i = 0; i < autores.length; i++) {
 			temp = new NombreArtista(autores[i]);
 			
 			_list_NombreArtista.add(temp);

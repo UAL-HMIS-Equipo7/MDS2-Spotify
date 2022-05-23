@@ -26,7 +26,6 @@ public class Albumes extends VistaAlbumes {
 		
 		Scroller scroll = this.getVaadinScroller();
 		
-		//Testing elements
 		Div div = new Div();
 		
 		HorizontalLayout tempHl = new HorizontalLayout();

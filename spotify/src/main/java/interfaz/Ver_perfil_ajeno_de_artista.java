@@ -5,14 +5,22 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iActor_comun;
+import spotify.GestorActor;
+
 public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 //	private event _seguir_artista;
 	public Panel_artista _panel_artista;
+	private basededatos.Artista _artista;
+	private iActor_comun bd = new BDPrincipal();
 
 	public Ver_perfil_ajeno_de_artista(basededatos.Artista artista) {
-		super();
+		super((basededatos.Usuario_generico) artista);
+		
+		_artista = artista;
 
-		_panel_artista = new Panel_artista();
+		_panel_artista = new Panel_artista(artista);
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(_panel_artista);
 
@@ -21,13 +29,12 @@ public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Seguir_artista();
-
 			}
 		});
 
 	}
 
 	public void Seguir_artista() {
-		throw new UnsupportedOperationException();
+		bd.Seguir_Artista(GestorActor.getIdUsuario(), _artista.getORMID());
 	}
 }

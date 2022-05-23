@@ -31,8 +31,11 @@ public class Menu_Administracion extends VistaMenu_administracion {
 	iAdministrador bd = new BDPrincipal();
 	int numCancionesMostradas;
 	int numCancionesReproducibles;
+	basededatos.Administrador _administrador;
 	
-	public Menu_Administracion() {
+	public Menu_Administracion(basededatos.Administrador administrador) {
+		
+		_administrador = administrador;
 		
 		Cargar_Datos_Cibernauta();
 		
@@ -75,16 +78,16 @@ public class Menu_Administracion extends VistaMenu_administracion {
 	}
 	
 	public void Editar_canciones_que_puede_escuchar_un_cibernauta() {
-		bd.Actualizar_Numero_Canciones_Mostradas(GestorActor.getIdUsuario(), numCancionesMostradas);
+		bd.Actualizar_Numero_Canciones_Mostradas(_administrador.getORMID(), numCancionesMostradas);
 	}
 
 	public void Editar_numero_de_canciones_que_puede_escuchar_un_cibernauta() {
-		bd.Actualizar_Numero_Canciones_Reproducibles(GestorActor.getIdUsuario(), numCancionesReproducibles);
+		bd.Actualizar_Numero_Canciones_Reproducibles(_administrador.getORMID(), numCancionesReproducibles);
 	}
 	
 	public void Cargar_Datos_Cibernauta() {
-		numCancionesMostradas = bd.Cargar_Numero_Canciones_Mostradas(GestorActor.getIdUsuario());
-		numCancionesReproducibles = bd.Cargar_Numero_Canciones_Reproducibles(GestorActor.getIdUsuario());
+		numCancionesMostradas = bd.Cargar_Numero_Canciones_Mostradas(_administrador.getORMID());
+		numCancionesReproducibles = bd.Cargar_Numero_Canciones_Reproducibles(_administrador.getORMID());
 		
 		this.getNumCancionesMostradasTF().setValue(Integer.toString(numCancionesMostradas));
 		this.getLimiteCancionesReproduciblesTF().setValue(Integer.toString(numCancionesReproducibles));

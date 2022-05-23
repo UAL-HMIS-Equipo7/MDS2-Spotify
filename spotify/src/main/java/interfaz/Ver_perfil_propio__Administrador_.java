@@ -6,44 +6,58 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
+import basededatos.iUsuario_Registrado;
+
 public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 //	private Button _modificarInformacionB;
 	public Editar_informacion_del_perfil_no_artista _editar_informacion_del_perfil_no_artista;
+	private iAdministrador bd = new BDPrincipal();
 	
-	public Ver_perfil_propio__Administrador_() {
-		// TODO Auto-generated constructor stub
-		super();
+	public Ver_perfil_propio__Administrador_(basededatos.Administrador administrador) {
+	
+		super((basededatos.Usuario_generico) administrador);
 
 		this.getDarseBajaB().setVisible(false);
 		this.getAniadirInformacionEventosB().setVisible(false);
 		
 		
 		this.getModificarInformacionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
+
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				
+
 				VerticalLayout contenedor = getContenedorIzquierdo().as(VerticalLayout.class);
-				
-				_editar_informacion_del_perfil_no_artista = new Editar_informacion_del_perfil_no_artista();
-				
-				_editar_informacion_del_perfil_no_artista.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					
+
+				_editar_informacion_del_perfil_no_artista = new Editar_informacion_del_perfil_no_artista(administrador) {
 					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						
-						//Llamar a _editar_informacion_del_perfil_no_artista.Validar_datos_de_perfil()
-						
-						contenedor.remove(_editar_informacion_del_perfil_no_artista);
-						getNickL().setVisible(true);
-						getEmailL().setVisible(true);
-						getModificarInformacionB().setVisible(true);
+					public void ActualizarPerfil() {
+						bd.Actualizar_Perfil(administrador.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
 					}
-				});
-				
+				};
+
+				_editar_informacion_del_perfil_no_artista.getGuardarB()
+						.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+
+								_editar_informacion_del_perfil_no_artista.Validar_datos_de_perfil(); // bool?
+								_editar_informacion_del_perfil_no_artista.ActualizarPerfil();
+
+								contenedor.remove(_editar_informacion_del_perfil_no_artista);
+								getNickL().setVisible(true);
+								getEmailL().setVisible(true);
+								getDarseBajaB().setVisible(true);
+								getModificarInformacionB().setVisible(true);
+							}
+						});
+
 				contenedor.add(_editar_informacion_del_perfil_no_artista);
 				getNickL().setVisible(false);
 				getEmailL().setVisible(false);
+				getDarseBajaB().setVisible(false);
 				getModificarInformacionB().setVisible(false);
 			}
 		});

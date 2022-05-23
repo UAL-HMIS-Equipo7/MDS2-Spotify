@@ -5,6 +5,10 @@ import java.util.Vector;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.Usuario_Registrado;
+import basededatos.Usuario_generico;
+import basededatos.iActor_comun;
 import interfaz.Usuario;
 import vistas.VistaUsuarios;
 
@@ -12,9 +16,12 @@ public class Usuarios extends VistaUsuarios {
 	public Vector<Usuario> _list_Usuario = new Vector<Usuario>();
 	
 	private int _tipoLista;
+	private Usuario_generico _usuario;
+	private iActor_comun bd = new BDPrincipal();
 	
-	public Usuarios(int tipoLista) {
+	public Usuarios(int tipoLista, Usuario_generico usuario) {
 		
+		_usuario = usuario;
 		_tipoLista = tipoLista;
 		
 		CargarUsuarios();
@@ -42,19 +49,23 @@ public class Usuarios extends VistaUsuarios {
 	
 	public void CargarUsuarios() {
 		
+		basededatos.Usuario_Registrado[] usuarios = null;
+		
 		if (_tipoLista == 0) {
-			//CargarUsuarioSeguidores
+			usuarios = bd.Cargar_Usuarios_Lista_Seguidores(_usuario.getORMID());
 		}
 		else if (_tipoLista == 1) {
-			//CargarUsuariosSeguidos
+			usuarios = bd.Cargar_Usuarios_Lista_Seguidos(_usuario.getORMID());
 		}
 		
-		Usuario temp;
-		
-		for(int i = 0; i < 6; i++) {
-			temp = new Usuario();
+		if (usuarios != null) {
+			Usuario temp;
 			
-			_list_Usuario.add(temp);
-		}
+			for(int i = 0; i < usuarios.length; i++) {
+				temp = new Usuario(usuarios[i]);
+				
+				_list_Usuario.add(temp);
+			}
+		}	
 	}
 }

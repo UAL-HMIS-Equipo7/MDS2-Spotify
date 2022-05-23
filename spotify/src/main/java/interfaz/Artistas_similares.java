@@ -25,11 +25,11 @@ public class Artistas_similares extends VistaArtistas_similares {
 	public Artistas_similares(basededatos.Artista artista) {		
 		
 		this.artista = artista;
+		
 		CargarArtistasSimilares();
 		
 		Scroller scroll = this.getNavegacionSB();
 		
-		//Testing elements
 		Div div = new Div();
 		
 		HorizontalLayout tempHl = new HorizontalLayout();
@@ -58,7 +58,7 @@ public class Artistas_similares extends VistaArtistas_similares {
 		basededatos.Artista[] artistas = bd.Cargar_Artistas_Similares(this.artista.getORMID());
 		Foto_Artista temp;
 		
-		for (int i = 0; i < 4 && i < artistas.length; i++) {
+		for (int i = 0; i < artistas.length; i++) {
 			temp = new Foto_Artista(artistas[i]);
 			temp.setClassName("artistasSimilares");
 			temp.getNickB().setVisible(false);

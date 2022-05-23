@@ -15,12 +15,14 @@ public class Album extends VistaAlbum {
 	
 	public Album(basededatos.Album album) {
 		
+		this.getFotoB().setSrc(album.getImagenRuta());
+		
 		this.getFotoB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
-				_ver_album = new Ver_album();
+				_ver_album = new Ver_album(album);
 				
 				
 				GestorVentana.CambiarVentana(_ver_album);

@@ -3,16 +3,23 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.upload.FinishedEvent;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import basededatos.BDPrincipal;
 import basededatos.iArtista;
+import spotify.GestorVentana;
+import spotify.SubirArchivos;
 import vistas.VistaAniadir_informacion_de_eventos;
 
 public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_eventos {
 //	private event _confirmar_evento;
 	private iArtista bd = new BDPrincipal();
 	private basededatos.Artista artista;
+	private String rutaFoto;
 	
 	public Aniadir_informacion_de_eventos(basededatos.Artista artista) {
 		this.artista = artista;
@@ -22,8 +29,11 @@ public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				//Ver como mandarlo de vuelta al Ver_perfil_propio_Artista
+				Validar_informacion_evento(); //bool?
 				
+				Confirmar_evento();
+				
+				GestorVentana.Atras();
 			}
 		});
 		
@@ -32,7 +42,7 @@ public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				// Ver como mandarlo de vuelta al Ver_perfil_propio_Artista
+				GestorVentana.Atras();
 
 			}
 		});
@@ -41,19 +51,30 @@ public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				//obtener lo que se selecciona en el fc
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
 				
-				
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+					
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+						rutaFoto = SubirArchivos.Imagen(buffer);
+						
+						getImagenImg().setSrc(rutaFoto);
+						
+						modal.close();
+					}
+				});
 			}
 		});
 	}
 
 	public void Validar_informacion_evento() {
-		throw new UnsupportedOperationException();
+		//VALIDAR
 	}
 
 	public void Confirmar_evento() {
-		//falta ruta imagen
-		bd.Crear_Evento(artista.getORMID(), "", this.getFechaHoraTF().getValue(), this.getVaadinTextArea().getValue(), Integer.parseInt(this.getPrecioTF().getValue()));
+		bd.Crear_Evento(artista.getORMID(), rutaFoto, this.getFechaHoraTF().getValue(), this.getVaadinTextArea().getValue(), Integer.parseInt(this.getPrecioTF().getValue()));
 	}
 }

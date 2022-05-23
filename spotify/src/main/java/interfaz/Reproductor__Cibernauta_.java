@@ -18,21 +18,37 @@ public class Reproductor__Cibernauta_ extends Reproductor {
 		super();
 		
 		this.getTituloB().setVisible(false);
+		this.getTituloL().setVisible(true);
+		this.getCreditosB().setVisible(true);
 		
-		this.getCreditosB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				Dialog ventanaModal = new Dialog();
-				
-				_creditos = new Creditos(ventanaModal, _cancion);
-				
-				ventanaModal.add(_creditos);
-				ventanaModal.open();
-				
-			}
-		});
+		CargarCancion();
+	}
+	
+	@Override
+	public void CargarCancion() {
+		super.CargarCancion();
 		
+		if (_cancion == null) {
+			this.getTituloL().setText("-");
+			this.getCreditosB().setEnabled(false);
+		}
+		else {
+			this.getTituloL().setText(_cancion.getTitulo());
+			this.getCreditosB().setEnabled(true);
+			this.getCreditosB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					
+					Dialog ventanaModal = new Dialog();
+					
+					_creditos = new Creditos(ventanaModal, _cancion);
+					
+					ventanaModal.add(_creditos);
+					ventanaModal.open();
+					
+				}
+			});
+		}
 	}
 }

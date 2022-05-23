@@ -12,9 +12,9 @@ public class Cabecera_Usuario_Registrado extends Cabecera_superior {
 	
 	public Ver_perfil_propio__Usuario_Registrado_ _ver_perfil_propio__Usuario_Registrado_;
 	
-	public Cabecera_Usuario_Registrado() {
+	public Cabecera_Usuario_Registrado(basededatos.Usuario_Registrado usuario) {
 
-		super();
+		super(usuario);
 		
 		this.getVerPerfilUsuarioB().setVisible(true);
 		
@@ -23,9 +23,8 @@ public class Cabecera_Usuario_Registrado extends Cabecera_superior {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				_ver_perfil_propio__Usuario_Registrado_ = new Ver_perfil_propio__Usuario_Registrado_();
+				_ver_perfil_propio__Usuario_Registrado_ = new Ver_perfil_propio__Usuario_Registrado_(usuario);
 
-				
 				GestorVentana.CambiarVentana(_ver_perfil_propio__Usuario_Registrado_);
 			}
 		});

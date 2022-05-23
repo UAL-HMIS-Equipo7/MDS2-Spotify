@@ -9,18 +9,22 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.Usuario_generico;
+import basededatos.iActor_comun;
 import interfaz.Notificacion;
 
 public class Notificaciones extends VistaNotificaciones {
 	public Vector<Notificacion> _list_Notificacion = new Vector<Notificacion>();
 	
+	private Dialog _ventanaModal;
+	private Usuario_generico _usuario;
+	private iActor_comun bd = new BDPrincipal();
 	
-	private Dialog ventanaModal;
-	
-	public Notificaciones(Dialog ventanaModal) {
+	public Notificaciones(Dialog ventanaModal, Usuario_generico usuario) {
 		
-		
-		this.ventanaModal = ventanaModal;
+		_usuario = usuario;
+		_ventanaModal = ventanaModal;
 
 		CargarNotificaciones();
 		
@@ -37,10 +41,12 @@ public class Notificaciones extends VistaNotificaciones {
 	
 	public void CargarNotificaciones() {
 		
+		basededatos.Evento[] notificaciones = bd.Cargar_Notificaciones(_usuario.getORMID());
+		
 		Notificacion temp;
 		
-		for (int i = 0; i < 5; i++) {
-			temp = new Notificacion(ventanaModal);
+		for (int i = 0; i < notificaciones.length; i++) {
+			temp = new Notificacion(_ventanaModal, notificaciones[i], _usuario);
 			
 			_list_Notificacion.add(temp);
 		}

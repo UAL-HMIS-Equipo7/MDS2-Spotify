@@ -7,6 +7,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iActor_comun;
 import interfaz.Cancion;
 import vistas.VistaCanciones_mas_exitosas;
 
@@ -15,12 +17,13 @@ public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 //	private ScrollBar _navegacionSB;
 
 	public Vector<Cancion> _list_Cancion = new Vector<Cancion>();
+
+	private basededatos.Artista _artista;
+	private iActor_comun bd = new BDPrincipal();
 	
-	
-	
-	public Canciones_mas_exitosas() {
+	public Canciones_mas_exitosas(basededatos.Artista artista) {
 		
-		
+		_artista = artista;
 		
 		CargarCancionesExitosas();
 		
@@ -47,10 +50,13 @@ public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 	}
 	
 	public void CargarCancionesExitosas() {
+		
+		basededatos.Cancion[] canciones = bd.Cargar_Canciones_Exitosas(_artista.getORMID());
+		
 		Cancion temp;
 		
-		for (int i = 0; i < 4; i++) {
-			temp = new Cancion();
+		for (int i = 0; i < canciones.length; i++) {
+			temp = new Cancion(canciones[i]);
 			
 			_list_Cancion.add(temp);
 		}

@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Usuario_generico;
 import spotify.GestorActor;
 import spotify.GestorVentana;
 import vistas.VistaCabecera_superior;
@@ -24,7 +25,7 @@ public class Cabecera_superior extends VistaCabecera_superior {
 	public Contactar_con_la_empresa _contactar_con_la_empresa;
 	public Realizar_busqueda _realizar_busqueda;
 	
-	public Cabecera_superior() {
+	public Cabecera_superior(Usuario_generico usuario) {
 		
 		this.getVerPerfilAdministradorB().setVisible(false);
 		this.getVerPerfilArtistaB().setVisible(false);
@@ -47,9 +48,7 @@ public class Cabecera_superior extends VistaCabecera_superior {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
-				//Sacar el contenido del TF y pasarlo por parámetro
-				_realizar_busqueda = new Realizar_busqueda();
-				
+				_realizar_busqueda = new Realizar_busqueda(getBuscarTF().getValue());
 				
 				GestorVentana.CambiarVentana(_realizar_busqueda);
 			}
@@ -60,13 +59,12 @@ public class Cabecera_superior extends VistaCabecera_superior {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				//Cerrar_sesion();
-				GestorActor.Cibernauta();
+				Cerrar_sesion();
 			}
 		});
 	}
 
 	public void Cerrar_sesion() {
-		throw new UnsupportedOperationException();
+		GestorActor.Cibernauta();
 	}
 }

@@ -73,18 +73,13 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					
 					switch(tipoUsuario) {
 					case "usuario":
-						GestorActor.Usuario_Registrado(usuario);
+						GestorActor.Usuario_Registrado((basededatos.Usuario_Registrado)usuario);
 						break;
 					case "artista":
-						GestorActor.Artista(usuario);
+						GestorActor.Artista((basededatos.Artista)usuario);
 						break;
 					case "admin":
-						GestorActor.Administrador(usuario);
-						break;
-				
-					//TODO: DEBUG
-					default:
-						GestorActor.Usuario_Registrado(usuario);
+						GestorActor.Administrador((basededatos.Administrador)usuario);
 						break;
 					}
 				}

@@ -11,19 +11,18 @@ public class Usuario_Registrado extends Actor_comun {
 //	public iUsuario_Registrado _iUsuario_Registrado;
 	public Cabecera_Usuario_Registrado _cabecera_Usuario_Registrado;
 	
-	public Usuario_Registrado() {
-		super(false);
+	public Usuario_Registrado(basededatos.Usuario_Registrado usuario) {
+		super(usuario, false);
 		
 		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
 		
-		_cabecera_Usuario_Registrado = new Cabecera_Usuario_Registrado();
+		_cabecera_Usuario_Registrado = new Cabecera_Usuario_Registrado(usuario);
 		
 		_cabecera_Usuario_Registrado.getInicioB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				Inicializar(false);
-				
 			}
 		});
 		

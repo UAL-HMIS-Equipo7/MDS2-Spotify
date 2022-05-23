@@ -31,4 +31,13 @@ public class Reproductor extends VistaReproductor {
 		
 		hl.add(_audioPlayer);
 	}
+	
+	public void CargarCancion() {
+		
+		if (_cancion != null) {
+			_audioPlayer.setSource(_cancion.getFicheroMultimediaRuta());
+		}
+		
+		//Overrideado
+	}
 }

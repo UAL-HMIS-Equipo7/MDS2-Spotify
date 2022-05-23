@@ -13,12 +13,12 @@ public class Artista extends Actor_comun {
 //	public iArtista _iArtista;
 	public Cabecera_Artista _cabecera_Artista;
 	
-	public Artista() {
-		super(false);
+	public Artista(basededatos.Artista artista) {
+		super(artista, false);
 		
 		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
 		
-		_cabecera_Artista = new Cabecera_Artista();
+		_cabecera_Artista = new Cabecera_Artista(artista);
 		//_cabecera_Artista.setClassName("cabecera");
 		
 		_cabecera_Artista.getInicioB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
@@ -26,7 +26,6 @@ public class Artista extends Actor_comun {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				Inicializar(false);
-				
 			}
 		});
 		

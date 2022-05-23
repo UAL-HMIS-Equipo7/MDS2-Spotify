@@ -5,6 +5,9 @@ import java.util.Vector;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.Usuario_generico;
+import basededatos.iActor_comun;
 import interfaz.Foto_Artista;
 import vistas.VistaResultados_artistas;
 
@@ -12,11 +15,12 @@ public class Resultados_artistas extends VistaResultados_artistas {
 //	private Label _tituloL;
 	public Vector<Foto_Artista> _list_Artista = new Vector<Foto_Artista>();
 	
+	private String _params;
+	private iActor_comun bd = new BDPrincipal();
 	
-	
-	public Resultados_artistas() {
+	public Resultados_artistas(String parametrosBusqueda) {
 		
-		
+		_params = parametrosBusqueda;
 
 		CargarArtistas();
 		
@@ -34,10 +38,13 @@ public class Resultados_artistas extends VistaResultados_artistas {
 	}
 	
 	public void CargarArtistas() {
+		
+		basededatos.Artista[] artistas = bd.Realizar_Busqueda_Artistas(_params);
+		
 		Foto_Artista temp;
 		
-		for (int i = 0; i < 10; i++) {
-			temp = new Foto_Artista();
+		for (int i = 0; i < artistas.length; i++) {
+			temp = new Foto_Artista(artistas[i]);
 			
 			_list_Artista.add(temp);
 		}

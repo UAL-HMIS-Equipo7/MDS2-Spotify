@@ -3,6 +3,7 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import spotify.GestorVentana;
@@ -29,19 +30,35 @@ public class Reproductor__No_Cibernauta_ extends Reproductor {
 		
 		this.getCreditosB().setVisible(false);
 		this.getTituloL().setVisible(false);
+		this.getTituloB().setVisible(true);
 		
-		this.getTituloB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				_ver_cancion = new Ver_cancion(_cancion);
-				
-				
-				GestorVentana.CambiarVentana(_ver_cancion);
-			}
-		});
+		CargarCancion();
 	}
+	
+	@Override
+		public void CargarCancion() {
+			super.CargarCancion();
+			
+			if (_cancion == null) {
+				this.getTituloB().setText("-");
+				this.getTituloB().setEnabled(false);
+			}
+			else {
+				this.getTituloB().setText(_cancion.getTitulo());
+				this.getTituloB().setEnabled(true);
+				this.getTituloB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						
+						_ver_cancion = new Ver_cancion(_cancion);
+						
+						
+						GestorVentana.CambiarVentana(_ver_cancion);
+					}
+				});
+			}
+		}
 
 	public void Avanzar_10_segundos() {
 		throw new UnsupportedOperationException();

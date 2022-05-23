@@ -4,6 +4,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Usuario_generico;
 import vistas.VistaVer_lista_seguidores;
 
 public class Ver_lista_seguidores extends VistaVer_lista_seguidores {
@@ -11,12 +12,12 @@ public class Ver_lista_seguidores extends VistaVer_lista_seguidores {
 	public Artistas _artistas;
 	public Usuarios _usuarios;
 	
-	public Ver_lista_seguidores() {
+	public Ver_lista_seguidores(Usuario_generico usuario) {
 
 		Scroller scroll = this.getNavegacionSB();
 		
-		_usuarios = new Usuarios(0);
-		_artistas = new Artistas(0);
+		_usuarios = new Usuarios(0, usuario);
+		_artistas = new Artistas(0, usuario);
 		
 		VerticalLayout vlizq = new VerticalLayout();
 		VerticalLayout vlder = new VerticalLayout();

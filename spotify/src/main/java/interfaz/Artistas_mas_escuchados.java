@@ -19,8 +19,11 @@ public class Artistas_mas_escuchados extends VistaArtistas_mas_escuchados {
 
 	public Vector<Imagen_artistas> _list_Imagen_artistas = new Vector<Imagen_artistas>();
 	private iActor_comun bd = new BDPrincipal();
+	private basededatos.Usuario_generico _usuario;
 	
-	public Artistas_mas_escuchados() {
+	public Artistas_mas_escuchados(basededatos.Usuario_generico usuario) {
+		
+		_usuario = usuario;
 		
 		CargarArtistasMasEscuchados();
 		
@@ -35,12 +38,10 @@ public class Artistas_mas_escuchados extends VistaArtistas_mas_escuchados {
 		for (int i = 3; i < 6 && i < _list_Imagen_artistas.size(); i++) {
 			hlInf.add(_list_Imagen_artistas.get(i));
 		}
-		
-		
 	}
 	
 	public void CargarArtistasMasEscuchados() {
-		basededatos.Artista[] artistas = bd.Cargar_Artistas_Mas_Escuchados(GestorActor.getIdUsuario());
+		basededatos.Artista[] artistas = bd.Cargar_Artistas_Mas_Escuchados(_usuario.getORMID());
 		Imagen_artistas temp;
 		
 		for (int i = 0; i < 6 && i < artistas.length; i++) {

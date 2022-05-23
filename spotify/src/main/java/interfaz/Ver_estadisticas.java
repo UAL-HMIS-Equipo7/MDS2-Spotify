@@ -15,9 +15,12 @@ public class Ver_estadisticas extends VistaVer_estadisticas {
 	public Artistas_mas_escuchados _artistas_mas_escuchados;
 	public Estilos_mas_escuchados _estilos_mas_escuchados;
 	
-	public Ver_estadisticas() {
-		_artistas_mas_escuchados = new Artistas_mas_escuchados();
-		_estilos_mas_escuchados = new Estilos_mas_escuchados();
+	public Ver_estadisticas(basededatos.Usuario_generico usuario) {
+		
+		this.getNumCancionesL().setText(Integer.toString(usuario.ultimas_reproducidas.size()));
+		
+		_artistas_mas_escuchados = new Artistas_mas_escuchados(usuario);
+		_estilos_mas_escuchados = new Estilos_mas_escuchados(usuario);
 		
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
 		

@@ -16,14 +16,19 @@ public class Ver_evento extends VistaVer_evento {
 //	private TextField _descripcionTF;
 //	private Label _precioL;
 	
-	public Ver_evento() {
+	public Ver_evento(basededatos.Evento evento) {
+		
+		this.getDescripcionTF().setValue(evento.getDescripcion());
+		this.getFechaHoraL().setText(evento.getFechaYHora());
+		this.getFotoEventoImg().setSrc(evento.getImagenRuta());
+		this.getPrecioL().setText(Integer.toString(evento.getPrecio()));
+		this.getTituloL().setText(evento.getPublicado_por().getNick());
 		
 		this.getAtrasB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				 
-				//Volver atras
 				GestorVentana.Atras();
 			}
 		});

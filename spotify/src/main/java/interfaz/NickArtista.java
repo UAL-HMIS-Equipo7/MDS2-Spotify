@@ -11,7 +11,9 @@ public class NickArtista extends Foto_Artista {
 //	private Button _nickB;
 	
 	public NickArtista(basededatos.Artista artista) {
-		super();
+		super(artista);
+		
+		this.getNickB().setText(artista.getNick());
 		
 		this.getNickB().setVisible(true);
 		
@@ -20,7 +22,7 @@ public class NickArtista extends Foto_Artista {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
+				_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(artista);
 				
 				
 				GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_artista);
