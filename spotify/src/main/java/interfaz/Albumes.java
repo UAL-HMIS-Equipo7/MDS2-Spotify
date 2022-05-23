@@ -8,6 +8,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iActor_comun;
 import interfaz.Album;
 import vistas.VistaAlbumes;
 
@@ -15,13 +17,11 @@ import vistas.VistaAlbumes;
 public class Albumes extends VistaAlbumes {
 
 	public Vector<Album> _list_Album = new Vector<Album>();
+	private iActor_comun bd = new BDPrincipal();
+	private basededatos.Artista artista;
 	
-	
-	
-	public Albumes() {
-		
-		
-		
+	public Albumes(basededatos.Artista artista) {
+		this.artista = artista;
 		CargarAlbumes();
 		
 		Scroller scroll = this.getVaadinScroller();
@@ -49,10 +49,11 @@ public class Albumes extends VistaAlbumes {
 	}
 	
 	public void CargarAlbumes() {
-		Album temp;
-		
+		basededatos.Album[] albumes = bd.Cargar_Albumes_Artista(artista.getId());
+ 		Album temp;
+
 		for (int i = 0; i < 6; i++) {
-			temp = new Album();
+			temp = new Album(albumes[i]);
 			temp.setClassName("album");
 			
 			_list_Album.add(temp);
