@@ -52,8 +52,6 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				String email = getEmailTF().getValue();
 				String contrasenia = getContraseniaTF().getValue();
 				
-				System.out.println("Email: " + email + " - Contraseña: " + contrasenia);
-				
 				Usuario_generico usuario = bd.Iniciar_Sesion(email, contrasenia);
 				
 				if (usuario == null) {

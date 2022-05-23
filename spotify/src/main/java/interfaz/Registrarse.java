@@ -1,15 +1,21 @@
 package interfaz;
 
+import com.mchange.v2.codegen.bean.PropsToStringGeneratorExtension;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.upload.FinishedEvent;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import basededatos.BDPrincipal;
 import basededatos.iCibernauta;
 import spotify.GestorActor;
 import spotify.GestorVentana;
+import spotify.SubirImagen;
 import vistas.VistaRegistrarse;
 
 public class Registrarse extends VistaRegistrarse {
@@ -32,6 +38,7 @@ public class Registrarse extends VistaRegistrarse {
 	public Iniciar_sesion _iniciar_sesion;
 	public Confirmacion_de_correo _confirmacion_de_correo;
 	iCibernauta bd = new BDPrincipal();
+	String rutaFoto = "";
 	
 	public Registrarse() {
 		
@@ -46,6 +53,32 @@ public class Registrarse extends VistaRegistrarse {
 			}
 		});
 		
+		this.getFotoFC().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
+				
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+					
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+						rutaFoto = SubirImagen.Upload(buffer);
+						
+						System.out.println("Ruta: " + rutaFoto);
+						getFotoImg().setSrc(rutaFoto);
+						
+						modal.close();
+					}
+				});
+				
+				modal.open();
+			}
+		});
+		
 		this.getRegistrarseB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -53,8 +86,7 @@ public class Registrarse extends VistaRegistrarse {
 				// TODO Validación de registro
 				Validar_datos_de_registro(); //deberia ser bool?
 				
-				//TODO: FileChooser
-				int id = bd.Registrar_Usuario(getEmailTF().getValue(), getNickTF().getValue(), getContraseniaTF().getValue(), "");
+				int id = bd.Registrar_Usuario(getEmailTF().getValue(), getNickTF().getValue(), getContraseniaTF().getValue(), rutaFoto);
 				
 				if (id == -1) {
 					Notification.show("Error al registrar usuario");

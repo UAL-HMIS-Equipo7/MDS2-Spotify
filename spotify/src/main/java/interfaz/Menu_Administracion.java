@@ -34,6 +34,8 @@ public class Menu_Administracion extends VistaMenu_administracion {
 	
 	public Menu_Administracion() {
 		
+		Cargar_Datos_Cibernauta();
+		
 		this.getBusquedaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -60,7 +62,7 @@ public class Menu_Administracion extends VistaMenu_administracion {
 		});
 		
 		this.getNumCancionesMostradasTF().addKeyPressListener(Key.ENTER, e -> {
-			numCancionesMostradas = Integer.parseInt(this.getLimiteCancionesReproduciblesTF().getValue());
+			numCancionesMostradas = Integer.parseInt(this.getNumCancionesMostradasTF().getValue());
 			
 			Editar_canciones_que_puede_escuchar_un_cibernauta();
 	    });
@@ -83,5 +85,8 @@ public class Menu_Administracion extends VistaMenu_administracion {
 	public void Cargar_Datos_Cibernauta() {
 		numCancionesMostradas = bd.Cargar_Numero_Canciones_Mostradas(GestorActor.getIdUsuario());
 		numCancionesReproducibles = bd.Cargar_Numero_Canciones_Reproducibles(GestorActor.getIdUsuario());
+		
+		this.getNumCancionesMostradasTF().setValue(Integer.toString(numCancionesMostradas));
+		this.getLimiteCancionesReproduciblesTF().setValue(Integer.toString(numCancionesReproducibles));
 	}
 }

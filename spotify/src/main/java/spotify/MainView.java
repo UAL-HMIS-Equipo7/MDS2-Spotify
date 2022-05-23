@@ -61,6 +61,6 @@ public class MainView extends VerticalLayout {
     	add(layoutPrincipal);
     	
     	GestorActor.setLayout(layoutPrincipal);
-    	GestorActor.Administrador(null);
+    	GestorActor.Cibernauta();
     }
 }

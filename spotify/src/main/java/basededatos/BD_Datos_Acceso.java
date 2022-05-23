@@ -63,40 +63,38 @@ public class BD_Datos_Acceso {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			
-			datos = Datos_AccesoDAO.getDatos_AccesoByORMID(1);
+			datos = Datos_AccesoDAO.loadDatos_AccesoByCriteria(criteria);
 			
-//			datos = Datos_AccesoDAO.loadDatos_AccesoByCriteria(criteria);
-//			
-//			String fechaString = datos.getFechaYHoraBloqueo();
-//			
-//			if (fechaString != null && !fechaString.isEmpty()) {
-//				LocalDateTime fecha = LocalDateTime.parse(fechaString);
-//				LocalDateTime termina = fecha.plus(Duration.of(15, ChronoUnit.MINUTES));
-//				
-//				if (termina.compareTo(LocalDateTime.now()) > 0) {
-//					datos = null;
-//				}
-//			}
-//			
-//			if (datos != null) {
-//				String password = datos.getPassword();
-//				
-//				if (!password.equals(aContrasenia)) {
-//					int intentos = datos.getNumeroIntentos();
-//					intentos++;
-//					
-//					if (intentos == 3) {
-//						datos.setNumeroIntentos(0);
-//						datos.setFechaYHoraBloqueo(LocalDateTime.now().toString());
-//					}
-//					else {
-//						datos.setNumeroIntentos(intentos);
-//					}
-//					Datos_AccesoDAO.save(datos);
-//					
-//					datos = null;
-//				}
-//			}
+			String fechaString = datos.getFechaYHoraBloqueo();
+			
+			if (fechaString != null && !fechaString.isEmpty()) {
+				LocalDateTime fecha = LocalDateTime.parse(fechaString);
+				LocalDateTime termina = fecha.plus(Duration.of(15, ChronoUnit.MINUTES));
+				
+				if (termina.compareTo(LocalDateTime.now()) > 0) {
+					datos = null;
+				}
+			}
+			
+			if (datos != null) {
+				String password = datos.getPassword();
+				
+				if (!password.equals(aContrasenia)) {
+					int intentos = datos.getNumeroIntentos();
+					intentos++;
+					
+					if (intentos == 3) {
+						datos.setNumeroIntentos(0);
+						datos.setFechaYHoraBloqueo(LocalDateTime.now().toString());
+					}
+					else {
+						datos.setNumeroIntentos(intentos);
+					}
+					Datos_AccesoDAO.save(datos);
+					
+					datos = null;
+				}
+			}
 			
 			t.commit();
 		} catch (Exception e) {
