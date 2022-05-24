@@ -42,9 +42,15 @@ public class Canciones_administrador extends VistaCanciones_administrador {
 	}
 	
 	public void CargarCancionesAdministrador() {
-		Cancion_administrador temp;
+		
 		basededatos.Cancion[] canciones = bd.Cargar_Canciones_Administrador(parametrosBusqueda);
-		for (int i = 0; i < 4; i++) {
+		
+		if (canciones == null)
+			return;
+		
+		Cancion_administrador temp;
+		
+		for (int i = 0; i < 4 && i < canciones.length; i++) {
 			temp = new Cancion_administrador(canciones[i]);
 			temp.setClassName("cancionAdministrador");
 			

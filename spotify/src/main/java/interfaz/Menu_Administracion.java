@@ -44,6 +44,12 @@ public class Menu_Administracion extends VistaMenu_administracion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				String params = getBusquedaTF().getValue();
+				
+				if (params.trim().isEmpty()) {
+					Notification.show("Debe introducir una cadena de búsqueda");
+					return;
+				}
+				
 				_realizar_busqueda_de_administrador = new Realizar_busqueda_de_administrador(params);
 				GestorVentana.CambiarVentana(_realizar_busqueda_de_administrador);
 			}

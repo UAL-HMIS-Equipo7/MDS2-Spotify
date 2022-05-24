@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaFoto_artista;
 
@@ -17,7 +18,7 @@ public class Foto_Artista extends VistaFoto_artista {
 		
 		this.getNickB().setVisible(false);
 		
-		this.getFotoB().setSrc(artista.getFotoRuta());
+		this.getFotoB().setSrc(GestorArchivos.CargarImagen(artista.getFotoRuta()));
 		this.getFotoB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override

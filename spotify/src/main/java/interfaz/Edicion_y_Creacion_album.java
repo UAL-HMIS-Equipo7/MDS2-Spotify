@@ -12,7 +12,7 @@ import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
 import spotify.GestorVentana;
-import spotify.SubirArchivos;
+import spotify.GestorArchivos;
 import vistas.VistaEdicion_y_creacion_album;
 
 public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
@@ -37,7 +37,7 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 		
 		if (_album != null) {
 			this.getTituloAlbumTF().setValue(_album.getTitulo());
-			this.getFotoImg().setSrc(_album.getImagenRuta());
+			this.getFotoImg().setSrc(GestorArchivos.CargarImagen(_album.getImagenRuta()));
 			this.getFechaEdicionTF().setValue(_album.getFechaEdicion());
 			
 			StringBuilder intepretes = new StringBuilder();
@@ -62,7 +62,7 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 					
 					@Override
 					public void onComponentEvent(FinishedEvent event) {
-						String rutaFoto = SubirArchivos.Imagen(buffer);
+						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 
 						getFotoImg().setSrc(rutaFoto);
 						

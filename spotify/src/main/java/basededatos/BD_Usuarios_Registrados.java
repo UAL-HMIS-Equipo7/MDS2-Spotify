@@ -48,10 +48,10 @@ public class BD_Usuarios_Registrados {
 		try {
 			Datos_Acceso datos = Datos_AccesoDAO.getDatos_AccesoByORMID(aIdDatosAcceso);
 			
-			Usuario_Registrado usuario = (Usuario_Registrado) datos.getUsuario();
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.createUsuario_Registrado();
 			usuario.setNick(aNick);
 			usuario.setFotoRuta(aFoto);
-			
+			usuario.setDatos(datos);
 			datos.setUsuario(usuario);
 			
 			Usuario_RegistradoDAO.save(usuario);

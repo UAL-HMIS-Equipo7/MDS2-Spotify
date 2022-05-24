@@ -41,6 +41,9 @@ public class Usuarios_administrador extends VistaUsuarios_administrador
 		
 		basededatos.Usuario_Registrado[] usuarios = bd.Realizar_Busqueda_Usuarios(_paramsBusqueda);
 		
+		if (usuarios == null)
+			return;
+		
 		Usuario_administrador temp;
 		
 		for (int i = 0; i < 5 && i < usuarios.length; i++) {

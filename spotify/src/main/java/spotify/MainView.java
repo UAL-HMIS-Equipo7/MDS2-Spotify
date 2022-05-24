@@ -12,6 +12,10 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
+import basededatos.Administrador;
+import basededatos.BDPrincipal;
+import basededatos.iActor_comun;
+import basededatos.iCibernauta;
 import interfaz.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +65,12 @@ public class MainView extends VerticalLayout {
     	add(layoutPrincipal);
     	
     	GestorActor.setLayout(layoutPrincipal);
-    	GestorActor.Cibernauta();
+    	
+    	//TODO: DEBUG
+    	iCibernauta bd = new BDPrincipal();
+    	basededatos.Administrador admin = (Administrador) bd.Iniciar_Sesion("admin@gmail.com", "admin");
+    	GestorActor.Administrador(admin);
+    	
+    	//GestorActor.Cibernauta();
     }
 }

@@ -15,7 +15,7 @@ import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
 import spotify.GestorVentana;
-import spotify.SubirArchivos;
+import spotify.GestorArchivos;
 import vistas.VistaEdicion_y_creacion_artista;
 
 public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista {
@@ -54,7 +54,7 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 		_artista = artista;
 		
 		if (_artista != null) {
-			this.getFotoImg().setSrc(_artista.getFotoRuta());
+			this.getFotoImg().setSrc(GestorArchivos.CargarImagen(_artista.getFotoRuta()));
 			this.getEmailTF().setValue(_artista.getDatos().getEmail());
 			this.getNickTF().setValue(_artista.getNick());
 			this.getContraseniaTF().setValue(_artista.getDatos().getPassword());
@@ -73,7 +73,7 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 					
 					@Override
 					public void onComponentEvent(FinishedEvent event) {
-						String rutaFoto = SubirArchivos.Imagen(buffer);
+						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 
 						getFotoImg().setSrc(rutaFoto);
 						

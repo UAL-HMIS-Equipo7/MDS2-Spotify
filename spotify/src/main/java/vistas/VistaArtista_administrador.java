@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-artista_administrador template.
@@ -18,7 +19,15 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-artista_administrador.ts")
 public class VistaArtista_administrador extends LitTemplate {
 
-    public Label getArtistaL() {
+    public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+
+	public Label getArtistaL() {
 		return artistaL;
 	}
 
@@ -58,6 +67,8 @@ public class VistaArtista_administrador extends LitTemplate {
 	private Button editarArtistaB;
 	@Id("eliminarArtistaB")
 	private Button eliminarArtistaB;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
 
 	/**
      * Creates a new VistaArtista_administrador.

@@ -15,7 +15,7 @@ import basededatos.BDPrincipal;
 import basededatos.iCibernauta;
 import spotify.GestorActor;
 import spotify.GestorVentana;
-import spotify.SubirArchivos;
+import spotify.GestorArchivos;
 import vistas.VistaRegistrarse;
 
 public class Registrarse extends VistaRegistrarse {
@@ -66,7 +66,7 @@ public class Registrarse extends VistaRegistrarse {
 					
 					@Override
 					public void onComponentEvent(FinishedEvent event) {
-						rutaFoto = SubirArchivos.Imagen(buffer);
+						rutaFoto = GestorArchivos.SubirImagen(buffer);
 
 						getFotoImg().setSrc(rutaFoto);
 						

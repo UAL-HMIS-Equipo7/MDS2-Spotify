@@ -62,6 +62,12 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 		
 		_lista = bd.Cargar_Canciones_Favoritas(_usuario.getORMID());
 		
+		if (_lista == null)
+			return;
+		
+		if (_lista.canciones_incluidas == null)
+			return;
+		
 		basededatos.Cancion canciones[] = _lista.canciones_incluidas.toArray();
 		
 		Cancion temp;

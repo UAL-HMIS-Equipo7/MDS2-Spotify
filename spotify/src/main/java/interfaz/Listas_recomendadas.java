@@ -27,7 +27,8 @@ public class Listas_recomendadas extends VistaListas_recomendadas {
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		vl.add(_list_Lista_de_reproduccion_ajena.firstElement());
+		if (!_list_Lista_de_reproduccion_ajena.isEmpty())
+			vl.add(_list_Lista_de_reproduccion_ajena.firstElement());
 	}
 	
 	public void CargarListasRecomendadas() {

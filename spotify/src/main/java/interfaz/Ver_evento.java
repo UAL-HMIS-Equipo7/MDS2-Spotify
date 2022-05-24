@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaVer_evento;
 
@@ -20,7 +21,7 @@ public class Ver_evento extends VistaVer_evento {
 		
 		this.getDescripcionTF().setValue(evento.getDescripcion());
 		this.getFechaHoraL().setText(evento.getFechaYHora());
-		this.getFotoEventoImg().setSrc(evento.getImagenRuta());
+		this.getFotoEventoImg().setSrc(GestorArchivos.CargarImagen(evento.getImagenRuta()));
 		this.getPrecioL().setText(Integer.toString(evento.getPrecio()));
 		this.getTituloL().setText(evento.getPublicado_por().getNick());
 		

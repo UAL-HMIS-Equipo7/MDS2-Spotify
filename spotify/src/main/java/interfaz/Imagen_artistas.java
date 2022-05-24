@@ -1,5 +1,6 @@
 package interfaz;
 
+import spotify.GestorArchivos;
 import vistas.VistaImagen_artistas;
 
 public class Imagen_artistas extends VistaImagen_artistas {
@@ -9,7 +10,7 @@ public class Imagen_artistas extends VistaImagen_artistas {
 	public Imagen_artistas(basededatos.Artista artista) {
 		
 		
-		this.getArtistaImg().setSrc(artista.getFotoRuta());
+		this.getArtistaImg().setSrc(GestorArchivos.CargarImagen(artista.getFotoRuta()));
 		
 	}
 }

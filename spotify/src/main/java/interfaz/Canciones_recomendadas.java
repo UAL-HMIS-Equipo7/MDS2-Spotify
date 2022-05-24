@@ -25,7 +25,8 @@ public class Canciones_recomendadas extends VistaCanciones_recomendadas {
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		vl.add(_list_Cancion.firstElement());
+		if (!_list_Cancion.isEmpty())
+			vl.add(_list_Cancion.firstElement());
 	}
 	
 	public void CargarCancionesRecomendadas() {

@@ -8,6 +8,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
+import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaAlbum_administrador;
 
@@ -27,7 +28,7 @@ public class Album_administrador extends VistaAlbum_administrador {
 		_album = album;
 			
 		this.getAlbumL().setText(_album.getTitulo());
-		this.getAlbumImg().setSrc(_album.getImagenRuta());
+		this.getAlbumImg().setSrc(GestorArchivos.CargarImagen(_album.getImagenRuta()));
 	
 		this.getEditarAlbumB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

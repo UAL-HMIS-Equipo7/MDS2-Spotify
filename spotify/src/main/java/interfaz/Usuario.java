@@ -6,6 +6,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Usuario_Registrado;
+import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaUsuario;
 
@@ -25,7 +26,7 @@ public class Usuario extends VistaUsuario {
 			
 		});
 		
-		this.getFotoB().setSrc(usuario.getFotoRuta());
+		this.getFotoB().setSrc(GestorArchivos.CargarImagen(usuario.getFotoRuta()));
 		this.getFotoB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override

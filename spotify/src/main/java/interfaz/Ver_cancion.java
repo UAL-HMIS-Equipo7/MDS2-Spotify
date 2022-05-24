@@ -10,6 +10,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import basededatos.BDPrincipal;
 import basededatos.iActor_comun;
 import spotify.GestorActor;
+import spotify.GestorArchivos;
 import vistas.VistaVer_cancion;
 
 public class Ver_cancion extends VistaVer_cancion {
@@ -36,7 +37,7 @@ public class Ver_cancion extends VistaVer_cancion {
 		
 		_cancion = cancion;
 		
-		this.getFotoCancionImg().setSrc(_cancion.getFicheroMultimediaAltaCalidadRuta());
+		this.getFotoCancionImg().setSrc(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()));
 		this.getTituloL().setText(_cancion.getTitulo());
 		this.getCreditosTituloCancionL().setText(_cancion.getTitulo());
 		this.getCreditosTituloAlbumL().setText(_cancion.getIncluida_en_albumes().getTitulo());

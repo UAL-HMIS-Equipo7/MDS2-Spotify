@@ -15,7 +15,7 @@ import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
 import spotify.GestorVentana;
-import spotify.SubirArchivos;
+import spotify.GestorArchivos;
 import vistas.VistaEdicion_y_creacion_cancion;
 
 public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion {
@@ -83,7 +83,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 			
 			this.getInterpreteTF().setValue(intepretes.toString());
 			
-			this.getFotoImg().setSrc(_cancion.getFicheroMultimediaAltaCalidadRuta());
+			this.getFotoImg().setSrc(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()));
 			_rutaFicheroMultimedia = _cancion.getFicheroMultimediaRuta();
 		}
 		
@@ -119,7 +119,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 					
 					@Override
 					public void onComponentEvent(FinishedEvent event) {
-						String rutaFoto = SubirArchivos.Imagen(buffer);
+						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 
 						getFotoImg().setSrc(rutaFoto);
 						
@@ -143,7 +143,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 					
 					@Override
 					public void onComponentEvent(FinishedEvent event) {
-						_rutaFicheroMultimedia = SubirArchivos.Audio(buffer);
+						_rutaFicheroMultimedia = GestorArchivos.SubirAudio(buffer);
 						
 						modal.close();
 					}

@@ -43,6 +43,10 @@ public class Albumes_administrador extends VistaAlbumes_administrador {
 	public void CargarAlbumesAdministrador() {
 		
 		basededatos.Album[] albumes = bd.Realizar_Busqueda_Albumes(parametrosBusqueda);
+		
+		if (albumes == null)
+			return;
+		
 		Album_administrador temp;
 		
 		for (int i = 0; i < 5 && i < albumes.length; i++) {

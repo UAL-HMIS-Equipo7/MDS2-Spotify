@@ -9,7 +9,7 @@ import com.vaadin.flow.component.upload.FinishedEvent;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
-import spotify.SubirArchivos;
+import spotify.GestorArchivos;
 import vistas.VistaEditar_foto_de_perfil_artista;
 
 public class Editar_foto_de_perfil__Artista_ extends VistaEditar_foto_de_perfil_artista {
@@ -29,7 +29,7 @@ public class Editar_foto_de_perfil__Artista_ extends VistaEditar_foto_de_perfil_
 					
 					@Override
 					public void onComponentEvent(FinishedEvent event) {
-						String rutaFoto = SubirArchivos.Imagen(buffer);
+						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 						
 						foto.setSrc(rutaFoto);
 						

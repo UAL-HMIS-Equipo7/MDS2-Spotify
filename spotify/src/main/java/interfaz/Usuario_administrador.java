@@ -8,6 +8,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
+import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaUsuario_administrador;
 
@@ -27,7 +28,7 @@ public class Usuario_administrador extends VistaUsuario_administrador {
 		_usuario = usuario;
 		
 		this.getUsuarioL().setText(_usuario.getNick());
-		this.getUsuarioImg().setSrc(_usuario.getFotoRuta());
+		this.getUsuarioImg().setSrc(GestorArchivos.CargarImagen(_usuario.getFotoRuta()));
 		
 		this.getEditarUsuarioB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

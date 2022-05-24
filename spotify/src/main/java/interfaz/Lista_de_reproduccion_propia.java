@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaLista_de_reproduccion_propia;
 
@@ -17,7 +18,7 @@ public class Lista_de_reproduccion_propia extends VistaLista_de_reproduccion_pro
 		
 		basededatos.Cancion[] canciones = lista.canciones_incluidas.toArray();
 		
-		this.getFotoB().setSrc(canciones[0].getFicheroMultimediaAltaCalidadRuta());
+		this.getFotoB().setSrc(GestorArchivos.CargarImagen(canciones[0].getFicheroMultimediaAltaCalidadRuta()));
 		
 		this.getFotoB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			

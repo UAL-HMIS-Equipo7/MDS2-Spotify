@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorArchivos;
 import spotify.GestorReproductor;
 import vistas.VistaCancion;
 
@@ -21,7 +22,7 @@ public class Cancion extends VistaCancion {
 		this.getTituloB().setVisible(false);
 		
 		this.getTituloB().setText(_cancion.getTitulo());
-		this.getCancionImg().setSrc(_cancion.getFicheroMultimediaAltaCalidadRuta());
+		this.getCancionImg().setSrc(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()));
 		
 		this.getCancionImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			

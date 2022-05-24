@@ -26,8 +26,8 @@ public class Albumes_recomendados extends VistaAlbumes_recomendados {
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		vl.add(_list_Album.firstElement());
-		
+		if (!_list_Album.isEmpty())
+			vl.add(_list_Album.firstElement());
 	}
 	
 	public void CargarAlbumes() {

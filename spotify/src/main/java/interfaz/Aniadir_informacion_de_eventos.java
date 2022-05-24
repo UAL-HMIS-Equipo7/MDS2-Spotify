@@ -12,7 +12,7 @@ import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import basededatos.BDPrincipal;
 import basededatos.iArtista;
 import spotify.GestorVentana;
-import spotify.SubirArchivos;
+import spotify.GestorArchivos;
 import vistas.VistaAniadir_informacion_de_eventos;
 
 public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_eventos {
@@ -59,7 +59,7 @@ public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_
 					
 					@Override
 					public void onComponentEvent(FinishedEvent event) {
-						rutaFoto = SubirArchivos.Imagen(buffer);
+						rutaFoto = GestorArchivos.SubirImagen(buffer);
 						
 						getImagenImg().setSrc(rutaFoto);
 						

@@ -3,6 +3,7 @@ package interfaz;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 import spotify.AudioPlayer;
+import spotify.GestorArchivos;
 import vistas.VistaReproductor;
 
 public class Reproductor extends VistaReproductor {
@@ -35,7 +36,7 @@ public class Reproductor extends VistaReproductor {
 	public void CargarCancion() {
 		
 		if (_cancion != null) {
-			_audioPlayer.setSource(_cancion.getFicheroMultimediaRuta());
+			_audioPlayer.setSource(GestorArchivos.CargarAudio(_cancion.getFicheroMultimediaRuta()));
 		}
 		
 		//Overrideado

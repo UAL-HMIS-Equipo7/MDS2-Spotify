@@ -4,10 +4,13 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.server.StreamResource;
 
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
+import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaArtista_administrador;
 
@@ -26,7 +29,12 @@ public class Artista_administrador extends VistaArtista_administrador {
 		
 		_artista = artista;
 		
-		this.getArtistaImg().setSrc(_artista.getFotoRuta());
+//		Image img = new Image(_artista.getFotoRuta(), _artista.getFotoRuta());
+//		
+//		getVaadinHorizontalLayout().add(img);
+
+		getArtistaImg().setSrc(GestorArchivos.CargarImagen(_artista.getFotoRuta()));
+		getArtistaImg().setAlt(_artista.getFotoRuta());
 		this.getArtistaL().setText(_artista.getNick());
 		
 		this.getEditarArtistaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -53,7 +61,6 @@ public class Artista_administrador extends VistaArtista_administrador {
 
 				ventanaModal.add(_confirmacion_eliminacion);
 				ventanaModal.open();
-
 			}
 		});
 	}

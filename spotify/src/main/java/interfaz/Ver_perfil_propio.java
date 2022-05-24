@@ -7,6 +7,7 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Usuario_generico;
+import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaVer_perfil_propio;
 
@@ -24,7 +25,7 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 	
 	public Ver_perfil_propio(Usuario_generico usuario) {
 		
-		this.getFotoImg().setSrc(usuario.getFotoRuta());
+		this.getFotoImg().setSrc(GestorArchivos.CargarImagen(usuario.getFotoRuta()));
 		this.getEmailL().setText(usuario.getDatos().getEmail());
 		this.getNickL().setText(usuario.getNick());
 		

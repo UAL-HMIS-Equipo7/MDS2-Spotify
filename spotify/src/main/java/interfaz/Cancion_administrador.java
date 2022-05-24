@@ -8,6 +8,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
+import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaCancion_administrador;
 
@@ -28,7 +29,7 @@ public class Cancion_administrador extends VistaCancion_administrador {
 		_cancion = cancion;
 		
 		this.getCancionL().setText(_cancion.getTitulo());
-		this.getCancionImg().setSrc(_cancion.getFicheroMultimediaAltaCalidadRuta());
+		this.getCancionImg().setSrc(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()));
 		
 		this.getEditarCancionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 

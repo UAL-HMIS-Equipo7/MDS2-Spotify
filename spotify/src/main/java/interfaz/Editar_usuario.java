@@ -12,7 +12,7 @@ import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
 import spotify.GestorVentana;
-import spotify.SubirArchivos;
+import spotify.GestorArchivos;
 import vistas.VistaEditar_usuario;
 
 public class Editar_usuario extends VistaEditar_usuario {
@@ -37,7 +37,7 @@ public class Editar_usuario extends VistaEditar_usuario {
 		
 		_usuario = usuario;
 		
-		this.getFotoImg().setSrc(_usuario.getFotoRuta());
+		this.getFotoImg().setSrc(GestorArchivos.CargarImagen(_usuario.getFotoRuta()));
 		this.getEmailTF().setValue(_usuario.getDatos().getEmail());
 		this.getNickTF().setValue(_usuario.getNick());
 		this.getContraseniaTF().setValue(_usuario.getDatos().getPassword());
@@ -54,7 +54,7 @@ public class Editar_usuario extends VistaEditar_usuario {
 					
 					@Override
 					public void onComponentEvent(FinishedEvent event) {
-						String rutaFoto = SubirArchivos.Imagen(buffer);
+						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 
 						getFotoImg().setSrc(rutaFoto);
 						

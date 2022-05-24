@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorArchivos;
 import spotify.GestorReproductor;
 import vistas.VistaCancion_cibernauta;
 
@@ -17,7 +18,7 @@ public class Cancion__Cibernauta_ extends VistaCancion_cibernauta {
 		
 		Image foto = getFotoCancionB();
 		
-		//foto.setSrc(cancion.getFicheroMultimediaRuta());
+		foto.setSrc(GestorArchivos.CargarImagen(cancion.getFicheroMultimediaAltaCalidadRuta()));
 		
 		foto.addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			

@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 
+import spotify.GestorArchivos;
 import vistas.VistaCreditos;
 
 public class Creditos extends VistaCreditos {
@@ -20,7 +21,7 @@ public class Creditos extends VistaCreditos {
 
 	public Creditos(Dialog ventanaModal, basededatos.Cancion cancion) {
 		
-		this.getCancionImg().setSrc(cancion.getFicheroMultimediaAltaCalidadRuta());
+		this.getCancionImg().setSrc(GestorArchivos.CargarImagen(cancion.getFicheroMultimediaAltaCalidadRuta()));
 		this.getTituloL().setText(cancion.getTitulo());
 		this.getTituloAlbumL().setText(cancion.getIncluida_en_albumes().getTitulo());
 		this.getCompositorL().setText(cancion.getCompositores());

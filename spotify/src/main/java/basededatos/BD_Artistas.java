@@ -50,19 +50,17 @@ public class BD_Artistas {
 	}
 
 	public int Crear_Artista(int aIdDatosAcceso, String aNick, String aFotoRuta, int aIdEstilo) throws PersistentException {
-		//Creo que para las creaciones es mejor pasar los parametros sueltos
-		//Pq nos va a dar problemas cosas como el Email, que no esta directamente en artista
-		//sino en el Datos_Acceso que esta dentro
 		int id_artista = -1;
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 
 			Datos_Acceso dato = Datos_AccesoDAO.getDatos_AccesoByORMID(aIdDatosAcceso);
-			Artista artista = (Artista)dato.getUsuario();
+			Artista artista = ArtistaDAO.createArtista();
 			Estilo estilo = EstiloDAO.getEstiloByORMID(aIdEstilo);
 			artista.setEstilo(estilo);
 			artista.setFotoRuta(aFotoRuta);
 			artista.setNick(aNick);
+			artista.setDatos(dato);
 			dato.setUsuario(artista);
 			Datos_AccesoDAO.save(dato);
 			ArtistaDAO.save(artista);
