@@ -81,7 +81,7 @@ public class BD_Albumes {
 		return artistas;
 	}
 
-	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, Artista[] listaArtistas, Cancion[] listaCanciones) throws PersistentException {
+	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, String[] listaArtistas, Cancion[] listaCanciones) throws PersistentException {
 		
 		int id_album = -1;
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
@@ -92,7 +92,11 @@ public class BD_Albumes {
 			alb.setImagenRuta(imagenRuta);
 			alb.setFechaEdicion(fechaEdicion);
 			
-			for (Artista artista : listaArtistas) {
+			ArtistaCriteria criteria = new ArtistaCriteria();
+			
+			for (String nombre : listaArtistas) {
+				criteria.nick.eqIgnoreCase(nombre);
+				Artista artista = ArtistaDAO.loadArtistaByCriteria(criteria);
 				alb.autores.add(artista);
 			}
 			

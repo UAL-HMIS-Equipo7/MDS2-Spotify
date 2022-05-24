@@ -31,8 +31,9 @@ public class Dar_de_alta_album extends VistaDar_de_alta_album {
 					canciones[i] = _canciones_a_aniadir_album._list_Cancion_album.get(i).cancion;
 				}
 				
-				//Modificar método para que tenga un string[] en lugar de artista[]
-				bd.Crear_Album(this.getTituloAlbumTF().getValue(), this.getFotoImg().getSrc(), LocalDateTime.now().toString(), null, canciones);
+				String[] artistas = this.getArtistaTF().getValue().split(",");
+				
+				bd.Crear_Album(this.getTituloAlbumTF().getValue(), this.getFotoImg().getSrc(), LocalDateTime.now().toString(), artistas, canciones);
 			}
 		};
 		_canciones_a_aniadir_album = new Canciones_a_aniadir_album();

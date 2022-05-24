@@ -618,7 +618,7 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 	@Override
-	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, basededatos.Artista[] listaArtistas,
+	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, String[] listaArtistas,
 			Cancion[] listaCanciones) {
 		int id_album = -1;
 		try {

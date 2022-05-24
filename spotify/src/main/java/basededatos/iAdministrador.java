@@ -28,7 +28,7 @@ public interface iAdministrador extends iActor_comun {
 
 	public void Eliminar_Cancion(int aIdCancion);
 
-	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, Artista[] listaArtistas, Cancion[] listaCanciones);
+	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, String[] listaArtistas, Cancion[] listaCanciones);
 
 	public void Actualizar_Album(Album aAlbum);
 
