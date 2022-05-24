@@ -51,22 +51,6 @@ public class VistaDar_de_alta_estilo extends LitTemplate {
 		this.nombreL = nombreL;
 	}
 
-	public Label getDescripcionL() {
-		return descripcionL;
-	}
-
-	public void setDescripcionL(Label descripcionL) {
-		this.descripcionL = descripcionL;
-	}
-
-	public TextArea getDescripcionTF() {
-		return descripcionTF;
-	}
-
-	public void setDescripcionTF(TextArea descripcionTF) {
-		this.descripcionTF = descripcionTF;
-	}
-
 	public Button getGuardarB() {
 		return guardarB;
 	}
@@ -91,10 +75,6 @@ public class VistaDar_de_alta_estilo extends LitTemplate {
 	private TextField nombreTF;
 	@Id("nombreL")
 	private Label nombreL;
-	@Id("descripcionL")
-	private Label descripcionL;
-	@Id("descripcionTF")
-	private TextArea descripcionTF;
 	@Id("guardarB")
 	private Button guardarB;
 	@Id("cancelarL")

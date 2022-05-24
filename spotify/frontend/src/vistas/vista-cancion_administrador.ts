@@ -29,9 +29,6 @@ export class VistaCancion_administrador extends LitElement {
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-button id="aniadirAVistaCibernautaB" style="height: 10%; align-self: center; width: 90%; max-height: 50px; margin: var(--lumo-space-m); max-width: 900px;">
-   Añadir canción a vista cibernauta 
- </vaadin-button>
 </vaadin-vertical-layout>
 `;
   }

@@ -50,14 +50,6 @@ public class VistaCancion_administrador extends LitTemplate {
 		this.eliminarCancionB = eliminarCancionB;
 	}
 
-	public Button getAniadirAVistaCibernautaB() {
-		return aniadirAVistaCibernautaB;
-	}
-
-	public void setAniadirAVistaCibernautaB(Button aniadirAVistaCibernautaB) {
-		this.aniadirAVistaCibernautaB = aniadirAVistaCibernautaB;
-	}
-
 	@Id("cancionL")
 	private Label cancionL;
 	@Id("cancionImg")
@@ -66,8 +58,6 @@ public class VistaCancion_administrador extends LitTemplate {
 	private Button editarCancionB;
 	@Id("eliminarCancionB")
 	private Button eliminarCancionB;
-	@Id("aniadirAVistaCibernautaB")
-	private Button aniadirAVistaCibernautaB;
 
 	/**
      * Creates a new VistaCancion_administrador.
