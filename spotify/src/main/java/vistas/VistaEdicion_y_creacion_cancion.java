@@ -8,6 +8,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.html.Image;
 
 /**
  * A Designer generated component for the vista-edicion_y_creacion_cancion template.
@@ -19,7 +20,19 @@ import com.vaadin.flow.component.combobox.ComboBox;
 @JsModule("./src/vistas/vista-edicion_y_creacion_cancion.ts")
 public class VistaEdicion_y_creacion_cancion extends LitTemplate {
 
-    public Label getTituloCancionL() {
+    public Image getFotoImg() {
+		return fotoImg;
+	}
+	public void setFotoImg(Image fotoImg) {
+		this.fotoImg = fotoImg;
+	}
+	public Button getElegirFotoB() {
+		return elegirFotoB;
+	}
+	public void setElegirFotoB(Button elegirFotoB) {
+		this.elegirFotoB = elegirFotoB;
+	}
+	public Label getTituloCancionL() {
 		return tituloCancionL;
 	}
 	public void setTituloCancionL(Label tituloCancionL) {
@@ -187,6 +200,10 @@ public class VistaEdicion_y_creacion_cancion extends LitTemplate {
 	private Button guardarB;
 	@Id("cancelarB")
 	private Button cancelarB;
+	@Id("fotoImg")
+	private Image fotoImg;
+	@Id("elegirFotoB")
+	private Button elegirFotoB;
 	/**
      * Creates a new VistaEdicion_y_creacion_cancion.
      */

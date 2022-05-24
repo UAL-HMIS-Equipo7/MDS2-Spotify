@@ -6,6 +6,8 @@ import java.util.Vector;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Usuario_generico;
+import basededatos.iActor_comun;
 import interfaz.Canciones_recomendadas;
 import interfaz.Listas_recomendadas;
 import interfaz.Albumes_recomendados;
@@ -16,11 +18,11 @@ public class Recomendaciones extends VistaRecomendaciones {
 	public Listas_recomendadas _listas_recomendadas;
 	public Albumes_recomendados _albumes_recomendados;
 
-	public Recomendaciones() {
+	public Recomendaciones(Usuario_generico usuario) {
 		
-		_canciones_recomendadas = new Canciones_recomendadas();
-		_listas_recomendadas = new Listas_recomendadas();
-		_albumes_recomendados = new Albumes_recomendados();
+		_canciones_recomendadas = new Canciones_recomendadas(usuario);
+		_listas_recomendadas = new Listas_recomendadas(usuario);
+		_albumes_recomendados = new Albumes_recomendados(usuario);
 		
 		_canciones_recomendadas.getStyle().set("align-self", "center");
 		_canciones_recomendadas.getStyle().set("height", "30%");
@@ -34,8 +36,6 @@ public class Recomendaciones extends VistaRecomendaciones {
 		vl.add(_canciones_recomendadas);
 		vl.add(_listas_recomendadas);
 		vl.add(_albumes_recomendados);
-		
-		
 	}
 	
 }

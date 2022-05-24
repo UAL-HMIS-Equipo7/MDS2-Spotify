@@ -13,14 +13,18 @@ public class Lista_de_reproduccion_propia extends VistaLista_de_reproduccion_pro
 
 	public Ver_lista_de_reproduccion_propia _ver_lista_de_reproduccion_propia;
 	
-	public Lista_de_reproduccion_propia() {
+	public Lista_de_reproduccion_propia(basededatos.Lista_de_reproduccion lista) {
+		
+		basededatos.Cancion[] canciones = lista.canciones_incluidas.toArray();
+		
+		this.getFotoB().setSrc(canciones[0].getFicheroMultimediaAltaCalidadRuta());
 		
 		this.getFotoB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
-				_ver_lista_de_reproduccion_propia = new Ver_lista_de_reproduccion_propia();
+				_ver_lista_de_reproduccion_propia = new Ver_lista_de_reproduccion_propia(lista);
 				
 				
 				GestorVentana.CambiarVentana(_ver_lista_de_reproduccion_propia);

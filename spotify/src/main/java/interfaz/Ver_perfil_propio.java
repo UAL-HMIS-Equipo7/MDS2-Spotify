@@ -30,7 +30,7 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 		
 		VerticalLayout vl = this.getContenedorDerecho().as(VerticalLayout.class);
 		
-		_listas_de_reproduccion_perfil_propio = new Listas_de_reproduccion_perfil_propio();
+		_listas_de_reproduccion_perfil_propio = new Listas_de_reproduccion_perfil_propio(usuario);
 		vl.add(_listas_de_reproduccion_perfil_propio);
 		
 		this.getSeguidosB().setText(Integer.toString(usuario.seguido.size()));

@@ -3,11 +3,16 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.upload.FinishedEvent;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
 import spotify.GestorVentana;
+import spotify.SubirArchivos;
 import vistas.VistaEdicion_y_creacion_album;
 
 public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
@@ -45,13 +50,27 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 			this.getArtistaTF().setValue(intepretes.toString());
 		}
 		
-		//Implementar FileChooser
 		this.getElegirFotoB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
 				
-				//getFotoImg().setSrc("");
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+					
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+						String rutaFoto = SubirArchivos.Imagen(buffer);
+
+						getFotoImg().setSrc(rutaFoto);
+						
+						modal.close();
+					}
+				});
+				
+				modal.open();
 			}
 		});
 		

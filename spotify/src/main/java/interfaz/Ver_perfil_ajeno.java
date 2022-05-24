@@ -22,7 +22,7 @@ public class Ver_perfil_ajeno extends VistaVer_perfil_ajeno {
 		this.getEmailL().setText(usuario.getDatos().getEmail());
 		this.getNickL().setText(usuario.getNick());
 		
-		_listas_de_reproduccion_perfil = new Listas_de_reproduccion_perfil();
+		_listas_de_reproduccion_perfil = new Listas_de_reproduccion_perfil(usuario);
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(_listas_de_reproduccion_perfil);

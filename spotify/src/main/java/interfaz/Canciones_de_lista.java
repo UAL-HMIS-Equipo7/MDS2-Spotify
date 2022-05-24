@@ -7,6 +7,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iActor_comun;
 import interfaz.TituloCancion;
 import vistas.VistaCanciones_de_lista;
 
@@ -15,11 +17,12 @@ public class Canciones_de_lista extends VistaCanciones_de_lista {
 
 	public Vector<TituloCancion> _list_TituloCancion = new Vector<TituloCancion>();
 	
+	basededatos.Lista_de_reproduccion _lista;
+	iActor_comun bd = new BDPrincipal();
 	
-	
-	public Canciones_de_lista() {
+	public Canciones_de_lista(basededatos.Lista_de_reproduccion lista) {
 		
-		
+		_lista = lista;
 		
 		CargarCancionesLista();
 		
@@ -48,10 +51,13 @@ public class Canciones_de_lista extends VistaCanciones_de_lista {
 	}
 	
 	public void CargarCancionesLista() {
+		
+		basededatos.Cancion[] canciones = bd.Cargar_Canciones_Lista(_lista.getORMID());
+		
 		TituloCancion temp;
 		
-		for (int i = 0; i < 6; i++) {
-			temp = new TituloCancion();
+		for (int i = 0; i < canciones.length; i++) {
+			temp = new TituloCancion(canciones[i]);
 			
 			_list_TituloCancion.add(temp);
 		}

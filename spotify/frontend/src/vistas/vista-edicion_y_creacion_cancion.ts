@@ -1,8 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-combo-box/src/vaadin-combo-box.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-edicion_y_creacion_cancion')
@@ -21,12 +21,20 @@ export class VistaEdicion_y_creacion_cancion extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-evenly; padding: var(--lumo-space-s);">
  <label id="tituloCancionL">Canción</label>
  <label id="errorL">Mensaje de error correspondiente</label>
- <vaadin-vertical-layout theme="spacing" style="align-self: center; align-items: center;">
-  <label id="ficheroL">Fichero multimedia</label>
-  <vaadin-button id="elegirFicheroB">
-    Seleccionar archivos 
-  </vaadin-button>
- </vaadin-vertical-layout>
+ <vaadin-horizontal-layout theme="spacing">
+  <vaadin-vertical-layout theme="spacing" style="align-self: center; align-items: center;">
+   <label id="ficheroL">Fichero multimedia</label>
+   <vaadin-button id="elegirFicheroB">
+    Seleccionar fichero
+   </vaadin-button>
+  </vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing">
+   <img id="fotoImg" style="max-width: 50; max-height: 50;">
+   <vaadin-button id="elegirFotoB">
+    Elegir imagen
+   </vaadin-button>
+  </vaadin-vertical-layout>
+ </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-items: center;">
   <label id="tituloL">Título</label>
   <vaadin-text-field id="tituloTF"></vaadin-text-field>

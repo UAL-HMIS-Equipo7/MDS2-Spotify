@@ -9,8 +9,10 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.Usuario_generico;
+import basededatos.iActor_comun;
 import interfaz.Cancion;
-import interfaz.Ver_mas_canciones_favoritas;
 import spotify.GestorVentana;
 import vistas.VistaCanciones_favoritas;
 
@@ -21,11 +23,13 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 	public Vector<Cancion> _list_Cancion = new Vector<Cancion>();
 	public Ver_lista_de_reproduccion_propia _ver_lista_de_reproduccion_propia;
 	
+	private Usuario_generico _usuario;
+	private basededatos.Lista_de_reproduccion _lista;
+	private iActor_comun bd = new BDPrincipal();
 	
-	
-	public Canciones_favoritas() {
+	public Canciones_favoritas(Usuario_generico usuario) {
 		
-		
+		_usuario = usuario;
 		
 		CargarCancionesFavoritas();
 		
@@ -46,7 +50,7 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				_ver_lista_de_reproduccion_propia = new Ver_lista_de_reproduccion_propia();
+				_ver_lista_de_reproduccion_propia = new Ver_lista_de_reproduccion_propia(_lista);
 				
 				
 				GestorVentana.CambiarVentana(_ver_lista_de_reproduccion_propia);
@@ -55,10 +59,15 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 	}
 	
 	public void CargarCancionesFavoritas() {
+		
+		_lista = bd.Cargar_Canciones_Favoritas(_usuario.getORMID());
+		
+		basededatos.Cancion canciones[] = _lista.canciones_incluidas.toArray();
+		
 		Cancion temp;
 		
-		for (int i = 0; i < 10; i++) {
-			temp = new Cancion();
+		for (int i = 0; i < 10 && i < canciones.length; i++) {
+			temp = new Cancion(canciones[i]);
 			
 			_list_Cancion.add(temp);
 		}

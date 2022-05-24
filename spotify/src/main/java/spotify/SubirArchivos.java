@@ -40,4 +40,30 @@ public class SubirArchivos {
 		
 		return ruta;
 	}
+	
+	public static String Audio(MemoryBuffer memBuffer) {
+		
+		String ruta = "audio/"+memBuffer.getFileName();
+
+        InputStream is = memBuffer.getInputStream();
+        
+        try {
+            OutputStream os = new FileOutputStream("./src/main/webapp/audio/" + memBuffer.getFileName());
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            //read from is to buffer
+            while((bytesRead = is.read(buffer)) != -1){
+                os.write(buffer, 0, bytesRead);
+            }
+            is.close();
+            //flush OutputStream to write any buffered data to file
+            os.flush();
+            os.close();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+		
+		return ruta;
+	}
 }

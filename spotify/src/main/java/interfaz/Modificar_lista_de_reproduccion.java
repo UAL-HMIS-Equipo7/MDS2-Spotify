@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import spotify.GestorActor;
 import vistas.VistaModificar_lista_de_reproduccion;
 
 public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_reproduccion {
@@ -16,11 +17,11 @@ public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_rep
 	
 	private VerticalLayout vl;
 	
-	public Modificar_lista_de_reproduccion() {
+	public Modificar_lista_de_reproduccion(basededatos.Lista_de_reproduccion lista) {
 		
 		vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		_crear_lista_de_reproduccion = new Crear_lista_de_reproduccion(){
+		_crear_lista_de_reproduccion = new Crear_lista_de_reproduccion(GestorActor.getUsuario()){
 			@Override
 			public void Guardar_cambios_lista() {
 				

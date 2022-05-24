@@ -4,9 +4,14 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.Usuario_generico;
+import basededatos.iActor_comun;
+import spotify.GestorActor;
 import spotify.GestorVentana;
 import vistas.VistaUltimas_canciones_reproducidas;
 import vistas.VistaVer_lista_de_reproduccion;
@@ -25,10 +30,18 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 	public Ver_perfil_ajeno_de_no_artista _ver_perfil_ajeno_de_no_artista;
 	public Ver_perfil_ajeno_de_artista _ver_perfil_ajeno_de_artista;
 	public Canciones_de_lista _canciones_de_lista;
+	
+	basededatos.Lista_de_reproduccion _lista;
+	iActor_comun bd = new BDPrincipal();
 
-	public Ver_lista_de_reproduccion() {
+	public Ver_lista_de_reproduccion(basededatos.Lista_de_reproduccion lista) {
 		
-		_canciones_de_lista = new Canciones_de_lista();
+		_lista = lista;
+		
+		this.getTituloL().setText(_lista.getTitulo());
+		this.getAutorB().setText(_lista.getAutor().getNick());
+		
+		_canciones_de_lista = new Canciones_de_lista(lista);
 		_canciones_de_lista.setClassName("fullSize");
 		
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
@@ -40,12 +53,16 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				//Comprobar si el autor es un artista o no, para mandarle a uno u otro
-				//_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista();
-				_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista();
+				Usuario_generico autor = _lista.getAutor();
 				
-				
-				GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_no_artista);
+				if (autor instanceof basededatos.Artista) {
+					_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista((basededatos.Artista) autor);
+					GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_artista);
+				}
+				else {
+					_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista(autor);
+					GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_no_artista);
+				}
 			}
 		});
 		
@@ -55,7 +72,6 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				Seguir_lista_de_reproduccion();
-				
 			}
 		});
 		
@@ -65,21 +81,15 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				Compartir_lista_de_reproduccion();
-				
 			}
 		});
-		
-		
 	}
-	
-	
-	
-	
+
 	public void Compartir_lista_de_reproduccion() {
-		throw new UnsupportedOperationException();
+		Notification.show("Se ha compartido la lista con sus contactos");
 	}
 
 	public void Seguir_lista_de_reproduccion() {
-		throw new UnsupportedOperationException();
+		bd.Seguir_lista_de_reproduccion(GestorActor.getIdUsuario(), _lista.getORMID());
 	}
 }

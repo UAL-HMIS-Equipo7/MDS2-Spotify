@@ -1,13 +1,21 @@
 package interfaz;
 
+import java.util.List;
+import java.util.Vector;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.upload.FinishedEvent;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
 import spotify.GestorVentana;
+import spotify.SubirArchivos;
 import vistas.VistaEdicion_y_creacion_artista;
 
 public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista {
@@ -35,8 +43,13 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 		
 		Cargar_Estilos();
 		
-		//Hay que establecer la lista de estilos, donde se muestre su nombre, pero se almacene su id o el objeto completo, para poder ser enviada
-		//this.getEstiloCB().set...
+		List<String> nombreEstilos = new Vector<String>(_estilos.length);
+		
+		for (basededatos.Estilo estilo : _estilos) {
+			nombreEstilos.add(estilo.getNombre());
+		}
+		
+		this.getEstiloCB().setItems(nombreEstilos);
 		
 		_artista = artista;
 		
@@ -45,18 +58,30 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 			this.getEmailTF().setValue(_artista.getDatos().getEmail());
 			this.getNickTF().setValue(_artista.getNick());
 			this.getContraseniaTF().setValue(_artista.getDatos().getPassword());
-			//Poner bien el estilo??
-			//this.getEstiloCB().setValue(_artista.getEstilo());
+			this.getEstiloCB().setValue(_artista.getEstilo().getNombre());
 		}
 		
-		//Implementar boton FileChooser
 		this.getElegirFotoB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
 				
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+					
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+						String rutaFoto = SubirArchivos.Imagen(buffer);
+
+						getFotoImg().setSrc(rutaFoto);
+						
+						modal.close();
+					}
+				});
 				
-				//getFotoImg().setSrc("");
+				modal.open();
 			}
 		});
 		
@@ -82,6 +107,15 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 	}
 
 	public void Guardar_cambios_artista() {
+		basededatos.Estilo estiloSeleccionado = null;
+		
+		for (basededatos.Estilo estilo : _estilos) {
+			if (estilo.getNombre().equals(getEstiloCB().getValue())) {
+				estiloSeleccionado = estilo;
+				break;
+			}
+		}
+		
 		if (_artista != null) {
 			_artista.setFotoRuta(getFotoImg().getSrc());
 			
@@ -92,14 +126,13 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 
 			_artista.setNick(getNickTF().getValue());
 			
-			//Poner bien el estilo??
+			_artista.setEstilo(estiloSeleccionado);
 			
 			bd.Actualizar_Artista(_artista);
 		}
 		else {
-			//Poner bien el estilo
 			bd.Crear_Artista(getEmailTF().getValue(), getNickTF().getValue(),
-							getContraseniaTF().getValue(), getFotoImg().getSrc(), -1);
+							getContraseniaTF().getValue(), getFotoImg().getSrc(), estiloSeleccionado.getORMID());
 		}
 	}
 

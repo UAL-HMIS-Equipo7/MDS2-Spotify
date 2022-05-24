@@ -5,21 +5,33 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.Usuario_generico;
+import basededatos.iActor_comun;
 import spotify.GestorVentana;
 import vistas.VistaCrear_lista_de_reproduccion;
 
 public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccion {
 //	private event _guardar_cambios_lista;
 	
-	public Crear_lista_de_reproduccion() {
+	Usuario_generico _usuario;
+	iActor_comun bd = new BDPrincipal();
+	
+	public Crear_lista_de_reproduccion(Usuario_generico usuario) {
+		
+		_usuario = usuario;
+		
+		this.getAutorListaTF().setValue(_usuario.getNick());
+		this.getAutorListaTF().setEnabled(false);
 		
 		this.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
+				Validar_datos_lista(); //bool?
 				Guardar_cambios_lista();
-				//Volver a la anterior pantalla
+				
 				GestorVentana.Atras();
 			}
 		});
@@ -28,8 +40,7 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				//Volver atras
+
 				GestorVentana.Atras();
 			}
 		});
@@ -37,10 +48,10 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 	}
 
 	public void Validar_datos_lista() {
-		throw new UnsupportedOperationException();
+		//VALIDAR
 	}
 
 	public void Guardar_cambios_lista() {
-		throw new UnsupportedOperationException();
+		bd.Crear_Lista_de_Reproduccion(_usuario.getORMID(), getTituloListaTF().getValue());
 	}
 }

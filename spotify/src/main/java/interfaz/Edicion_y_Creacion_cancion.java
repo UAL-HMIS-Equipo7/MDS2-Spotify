@@ -1,13 +1,21 @@
 package interfaz;
 
+import java.util.List;
+import java.util.Vector;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.upload.FinishedEvent;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
 import spotify.GestorVentana;
+import spotify.SubirArchivos;
 import vistas.VistaEdicion_y_creacion_cancion;
 
 public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion {
@@ -37,22 +45,28 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 	private basededatos.Cancion _cancion;
 	private basededatos.Estilo[] _estilos;
 	private iAdministrador bd = new BDPrincipal();
+	
+	private String _rutaFicheroMultimedia;
 
 	public Edicion_y_Creacion_cancion(basededatos.Cancion cancion) {
 		
 		Cargar_Estilos();
 		
-		//Hay que establecer la lista de estilos, donde se muestre su nombre, pero se almacene su id, para poder ser enviada
-		//this.getEstiloCB().set...
+		List<String> nombreEstilos = new Vector<String>(_estilos.length);
+		
+		for (basededatos.Estilo estilo : _estilos) {
+			nombreEstilos.add(estilo.getNombre());
+		}
+		
+		this.getEstiloCB().setItems(nombreEstilos);
 		
 		_cancion = cancion;
 		
 		if (_cancion != null) {
 			this.getTituloTF().setValue(_cancion.getTitulo());
 			
-			//TODO: Revisar como trabajar bien con los estilos
 			basededatos.Estilo[] estilo = _cancion.estilos.toArray();
-			//this.getEstiloCB()
+			this.getEstiloCB().setValue(estilo[0].getNombre());
 			
 			this.getCreditosTituloTF().setValue(_cancion.getTitulo());
 			
@@ -69,7 +83,8 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 			
 			this.getInterpreteTF().setValue(intepretes.toString());
 			
-			//FICHERO MULTIMEDIA??
+			this.getFotoImg().setSrc(_cancion.getFicheroMultimediaAltaCalidadRuta());
+			_rutaFicheroMultimedia = _cancion.getFicheroMultimediaRuta();
 		}
 		
 		this.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -91,9 +106,65 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 				GestorVentana.Atras();
 			}
 		});
+		
+		this.getElegirFotoB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
+				
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+					
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+						String rutaFoto = SubirArchivos.Imagen(buffer);
+
+						getFotoImg().setSrc(rutaFoto);
+						
+						modal.close();
+					}
+				});
+				
+				modal.open();
+			}
+		});
+		
+		this.getElegirFicheroB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
+				
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+					
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+						_rutaFicheroMultimedia = SubirArchivos.Audio(buffer);
+						
+						modal.close();
+					}
+				});
+				
+				modal.open();
+			}
+		});
 	}
 
 	public void Guardar_cambios_cancion() {
+		
+		basededatos.Estilo estiloSeleccionado = null;
+		
+		for (basededatos.Estilo estilo : _estilos) {
+			if (estilo.getNombre().equals(getEstiloCB().getValue())) {
+				estiloSeleccionado = estilo;
+				break;
+			}
+		}
+		
 		if (_cancion != null) {
 			_cancion.setTitulo(getTituloTF().getValue());
 			
@@ -101,13 +172,12 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 			//en lugar del objeto de album
 		}
 		else {
-			//Obtener bien el id de estilo y los ficheros
-			bd.Crear_Cancion(getTituloTF().getValue(), -1,
+			bd.Crear_Cancion(getTituloTF().getValue(), estiloSeleccionado.getORMID(),
 							getTituloAlbumTF().getValue(),
 							getCompositorTF().getValue(),
 							getProductorTF().getValue(),
-							"ficheroMultimedia",
-							"ficheroMultimediaAltaCalidad",
+							_rutaFicheroMultimedia,
+							getFotoImg().getSrc(),
 							getInterpreteTF().getValue());
 		}
 	}
