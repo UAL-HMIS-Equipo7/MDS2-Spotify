@@ -20,7 +20,29 @@ public class BD_Lista_de_reproduccion {
 			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.getLista_de_reproduccionByORMID(aIdLista);
 			
 			usuario.lista_seguida.add(lista);
+			lista.seguidor.add(usuario);
+			
 			Usuario_genericoDAO.save(usuario);
+			Lista_de_reproduccionDAO.save(lista);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+	}
+	
+	public void Dejar_de_seguir_lista_de_reproduccion(int aIdUsuarioGenerico, int aIdLista) throws PersistentException {
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
+			
+			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.getLista_de_reproduccionByORMID(aIdLista);
+			
+			usuario.lista_seguida.remove(lista);
+			lista.seguidor.remove(usuario);
+			
+			Usuario_genericoDAO.save(usuario);
+			Lista_de_reproduccionDAO.save(lista);
 			
 			t.commit();
 		} catch (Exception e) {

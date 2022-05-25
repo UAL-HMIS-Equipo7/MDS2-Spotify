@@ -20,6 +20,7 @@ public class Ver_lista_de_reproduccion_propia extends VistaVer_lista_de_reproduc
 	public Ver_lista_de_reproduccion_propia(basededatos.Lista_de_reproduccion lista) {
 
 		_ver_lista_de_reproduccion = new Ver_lista_de_reproduccion(lista);
+		_ver_lista_de_reproduccion.getSeguirB().setVisible(false);
 		
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
 		

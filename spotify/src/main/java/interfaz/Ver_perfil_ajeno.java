@@ -19,9 +19,7 @@ public class Ver_perfil_ajeno extends VistaVer_perfil_ajeno {
 	
 	public  Ver_perfil_ajeno(Usuario_generico usuario) {
 		
-		if (GestorActor.getUsuario().seguido.contains(usuario)) {
-			_yaSeguido = true;
-		}
+		_yaSeguido = GestorActor.getUsuario().seguido.contains(usuario);
 		
 		if (_yaSeguido) {
 			this.getSeguirB().setText("Dejar de seguir");

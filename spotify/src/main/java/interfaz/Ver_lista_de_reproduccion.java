@@ -33,10 +33,14 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 	
 	basededatos.Lista_de_reproduccion _lista;
 	iActor_comun bd = new BDPrincipal();
+	
+	private boolean _yaSeguido = false;
 
 	public Ver_lista_de_reproduccion(basededatos.Lista_de_reproduccion lista) {
 		
 		_lista = lista;
+		
+		_yaSeguido = GestorActor.getUsuario().lista_seguida.contains(lista);
 		
 		this.getTituloL().setText(_lista.getTitulo());
 		this.getAutorB().setText(_lista.getAutor().getNick());
@@ -66,12 +70,24 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 			}
 		});
 		
+		if (_yaSeguido) {
+			this.getSeguirB().setText("Dejar de seguir");
+		}
+		else {
+			this.getSeguirB().setText("Seguir");
+		}
+		
 		this.getSeguirB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				Seguir_lista_de_reproduccion();
+				if (_yaSeguido) {
+					Dejar_de_seguir_lista_de_reproduccion();
+				}
+				else {
+					Seguir_lista_de_reproduccion();
+				}
 			}
 		});
 		
@@ -91,5 +107,11 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 
 	public void Seguir_lista_de_reproduccion() {
 		bd.Seguir_lista_de_reproduccion(GestorActor.getIdUsuario(), _lista.getORMID());
+		_yaSeguido = true;
+	}
+	
+	public void Dejar_de_seguir_lista_de_reproduccion() {
+		bd.Dejar_de_seguir_lista_de_reproduccion(GestorActor.getIdUsuario(), _lista.getORMID());
+		_yaSeguido = false;
 	}
 }

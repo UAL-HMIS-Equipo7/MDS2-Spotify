@@ -67,4 +67,12 @@ public interface iActor_comun {
 	public void Quitar_cancion_favoritos(int aIdUsuarioGenerico, int aIdCancion);
 	
 	public Estilo[] Cargar_Estilos();
+	
+	public Lista_de_reproduccion[] Cargar_Listas_Usuario(int aIdUsuarioGenerico);
+	
+	public void Dejar_De_Seguir_Artista(int aIdUsuarioGenerico, int aIdArtista);
+	
+	public void Dejar_De_Seguir_Usuario(int aIdSeguidor, int aIdSeguido);
+	
+	public void Dejar_de_seguir_lista_de_reproduccion(int aIdUsuarioGenerico, int aIdLista);
 }
