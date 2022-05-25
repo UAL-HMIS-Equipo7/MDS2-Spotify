@@ -29,11 +29,12 @@ public class Reproductor__Cibernauta_ extends Reproductor {
 		super.CargarCancion();
 		
 		if (_cancion == null) {
-			this.getTituloL().setText("-");
+			this.getTituloL().setVisible(false);
 			this.getCreditosB().setEnabled(false);
 		}
 		else {
 			this.getTituloL().setText(_cancion.getTitulo());
+			this.getTituloL().setVisible(true);
 			this.getCreditosB().setEnabled(true);
 			this.getCreditosB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 				

@@ -85,6 +85,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 			
 			this.getFotoImg().setSrc(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()));
 			_rutaFicheroMultimedia = _cancion.getFicheroMultimediaRuta();
+			this.getFicheroL().setText(_rutaFicheroMultimedia);
 		}
 		
 		this.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -137,13 +138,16 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 			public void onComponentEvent(ClickEvent<Button> event) {
 				MemoryBuffer buffer = new MemoryBuffer();
 				Upload upload = new Upload(buffer);
+				
 				Dialog modal = new Dialog(upload);
 				
 				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
 					
 					@Override
 					public void onComponentEvent(FinishedEvent event) {
+						
 						_rutaFicheroMultimedia = GestorArchivos.SubirAudio(buffer);
+						getFicheroL().setText(_rutaFicheroMultimedia);
 						
 						modal.close();
 					}
