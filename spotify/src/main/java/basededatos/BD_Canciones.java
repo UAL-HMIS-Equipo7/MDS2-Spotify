@@ -114,7 +114,15 @@ public class BD_Canciones {
 			cancion.setProductores(productores);
 			cancion.estilos.add(estilo);
 			cancion.setIncluida_en_albumes(alb);
+			
 			String[] artistas = interpretes.split(",");
+			ArtistaCriteria criteriaArtista = new ArtistaCriteria();
+			
+			for (int i = 0; i < artistas.length; i++) {
+				criteriaArtista.nick.eqIgnoreCase(artistas[i]);
+				Artista artista = ArtistaDAO.loadArtistaByCriteria(criteriaArtista);
+				cancion.intepretes.add(artista);
+			}
 			id_cancion = cancion.getORMID();
 			CancionDAO.save(cancion);
 			t.commit();

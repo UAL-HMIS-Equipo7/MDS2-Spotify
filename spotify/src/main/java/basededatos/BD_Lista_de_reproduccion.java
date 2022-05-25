@@ -122,4 +122,21 @@ public class BD_Lista_de_reproduccion {
 
 		return lista;
 	}
+	
+	public Lista_de_reproduccion[] Cargar_Listas_Usuario(int aIdUsuarioGenerico) throws PersistentException {
+		Lista_de_reproduccion[] listas = null;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
+			listas = usuario.listas.toArray();
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return listas;
+	}
 }

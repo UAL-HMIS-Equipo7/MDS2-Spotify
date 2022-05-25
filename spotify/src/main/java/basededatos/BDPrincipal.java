@@ -393,8 +393,6 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		try {
 			Datos_Acceso datos = _bD_Datos_Acceso.Realizar_Intento_Inicio_Sesion(aEmail, aContrasenia);
 			
-			//TODO
-			//Hacemos un switch en funcion del tipo de usuario, o directamente cogemos la referencia que hay en datos acceso?
 			usuario = datos.getUsuario();
 			
 		} catch (PersistentException e) {
@@ -730,5 +728,36 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 			e.printStackTrace();
 		}
 		return artistas;
+	}
+
+	@Override
+	public Lista_de_reproduccion[] Cargar_Listas_Usuario(int aIdUsuarioGenerico) {
+		Lista_de_reproduccion[] listas = null;
+		
+		try {
+			listas = _bD_Lista_de_reproduccion.Cargar_Listas_Usuario(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return listas;
+	}
+
+	@Override
+	public void Dejar_De_Seguir_Artista(int aIdUsuarioGenerico, int aIdArtista) {
+		try {
+			_bD_Artistas.Dejar_De_Seguir_Artista(aIdUsuarioGenerico, aIdArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void Dejar_De_Seguir_Usuario(int aIdSeguidor, int aIdSeguido) {
+		try {
+			_bD_Usuarios_Registrados.Dejar_De_Seguir_Usuario(aIdSeguidor, aIdSeguido);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 }

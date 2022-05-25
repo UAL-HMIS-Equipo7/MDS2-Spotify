@@ -28,7 +28,13 @@ public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				Seguir_artista();
+				if (_yaSeguido) {
+					Dejar_de_seguir_artista();
+				}
+				else {
+					Seguir_artista();
+				}
+				
 			}
 		});
 
@@ -36,5 +42,11 @@ public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 
 	public void Seguir_artista() {
 		bd.Seguir_Artista(GestorActor.getIdUsuario(), _artista.getORMID());
+		_yaSeguido = true;
+	}
+	
+	public void Dejar_de_seguir_artista() {
+		bd.Dejar_De_Seguir_Artista(GestorActor.getIdUsuario(), _artista.getORMID());
+		_yaSeguido = false;
 	}
 }

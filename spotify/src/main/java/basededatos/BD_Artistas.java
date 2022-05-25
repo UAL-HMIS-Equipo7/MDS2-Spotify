@@ -181,6 +181,28 @@ public class BD_Artistas {
 			Artista artista = ArtistaDAO.getArtistaByORMID(aIdArtista);
 			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
 			artista.seguidor.add(usuario);
+			usuario.seguido.add(artista);
+			
+			ArtistaDAO.save(artista);
+			Usuario_genericoDAO.save(usuario);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+	}
+	
+	public void Dejar_De_Seguir_Artista(int aIdUsuarioGenerico, int aIdArtista) throws PersistentException {
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Artista artista = ArtistaDAO.getArtistaByORMID(aIdArtista);
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
+			artista.seguidor.remove(usuario);
+			usuario.seguido.remove(artista);
+			
+			ArtistaDAO.save(artista);
+			Usuario_genericoDAO.save(usuario);
 			
 			t.commit();
 		} catch (Exception e) {

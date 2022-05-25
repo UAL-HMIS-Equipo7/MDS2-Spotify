@@ -13,7 +13,6 @@ public class BD_Eventos {
 	public BDPrincipal _bDPrincipal_eventos;
 
 	public int Crear_Evento(int aIdArtista, String imagenRuta, String fechaYHora, String descripcion, int precio) throws PersistentException {
-		//Pasar mejor los parametros sueltos del evento??
 		int id_evento = -1;
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
@@ -26,6 +25,16 @@ public class BD_Eventos {
 			evento.setPublicado_por(artista);
 			id_evento = evento.getORMID();
 			EventoDAO.save(evento);
+			
+			Usuario_generico[] seguidores = artista.seguidor.toArray();
+			Usuario_generico temp;
+			
+			for (int i = 0; i < seguidores.length; i++) {
+				temp = seguidores[i];
+				temp.notificaciones.add(evento);
+				Usuario_genericoDAO.save(temp);
+			}
+			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

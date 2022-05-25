@@ -187,4 +187,22 @@ public class BD_Usuarios_Registrados {
 			t.rollback();
 		}
 	}
+	
+	public void Dejar_De_Seguir_Usuario(int aIdSeguidor, int aIdSeguido) throws PersistentException {
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado usuarioSeguidor = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdSeguidor);
+			Usuario_Registrado usuarioSeguido = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdSeguido);
+			
+			usuarioSeguidor.seguido.remove(usuarioSeguido);
+			usuarioSeguido.seguidor.remove(usuarioSeguidor);
+
+			Usuario_RegistradoDAO.save(usuarioSeguidor);
+			Usuario_RegistradoDAO.save(usuarioSeguido);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+	}
 }
