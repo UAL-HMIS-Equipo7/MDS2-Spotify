@@ -2,8 +2,10 @@ package interfaz;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Usuario_generico;
@@ -43,12 +45,32 @@ public class Cabecera_superior extends VistaCabecera_superior {
 			}
 		});
 		
+		this.getBuscarTF().addKeyPressListener(Key.ENTER, e -> {
+			String paramsBusqueda = getBuscarTF().getValue();
+			
+			if (paramsBusqueda.trim().isEmpty()) {
+				Notification.show("Debe introducir parámetros de búsqueda");
+				return;
+			}
+			
+			_realizar_busqueda = new Realizar_busqueda(paramsBusqueda);
+			
+			GestorVentana.CambiarVentana(_realizar_busqueda);
+	    });
+		
 		this.getBuscarB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				
-				_realizar_busqueda = new Realizar_busqueda(getBuscarTF().getValue());
+				String paramsBusqueda = getBuscarTF().getValue();
+				
+				if (paramsBusqueda.trim().isEmpty()) {
+					Notification.show("Debe introducir parámetros de búsqueda");
+					return;
+				}
+				
+				_realizar_busqueda = new Realizar_busqueda(paramsBusqueda);
 				
 				GestorVentana.CambiarVentana(_realizar_busqueda);
 			}

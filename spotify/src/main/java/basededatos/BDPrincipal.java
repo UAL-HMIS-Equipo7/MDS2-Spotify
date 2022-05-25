@@ -89,16 +89,6 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 	}
 
-	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, Artista[] listaArtistas, Cancion[] listaCanciones) {
-		int id_album = -1;
-		try {
-			id_album = _bD_Albumes.Crear_Album(titulo, imagenRuta, fechaEdicion, null, listaCanciones);
-		}catch(PersistentException e) {
-			e.printStackTrace();
-		}
-		return id_album;
-	}
-
 	public void Actualizar_Album(Album aAlbum) {
 		try {
 			 _bD_Albumes.Actualizar_Album(aAlbum);

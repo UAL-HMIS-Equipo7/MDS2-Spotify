@@ -52,8 +52,21 @@ public class BD_Usuarios_Registrados {
 			usuario.setNick(aNick);
 			usuario.setFotoRuta(aFoto);
 			usuario.setDatos(datos);
+			
+			Estadistica estadistica = EstadisticaDAO.createEstadistica();
+			estadistica.setUsuario(usuario);
+			usuario.setEstadistica(estadistica);
+			
+			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.createLista_de_reproduccion();
+			lista.setPropietario_favorito(usuario);
+			lista.setTitulo("Canciones favoritas");
+			lista.setAutor(usuario);
+			usuario.setFavorita(lista);
+			
 			datos.setUsuario(usuario);
 			
+			EstadisticaDAO.save(estadistica);
+			Lista_de_reproduccionDAO.save(lista);
 			Usuario_RegistradoDAO.save(usuario);
 			Datos_AccesoDAO.save(datos);
 			

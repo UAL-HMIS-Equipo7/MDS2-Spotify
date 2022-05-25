@@ -56,14 +56,28 @@ public class BD_Artistas {
 
 			Datos_Acceso dato = Datos_AccesoDAO.getDatos_AccesoByORMID(aIdDatosAcceso);
 			Artista artista = ArtistaDAO.createArtista();
+			
 			Estilo estilo = EstiloDAO.getEstiloByORMID(aIdEstilo);
 			artista.setEstilo(estilo);
+			
 			artista.setFotoRuta(aFotoRuta);
 			artista.setNick(aNick);
 			artista.setDatos(dato);
 			dato.setUsuario(artista);
+			
+			Estadistica estadistica = EstadisticaDAO.createEstadistica();
+			estadistica.setUsuario(artista);
+			artista.setEstadistica(estadistica);
+			
+			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.createLista_de_reproduccion();
+			lista.setPropietario_favorito(artista);
+			lista.setTitulo("Canciones favoritas");
+			lista.setAutor(artista);
+			artista.setFavorita(lista);
+			
 			Datos_AccesoDAO.save(dato);
 			ArtistaDAO.save(artista);
+			
 			id_artista = artista.getORMID();
 			t.commit();
 		} catch (Exception e) {

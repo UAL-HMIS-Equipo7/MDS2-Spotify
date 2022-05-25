@@ -32,6 +32,7 @@ public class Ver_cancion extends VistaVer_cancion {
 	
 	iActor_comun bd = new BDPrincipal();
 	basededatos.Cancion _cancion;
+	basededatos.Lista_de_reproduccion[] _listas;
 	
 	public Ver_cancion(basededatos.Cancion cancion) {
 		
@@ -57,7 +58,7 @@ public class Ver_cancion extends VistaVer_cancion {
 		
 		this.getCreditoEstiloL().setText(estilo[0].getNombre());
 		
-		this.getCreditosFicheroL().setText("FICHERO??");
+		this.getCreditosFicheroL().setText(_cancion.getFicheroMultimediaRuta());
 		
 		if (GestorActor.getUsuario().getFavorita().canciones_incluidas.contains(_cancion)) {
 			this.getAniadirFavoritosB().setText("Eliminar de favoritos");
@@ -81,6 +82,7 @@ public class Ver_cancion extends VistaVer_cancion {
 				}
 			});
 		}
+		
 
 		//Este método hay que rehacerlo
 		
@@ -93,6 +95,10 @@ public class Ver_cancion extends VistaVer_cancion {
 //			
 //		}
 
+	}
+	
+	public void Cargar_Listas() {
+		_listas = bd.Cargar_Listas_Usuario(GestorActor.getIdUsuario());
 	}
 
 	public void Marcar_cancion_como_favorita() {

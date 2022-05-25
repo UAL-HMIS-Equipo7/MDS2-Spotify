@@ -38,6 +38,9 @@ public class Listas_recomendadas extends VistaListas_recomendadas {
 		Lista_de_reproduccion_ajena temp;
 		
 		for (int i = 0; i < 2 && i < listas.length; i++) {
+			if (listas[i].canciones_incluidas.size() == 0)
+				continue;
+			
 			temp = new Lista_de_reproduccion_ajena(listas[i]);
 			temp.setClassName("fullSize");
 			
