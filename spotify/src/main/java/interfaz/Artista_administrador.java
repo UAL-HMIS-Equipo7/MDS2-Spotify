@@ -52,7 +52,7 @@ public class Artista_administrador extends VistaArtista_administrador {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Dialog ventanaModal = new Dialog();
 
-				_confirmacion_eliminacion = new Confirmacion_eliminacion(ventanaModal) {
+				_confirmacion_eliminacion = new Confirmacion_eliminacion(ventanaModal, _artista.getNick()) {
 					@Override
 					public void Eliminar_elemento() {
 						bd.Eliminar_Artista(_artista.getORMID());		

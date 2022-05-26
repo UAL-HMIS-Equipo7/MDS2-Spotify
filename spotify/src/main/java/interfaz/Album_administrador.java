@@ -52,7 +52,7 @@ public class Album_administrador extends VistaAlbum_administrador {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Dialog ventanaModal = new Dialog();
 
-				_confirmacion_eliminacion = new Confirmacion_eliminacion(ventanaModal) {
+				_confirmacion_eliminacion = new Confirmacion_eliminacion(ventanaModal, _album.getTitulo()) {
 					@Override
 					public void Eliminar_elemento() {
 						bd.Borrar_Album(_album.getORMID());

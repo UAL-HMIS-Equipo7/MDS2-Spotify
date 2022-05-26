@@ -14,7 +14,9 @@ public class Confirmacion_eliminacion extends VistaConfirmacion_eliminacion {
 //	private Button _confirmarB;
 //	private Button _cancelarB;
 
-	public Confirmacion_eliminacion(Dialog ventanaModal) {
+	public Confirmacion_eliminacion(Dialog ventanaModal, String nombreElemento) {
+		
+		this.getNombreElementoL().setText(nombreElemento);
 		
 		this.getCancelarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
