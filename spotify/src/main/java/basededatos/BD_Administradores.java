@@ -22,7 +22,6 @@ public class BD_Administradores {
 		try {
 			Administrador admin = AdministradorDAO.getAdministradorByORMID(aIdAdministrador);
 			
-			//Hay que hacer un save de Datos_Acceso en Datos_AccesoDAO??
 			Datos_Acceso datos = admin.getDatos();
 			datos.setEmail(aNuevoEmail);
 			Datos_AccesoDAO.save(datos);
@@ -72,11 +71,8 @@ public class BD_Administradores {
 		int num = 0;
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			AdministradorCriteria criteria = new AdministradorCriteria();
-			criteria.id.eq(idAdministrador);
 			
-			//Administrador admin = AdministradorDAO.getAdministradorByORMID(idAdministrador);
-			Administrador admin = AdministradorDAO.loadAdministradorByCriteria(criteria);
+			Administrador admin = AdministradorDAO.getAdministradorByORMID(idAdministrador);
 			
 			num = admin.getNumeroCancionesMostradas();
 			

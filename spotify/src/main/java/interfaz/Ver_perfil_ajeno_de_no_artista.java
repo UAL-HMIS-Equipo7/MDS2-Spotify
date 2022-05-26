@@ -20,6 +20,15 @@ public class Ver_perfil_ajeno_de_no_artista extends Ver_perfil_ajeno {
 		
 		_usuario = usuario;
 		
+		Comprobar_usuario_seguido();
+		
+		if (_yaSeguido) {
+			this.getSeguirB().setText("Dejar de seguir");
+		}
+		else {
+			this.getSeguirB().setText("Seguir");
+		}
+		
 		this.getSeguirB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -31,17 +40,22 @@ public class Ver_perfil_ajeno_de_no_artista extends Ver_perfil_ajeno {
 					Seguir_usuario();
 				}
 			}
-		});
-		
-				
+		});		
 	}
+	
+	public void Comprobar_usuario_seguido() {
+		_yaSeguido = bd.Comprobar_Usuario_Seguido(GestorActor.getIdUsuario(), _usuario.getORMID());
+	}
+	
 	public void Seguir_usuario() {
 		bd.Seguir_Usuario(GestorActor.getIdUsuario(), _usuario.getORMID());
 		_yaSeguido = true;
+		this.getSeguirB().setText("Dejar de seguir");
 	}
 	
 	public void Dejar_De_Seguir_Usuario() {
 		bd.Dejar_De_Seguir_Usuario(GestorActor.getIdUsuario(), _usuario.getORMID());
 		_yaSeguido = false;
+		this.getSeguirB().setText("Seguir");
 	}
 }

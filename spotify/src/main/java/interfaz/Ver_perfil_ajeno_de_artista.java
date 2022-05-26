@@ -19,6 +19,15 @@ public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 		super((basededatos.Usuario_generico) artista);
 		
 		_artista = artista;
+		
+		Comprobar_artista_seguido();
+		
+		if (_yaSeguido) {
+			this.getSeguirB().setText("Dejar de seguir");
+		}
+		else {
+			this.getSeguirB().setText("Seguir");
+		}
 
 		_panel_artista = new Panel_artista(artista);
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
@@ -39,14 +48,20 @@ public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 		});
 
 	}
+	
+	public void Comprobar_artista_seguido() {
+		_yaSeguido = bd.Comprobar_Artista_Seguido(GestorActor.getIdUsuario(), _artista.getORMID());
+	}
 
 	public void Seguir_artista() {
 		bd.Seguir_Artista(GestorActor.getIdUsuario(), _artista.getORMID());
 		_yaSeguido = true;
+		this.getSeguirB().setText("Dejar de seguir");
 	}
 	
 	public void Dejar_de_seguir_artista() {
 		bd.Dejar_De_Seguir_Artista(GestorActor.getIdUsuario(), _artista.getORMID());
 		_yaSeguido = false;
+		this.getSeguirB().setText("Seguir");
 	}
 }

@@ -19,15 +19,6 @@ public class Ver_perfil_ajeno extends VistaVer_perfil_ajeno {
 	
 	public  Ver_perfil_ajeno(Usuario_generico usuario) {
 		
-		_yaSeguido = GestorActor.getUsuario().seguido.contains(usuario);
-		
-		if (_yaSeguido) {
-			this.getSeguirB().setText("Dejar de seguir");
-		}
-		else {
-			this.getSeguirB().setText("Seguir");
-		}
-		
 		this.getSeguidoresL().setText(Integer.toString(usuario.seguidor.size()));
 		this.getSeguidosL().setText(Integer.toString(usuario.seguido.size()));
 		this.getFotoImg().setSrc(GestorArchivos.CargarImagen(usuario.getFotoRuta()));

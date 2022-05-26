@@ -75,4 +75,12 @@ public interface iActor_comun {
 	public void Dejar_De_Seguir_Usuario(int aIdSeguidor, int aIdSeguido);
 	
 	public void Dejar_de_seguir_lista_de_reproduccion(int aIdUsuarioGenerico, int aIdLista);
+	
+	public boolean Comprobar_Lista_Seguida(int aIdUsuarioGenerico, int aIdLista);
+	
+	public boolean Comprobar_Cancion_Favorita(int aIdUsuarioGenerico, int aIdCancion);
+	
+	public boolean Comprobar_Artista_Seguido(int aIdUsuarioGenerico, int aIdArtista);
+	
+	public boolean Comprobar_Usuario_Seguido(int aIdSeguidor, int aIdSeguido);
 }

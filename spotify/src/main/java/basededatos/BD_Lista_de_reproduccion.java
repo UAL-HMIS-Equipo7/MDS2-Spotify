@@ -161,4 +161,23 @@ public class BD_Lista_de_reproduccion {
 
 		return listas;
 	}
+	
+	public boolean Comprobar_Lista_Seguida(int aIdUsuarioGenerico, int aIdLista) throws PersistentException {
+		boolean yaSeguida = false;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
+			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.getLista_de_reproduccionByORMID(aIdLista);
+			
+			yaSeguida = usuario.lista_seguida.contains(lista);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return yaSeguida;
+	}
 }

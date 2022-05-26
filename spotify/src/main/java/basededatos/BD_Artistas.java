@@ -223,4 +223,23 @@ public class BD_Artistas {
 			t.rollback();
 		}
 	}
+	
+	public boolean Comprobar_Artista_Seguido(int aIdUsuarioGenerico, int aIdArtista) throws PersistentException {
+		boolean yaSeguido = false;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
+			Artista artista = ArtistaDAO.getArtistaByORMID(aIdArtista);
+			
+			yaSeguido = usuario.seguido.contains(artista);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return yaSeguido;
+	}
 }

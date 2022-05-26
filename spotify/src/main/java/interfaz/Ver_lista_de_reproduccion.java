@@ -40,7 +40,7 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 		
 		_lista = lista;
 		
-		_yaSeguido = GestorActor.getUsuario().lista_seguida.contains(lista);
+		Comprobar_lista_seguida();
 		
 		this.getTituloL().setText(_lista.getTitulo());
 		this.getAutorB().setText(_lista.getAutor().getNick());
@@ -108,10 +108,16 @@ public class Ver_lista_de_reproduccion extends VistaVer_lista_de_reproduccion {
 	public void Seguir_lista_de_reproduccion() {
 		bd.Seguir_lista_de_reproduccion(GestorActor.getIdUsuario(), _lista.getORMID());
 		_yaSeguido = true;
+		this.getSeguirB().setText("Dejar de seguir");
 	}
 	
 	public void Dejar_de_seguir_lista_de_reproduccion() {
 		bd.Dejar_de_seguir_lista_de_reproduccion(GestorActor.getIdUsuario(), _lista.getORMID());
 		_yaSeguido = false;
+		this.getSeguirB().setText("Seguir");
+	}
+	
+	public void Comprobar_lista_seguida() {
+		_yaSeguido = bd.Comprobar_Lista_Seguida(GestorActor.getIdUsuario(), _lista.getORMID());
 	}
 }

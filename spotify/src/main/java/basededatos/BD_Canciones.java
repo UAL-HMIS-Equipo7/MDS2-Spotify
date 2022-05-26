@@ -270,4 +270,23 @@ public class BD_Canciones {
 
 		return cancionesAleatorias;
 	}
+	
+	public boolean Comprobar_Cancion_Favorita(int aIdUsuarioGenerico, int aIdCancion) throws PersistentException {
+		boolean esFavorita = false;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
+			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
+			
+			esFavorita = usuario.getFavorita().canciones_incluidas.contains(cancion);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return esFavorita;
+	}
 }

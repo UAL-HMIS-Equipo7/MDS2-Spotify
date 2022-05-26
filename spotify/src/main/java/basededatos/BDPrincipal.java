@@ -759,4 +759,56 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public boolean Comprobar_Lista_Seguida(int aIdUsuarioGenerico, int aIdLista) {
+		boolean yaSeguida = false;
+		
+		try {
+			yaSeguida = _bD_Lista_de_reproduccion.Comprobar_Lista_Seguida(aIdUsuarioGenerico, aIdLista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return yaSeguida;
+	}
+
+	@Override
+	public boolean Comprobar_Cancion_Favorita(int aIdUsuarioGenerico, int aIdCancion) {
+		boolean esFavorita = false;
+		
+		try {
+			esFavorita = _bD_Canciones.Comprobar_Cancion_Favorita(aIdUsuarioGenerico, aIdCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return esFavorita;
+	}
+
+	@Override
+	public boolean Comprobar_Artista_Seguido(int aIdUsuarioGenerico, int aIdArtista) {
+		boolean yaSeguido = false;
+		
+		try {
+			yaSeguido = _bD_Artistas.Comprobar_Artista_Seguido(aIdUsuarioGenerico, aIdArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return yaSeguido;
+	}
+
+	@Override
+	public boolean Comprobar_Usuario_Seguido(int aIdSeguidor, int aIdSeguido) {
+		boolean yaSeguido = false;
+		
+		try {
+			yaSeguido = _bD_Usuarios_Registrados.Comprobar_Usuario_Seguido(aIdSeguidor, aIdSeguido);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return yaSeguido;
+	}
 }

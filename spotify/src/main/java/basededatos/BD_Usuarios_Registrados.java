@@ -186,13 +186,13 @@ public class BD_Usuarios_Registrados {
 	public void Seguir_Usuario(int aIdSeguidor, int aIdSeguido) throws PersistentException {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario_Registrado usuarioSeguidor = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdSeguidor);
+			Usuario_generico usuarioSeguidor = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdSeguidor);
 			Usuario_Registrado usuarioSeguido = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdSeguido);
 			
 			usuarioSeguidor.seguido.add(usuarioSeguido);
 			usuarioSeguido.seguidor.add(usuarioSeguidor);
 
-			Usuario_RegistradoDAO.save(usuarioSeguidor);
+			Usuario_genericoDAO.save(usuarioSeguidor);
 			Usuario_RegistradoDAO.save(usuarioSeguido);
 			
 			t.commit();
@@ -204,18 +204,37 @@ public class BD_Usuarios_Registrados {
 	public void Dejar_De_Seguir_Usuario(int aIdSeguidor, int aIdSeguido) throws PersistentException {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario_Registrado usuarioSeguidor = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdSeguidor);
+			Usuario_generico usuarioSeguidor = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdSeguidor);
 			Usuario_Registrado usuarioSeguido = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdSeguido);
 			
 			usuarioSeguidor.seguido.remove(usuarioSeguido);
 			usuarioSeguido.seguidor.remove(usuarioSeguidor);
 
-			Usuario_RegistradoDAO.save(usuarioSeguidor);
+			Usuario_genericoDAO.save(usuarioSeguidor);
 			Usuario_RegistradoDAO.save(usuarioSeguido);
 			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
+	}
+	
+	public boolean Comprobar_Usuario_Seguido(int aIdSeguidor, int aIdSeguido) throws PersistentException {
+		boolean yaSeguido = false;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Usuario_generico usuarioSeguidor = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdSeguidor);
+			Usuario_Registrado usuarioSeguido = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdSeguido);
+			
+			yaSeguido = usuarioSeguidor.seguido.contains(usuarioSeguido);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return yaSeguido;
 	}
 }
