@@ -1,6 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-cancion_album')
 export class VistaCancion_album extends LitElement {
@@ -15,10 +16,11 @@ export class VistaCancion_album extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-evenly;">
- <img id="fotoImg" style="flex-grow: 0; flex-shrink: 1; width: 150px;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: center;">
+ <label id="nombreL">Cancion</label>
+ <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="flex-grow: 0; flex-shrink: 1; align-items: center; justify-content: center; margin: var(--lumo-space-m); max-width: 150px; max-height: 150px;"></vaadin-horizontal-layout>
  <vaadin-button id="eliminarB">
-  Eliminar
+   Eliminar 
  </vaadin-button>
 </vaadin-vertical-layout>
 `;

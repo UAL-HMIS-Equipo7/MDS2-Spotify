@@ -20,7 +20,13 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./src/vistas/vista-edicion_y_creacion_album.ts")
 public class VistaEdicion_y_creacion_album extends LitTemplate {
 
-    public Label getTituloL() {
+    public HorizontalLayout getFotoImgLayout() {
+		return fotoImgLayout;
+	}
+	public void setFotoImgLayout(HorizontalLayout fotoImgLayout) {
+		this.fotoImgLayout = fotoImgLayout;
+	}
+	public Label getTituloL() {
 		return tituloL;
 	}
 	public void setTituloL(Label tituloL) {
@@ -31,12 +37,6 @@ public class VistaEdicion_y_creacion_album extends LitTemplate {
 	}
 	public void setErrorL(Label errorL) {
 		this.errorL = errorL;
-	}
-	public Image getFotoImg() {
-		return fotoImg;
-	}
-	public void setFotoImg(Image fotoImg) {
-		this.fotoImg = fotoImg;
 	}
 	public Button getElegirFotoB() {
 		return elegirFotoB;
@@ -96,8 +96,6 @@ public class VistaEdicion_y_creacion_album extends LitTemplate {
 	private Label tituloL;
 	@Id("errorL")
 	private Label errorL;
-	@Id("fotoImg")
-	private Image fotoImg;
 	@Id("elegirFotoB")
 	private Button elegirFotoB;
 	@Id("tituloAlbumL")
@@ -116,6 +114,8 @@ public class VistaEdicion_y_creacion_album extends LitTemplate {
 	private Button guardarB;
 	@Id("cancelarB")
 	private Button cancelarB;
+	@Id("fotoImgLayout")
+	private HorizontalLayout fotoImgLayout;
 	/**
      * Creates a new VistaEdicion_y_creacion_album.
      */

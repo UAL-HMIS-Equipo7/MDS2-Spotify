@@ -3,7 +3,9 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.FinishedEvent;
 import com.vaadin.flow.component.upload.Upload;
@@ -15,6 +17,7 @@ import spotify.GestorVentana;
 import spotify.GestorArchivos;
 import vistas.VistaEdicion_y_creacion_album;
 
+@CssImport("./styles/shared-styles.css")
 public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 //	private event _guardar_cambios_album;
 //	private Label _tituloL;
@@ -31,13 +34,13 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 //	private Label _errorL;
 
 	private basededatos.Album _album;
+	protected Image _img;
 
 	public Edicion_y_Creacion_album(basededatos.Album album) {
 		_album = album;
 		
 		if (_album != null) {
 			this.getTituloAlbumTF().setValue(_album.getTitulo());
-			this.getFotoImg().setSrc(GestorArchivos.CargarImagen(_album.getImagenRuta()));
 			this.getFechaEdicionTF().setValue(_album.getFechaEdicion());
 			
 			StringBuilder intepretes = new StringBuilder();
@@ -48,6 +51,10 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 			}
 			
 			this.getArtistaTF().setValue(intepretes.toString());
+			
+			_img = new Image(GestorArchivos.CargarImagen(_album.getImagenRuta()), _album.getImagenRuta());
+			_img.setClassName("imagenEdicionCreacionAdministrador");
+			this.getFotoImgLayout().add(_img);
 		}
 		
 		this.getElegirFotoB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -64,7 +71,10 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 					public void onComponentEvent(FinishedEvent event) {
 						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 
-						getFotoImg().setSrc(rutaFoto);
+						_img = new Image(GestorArchivos.CargarImagen(rutaFoto), rutaFoto);
+						_img.setClassName("imagenEdicionCreacionAdministrador");
+						getFotoImgLayout().removeAll();
+						getFotoImgLayout().add(_img);
 						
 						modal.close();
 					}

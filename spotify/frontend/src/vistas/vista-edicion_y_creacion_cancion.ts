@@ -25,13 +25,13 @@ export class VistaEdicion_y_creacion_cancion extends LitElement {
   <vaadin-vertical-layout theme="spacing" style="align-self: center; align-items: center;">
    <label id="ficheroL">Fichero multimedia</label>
    <vaadin-button id="elegirFicheroB">
-    Seleccionar fichero
+     Seleccionar fichero 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing">
-   <img id="fotoImg" style="max-width: 50; max-height: 50;">
+  <vaadin-vertical-layout theme="spacing" style="align-items: center;">
+   <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="max-width: 500; max-height: 500;"></vaadin-horizontal-layout>
    <vaadin-button id="elegirFotoB">
-    Elegir imagen
+     Elegir imagen 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>

@@ -1,8 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-edicion_y_creacion_album')
 export class VistaEdicion_y_creacion_album extends LitElement {
@@ -21,7 +21,7 @@ export class VistaEdicion_y_creacion_album extends LitElement {
  <label id="tituloL">Álbum</label>
  <label id="errorL">Mensaje de error correspondiente</label>
  <vaadin-horizontal-layout theme="spacing">
-  <img id="fotoImg" style="width: 150px;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="max-width: 500px; max-height: 500px; "></vaadin-horizontal-layout>
   <vaadin-button id="elegirFotoB">
     Elegir imagen 
   </vaadin-button>

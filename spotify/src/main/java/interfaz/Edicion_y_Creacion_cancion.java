@@ -6,7 +6,9 @@ import java.util.Vector;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.FinishedEvent;
 import com.vaadin.flow.component.upload.Upload;
@@ -18,6 +20,7 @@ import spotify.GestorVentana;
 import spotify.GestorArchivos;
 import vistas.VistaEdicion_y_creacion_cancion;
 
+@CssImport("./styles/shared-styles.css")
 public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion {
 //	private event _guardar_cambios_cancion;
 //	private Label _cancionTituloL;
@@ -47,6 +50,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 	private iAdministrador bd = new BDPrincipal();
 	
 	private String _rutaFicheroMultimedia;
+	private Image _img;
 
 	public Edicion_y_Creacion_cancion(basededatos.Cancion cancion) {
 		
@@ -83,7 +87,11 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 			
 			this.getInterpreteTF().setValue(intepretes.toString());
 			
-			this.getFotoImg().setSrc(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()));
+			_img = new Image(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()),
+					_cancion.getFicheroMultimediaAltaCalidadRuta());
+			_img.setClassName("imagenEdicionCreacionAdministrador");
+			this.getFotoImgLayout().add(_img);
+			
 			_rutaFicheroMultimedia = _cancion.getFicheroMultimediaRuta();
 			this.getFicheroL().setText(_rutaFicheroMultimedia);
 		}
@@ -122,7 +130,10 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 					public void onComponentEvent(FinishedEvent event) {
 						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 
-						getFotoImg().setSrc(rutaFoto);
+						_img = new Image(GestorArchivos.CargarImagen(rutaFoto), rutaFoto);
+						_img.setClassName("imagenEdicionCreacionAdministrador");
+						getFotoImgLayout().removeAll();
+						getFotoImgLayout().add(_img);
 						
 						modal.close();
 					}
@@ -181,7 +192,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 							getCompositorTF().getValue(),
 							getProductorTF().getValue(),
 							_rutaFicheroMultimedia,
-							getFotoImg().getSrc(),
+							_img.getSrc(),
 							getInterpreteTF().getValue());
 		}
 	}

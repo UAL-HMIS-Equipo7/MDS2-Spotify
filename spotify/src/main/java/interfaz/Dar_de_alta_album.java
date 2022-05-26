@@ -33,7 +33,7 @@ public class Dar_de_alta_album extends VistaDar_de_alta_album {
 				
 				String[] artistas = this.getArtistaTF().getValue().split(",");
 				
-				bd.Crear_Album(this.getTituloAlbumTF().getValue(), this.getFotoImg().getSrc(), LocalDateTime.now().toString(), artistas, canciones);
+				bd.Crear_Album(this.getTituloAlbumTF().getValue(), _img.getSrc(), LocalDateTime.now().toString(), artistas, canciones);
 			}
 		};
 		_canciones_a_aniadir_album = new Canciones_a_aniadir_album();

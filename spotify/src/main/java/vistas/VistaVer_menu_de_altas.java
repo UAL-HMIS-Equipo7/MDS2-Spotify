@@ -19,7 +19,39 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-ver_menu_de_altas.ts")
 public class VistaVer_menu_de_altas extends LitTemplate {
 
-    public Element getLayoutPrincipal() {
+    public Element getContenedorArtista() {
+		return contenedorArtista;
+	}
+
+	public void setContenedorArtista(Element contenedorArtista) {
+		this.contenedorArtista = contenedorArtista;
+	}
+
+	public Element getContenedorAlbum() {
+		return contenedorAlbum;
+	}
+
+	public void setContenedorAlbum(Element contenedorAlbum) {
+		this.contenedorAlbum = contenedorAlbum;
+	}
+
+	public Element getContenedorEstilo() {
+		return contenedorEstilo;
+	}
+
+	public void setContenedorEstilo(Element contenedorEstilo) {
+		this.contenedorEstilo = contenedorEstilo;
+	}
+
+	public Element getContenedorCancion() {
+		return contenedorCancion;
+	}
+
+	public void setContenedorCancion(Element contenedorCancion) {
+		this.contenedorCancion = contenedorCancion;
+	}
+
+	public Element getLayoutPrincipal() {
 		return layoutPrincipal;
 	}
 
@@ -35,14 +67,6 @@ public class VistaVer_menu_de_altas extends LitTemplate {
 		this.cerrarB = cerrarB;
 	}
 
-	public Image getCancionB() {
-		return cancionB;
-	}
-
-	public void setCancionB(Image cancionB) {
-		this.cancionB = cancionB;
-	}
-
 	public Label getCancionL() {
 		return cancionL;
 	}
@@ -51,28 +75,12 @@ public class VistaVer_menu_de_altas extends LitTemplate {
 		this.cancionL = cancionL;
 	}
 
-	public Image getEstiloB() {
-		return estiloB;
-	}
-
-	public void setEstiloB(Image estiloB) {
-		this.estiloB = estiloB;
-	}
-
 	public Label getEstiloL() {
 		return estiloL;
 	}
 
 	public void setEstiloL(Label estiloL) {
 		this.estiloL = estiloL;
-	}
-
-	public Image getAlbumB() {
-		return albumB;
-	}
-
-	public void setAlbumB(Image albumB) {
-		this.albumB = albumB;
 	}
 
 	public Label getAlbumL() {
@@ -91,34 +99,26 @@ public class VistaVer_menu_de_altas extends LitTemplate {
 		this.artistaL = artistaL;
 	}
 
-	public Image getArtistaB() {
-		return artistaB;
-	}
-
-	public void setArtistaB(Image artistaB) {
-		this.artistaB = artistaB;
-	}
-
 	@Id("cerrarB")
 	private Button cerrarB;
-	@Id("cancionB")
-	private Image cancionB;
 	@Id("cancionL")
 	private Label cancionL;
-	@Id("estiloB")
-	private Image estiloB;
 	@Id("estiloL")
 	private Label estiloL;
-	@Id("albumB")
-	private Image albumB;
 	@Id("albumL")
 	private Label albumL;
 	@Id("artistaL")
 	private Label artistaL;
-	@Id("artistaB")
-	private Image artistaB;
 	@Id("layoutPrincipal")
 	private Element layoutPrincipal;
+	@Id("contenedorArtista")
+	private Element contenedorArtista;
+	@Id("contenedorAlbum")
+	private Element contenedorAlbum;
+	@Id("contenedorEstilo")
+	private Element contenedorEstilo;
+	@Id("contenedorCancion")
+	private Element contenedorCancion;
 
 	/**
      * Creates a new VistaVer_menu_de_altas.

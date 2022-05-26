@@ -66,6 +66,14 @@ public class Canciones_en_album extends VistaCanciones_en_album {
 		
 		if (resultados.length > 0) {
 			Cancion_a_eliminar_album cancion = new Cancion_a_eliminar_album(resultados[0]);
+			cancion.getEliminarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					// TODO
+				}
+			});
+			
 			
 			if (_list_Cancion_a_eliminar_album.isEmpty()) {
 				_vl.add(cancion);

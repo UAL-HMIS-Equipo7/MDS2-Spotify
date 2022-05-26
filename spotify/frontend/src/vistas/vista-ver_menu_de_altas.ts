@@ -21,20 +21,16 @@ export class VistaVer_menu_de_altas extends LitElement {
    Cerrar 
  </vaadin-button>
  <vaadin-horizontal-layout theme="spacing" style="width: 80%; height: 60%; justify-content: center; align-items: center; align-self: center;">
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center;">
-   <img id="cancionB" style="width: 150px;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center; justify-content: center;" id="contenedorCancion">
    <label id="cancionL">Canción</label>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center;">
-   <img id="estiloB" style="width: 150px;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center;" id="contenedorEstilo">
    <label id="estiloL">Estilos</label>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center;">
-   <img id="albumB" style="width: 150px;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center;" id="contenedorAlbum">
    <label id="albumL">Álbum</label>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center;">
-   <img id="artistaB" style="width: 150px;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center;" id="contenedorArtista">
    <label id="artistaL">Artista</label>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>

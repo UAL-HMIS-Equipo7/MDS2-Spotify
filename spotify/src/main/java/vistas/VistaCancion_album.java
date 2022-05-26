@@ -6,6 +6,8 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-cancion_album template.
@@ -17,12 +19,20 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-cancion_album.ts")
 public class VistaCancion_album extends LitTemplate {
 
-    public Image getFotoImg() {
-		return fotoImg;
+	public Label getNombreL() {
+		return nombreL;
 	}
 
-	public void setFotoImg(Image fotoImg) {
-		this.fotoImg = fotoImg;
+	public void setNombreL(Label nombreL) {
+		this.nombreL = nombreL;
+	}
+
+	public HorizontalLayout getFotoImgLayout() {
+		return fotoImgLayout;
+	}
+
+	public void setFotoImgLayout(HorizontalLayout fotoImgLayout) {
+		this.fotoImgLayout = fotoImgLayout;
 	}
 
 	public Button getEliminarB() {
@@ -33,10 +43,12 @@ public class VistaCancion_album extends LitTemplate {
 		this.eliminarB = eliminarB;
 	}
 
-	@Id("fotoImg")
-	private Image fotoImg;
 	@Id("eliminarB")
 	private Button eliminarB;
+	@Id("fotoImgLayout")
+	private HorizontalLayout fotoImgLayout;
+	@Id("nombreL")
+	private Label nombreL;
 
 	/**
      * Creates a new VistaCancion_album.

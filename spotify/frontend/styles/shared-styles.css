@@ -85,3 +85,17 @@
 	height: 100%;
 }
 
+.imagenEdicionCreacionAdministrador{
+	max-width: 500px; 
+	max-height: 500px; 
+	width: 100%; 
+	height: 100%;
+}
+
+.max150 {
+	max-width: 150px; 
+	max-height: 150px; 
+	width: 100%; 
+	height: 100%;
+}
+

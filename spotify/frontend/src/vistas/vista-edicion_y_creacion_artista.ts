@@ -22,7 +22,7 @@ export class VistaEdicion_y_creacion_artista extends LitElement {
  <label id="tituloL">Artista</label>
  <label id="errorL">Mensaje de error correspondiente</label>
  <vaadin-horizontal-layout theme="spacing">
-  <img id="fotoImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg" style="max-width: 500px; max-height: 500px;">
+  <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="max-width: 500px; max-height: 500px;"></vaadin-horizontal-layout>
   <vaadin-button id="elegirFotoB">
     Elegir archivo 
   </vaadin-button>

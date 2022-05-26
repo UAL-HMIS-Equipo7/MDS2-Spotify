@@ -3,7 +3,9 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.FinishedEvent;
 import com.vaadin.flow.component.upload.Upload;
@@ -15,6 +17,7 @@ import spotify.GestorVentana;
 import spotify.GestorArchivos;
 import vistas.VistaEditar_usuario;
 
+@CssImport("./styles/shared-styles.css")
 public class Editar_usuario extends VistaEditar_usuario {
 //	private event _guardar_cambios_usuario;
 //	private Label _tituloL;
@@ -32,12 +35,16 @@ public class Editar_usuario extends VistaEditar_usuario {
 	
 	private basededatos.Usuario_Registrado _usuario;
 	private iAdministrador bd = new BDPrincipal();
+	private Image _img;
 	
 	public Editar_usuario(basededatos.Usuario_Registrado usuario) {
 		
 		_usuario = usuario;
 		
-		this.getFotoImg().setSrc(GestorArchivos.CargarImagen(_usuario.getFotoRuta()));
+		_img = new Image(GestorArchivos.CargarImagen(_usuario.getFotoRuta()), _usuario.getFotoRuta());
+		_img.setClassName("imagenEdicionCreacionAdministrador");
+		this.getFotoImgLayout().add(_img);
+		
 		this.getEmailTF().setValue(_usuario.getDatos().getEmail());
 		this.getNickTF().setValue(_usuario.getNick());
 		this.getContraseniaTF().setValue(_usuario.getDatos().getPassword());
@@ -56,7 +63,10 @@ public class Editar_usuario extends VistaEditar_usuario {
 					public void onComponentEvent(FinishedEvent event) {
 						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 
-						getFotoImg().setSrc(rutaFoto);
+						_img = new Image(GestorArchivos.CargarImagen(rutaFoto), rutaFoto);
+						_img.setClassName("imagenEdicionCreacionAdministrador");
+						getFotoImgLayout().removeAll();
+						getFotoImgLayout().add(_img);
 						
 						modal.close();
 					}
@@ -87,7 +97,7 @@ public class Editar_usuario extends VistaEditar_usuario {
 	}
 
 	public void Guardar_cambios_usuario() {
-		_usuario.setFotoRuta(getFotoImg().getSrc());
+		_usuario.setFotoRuta(_img.getSrc());
 		
 		basededatos.Datos_Acceso datos = _usuario.getDatos();
 		datos.setEmail(getEmailTF().getValue());

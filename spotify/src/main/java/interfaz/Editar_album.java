@@ -34,7 +34,7 @@ public class Editar_album extends VistaEditar_album {
 				
 				_album.setTitulo(this.getTituloAlbumTF().getValue());
 				_album.setFechaEdicion(LocalDateTime.now().toString());
-				_album.setImagenRuta(this.getFotoImg().getSrc());
+				_album.setImagenRuta(_img.getSrc());
 				
 				//No es posible actualizar los autores pq lo que tenemos son string
 				//_album.autores

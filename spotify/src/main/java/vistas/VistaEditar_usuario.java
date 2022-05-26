@@ -8,6 +8,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-editar_usuario template.
@@ -19,7 +20,15 @@ import com.vaadin.flow.component.textfield.TextField;
 @JsModule("./src/vistas/vista-editar_usuario.ts")
 public class VistaEditar_usuario extends LitTemplate {
 
-    public Label getTituloL() {
+    public HorizontalLayout getFotoImgLayout() {
+		return fotoImgLayout;
+	}
+
+	public void setFotoImgLayout(HorizontalLayout fotoImgLayout) {
+		this.fotoImgLayout = fotoImgLayout;
+	}
+
+	public Label getTituloL() {
 		return tituloL;
 	}
 
@@ -33,14 +42,6 @@ public class VistaEditar_usuario extends LitTemplate {
 
 	public void setErrorL(Label errorL) {
 		this.errorL = errorL;
-	}
-
-	public Image getFotoImg() {
-		return fotoImg;
-	}
-
-	public void setFotoImg(Image fotoImg) {
-		this.fotoImg = fotoImg;
 	}
 
 	public Button getElegirFotoB() {
@@ -119,8 +120,6 @@ public class VistaEditar_usuario extends LitTemplate {
 	private Label tituloL;
 	@Id("errorL")
 	private Label errorL;
-	@Id("fotoImg")
-	private Image fotoImg;
 	@Id("elegirFotoB")
 	private Button elegirFotoB;
 	@Id("emailL")
@@ -139,6 +138,8 @@ public class VistaEditar_usuario extends LitTemplate {
 	private Button guardarB;
 	@Id("cancelarB")
 	private Button cancelarB;
+	@Id("fotoImgLayout")
+	private HorizontalLayout fotoImgLayout;
 
 	/**
      * Creates a new VistaEditar_usuario.
