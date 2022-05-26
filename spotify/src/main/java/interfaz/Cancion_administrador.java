@@ -3,7 +3,9 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
@@ -12,6 +14,7 @@ import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaCancion_administrador;
 
+@CssImport("./styles/shared-styles.css")
 public class Cancion_administrador extends VistaCancion_administrador {
 //	private event _aniadir_cancion_a_vista_cibernauta;
 //	private Label _cancionL;
@@ -28,8 +31,12 @@ public class Cancion_administrador extends VistaCancion_administrador {
 		
 		_cancion = cancion;
 		
+		Image img = new Image(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()),
+				_cancion.getFicheroMultimediaAltaCalidadRuta());
+		img.setClassName("imagenResultadosAdministrador");
+		getCancionImgLayout().add(img);
+		
 		this.getCancionL().setText(_cancion.getTitulo());
-		this.getCancionImg().setSrc(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()));
 		
 		this.getEditarCancionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 

@@ -3,7 +3,9 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
@@ -12,6 +14,7 @@ import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaUsuario_administrador;
 
+@CssImport("./styles/shared-styles.css")
 public class Usuario_administrador extends VistaUsuario_administrador {
 //	private Label _usuarioL;
 //	private Image _usuarioImg;
@@ -27,8 +30,11 @@ public class Usuario_administrador extends VistaUsuario_administrador {
 		
 		_usuario = usuario;
 		
+		Image img = new Image(GestorArchivos.CargarImagen(_usuario.getFotoRuta()), _usuario.getFotoRuta());
+		img.setClassName("imagenResultadosAdministrador");
+		getUsuarioImgLayout().add(img);
+		
 		this.getUsuarioL().setText(_usuario.getNick());
-		this.getUsuarioImg().setSrc(GestorArchivos.CargarImagen(_usuario.getFotoRuta()));
 		
 		this.getEditarUsuarioB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

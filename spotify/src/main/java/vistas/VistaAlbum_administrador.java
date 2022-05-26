@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-album_administrador template.
@@ -18,20 +19,20 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-album_administrador.ts")
 public class VistaAlbum_administrador extends LitTemplate {
 
-    public Label getAlbumL() {
+    public HorizontalLayout getAlbumImgLayout() {
+		return albumImgLayout;
+	}
+
+	public void setAlbumImgLayout(HorizontalLayout albumImgLayout) {
+		this.albumImgLayout = albumImgLayout;
+	}
+
+	public Label getAlbumL() {
 		return albumL;
 	}
 
 	public void setAlbumL(Label albumL) {
 		this.albumL = albumL;
-	}
-
-	public Image getAlbumImg() {
-		return albumImg;
-	}
-
-	public void setAlbumImg(Image albumImg) {
-		this.albumImg = albumImg;
 	}
 
 	public Button getEditarAlbumB() {
@@ -52,12 +53,12 @@ public class VistaAlbum_administrador extends LitTemplate {
 
 	@Id("albumL")
 	private Label albumL;
-	@Id("albumImg")
-	private Image albumImg;
 	@Id("editarAlbumB")
 	private Button editarAlbumB;
 	@Id("eliminarAlbumB")
 	private Button eliminarAlbumB;
+	@Id("albumImgLayout")
+	private HorizontalLayout albumImgLayout;
 
 	/**
      * Creates a new VistaAlbum_administrador.

@@ -3,6 +3,7 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -14,6 +15,7 @@ import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaArtista_administrador;
 
+@CssImport("./styles/shared-styles.css")
 public class Artista_administrador extends VistaArtista_administrador {
 //	private Label _artistaL;
 //	private Image _artistaImg;
@@ -29,12 +31,10 @@ public class Artista_administrador extends VistaArtista_administrador {
 		
 		_artista = artista;
 		
-//		Image img = new Image(_artista.getFotoRuta(), _artista.getFotoRuta());
-//		
-//		getVaadinHorizontalLayout().add(img);
-
-		getArtistaImg().setSrc(GestorArchivos.CargarImagen(_artista.getFotoRuta()));
-		getArtistaImg().setAlt(_artista.getFotoRuta());
+		Image img = new Image(GestorArchivos.CargarImagen(_artista.getFotoRuta()), _artista.getFotoRuta());
+		img.setClassName("imagenResultadosAdministrador");
+		getArtistaImgLayout().add(img);
+		
 		this.getArtistaL().setText(_artista.getNick());
 		
 		this.getEditarArtistaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

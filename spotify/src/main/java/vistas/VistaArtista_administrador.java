@@ -19,12 +19,12 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./src/vistas/vista-artista_administrador.ts")
 public class VistaArtista_administrador extends LitTemplate {
 
-    public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
+	public HorizontalLayout getArtistaImgLayout() {
+		return artistaImgLayout;
 	}
 
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	public void setArtistaImgLayout(HorizontalLayout artistaImgLayout) {
+		this.artistaImgLayout = artistaImgLayout;
 	}
 
 	public Label getArtistaL() {
@@ -33,14 +33,6 @@ public class VistaArtista_administrador extends LitTemplate {
 
 	public void setArtistaL(Label artistaL) {
 		this.artistaL = artistaL;
-	}
-
-	public Image getArtistaImg() {
-		return artistaImg;
-	}
-
-	public void setArtistaImg(Image artistaImg) {
-		this.artistaImg = artistaImg;
 	}
 
 	public Button getEditarArtistaB() {
@@ -61,14 +53,12 @@ public class VistaArtista_administrador extends LitTemplate {
 
 	@Id("artistaL")
 	private Label artistaL;
-	@Id("artistaImg")
-	private Image artistaImg;
 	@Id("editarArtistaB")
 	private Button editarArtistaB;
 	@Id("eliminarArtistaB")
 	private Button eliminarArtistaB;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("artistaImgLayout")
+	private HorizontalLayout artistaImgLayout;
 
 	/**
      * Creates a new VistaArtista_administrador.

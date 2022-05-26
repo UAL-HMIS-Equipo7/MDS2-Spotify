@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-cancion_administrador template.
@@ -18,20 +19,20 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-cancion_administrador.ts")
 public class VistaCancion_administrador extends LitTemplate {
 
-    public Label getCancionL() {
+    public HorizontalLayout getCancionImgLayout() {
+		return cancionImgLayout;
+	}
+
+	public void setCancionImgLayout(HorizontalLayout cancionImgLayout) {
+		this.cancionImgLayout = cancionImgLayout;
+	}
+
+	public Label getCancionL() {
 		return cancionL;
 	}
 
 	public void setCancionL(Label cancionL) {
 		this.cancionL = cancionL;
-	}
-
-	public Image getCancionImg() {
-		return cancionImg;
-	}
-
-	public void setCancionImg(Image cancionImg) {
-		this.cancionImg = cancionImg;
 	}
 
 	public Button getEditarCancionB() {
@@ -52,12 +53,12 @@ public class VistaCancion_administrador extends LitTemplate {
 
 	@Id("cancionL")
 	private Label cancionL;
-	@Id("cancionImg")
-	private Image cancionImg;
 	@Id("editarCancionB")
 	private Button editarCancionB;
 	@Id("eliminarCancionB")
 	private Button eliminarCancionB;
+	@Id("cancionImgLayout")
+	private HorizontalLayout cancionImgLayout;
 
 	/**
      * Creates a new VistaCancion_administrador.

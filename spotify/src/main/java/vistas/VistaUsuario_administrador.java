@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-usuario_administrador template.
@@ -18,20 +19,20 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-usuario_administrador.ts")
 public class VistaUsuario_administrador extends LitTemplate {
 
-    public Label getUsuarioL() {
+    public HorizontalLayout getUsuarioImgLayout() {
+		return usuarioImgLayout;
+	}
+
+	public void setUsuarioImgLayout(HorizontalLayout usuarioImgLayout) {
+		this.usuarioImgLayout = usuarioImgLayout;
+	}
+
+	public Label getUsuarioL() {
 		return usuarioL;
 	}
 
 	public void setUsuarioL(Label usuarioL) {
 		this.usuarioL = usuarioL;
-	}
-
-	public Image getUsuarioImg() {
-		return usuarioImg;
-	}
-
-	public void setUsuarioImg(Image usuarioImg) {
-		this.usuarioImg = usuarioImg;
 	}
 
 	public Button getEliminarUsuarioB() {
@@ -52,12 +53,12 @@ public class VistaUsuario_administrador extends LitTemplate {
 
 	@Id("usuarioL")
 	private Label usuarioL;
-	@Id("usuarioImg")
-	private Image usuarioImg;
 	@Id("eliminarUsuarioB")
 	private Button eliminarUsuarioB;
 	@Id("editarUsuarioB")
 	private Button editarUsuarioB;
+	@Id("usuarioImgLayout")
+	private HorizontalLayout usuarioImgLayout;
 
 	/**
      * Creates a new VistaUsuario_administrador.
