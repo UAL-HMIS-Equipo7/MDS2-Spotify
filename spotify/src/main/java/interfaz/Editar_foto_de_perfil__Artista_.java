@@ -37,7 +37,7 @@ public class Editar_foto_de_perfil__Artista_ extends VistaEditar_foto_de_perfil_
 					public void onComponentEvent(FinishedEvent event) {
 						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 						
-						foto.setSrc(rutaFoto);
+						_img.setSrc(rutaFoto);
 						
 						modal.close();
 					}
