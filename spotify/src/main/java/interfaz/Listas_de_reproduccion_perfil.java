@@ -159,8 +159,4 @@ public class Listas_de_reproduccion_perfil extends VistaListas_de_reproduccion_p
 			_sonPropias = false;
 		}
 	}
-	
-	public void Cambiar_listas_por_pagina() {
-		throw new UnsupportedOperationException();
-	}
 }

@@ -51,22 +51,6 @@ public class VistaListas_de_reproduccion_perfil extends LitTemplate {
 		this.siguienteB = siguienteB;
 	}
 
-	public TextField getListasPorPaginaTF() {
-		return listasPorPaginaTF;
-	}
-
-	public void setListasPorPaginaTF(TextField listasPorPaginaTF) {
-		this.listasPorPaginaTF = listasPorPaginaTF;
-	}
-
-	public Label getNumPaginaL() {
-		return numPaginaL;
-	}
-
-	public void setNumPaginaL(Label numPaginaL) {
-		this.numPaginaL = numPaginaL;
-	}
-
 	public Button getCrearListaB() {
 		return crearListaB;
 	}
@@ -81,10 +65,6 @@ public class VistaListas_de_reproduccion_perfil extends LitTemplate {
 	private Button anteriorB;
 	@Id("siguienteB")
 	private Button siguienteB;
-	@Id("listasPorPaginaTF")
-	private TextField listasPorPaginaTF;
-	@Id("numPaginaL")
-	private Label numPaginaL;
 	@Id("crearListaB")
 	private Button crearListaB;
 	@Id("contenedor")

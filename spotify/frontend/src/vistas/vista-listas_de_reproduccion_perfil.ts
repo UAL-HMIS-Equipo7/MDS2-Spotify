@@ -1,8 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-listas_de_reproduccion_perfil')
 export class VistaListas_de_reproduccion_perfil extends LitElement {
@@ -28,10 +27,6 @@ export class VistaListas_de_reproduccion_perfil extends LitElement {
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" id="contenedor" style="width: 90%;"></vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
-  <vaadin-text-field placeholder="Listas por página" id="listasPorPaginaTF"></vaadin-text-field>
-  <label id="numPaginaL">1/?</label>
- </vaadin-horizontal-layout>
  <vaadin-button id="crearListaB" style="align-self: center;">
    Crear Lista 
  </vaadin-button>
