@@ -52,9 +52,9 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 	}
 
 
-	public void Actualizar_Cancion(Cancion aCancion) {
+	public void Actualizar_Cancion(Cancion aCancion, String aTituloAlbum, String[] aInterpretes) {
 		try {
-			_bD_Canciones.Actualizar_Cancion(aCancion);
+			_bD_Canciones.Actualizar_Cancion(aCancion, aTituloAlbum, aInterpretes);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
@@ -89,9 +89,9 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 	}
 
-	public void Actualizar_Album(Album aAlbum) {
+	public void Actualizar_Album(Album aAlbum, String[] aAutores) {
 		try {
-			 _bD_Albumes.Actualizar_Album(aAlbum);
+			 _bD_Albumes.Actualizar_Album(aAlbum, aAutores);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}

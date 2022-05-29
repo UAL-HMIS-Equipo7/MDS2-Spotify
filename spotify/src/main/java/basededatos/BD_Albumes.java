@@ -114,9 +114,26 @@ public class BD_Albumes {
 		return id_album;
 	}
 
-	public void Actualizar_Album(Album aAlbum) throws PersistentException {
+	public void Actualizar_Album(Album aAlbum, String[] aAutores) throws PersistentException {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
+
+			aAlbum.autores.clear();
+			
+			basededatos.Artista temp;
+			ArtistaCriteria criteria;
+			
+			for (int i = 0; i < aAutores.length; i++) {
+				criteria = new ArtistaCriteria();
+				criteria.nick.like("%" + aAutores[i] + "%");
+				
+				temp = ArtistaDAO.loadArtistaByCriteria(criteria);
+				
+				if (temp != null) {
+					aAlbum.autores.add(temp);
+				}
+			}
+			
 			AlbumDAO.save(aAlbum);
 			t.commit();
 		} catch (Exception e) {

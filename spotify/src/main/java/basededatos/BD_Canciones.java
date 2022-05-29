@@ -132,9 +132,31 @@ public class BD_Canciones {
 		return id_cancion;
 	}
 
-	public void Actualizar_Cancion(Cancion aCancion) throws PersistentException {
+	public void Actualizar_Cancion(Cancion aCancion, String aTituloAlbum, String[] aInterpretes) throws PersistentException {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
+			AlbumCriteria criteriaAlbum = new AlbumCriteria();
+			criteriaAlbum.titulo.like("%" + aTituloAlbum + "%");
+			
+			Album album = AlbumDAO.loadAlbumByCriteria(criteriaAlbum);
+			aCancion.setIncluida_en_albumes(album);
+			
+			aCancion.intepretes.clear();
+			
+			basededatos.Artista temp;
+			ArtistaCriteria criteriaArtista;
+			
+			for (int i = 0; i < aInterpretes.length; i++) {
+				criteriaArtista = new ArtistaCriteria();
+				criteriaArtista.nick.like("%" + aInterpretes[i] + "%");
+				
+				temp = ArtistaDAO.loadArtistaByCriteria(criteriaArtista);
+				
+				if (temp != null) {
+					aCancion.intepretes.add(temp);
+				}
+			}
+			
 			CancionDAO.save(aCancion);
 			t.commit();
 		} catch (Exception e) {

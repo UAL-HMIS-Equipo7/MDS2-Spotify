@@ -8,6 +8,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import vistas.VistaEditar_album;
 
 @CssImport("./styles/shared-styles.css")
@@ -17,6 +19,7 @@ public class Editar_album extends VistaEditar_album {
 	public Canciones_en_album _canciones_en_album;
 	
 	basededatos.Album _album;
+	iAdministrador bd = new BDPrincipal();
 	
 	public Editar_album(basededatos.Album album) {
 		
@@ -36,8 +39,9 @@ public class Editar_album extends VistaEditar_album {
 				_album.setFechaEdicion(LocalDateTime.now().toString());
 				_album.setImagenRuta(_img.getSrc());
 				
-				//No es posible actualizar los autores pq lo que tenemos son string
-				//_album.autores
+				String[] autores = this.getArtistaTF().getValue().split(",");
+				
+				bd.Actualizar_Album(album, autores);
 			}
 		};
 		

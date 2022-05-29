@@ -182,9 +182,17 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 		
 		if (_cancion != null) {
 			_cancion.setTitulo(getTituloTF().getValue());
+			_cancion.setProductores(getProductorTF().getValue());
+			_cancion.setCompositores(getCompositorTF().getValue());
+			_cancion.setFicheroMultimediaRuta(_rutaFicheroMultimedia);
+			_cancion.setFicheroMultimediaAltaCalidadRuta(_img.getSrc());
 			
-			//No es posible actualizar bien pq tenemos cosas como el titulo de album,
-			//en lugar del objeto de album
+			_cancion.estilos.clear();
+			_cancion.estilos.add(estiloSeleccionado);
+			
+			String[] interpretes = getInterpreteTF().getValue().trim().split(",");
+			
+			bd.Actualizar_Cancion(_cancion, getTituloAlbumTF().getValue(), interpretes);
 		}
 		else {
 			bd.Crear_Cancion(getTituloTF().getValue(), estiloSeleccionado.getORMID(),
