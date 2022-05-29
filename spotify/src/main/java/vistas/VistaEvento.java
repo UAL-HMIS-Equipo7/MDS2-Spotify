@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-evento template.
@@ -17,12 +18,12 @@ import com.vaadin.flow.component.html.Label;
 @JsModule("./src/vistas/vista-evento.ts")
 public class VistaEvento extends LitTemplate {
 
-    public Image getFotoEventoImg() {
-		return fotoEventoImg;
+	public HorizontalLayout getFotoEventoImgLayout() {
+		return fotoEventoImgLayout;
 	}
 
-	public void setFotoEventoImg(Image fotoEventoImg) {
-		this.fotoEventoImg = fotoEventoImg;
+	public void setFotoEventoImgLayout(HorizontalLayout fotoEventoImgLayout) {
+		this.fotoEventoImgLayout = fotoEventoImgLayout;
 	}
 
 	public Label getNombreL() {
@@ -33,10 +34,10 @@ public class VistaEvento extends LitTemplate {
 		this.nombreL = nombreL;
 	}
 
-	@Id("fotoEventoImg")
-	private Image fotoEventoImg;
 	@Id("nombreL")
 	private Label nombreL;
+	@Id("fotoEventoImgLayout")
+	private HorizontalLayout fotoEventoImgLayout;
 
 	/**
      * Creates a new VistaEvento.

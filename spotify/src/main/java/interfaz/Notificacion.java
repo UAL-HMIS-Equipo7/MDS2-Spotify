@@ -30,7 +30,7 @@ public class Notificacion extends Evento {
 		this.getNombreL().setText(evento.getPublicado_por().getNick());
 		this.getNombreL().setVisible(true);
 		
-		this.getFotoEventoImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+		_fotoEventoImg.addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {

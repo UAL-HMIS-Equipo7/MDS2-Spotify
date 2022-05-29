@@ -24,7 +24,7 @@ public class Ver_perfil_propio__Artista_ extends Ver_perfil_propio {
 	public Ver_perfil_propio__Artista_(basededatos.Artista artista) {
 		super((basededatos.Usuario_generico) artista);
 		
-		_editar_foto_de_perfil__Artista_ = new Editar_foto_de_perfil__Artista_(this.getFotoImg());
+		_editar_foto_de_perfil__Artista_ = new Editar_foto_de_perfil__Artista_(_fotoImg);
 		_panel_artista = new Panel_artista(artista);
 
 		VerticalLayout vl = this.getContenedorDerecho().as(VerticalLayout.class);

@@ -18,8 +18,8 @@ export class VistaVer_cancion extends LitElement {
   render() {
     return html`
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 98%; align-self: center;">
-  <img id="fotoCancionImg" style="align-self: center;" src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&amp;quality=20">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 98%; align-self: center; align-items: center;">
+  <vaadin-horizontal-layout theme="spacing" id="fotoCancionImgLayout" style="align-items: center; justify-content: center;"></vaadin-horizontal-layout>
   <label id="tituloL" style="align-self: center;">TÍTULO</label>
   <vaadin-button id="aniadirFavoritosB" style="align-self: center;">
     Añadir a favoritos 

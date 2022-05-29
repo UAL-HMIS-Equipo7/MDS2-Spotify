@@ -3,7 +3,9 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Usuario_generico;
@@ -11,6 +13,7 @@ import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaVer_perfil_propio;
 
+@CssImport("./styles/shared-styles.css")
 public class Ver_perfil_propio extends VistaVer_perfil_propio {
 //	private Button _notificacionesB;
 //	private Button _seguidoresB;
@@ -22,10 +25,14 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 	public Ver_lista_seguidores _ver_lista_seguidores;
 	public Ver_notificaciones _ver_notificaciones;
 	public Listas_de_reproduccion_perfil_propio _listas_de_reproduccion_perfil_propio;
+	protected Image _fotoImg;
 	
 	public Ver_perfil_propio(Usuario_generico usuario) {
 		
-		this.getFotoImg().setSrc(GestorArchivos.CargarImagen(usuario.getFotoRuta()));
+		_fotoImg = new Image(GestorArchivos.CargarImagen(usuario.getFotoRuta()), usuario.getFotoRuta());
+		_fotoImg.setClassName("max350");
+		getFotoImgLayout().add(_fotoImg);
+		
 		this.getEmailL().setText(usuario.getDatos().getEmail());
 		this.getNickL().setText(usuario.getNick());
 		
@@ -34,7 +41,7 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 		_listas_de_reproduccion_perfil_propio = new Listas_de_reproduccion_perfil_propio(usuario);
 		vl.add(_listas_de_reproduccion_perfil_propio);
 		
-		this.getSeguidosB().setText(Integer.toString(usuario.seguido.size()));
+		this.getSeguidosB().setText("Seguidos: " + Integer.toString(usuario.seguido.size()));
 		this.getSeguidosB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -46,7 +53,7 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 			}
 		});
 		
-		this.getSeguidoresB().setText(Integer.toString(usuario.seguidor.size()));
+		this.getSeguidoresB().setText("Seguidores: " + Integer.toString(usuario.seguidor.size()));
 		this.getSeguidoresB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override

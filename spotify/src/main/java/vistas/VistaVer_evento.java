@@ -8,6 +8,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-ver_evento template.
@@ -19,7 +20,15 @@ import com.vaadin.flow.component.textfield.TextField;
 @JsModule("./src/vistas/vista-ver_evento.ts")
 public class VistaVer_evento extends LitTemplate {
 
-    public Button getAtrasB() {
+    public HorizontalLayout getFotoEventoImgLayout() {
+		return fotoEventoImgLayout;
+	}
+
+	public void setFotoEventoImgLayout(HorizontalLayout fotoEventoImgLayout) {
+		this.fotoEventoImgLayout = fotoEventoImgLayout;
+	}
+
+	public Button getAtrasB() {
 		return atrasB;
 	}
 
@@ -33,14 +42,6 @@ public class VistaVer_evento extends LitTemplate {
 
 	public void setTituloL(Label tituloL) {
 		this.tituloL = tituloL;
-	}
-
-	public Image getFotoEventoImg() {
-		return fotoEventoImg;
-	}
-
-	public void setFotoEventoImg(Image fotoEventoImg) {
-		this.fotoEventoImg = fotoEventoImg;
 	}
 
 	public Label getFechaHoraL() {
@@ -78,8 +79,6 @@ public class VistaVer_evento extends LitTemplate {
 
 	@Id("tituloL")
 	private Label tituloL;
-	@Id("fotoEventoImg")
-	private Image fotoEventoImg;
 	@Id("fechaHoraL")
 	private Label fechaHoraL;
 	@Id("descripcionTItuloL")
@@ -90,6 +89,8 @@ public class VistaVer_evento extends LitTemplate {
 	private Label precioL;
 	@Id("atrasB")
 	private Button atrasB;
+	@Id("fotoEventoImgLayout")
+	private HorizontalLayout fotoEventoImgLayout;
 
 	/**
      * Creates a new VistaVer_evento.

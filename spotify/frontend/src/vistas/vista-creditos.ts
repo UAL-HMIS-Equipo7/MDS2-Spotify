@@ -18,7 +18,7 @@ export class VistaCreditos extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-horizontal-layout theme="spacing" style="width: 90%; height: 20%; justify-content: center; margin: var(--lumo-space-xl); align-self: center;">
-  <img id="cancionImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+  <vaadin-horizontal-layout theme="spacing" id="cancionImgLayout"></vaadin-horizontal-layout>
   <label id="tituloL">Titulo</label>
   <vaadin-button id="cerrarB">
     Cerrar 

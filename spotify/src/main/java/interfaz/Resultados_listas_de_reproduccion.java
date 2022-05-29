@@ -45,6 +45,9 @@ public class Resultados_listas_de_reproduccion extends VistaResultados_listas_de
 		Lista_de_reproduccion_ajena temp;
 		
 		for (int i = 0; i < listas.length; i++) {
+			if (listas[i].canciones_incluidas.size() == 0)
+				continue;
+			
 			temp = new Lista_de_reproduccion_ajena(listas[i]);
 			
 			_list_Lista_de_reproduccion_ajena.add(temp);

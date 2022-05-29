@@ -5,6 +5,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-cancion_cibernauta template.
@@ -16,16 +17,16 @@ import com.vaadin.flow.component.template.Id;
 @JsModule("./src/vistas/vista-cancion_cibernauta.ts")
 public class VistaCancion_cibernauta extends LitTemplate {
 
-	public Image getFotoCancionB() {
-		return fotoCancionB;
+	public Element getContenedor() {
+		return contenedor;
 	}
 
-	public void setFotoCancionB(Image fotoCancionB) {
-		this.fotoCancionB = fotoCancionB;
+	public void setContenedor(Element contenedor) {
+		this.contenedor = contenedor;
 	}
 
-	@Id("fotoCancionB")
-	private Image fotoCancionB;
+	@Id("contenedor")
+	private Element contenedor;
 
 	/**
      * Creates a new VistaCancion_cibernauta.

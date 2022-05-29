@@ -19,7 +19,7 @@ export class VistaVer_perfil_propio extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-between;">
   <vaadin-vertical-layout theme="spacing" style="align-items: center; margin: var(--lumo-space-m); padding: var(--lumo-space-m);" id="contenedorIzquierdo">
-   <img id="fotoImg" src="https://skillz4kidzmartialarts.com/wp-content/uploads/2017/04/default-image-620x600.jpg" style="width: 30%;">
+   <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="width: 30%;"></vaadin-horizontal-layout>
    <label id="emailL">Email</label>
    <label id="nickL">Nick</label>
    <vaadin-button id="modificarInformacionB">

@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-creditos template.
@@ -18,12 +19,12 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-creditos.ts")
 public class VistaCreditos extends LitTemplate {
 
-    public Image getCancionImg() {
-		return cancionImg;
+	public HorizontalLayout getCancionImgLayout() {
+		return cancionImgLayout;
 	}
 
-	public void setCancionImg(Image cancionImg) {
-		this.cancionImg = cancionImg;
+	public void setCancionImgLayout(HorizontalLayout cancionImgLayout) {
+		this.cancionImgLayout = cancionImgLayout;
 	}
 
 	public Label getTituloL() {
@@ -90,8 +91,6 @@ public class VistaCreditos extends LitTemplate {
 		this.estiloL = estiloL;
 	}
 
-	@Id("cancionImg")
-	private Image cancionImg;
 	@Id("tituloL")
 	private Label tituloL;
 	@Id("cerrarB")
@@ -108,6 +107,8 @@ public class VistaCreditos extends LitTemplate {
 	private Label ficheroL;
 	@Id("estiloL")
 	private Label estiloL;
+	@Id("cancionImgLayout")
+	private HorizontalLayout cancionImgLayout;
 
 	/**
      * Creates a new VistaCreditos.

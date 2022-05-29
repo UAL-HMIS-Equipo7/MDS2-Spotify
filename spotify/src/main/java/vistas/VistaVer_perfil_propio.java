@@ -8,6 +8,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-ver_perfil_propio template.
@@ -18,6 +19,14 @@ import com.vaadin.flow.dom.Element;
 @Tag("vista-ver_perfil_propio")
 @JsModule("./src/vistas/vista-ver_perfil_propio.ts")
 public class VistaVer_perfil_propio extends LitTemplate {
+
+	public HorizontalLayout getFotoImgLayout() {
+		return fotoImgLayout;
+	}
+
+	public void setFotoImgLayout(HorizontalLayout fotoImgLayout) {
+		this.fotoImgLayout = fotoImgLayout;
+	}
 
 	public Element getContenedorIzquierdo() {
 		return contenedorIzquierdo;
@@ -33,14 +42,6 @@ public class VistaVer_perfil_propio extends LitTemplate {
 
 	public void setContenedorDerecho(Element contenedorDerecho) {
 		this.contenedorDerecho = contenedorDerecho;
-	}
-
-	public Image getFotoImg() {
-		return fotoImg;
-	}
-
-	public void setFotoImg(Image fotoImg) {
-		this.fotoImg = fotoImg;
 	}
 
 	public Label getEmailL() {
@@ -107,8 +108,6 @@ public class VistaVer_perfil_propio extends LitTemplate {
 		this.notificacionesB = notificacionesB;
 	}
 
-	@Id("fotoImg")
-	private Image fotoImg;
 	@Id("emailL")
 	private Label emailL;
 	@Id("nickL")
@@ -129,6 +128,8 @@ public class VistaVer_perfil_propio extends LitTemplate {
 	private Element contenedorIzquierdo;
 	@Id("contenedorDerecho")
 	private Element contenedorDerecho;
+	@Id("fotoImgLayout")
+	private HorizontalLayout fotoImgLayout;
 
 	/**
      * Creates a new VistaVer_perfil_propio.

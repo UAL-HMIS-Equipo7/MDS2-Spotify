@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
@@ -13,6 +15,7 @@ import spotify.GestorActor;
 import spotify.GestorArchivos;
 import vistas.VistaVer_cancion;
 
+@CssImport("./styles/shared-styles.css")
 public class Ver_cancion extends VistaVer_cancion {
 //	private event _marcar_cancion_como_favorita;
 //	private event _aniadir_cancion_a_lista_de_reproduccion;
@@ -42,7 +45,11 @@ public class Ver_cancion extends VistaVer_cancion {
 		
 		Comprobar_si_favorita();
 		
-		this.getFotoCancionImg().setSrc(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()));
+		Image img = new Image(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()),
+				_cancion.getFicheroMultimediaAltaCalidadRuta());
+		img.setClassName("cancion");
+		getFotoCancionImgLayout().add(img);
+		
 		this.getTituloL().setText(_cancion.getTitulo());
 		this.getCreditosTituloCancionL().setText(_cancion.getTitulo());
 		this.getCreditosTituloAlbumL().setText(_cancion.getIncluida_en_albumes().getTitulo());

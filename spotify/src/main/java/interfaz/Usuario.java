@@ -2,6 +2,7 @@ package interfaz;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -10,6 +11,7 @@ import spotify.GestorArchivos;
 import spotify.GestorVentana;
 import vistas.VistaUsuario;
 
+@CssImport("./styles/shared-styles.css")
 public class Usuario extends VistaUsuario {
 //	private Button _fotoB;
 //	private Button _nickB;
@@ -26,17 +28,18 @@ public class Usuario extends VistaUsuario {
 			
 		});
 		
-		this.getFotoB().setSrc(GestorArchivos.CargarImagen(usuario.getFotoRuta()));
-		this.getFotoB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+		Image img = new Image(GestorArchivos.CargarImagen(usuario.getFotoRuta()),usuario.getFotoRuta());
+		img.setClassName("max350");
+		img.addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
-				
 				_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista(usuario);
 				
 				GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_no_artista);
-				
 			}
 		});
+		
+		getFotoImgLayout().add(img);
 	}
 }

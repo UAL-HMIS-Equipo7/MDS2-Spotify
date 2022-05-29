@@ -3,11 +3,14 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 
 import spotify.GestorArchivos;
 import vistas.VistaCreditos;
 
+@CssImport("./styles/shared-styles.css")
 public class Creditos extends VistaCreditos {
 //	private Image _cancionImg;
 //	private Label _tituloL;
@@ -21,7 +24,11 @@ public class Creditos extends VistaCreditos {
 
 	public Creditos(Dialog ventanaModal, basededatos.Cancion cancion) {
 		
-		this.getCancionImg().setSrc(GestorArchivos.CargarImagen(cancion.getFicheroMultimediaAltaCalidadRuta()));
+		Image img = new Image(GestorArchivos.CargarImagen(cancion.getFicheroMultimediaAltaCalidadRuta()),
+				cancion.getFicheroMultimediaAltaCalidadRuta());
+		img.setClassName("max150");
+		this.getCancionImgLayout().add(img);
+		
 		this.getTituloL().setText(cancion.getTitulo());
 		this.getTituloAlbumL().setText(cancion.getIncluida_en_albumes().getTitulo());
 		this.getCompositorL().setText(cancion.getCompositores());
@@ -40,7 +47,7 @@ public class Creditos extends VistaCreditos {
 		
 		this.getEstiloL().setText(estilo[0].getNombre());
 		
-		this.getFicheroL().setText("FICHERO??");
+		this.getFicheroL().setText(cancion.getFicheroMultimediaRuta());
 		
 		this.getCerrarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

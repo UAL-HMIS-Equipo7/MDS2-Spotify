@@ -14,9 +14,7 @@ export class VistaLista_de_reproduccion_propia extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-s);">
- <img id="fotoB" style="width: 100%; height: 100%;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
-</vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-s);" id="contenedor"></vaadin-vertical-layout>
 `;
   }
 

@@ -14,8 +14,8 @@ export class VistaUsuario extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; padding: var(--lumo-space-m);">
- <img id="fotoB" style=" " src="https://m.media-amazon.com/images/I/51e6kpkyuIL._AC_SY355_.jpg">
+<vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; padding: var(--lumo-space-m); justify-content: center;">
+ <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="align-items: center; justify-content: center; align-self: center;"></vaadin-horizontal-layout>
  <a href="https://vaadin.com" id="nickB" style="align-self: center;">Nick </a>
 </vaadin-horizontal-layout>
 `;

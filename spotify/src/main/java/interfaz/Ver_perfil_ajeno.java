@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Usuario_generico;
@@ -7,6 +9,7 @@ import spotify.GestorActor;
 import spotify.GestorArchivos;
 import vistas.VistaVer_perfil_ajeno;
 
+@CssImport("./styles/shared-styles.css")
 public class Ver_perfil_ajeno extends VistaVer_perfil_ajeno {
 //	private Label _seguidoresL;
 //	private Label _seguidosL;
@@ -19,9 +22,12 @@ public class Ver_perfil_ajeno extends VistaVer_perfil_ajeno {
 	
 	public  Ver_perfil_ajeno(Usuario_generico usuario) {
 		
-		this.getSeguidoresL().setText(Integer.toString(usuario.seguidor.size()));
-		this.getSeguidosL().setText(Integer.toString(usuario.seguido.size()));
-		this.getFotoImg().setSrc(GestorArchivos.CargarImagen(usuario.getFotoRuta()));
+		Image img = new Image(GestorArchivos.CargarImagen(usuario.getFotoRuta()), usuario.getFotoRuta());
+		img.setClassName("max350");
+		getFotoImgLayout().add(img);
+		
+		this.getSeguidoresL().setText("Seguidores: " + Integer.toString(usuario.seguidor.size()));
+		this.getSeguidosL().setText("Seguidos: " + Integer.toString(usuario.seguido.size()));
 		this.getEmailL().setText(usuario.getDatos().getEmail());
 		this.getNickL().setText(usuario.getNick());
 		

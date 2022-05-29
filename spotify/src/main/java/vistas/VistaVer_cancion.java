@@ -8,6 +8,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-ver_cancion template.
@@ -19,12 +20,12 @@ import com.vaadin.flow.component.combobox.ComboBox;
 @JsModule("./src/vistas/vista-ver_cancion.ts")
 public class VistaVer_cancion extends LitTemplate {
 
-    public Image getFotoCancionImg() {
-		return fotoCancionImg;
+	public HorizontalLayout getFotoCancionImgLayout() {
+		return fotoCancionImgLayout;
 	}
 
-	public void setFotoCancionImg(Image fotoCancionImg) {
-		this.fotoCancionImg = fotoCancionImg;
+	public void setFotoCancionImgLayout(HorizontalLayout fotoCancionImgLayout) {
+		this.fotoCancionImgLayout = fotoCancionImgLayout;
 	}
 
 	public Label getTituloL() {
@@ -123,8 +124,6 @@ public class VistaVer_cancion extends LitTemplate {
 		this.creditoEstiloL = creditoEstiloL;
 	}
 
-	@Id("fotoCancionImg")
-	private Image fotoCancionImg;
 	@Id("tituloL")
 	private Label tituloL;
 	@Id("aniadirFavoritosB")
@@ -149,6 +148,8 @@ public class VistaVer_cancion extends LitTemplate {
 	private Label creditosFicheroL;
 	@Id("creditoEstiloL")
 	private Label creditoEstiloL;
+	@Id("fotoCancionImgLayout")
+	private HorizontalLayout fotoCancionImgLayout;
 
 	/**
      * Creates a new VistaVer_cancion.

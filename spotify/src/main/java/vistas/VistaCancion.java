@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-cancion template.
@@ -17,12 +18,12 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-cancion.ts")
 public class VistaCancion extends LitTemplate {
 
-    public Image getCancionImg() {
-		return cancionImg;
+	public HorizontalLayout getCancionImgLayout() {
+		return cancionImgLayout;
 	}
 
-	public void setCancionImg(Image cancionImg) {
-		this.cancionImg = cancionImg;
+	public void setCancionImgLayout(HorizontalLayout cancionImgLayout) {
+		this.cancionImgLayout = cancionImgLayout;
 	}
 
 	public Button getTituloB() {
@@ -33,10 +34,10 @@ public class VistaCancion extends LitTemplate {
 		this.tituloB = tituloB;
 	}
 
-	@Id("cancionImg")
-	private Image cancionImg;
 	@Id("tituloB")
 	private Button tituloB;
+	@Id("cancionImgLayout")
+	private HorizontalLayout cancionImgLayout;
 
 	/**
      * Creates a new VistaCancion.

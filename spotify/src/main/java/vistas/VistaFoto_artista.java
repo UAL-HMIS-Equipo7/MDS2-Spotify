@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-foto_artista template.
@@ -18,12 +19,12 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-foto_artista.ts")
 public class VistaFoto_artista extends LitTemplate {
 
-    public Image getFotoB() {
-		return fotoB;
+	public HorizontalLayout getFotoImgLayout() {
+		return fotoImgLayout;
 	}
 
-	public void setFotoB(Image fotoB) {
-		this.fotoB = fotoB;
+	public void setFotoImgLayout(HorizontalLayout fotoImgLayout) {
+		this.fotoImgLayout = fotoImgLayout;
 	}
 
 	public Button getNickB() {
@@ -34,10 +35,10 @@ public class VistaFoto_artista extends LitTemplate {
 		this.nickB = nickB;
 	}
 
-	@Id("fotoB")
-	private Image fotoB;
 	@Id("nickB")
 	private Button nickB;
+	@Id("fotoImgLayout")
+	private HorizontalLayout fotoImgLayout;
 	/**
      * Creates a new VistaFoto_artista.
      */

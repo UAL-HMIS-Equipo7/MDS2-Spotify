@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-usuario template.
@@ -17,12 +18,12 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-usuario.ts")
 public class VistaUsuario extends LitTemplate {
 
-    public Image getFotoB() {
-		return fotoB;
+	public HorizontalLayout getFotoImgLayout() {
+		return fotoImgLayout;
 	}
 
-	public void setFotoB(Image fotoB) {
-		this.fotoB = fotoB;
+	public void setFotoImgLayout(HorizontalLayout fotoImgLayout) {
+		this.fotoImgLayout = fotoImgLayout;
 	}
 
 	public Element getNickB() {
@@ -33,10 +34,10 @@ public class VistaUsuario extends LitTemplate {
 		this.nickB = nickB;
 	}
 
-	@Id("fotoB")
-	private Image fotoB;
 	@Id("nickB")
 	private Element nickB;
+	@Id("fotoImgLayout")
+	private HorizontalLayout fotoImgLayout;
 
 	/**
      * Creates a new VistaUsuario.

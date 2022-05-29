@@ -8,6 +8,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-ver_perfil_ajeno template.
@@ -19,20 +20,20 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-ver_perfil_ajeno.ts")
 public class VistaVer_perfil_ajeno extends LitTemplate {
 
-    public Element getVaadinVerticalLayout() {
+    public HorizontalLayout getFotoImgLayout() {
+		return fotoImgLayout;
+	}
+
+	public void setFotoImgLayout(HorizontalLayout fotoImgLayout) {
+		this.fotoImgLayout = fotoImgLayout;
+	}
+
+	public Element getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;
 	}
 
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
-	}
-
-	public Image getFotoImg() {
-		return fotoImg;
-	}
-
-	public void setFotoImg(Image fotoImg) {
-		this.fotoImg = fotoImg;
 	}
 
 	public Label getEmailL() {
@@ -75,8 +76,6 @@ public class VistaVer_perfil_ajeno extends LitTemplate {
 		this.seguidosL = seguidosL;
 	}
 
-	@Id("fotoImg")
-	private Image fotoImg;
 	@Id("emailL")
 	private Label emailL;
 	@Id("nickL")
@@ -89,6 +88,8 @@ public class VistaVer_perfil_ajeno extends LitTemplate {
 	private Label seguidosL;
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
+	@Id("fotoImgLayout")
+	private HorizontalLayout fotoImgLayout;
 
 	/**
      * Creates a new VistaVer_perfil_ajeno.

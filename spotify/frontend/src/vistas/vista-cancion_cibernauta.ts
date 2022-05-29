@@ -14,9 +14,7 @@ export class VistaCancion_cibernauta extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <img style="width: 100%; height: 100%;" src="https://images-na.ssl-images-amazon.com/images/I/51udvAurk9L.png" id="fotoCancionB">
-</vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="contenedor"></vaadin-vertical-layout>
 `;
   }
 

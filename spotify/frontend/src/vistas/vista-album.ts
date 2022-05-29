@@ -14,9 +14,7 @@ export class VistaAlbum extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;">
- <img id="fotoB" style="width: 100%; height: 100%; align-self: center;" src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&amp;quality=20">
-</vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center; align-items: center;" id="contenedor"></vaadin-vertical-layout>
 `;
   }
 
