@@ -9,14 +9,20 @@ import com.vaadin.flow.component.upload.FinishedEvent;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
+import basededatos.BDPrincipal;
+import basededatos.iArtista;
+import spotify.GestorActor;
 import spotify.GestorArchivos;
 import vistas.VistaEditar_foto_de_perfil_artista;
 
 public class Editar_foto_de_perfil__Artista_ extends VistaEditar_foto_de_perfil_artista {
 //	private FileChooser _eligirFotoFC;
+	iArtista bd = new BDPrincipal();
+	protected Image _img;
 	
 	public Editar_foto_de_perfil__Artista_(Image foto) {
 		
+		_img = foto;
 		this.getElegirFotoFC().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -38,5 +44,8 @@ public class Editar_foto_de_perfil__Artista_ extends VistaEditar_foto_de_perfil_
 				});
 			}
 		});
+	}
+	public void ActualizarFotoPerfil() {
+		bd.Actualizar_Foto_Perfil(GestorActor.getIdUsuario(), _img.getSrc());
 	}
 }
