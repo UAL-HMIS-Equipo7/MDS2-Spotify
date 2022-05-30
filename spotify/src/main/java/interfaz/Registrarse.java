@@ -109,5 +109,6 @@ public class Registrarse extends VistaRegistrarse {
 
 	public void Validar_datos_de_registro() {
 		//VALIDAR
+		
 	}
 }

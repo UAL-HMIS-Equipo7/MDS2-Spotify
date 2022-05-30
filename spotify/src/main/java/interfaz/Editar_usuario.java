@@ -109,7 +109,12 @@ public class Editar_usuario extends VistaEditar_usuario {
 		bd.Actualizar_Usuario(_usuario);
 	}
 
-	public void Validar_datos_usuario() {
-		//VALIDAR
+	public boolean Validar_datos_usuario() {
+		boolean correcto = true;
+		//foto opcional?
+		if(this.getEmailTF().getValue().isBlank() || this.getContraseniaTF().getValue().isBlank() || this.getNickTF().getValue().isBlank()) {
+			correcto = false;
+		}
+		return correcto;
 	}
 }

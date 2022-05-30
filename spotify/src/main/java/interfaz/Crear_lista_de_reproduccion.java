@@ -29,7 +29,9 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				Validar_datos_lista(); //bool?
+				if(Validar_datos_lista() == false) {
+					return;
+				}
 				Guardar_cambios_lista();
 				
 				GestorVentana.Atras();
@@ -47,8 +49,12 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 		
 	}
 
-	public void Validar_datos_lista() {
-		//VALIDAR
+	public boolean Validar_datos_lista() {
+		boolean correcto = true;
+		if(this.getTituloListaTF().getValue().isBlank()) {
+			correcto = false;
+		}
+		return correcto;
 	}
 
 	public void Guardar_cambios_lista() {

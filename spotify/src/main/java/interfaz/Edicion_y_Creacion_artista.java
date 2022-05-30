@@ -9,6 +9,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.FinishedEvent;
 import com.vaadin.flow.component.upload.Upload;
@@ -40,6 +41,7 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 	
 	private basededatos.Artista _artista;
 	private basededatos.Estilo[] _estilos;
+	private basededatos.Estilo _estiloSeleccionado;
 	private iAdministrador bd = new BDPrincipal();
 	private Image _img;
 
@@ -99,8 +101,18 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				_estiloSeleccionado = null;
+				for (basededatos.Estilo estilo : _estilos) {
+					if (estilo.getNombre().equals(getEstiloCB().getValue())) {
+						_estiloSeleccionado = estilo;
+						break;
+					}
+				}
 				
-				Validar_datos_artista();
+				if(Validar_datos_artista() == false){
+					Notification.show("Hay algun error en los campos introducidos");
+					return;
+				}
 				Guardar_cambios_artista();
 				
 				GestorVentana.Atras();
@@ -117,14 +129,8 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 	}
 
 	public void Guardar_cambios_artista() {
-		basededatos.Estilo estiloSeleccionado = null;
 		
-		for (basededatos.Estilo estilo : _estilos) {
-			if (estilo.getNombre().equals(getEstiloCB().getValue())) {
-				estiloSeleccionado = estilo;
-				break;
-			}
-		}
+		
 		
 		if (_artista != null) {
 			_artista.setFotoRuta(_img.getSrc());
@@ -136,18 +142,23 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 
 			_artista.setNick(getNickTF().getValue());
 			
-			_artista.setEstilo(estiloSeleccionado);
+			_artista.setEstilo(_estiloSeleccionado);
 			
 			bd.Actualizar_Artista(_artista);
 		}
 		else {
 			bd.Crear_Artista(getEmailTF().getValue(), getNickTF().getValue(),
-							getContraseniaTF().getValue(), _img.getSrc(), estiloSeleccionado.getORMID());
+							getContraseniaTF().getValue(), _img.getSrc(), _estiloSeleccionado.getORMID());
 		}
 	}
 
-	public void Validar_datos_artista() {
-		//VALIDAR
+	public boolean Validar_datos_artista() {
+		
+		boolean correcto = true;
+		if(this.getEmailTF().getValue().isBlank() || this.getNickTF().getValue().isBlank() || this.getContraseniaTF().getValue().isBlank() || _img.getSrc().isBlank() || _estiloSeleccionado == null) {
+			correcto = false;
+		}
+		return correcto;
 	}
 	
 	public void Cargar_Estilos() {

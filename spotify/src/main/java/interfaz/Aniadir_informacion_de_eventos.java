@@ -4,6 +4,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.FinishedEvent;
 import com.vaadin.flow.component.upload.Upload;
@@ -28,8 +29,11 @@ public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				if(Validar_informacion_evento() == false) {
+					Notification.show("Hay un error en los datos introducidos");
+					return;
+				}
 				
-				Validar_informacion_evento(); //bool?
 				
 				Confirmar_evento();
 				
@@ -70,8 +74,13 @@ public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_
 		});
 	}
 
-	public void Validar_informacion_evento() {
+	public boolean Validar_informacion_evento() {
 		//VALIDAR
+		boolean correcto = true;
+		if(this.getFechaHoraTF().getValue().isBlank() || this.getVaadinTextArea().getValue().isBlank() || rutaFoto.isBlank() || this.getPrecioTF().getValue().isBlank()) {
+			correcto = false;
+		}
+		return correcto;
 	}
 
 	public void Confirmar_evento() {

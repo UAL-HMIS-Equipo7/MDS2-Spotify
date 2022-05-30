@@ -101,7 +101,10 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				Validar_datos_cancion(); //bool??
+				if(Validar_datos_cancion() == false) {
+					return;
+				}
+				
 				Guardar_cambios_cancion();
 				
 				GestorVentana.Atras();
@@ -205,8 +208,13 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 		}
 	}
 
-	public void Validar_datos_cancion() {
+	public boolean Validar_datos_cancion() {
 		//VALIDACION
+		boolean correcto = true;
+		if(this.getTituloTF().getValue().isBlank() || this.getTituloAlbumTF().getValue().isBlank() || this.getCompositorTF().getValue().isBlank() || this.getProductorTF().getValue().isBlank() || _rutaFicheroMultimedia.isBlank() || _img.getSrc().isBlank() || this.getInterpreteTF().getValue().isBlank()) {
+			correcto = false;
+		}
+		return correcto;
 	}
 	
 	public void Cargar_Estilos() {
