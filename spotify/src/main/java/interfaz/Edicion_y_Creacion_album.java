@@ -89,7 +89,9 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				Validar_cambios_album();
+				if(Validar_cambios_album() == false) {
+					return;
+				}
 				Guardar_cambios_album();
 				
 				GestorVentana.Atras();
@@ -110,7 +112,12 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Validar_cambios_album() {
+	public boolean Validar_cambios_album() {
 		//VALIDAR
+		boolean correcto = true;
+		if(this.getTituloAlbumTF().getValue().isBlank() || _img.getSrc().isBlank() || this.getArtistaTF().getValue().isBlank() ) {
+			correcto = false;
+		}
+		return correcto;
 	}
 }

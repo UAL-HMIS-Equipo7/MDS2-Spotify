@@ -47,7 +47,10 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				//TODO Validación de Usuario + bloqueo usuario
-				Validar_datos_de_usuario(); //Deberia ser bool para saber si son correctos o no?
+				if(Validar_datos_de_usuario() == false) {
+					Notification.show("Hay algun error en los campos introducidos");
+					return;
+				}
 				
 				String email = getEmailTF().getValue();
 				String contrasenia = getContraseniaTF().getValue();
@@ -161,8 +164,11 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 		
 	}
 
-	public void Validar_datos_de_usuario() {
-		
-		//VALIDAR DATOS
+	public boolean Validar_datos_de_usuario() {
+		boolean correcto = true;
+		if(this.getEmailTF().getValue().isBlank() || this.getContraseniaTF().getValue().isBlank()) {
+			correcto = false;
+		}
+		return correcto;
 	}
 }

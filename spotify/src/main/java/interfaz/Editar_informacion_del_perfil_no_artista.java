@@ -15,8 +15,12 @@ public class Editar_informacion_del_perfil_no_artista extends VistaEditar_inform
 		this.getNickTF().setValue(usuario.getNick());
 	}
 
-	public void Validar_datos_de_perfil() {
-		//VALIDAR
+	public boolean Validar_datos_de_perfil() {
+		boolean correcto = true;
+		if(this.getEmailTF().getValue().isBlank() || this.getNickTF().getValue().isBlank()){
+			correcto = false;
+		}
+		return correcto;
 	}
 	
 	public void ActualizarPerfil() {

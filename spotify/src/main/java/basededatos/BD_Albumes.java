@@ -15,7 +15,17 @@ public class BD_Albumes {
 
 	public Album[] Cargar_Albumes_Artistas(int aIdArtista) throws PersistentException {
 		//Seria mejor que este metodo estuviera en BD_Artistas para devolver directamente su lista de albumes?
-		throw new UnsupportedOperationException();
+		Album[] albumes = null;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista artista = ArtistaDAO.getArtistaByORMID(aIdArtista);
+			albumes = artista.albumes.toArray();
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return albumes;
 	}
 
 	public Album[] Realizar_Busqueda_Albumes(String aParametrosBusqueda) throws PersistentException {

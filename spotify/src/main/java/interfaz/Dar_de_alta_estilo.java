@@ -51,7 +51,12 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 		bd.Crear_Estilo(getNombreTF().getValue());
 	}
 
-	public void Validar_datos_estilo() {
+	public boolean Validar_datos_estilo() {
 		//VALIDAR
+		boolean correcto = true;
+		if(this.getNombreTF().getValue().isBlank()) {
+			correcto = false;
+		}
+		return correcto;
 	}
 }
