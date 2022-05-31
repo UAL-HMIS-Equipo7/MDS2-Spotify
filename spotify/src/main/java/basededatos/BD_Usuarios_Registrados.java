@@ -22,6 +22,7 @@ public class BD_Usuarios_Registrados {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Usuario_Registrado[] Realizar_Busqueda_Usuarios(String aParametrosBusqueda) throws PersistentException {
@@ -76,6 +77,7 @@ public class BD_Usuarios_Registrados {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		
 		return id_usuario;
 	}
@@ -105,6 +107,7 @@ public class BD_Usuarios_Registrados {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Usuario_Registrado[] Cargar_Usuarios_Lista_Seguidores(int aIdUsuarioGenerico) throws PersistentException {
@@ -181,6 +184,7 @@ public class BD_Usuarios_Registrados {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public void Seguir_Usuario(int aIdSeguidor, int aIdSeguido) throws PersistentException {
@@ -199,6 +203,7 @@ public class BD_Usuarios_Registrados {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public void Dejar_De_Seguir_Usuario(int aIdSeguidor, int aIdSeguido) throws PersistentException {
@@ -217,6 +222,7 @@ public class BD_Usuarios_Registrados {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public boolean Comprobar_Usuario_Seguido(int aIdSeguidor, int aIdSeguido) throws PersistentException {

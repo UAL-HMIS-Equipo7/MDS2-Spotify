@@ -29,6 +29,7 @@ public class BD_Lista_de_reproduccion {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public void Dejar_de_seguir_lista_de_reproduccion(int aIdUsuarioGenerico, int aIdLista) throws PersistentException {
@@ -48,6 +49,7 @@ public class BD_Lista_de_reproduccion {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Lista_de_reproduccion[] Realizar_Busqueda_Listas_Ajenas(String aParametrosBusqueda, int aIdUsuarioGenerico) throws PersistentException {
@@ -124,6 +126,7 @@ public class BD_Lista_de_reproduccion {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		
 		return id_lista;
 	}
@@ -141,7 +144,7 @@ public class BD_Lista_de_reproduccion {
 		} catch (Exception e) {
 			t.rollback();
 		}
-
+		
 		return lista;
 	}
 	

@@ -67,6 +67,7 @@ public class BD_Albumes {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public basededatos.Artista[] Cargar_Autores_Album(int aIdAlbum) throws PersistentException {
@@ -110,7 +111,7 @@ public class BD_Albumes {
 		} catch (Exception e) {
 			t.rollback();
 		}
-
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		return id_album;
 	}
 
@@ -139,5 +140,6 @@ public class BD_Albumes {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 }

@@ -27,6 +27,7 @@ public class BD_Estilos {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		return idEstilo;
 	}
 	

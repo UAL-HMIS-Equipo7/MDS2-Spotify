@@ -29,6 +29,7 @@ public class BD_Canciones {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public void Quitar_cancion_favoritos(int aIdUsuarioGenerico, int aIdCancion) throws PersistentException {
@@ -48,6 +49,7 @@ public class BD_Canciones {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public void Aniadir_cancion_a_lista(int aIdCancion, int aIdLista) throws PersistentException {
@@ -63,6 +65,7 @@ public class BD_Canciones {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Cancion[] Cargar_Ultimas_Canciones_Reproducidas(int aIdUsuarioGenerico) throws PersistentException {
@@ -129,6 +132,7 @@ public class BD_Canciones {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		return id_cancion;
 	}
 
@@ -162,6 +166,7 @@ public class BD_Canciones {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Cancion[] Cargar_Canciones_Administrador(String aParametrosBusqueda) throws PersistentException {
@@ -257,6 +262,7 @@ public class BD_Canciones {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public void Eliminar_Cancion(int aIdCancion) throws PersistentException {
@@ -268,6 +274,7 @@ public class BD_Canciones {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public Cancion[] Cargar_Canciones_Aleatorias(int aNumCanciones) throws PersistentException {

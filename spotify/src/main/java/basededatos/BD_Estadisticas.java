@@ -101,5 +101,6 @@ public class BD_Estadisticas {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 }

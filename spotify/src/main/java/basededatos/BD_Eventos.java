@@ -39,6 +39,7 @@ public class BD_Eventos {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		return id_evento;
 	}
 
@@ -71,6 +72,7 @@ public class BD_Eventos {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Evento[] Cargar_Eventos_Artista(int aIdArtista) throws PersistentException {

@@ -33,6 +33,7 @@ public class BD_Administradores {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public void Actualizar_Numero_Canciones_Mostradas(int aIdAdministrador, int aNuevoValor) throws PersistentException {
@@ -47,6 +48,7 @@ public class BD_Administradores {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public void Actualizar_Numero_Canciones_Reproducibles(int aIdAdministrador, int aNuevoValor) throws PersistentException {
@@ -61,6 +63,7 @@ public class BD_Administradores {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public int Cargar_Numero_Canciones_Mostradas() throws PersistentException {
@@ -80,6 +83,7 @@ public class BD_Administradores {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		return num;
 	}
 	
@@ -95,6 +99,7 @@ public class BD_Administradores {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		return num;
 	}
 }

@@ -34,6 +34,7 @@ public class BD_Datos_Acceso {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 
 		return id_datos;
 	}
@@ -51,6 +52,7 @@ public class BD_Datos_Acceso {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Datos_Acceso Realizar_Intento_Inicio_Sesion(String aEmail, String aContrasenia) throws PersistentException {
@@ -100,6 +102,7 @@ public class BD_Datos_Acceso {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		
 		return datos;
 	}

@@ -47,6 +47,7 @@ public class BD_Artistas {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public int Crear_Artista(int aIdDatosAcceso, String aNick, String aFotoRuta, int aIdEstilo) throws PersistentException {
@@ -83,6 +84,7 @@ public class BD_Artistas {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		return id_artista;
 	}
 
@@ -96,6 +98,7 @@ public class BD_Artistas {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public void Eliminar_Artista(int aIdArtista) throws PersistentException {
@@ -107,6 +110,7 @@ public class BD_Artistas {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Artista[] Cargar_Artistas_Similares(int aIdArtista) throws PersistentException {
@@ -204,6 +208,7 @@ public class BD_Artistas {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public void Dejar_De_Seguir_Artista(int aIdUsuarioGenerico, int aIdArtista) throws PersistentException {
@@ -222,6 +227,7 @@ public class BD_Artistas {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public boolean Comprobar_Artista_Seguido(int aIdUsuarioGenerico, int aIdArtista) throws PersistentException {
