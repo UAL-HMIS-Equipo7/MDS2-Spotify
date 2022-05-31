@@ -33,6 +33,7 @@ public class Artistas_administrador extends VistaArtistas_administrador {
 		Scroller scroll = this.getNavegacionSB();
 		
 		Div div = new Div();
+		div.setClassName("divScroll350");
 		
 		for (Artista_administrador aa : _list_Artista_administrador) {
 			div.add(aa);

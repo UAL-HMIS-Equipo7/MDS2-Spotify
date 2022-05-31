@@ -17,8 +17,8 @@ export class VistaActor_comun extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; align-items: center; justify-content: center;">
- <vaadin-vertical-layout id="LayoutCabecera" style="align-self: center; align-items: center; justify-content: center; width: 100%; height: 8%; background-color: WhiteSmoke"></vaadin-vertical-layout>
- <vaadin-vertical-layout style="width: 100%; height: 80%; flex-shrink: 1; align-self: center; align-items: center; justify-content: center;" id="LayoutPrincipal">
+ <vaadin-vertical-layout id="LayoutCabecera" style="align-self: center; align-items: center; justify-content: center; width: 100%; height: 8%; background-color: WhiteSmoke; max-height: 8%;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout style="width: 100%; height: 80%; flex-shrink: 1; align-self: center; align-items: center; justify-content: center; overflow-y: scroll; max-height: 80%;" id="LayoutPrincipal">
   <vaadin-button id="verEstadisticasB" style="align-self: flex-end; margin: var(--lumo-space-s);">
     Estadísticas de uso 
   </vaadin-button>
@@ -31,7 +31,7 @@ export class VistaActor_comun extends LitElement {
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" id="LayoutReproductor" style="align-self: center; justify-content: center; align-items: center; width: 100%; height: 12%;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout theme="spacing" id="LayoutReproductor" style="align-self: center; justify-content: center; align-items: center; width: 100%; height: 12%; max-height: 12%;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

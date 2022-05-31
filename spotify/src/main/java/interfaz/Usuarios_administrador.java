@@ -2,6 +2,7 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -11,6 +12,7 @@ import basededatos.iAdministrador;
 import interfaz.Usuario_administrador;
 import vistas.VistaUsuarios_administrador;
 
+@CssImport("./styles/shared-styles.css")
 public class Usuarios_administrador extends VistaUsuarios_administrador
 {
 //	private Label _tituloL;
@@ -29,6 +31,7 @@ public class Usuarios_administrador extends VistaUsuarios_administrador
 		Scroller scroll = this.getNavegacionSB();
 		
 		Div div = new Div();
+		div.setClassName("divScroll350");
 		
 		for (Usuario_administrador ua : _list_Usuario_administrador) {
 			div.add(ua);

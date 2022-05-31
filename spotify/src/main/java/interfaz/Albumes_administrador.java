@@ -32,6 +32,7 @@ public class Albumes_administrador extends VistaAlbumes_administrador {
 		Scroller scroll = this.getNavegacionSB();
 		
 		Div div = new Div();
+		div.setClassName("divScroll350");
 		
 		for (Album_administrador album : _list_Album_administrador) {
 			div.add(album);

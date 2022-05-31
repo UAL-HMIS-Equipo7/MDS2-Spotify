@@ -32,6 +32,7 @@ public class Canciones_administrador extends VistaCanciones_administrador {
 		Scroller scroll = this.getNavegacionSB();
 		
 		Div div = new Div();
+		div.setClassName("divScroll350");
 		
 		for (Cancion_administrador cancion : _list_Cancion_administrador) {
 			div.add(cancion);
