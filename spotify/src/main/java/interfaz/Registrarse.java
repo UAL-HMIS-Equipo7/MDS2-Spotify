@@ -82,7 +82,7 @@ public class Registrarse extends VistaRegistrarse {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(Validar_datos_de_registro()) {
+				if(Validar_datos_de_registro() == false) {
 					Notification.show("Hay algun error en los campos introducidos, revise si ha introducido al menos 3 caracteres especiales en la contraseña, que la contraseña contenga un minimo de 10 caracteres y que contenga letras mayusculas y minusculas");
 					return;
 				}
