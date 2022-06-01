@@ -121,17 +121,17 @@ public class Registrarse extends VistaRegistrarse {
 				contador++;
 		}
 		
-		for(char c : this.getContraseniaTF().getValue().toCharArray()) {
-			if(Character.isUpperCase(c))
+		for(int i = 0; i<this.getContraseniaTF().getValue().length();i++) {
+			if(Character.isUpperCase(this.getContraseniaTF().getValue().charAt(i)))
 				mayuscula++;
 		}
 		
-		for(char c : this.getContraseniaTF().getValue().toCharArray()) {
-			if(Character.isLowerCase(c))
+		for(int i = 0; i<this.getContraseniaTF().getValue().length();i++) {
+			if(Character.isLowerCase(this.getContraseniaTF().getValue().charAt(i)))
 				minuscula++;
 		}
 		
-		if(this.getNickTF().getValue().isBlank() || this.getEmailTF().getValue().isBlank() || this.getContraseniaTF().getValue().isBlank() || this.getRepiteContraseniaTF().getValue().isBlank() || this.getContraseniaTF().getValue().length() < 10 || contador < 3 || this.getRepiteContraseniaTF().getValue() != this.getContraseniaTF().getValue() || mayuscula < 0 || minuscula < 0)
+		if(this.getNickTF().getValue().isBlank() || this.getEmailTF().getValue().isBlank() || this.getContraseniaTF().getValue().isBlank() || this.getRepiteContraseniaTF().getValue().isBlank() || this.getContraseniaTF().getValue().length() < 10 || contador < 3 || this.getRepiteContraseniaTF().getValue().compareTo(this.getContraseniaTF().getValue())!= 0  || mayuscula < 0 || minuscula < 0)
 			correcto = false;
 		return correcto;
 	}
