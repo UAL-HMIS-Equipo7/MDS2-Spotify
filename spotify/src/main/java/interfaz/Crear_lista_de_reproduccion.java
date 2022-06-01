@@ -3,6 +3,7 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
@@ -30,6 +31,7 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				if(Validar_datos_lista() == false) {
+					Notification.show("Hay algun error en los campos introducidos");
 					return;
 				}
 				Guardar_cambios_lista();

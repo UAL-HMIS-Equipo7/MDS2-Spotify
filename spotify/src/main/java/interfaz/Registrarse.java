@@ -82,8 +82,10 @@ public class Registrarse extends VistaRegistrarse {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				// TODO Validación de registro
-				Validar_datos_de_registro(); //deberia ser bool?
+				if(Validar_datos_de_registro()) {
+					Notification.show("Hay algun error en los campos introducidos, revise si ha introducido al menos 3 caracteres especiales en la contraseña, que la contraseña contenga un minimo de 10 caracteres y que contenga letras mayusculas y minusculas");
+					return;
+				}
 				
 				int id = bd.Registrar_Usuario(getEmailTF().getValue(), getNickTF().getValue(), getContraseniaTF().getValue(), rutaFoto);
 				
@@ -107,8 +109,30 @@ public class Registrarse extends VistaRegistrarse {
 		});
 	}
 
-	public void Validar_datos_de_registro() {
+	public boolean Validar_datos_de_registro() {
 		//VALIDAR
+		boolean correcto = true;
+		int contador = 0;
+		int mayuscula = 0;
+		int minuscula = 0;
 		
+		for(char c : this.getContraseniaTF().getValue().toCharArray()) {
+			if(c == '!' || c == '@' || c == '#' || c == '$' || c == '%' || c == '&' )
+				contador++;
+		}
+		
+		for(char c : this.getContraseniaTF().getValue().toCharArray()) {
+			if(Character.isUpperCase(c))
+				mayuscula++;
+		}
+		
+		for(char c : this.getContraseniaTF().getValue().toCharArray()) {
+			if(Character.isLowerCase(c))
+				minuscula++;
+		}
+		
+		if(this.getNickTF().getValue().isBlank() || this.getEmailTF().getValue().isBlank() || this.getContraseniaTF().getValue().isBlank() || this.getRepiteContraseniaTF().getValue().isBlank() || this.getContraseniaTF().getValue().length() < 10 || contador < 3 || this.getRepiteContraseniaTF().getValue() != this.getContraseniaTF().getValue() || mayuscula < 0 || minuscula < 0)
+			correcto = false;
+		return correcto;
 	}
 }

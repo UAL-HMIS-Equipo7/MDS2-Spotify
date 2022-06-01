@@ -3,6 +3,7 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
@@ -31,7 +32,10 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				Validar_datos_estilo(); //bool??
+				if(Validar_datos_estilo()) {
+					Notification.show("Hay algun error en los campos introducidos");
+					return;
+				}
 				Guardar_cambios_estilo();
 				
 				GestorVentana.Atras();

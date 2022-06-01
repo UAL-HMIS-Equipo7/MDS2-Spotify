@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.FinishedEvent;
 import com.vaadin.flow.component.upload.Upload;
@@ -80,7 +81,10 @@ public class Editar_usuario extends VistaEditar_usuario {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				Validar_datos_usuario();
+				if(Validar_datos_usuario() == false) {
+					Notification.show("Hay algun error en los campos introducidos");
+					return;
+				}
 				Guardar_cambios_usuario();
 				
 				GestorVentana.Atras();

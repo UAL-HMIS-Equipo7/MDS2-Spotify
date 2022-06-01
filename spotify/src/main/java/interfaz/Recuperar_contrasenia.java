@@ -26,7 +26,10 @@ public class Recuperar_contrasenia extends VistaRecuperar_contrasenia {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				// TODO Validación de correo
-				Validar_correo_electronico();
+				if(Validar_correo_electronico() == false) {
+					Notification.show("Hay algun error en los campos introducidos");
+					return;
+				}
 				
 				_confirmacion_de_correo__Recuperar_contrasenia_ = new Confirmacion_de_correo__Recuperar_contrasenia_(getCorreoTF().getValue());
 				
@@ -43,7 +46,13 @@ public class Recuperar_contrasenia extends VistaRecuperar_contrasenia {
 		});
 	}
 	
-	public void Validar_correo_electronico() {
+	public boolean Validar_correo_electronico() {
 		//VALIDACION
+		boolean correcto = true;
+		if(this.getCorreoTF().getValue().isBlank()) {
+			correcto = false;
+		}
+		return correcto;
+		
 	}
 }
