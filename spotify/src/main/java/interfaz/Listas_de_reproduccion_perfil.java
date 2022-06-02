@@ -136,10 +136,16 @@ public class Listas_de_reproduccion_perfil extends VistaListas_de_reproduccion_p
 		
 		basededatos.Lista_de_reproduccion[] listas = bd.Cargar_Listas_Perfil(_usuario.getORMID());
 		
+		if (listas == null || listas.length == 0)
+			return;
+		
 		if (GestorActor.getIdUsuario() == _usuario.getORMID()) {
 			Lista_de_reproduccion_propia temp;
 			
 			for (int i = 0; i < listas.length; i++) {
+				if (listas[i].canciones_incluidas.size() == 0)
+					continue;
+				
 				temp = new Lista_de_reproduccion_propia(listas[i]);
 				
 				_list_Lista_de_reproduccion_propia.add(temp);
@@ -151,6 +157,9 @@ public class Listas_de_reproduccion_perfil extends VistaListas_de_reproduccion_p
 			Lista_de_reproduccion_ajena temp;
 			
 			for (int i = 0; i < listas.length; i++) {
+				if (listas[i].canciones_incluidas.size() == 0)
+					continue;
+				
 				temp = new Lista_de_reproduccion_ajena(listas[i]);
 				
 				_list_Lista_de_reproduccion_ajena.add(temp);
