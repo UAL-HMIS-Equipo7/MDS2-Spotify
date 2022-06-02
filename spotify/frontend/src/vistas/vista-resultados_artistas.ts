@@ -15,10 +15,10 @@ export class VistaResultados_artistas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Artistas</label>
- <vaadin-horizontal-layout theme="spacing" style="align-self: center; margin: var(--lumo-space-xs);" id="contenedorSuperior"></vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="align-self: center; margin: var(--lumo-space-xs);" id="contenedorInferior"></vaadin-horizontal-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around;" theme="spacing-s">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m); font-weight: bold;">Artistas</label>
+ <vaadin-horizontal-layout theme="spacing" style="align-self: center; margin: var(--lumo-space-xs); width: 100%; align-items: center; justify-content: space-evenly; height: 40%;" id="contenedorSuperior"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="align-self: center; margin: var(--lumo-space-xs); width: 100%; align-items: center; justify-content: space-evenly; height: 40%;" id="contenedorInferior"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

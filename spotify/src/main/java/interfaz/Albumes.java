@@ -27,6 +27,7 @@ public class Albumes extends VistaAlbumes {
 		Scroller scroll = this.getVaadinScroller();
 		
 		Div div = new Div();
+		div.setClassName("divScroll350");
 		
 		HorizontalLayout tempHl = new HorizontalLayout();
 		tempHl.setClassName("hlAlbumes");
@@ -53,7 +54,7 @@ public class Albumes extends VistaAlbumes {
 
 		for (int i = 0; i < 6 && i < albumes.length; i++) {
 			temp = new Album(albumes[i]);
-			temp.setClassName("album");
+			temp.setClassName("max250");
 			
 			_list_Album.add(temp);
 		}

@@ -20,9 +20,9 @@ export class VistaArtistas_administrador extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Artistas</label>
- <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%;"></vaadin-scroller>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around;">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s); font-weight: bold;">Artistas</label>
+ <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%; align-self: center;"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;
   }

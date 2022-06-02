@@ -39,19 +39,15 @@ public class Menu_Administracion extends VistaMenu_administracion {
 		
 		Cargar_Datos_Cibernauta();
 		
+		this.getBusquedaTF().addKeyPressListener(Key.ENTER, e -> {
+			Realizar_busqueda();
+	    });
+		
 		this.getBusquedaB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				String params = getBusquedaTF().getValue();
-				
-				if (params.trim().isEmpty()) {
-					Notification.show("Debe introducir una cadena de búsqueda");
-					return;
-				}
-				
-				_realizar_busqueda_de_administrador = new Realizar_busqueda_de_administrador(params);
-				GestorVentana.CambiarVentana(_realizar_busqueda_de_administrador);
+				Realizar_busqueda();
 			}
 		});
 		
@@ -97,5 +93,17 @@ public class Menu_Administracion extends VistaMenu_administracion {
 		
 		this.getNumCancionesMostradasTF().setValue(Integer.toString(numCancionesMostradas));
 		this.getLimiteCancionesReproduciblesTF().setValue(Integer.toString(numCancionesReproducibles));
+	}
+	
+	public void Realizar_busqueda() {
+		String params = getBusquedaTF().getValue();
+		
+		if (params.trim().isEmpty()) {
+			Notification.show("Debe introducir una cadena de búsqueda");
+			return;
+		}
+		
+		_realizar_busqueda_de_administrador = new Realizar_busqueda_de_administrador(params);
+		GestorVentana.CambiarVentana(_realizar_busqueda_de_administrador);
 	}
 }

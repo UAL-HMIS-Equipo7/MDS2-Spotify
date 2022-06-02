@@ -25,7 +25,7 @@ export class VistaAlbum_administrador extends LitElement {
  <label id="albumL" style="align-self: center; margin: var(--lumo-space-s);">Nombre Álbum</label>
  <vaadin-horizontal-layout theme="spacing" style="width: 85%; height: 90%; align-self: center; align-items: center; justify-content: center;">
   <vaadin-horizontal-layout theme="spacing" id="albumImgLayout" style="width: 100%; height: 100%; max-width: 600px; max-height: 600px;"></vaadin-horizontal-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 50%; height: 60%;">
+  <vaadin-vertical-layout theme="spacing" style="width: 50%; height: 60%; align-items: center; justify-content: space-around;">
    <vaadin-button id="editarAlbumB" style="width: 100%; height: 100%;">
      Editar Álbum 
    </vaadin-button>

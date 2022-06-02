@@ -15,9 +15,9 @@ export class VistaCanciones_de_lista extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
- <label id="tituloPanelL" style="flex-shrink: 1; flex-grow: 0; align-self: center; margin: var(--lumo-space-m);">Listado de canciones</label>
- <vaadin-scroller id="navegacionSB" style="width: 100%;"></vaadin-scroller>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;" theme="spacing-s">
+ <label id="tituloPanelL" style="flex-shrink: 1; flex-grow: 0; align-self: center; margin: var(--lumo-space-m); font-weight: bold;">Listado de canciones</label>
+ <vaadin-scroller id="navegacionSB" style="width: 100%; align-self: center;"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;
   }

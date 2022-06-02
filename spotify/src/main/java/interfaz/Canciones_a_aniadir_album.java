@@ -6,6 +6,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -41,7 +42,7 @@ public class Canciones_a_aniadir_album extends VistaCanciones_a_aniadir_album {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				if (_index - 1 >= 0 && _list_Cancion_album.size() > 0) {
-					_vl.replace(_list_Cancion_album.elementAt(_index), _list_Cancion_album.elementAt(_index + 1));
+					_vl.replace(_list_Cancion_album.elementAt(_index), _list_Cancion_album.elementAt(_index - 1));
 					_index--;
 				}
 			}
@@ -61,20 +62,35 @@ public class Canciones_a_aniadir_album extends VistaCanciones_a_aniadir_album {
 	}
 
 	public void Aniadir_cancion_album() {
+		if (getAniadirCancionTF().getValue().isBlank()) {
+			Notification.show("Debe introducir un parámetro de búsqueda");
+			return;
+		}
+		
 		basededatos.Cancion[] resultados = bd.Cargar_Canciones_Administrador(getAniadirCancionTF().getValue());
 		
-		if (resultados.length > 0) {
-			Cancion_album cancion = new Cancion_album(resultados[0]);
-			
-			if (_list_Cancion_album.isEmpty()) {
-				_vl.add(cancion);
-			}
-			else {
-				_vl.replace(_list_Cancion_album.elementAt(_index), cancion);
-			}
-			
-			_list_Cancion_album.add(cancion);
-			_index = _list_Cancion_album.size() - 1;
+		if (resultados.length <= 0) {
+			Notification.show("Sin resultados");
+			return;
 		}
+		
+		for (int i = 0; i < _list_Cancion_album.size(); i++) {
+			if (_list_Cancion_album.elementAt(i).cancion.getTitulo().equalsIgnoreCase(resultados[0].getTitulo())) {
+				Notification.show("La cancion ya se encuentra en el album");
+				return;
+			}
+		}
+		
+		Cancion_album cancion = new Cancion_album(resultados[0]);
+		
+		if (_list_Cancion_album.isEmpty()) {
+			_vl.add(cancion);
+		}
+		else {
+			_vl.replace(_list_Cancion_album.elementAt(_index), cancion);
+		}
+		
+		_list_Cancion_album.add(cancion);
+		_index = _list_Cancion_album.size() - 1;
 	}
 }

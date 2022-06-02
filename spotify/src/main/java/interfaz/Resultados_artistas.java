@@ -2,6 +2,7 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -11,6 +12,7 @@ import basededatos.iActor_comun;
 import interfaz.Foto_Artista;
 import vistas.VistaResultados_artistas;
 
+@CssImport("./styles/shared-styles.css")
 public class Resultados_artistas extends VistaResultados_artistas {
 //	private Label _tituloL;
 	public Vector<Foto_Artista> _list_Artista = new Vector<Foto_Artista>();
@@ -45,6 +47,7 @@ public class Resultados_artistas extends VistaResultados_artistas {
 		
 		for (int i = 0; i < artistas.length; i++) {
 			temp = new Foto_Artista(artistas[i]);
+			temp.setClassName("max350");
 			
 			_list_Artista.add(temp);
 		}

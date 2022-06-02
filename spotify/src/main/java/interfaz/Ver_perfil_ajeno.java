@@ -23,7 +23,7 @@ public class Ver_perfil_ajeno extends VistaVer_perfil_ajeno {
 	public  Ver_perfil_ajeno(Usuario_generico usuario) {
 		
 		Image img = new Image(GestorArchivos.CargarImagen(usuario.getFotoRuta()), usuario.getFotoRuta());
-		img.setClassName("max350");
+		img.setClassName("max500");
 		getFotoImgLayout().add(img);
 		
 		this.getSeguidoresL().setText("Seguidores: " + Integer.toString(usuario.seguidor.size()));
@@ -32,6 +32,7 @@ public class Ver_perfil_ajeno extends VistaVer_perfil_ajeno {
 		this.getNickL().setText(usuario.getNick());
 		
 		_listas_de_reproduccion_perfil = new Listas_de_reproduccion_perfil(usuario);
+		_listas_de_reproduccion_perfil.setClassName("fullSize");
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(_listas_de_reproduccion_perfil);

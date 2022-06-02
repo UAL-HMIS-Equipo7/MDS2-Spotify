@@ -17,8 +17,8 @@ export class VistaMenu_administracion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around;">
- <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 30%; justify-content: center;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around;" theme="spacing-s">
+ <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 90%; justify-content: center;">
   <vaadin-button id="busquedaB">
     Buscar 
   </vaadin-button>

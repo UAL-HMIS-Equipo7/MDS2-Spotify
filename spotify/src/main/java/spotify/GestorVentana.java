@@ -21,6 +21,9 @@ public class GestorVentana {
 	
 	public static void CambiarVentana(Component nuevaVentana) {
 		
+		nuevaVentana.getElement().getStyle().set("height", "100%");
+		nuevaVentana.getElement().getStyle().set("width", "100%");
+		
 		_historialVentanas[_index] = nuevaVentana;
 		
 		_layoutPrincipal.removeAll();

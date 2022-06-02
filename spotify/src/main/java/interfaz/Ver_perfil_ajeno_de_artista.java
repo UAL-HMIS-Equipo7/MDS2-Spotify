@@ -3,12 +3,14 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
 import basededatos.iActor_comun;
 import spotify.GestorActor;
 
+@CssImport("./styles/shared-styles.css")
 public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 //	private event _seguir_artista;
 	public Panel_artista _panel_artista;
@@ -30,6 +32,7 @@ public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 		}
 
 		_panel_artista = new Panel_artista(artista);
+		_panel_artista.setClassName("fullSize");
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(_panel_artista);
 

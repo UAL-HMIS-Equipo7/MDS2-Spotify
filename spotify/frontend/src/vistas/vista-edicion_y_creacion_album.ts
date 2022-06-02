@@ -18,7 +18,7 @@ export class VistaEdicion_y_creacion_album extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-evenly;">
- <label id="tituloL">Álbum</label>
+ <label id="tituloL" style="font-weight: bold;">Álbum</label>
  <label id="errorL">Mensaje de error correspondiente</label>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="max-width: 500px; max-height: 500px; "></vaadin-horizontal-layout>

@@ -31,18 +31,17 @@ public class Artistas_similares extends VistaArtistas_similares {
 		Scroller scroll = this.getNavegacionSB();
 		
 		Div div = new Div();
+		div.setClassName("divScroll350");
 		
 		HorizontalLayout tempHl = new HorizontalLayout();
-		tempHl.setHeight("100%");
-		tempHl.setWidth("98%");
+		tempHl.setClassName("hlCancionesLista");
 		
 		for (int i = 0; i < _list_Artista.size(); i++) {
 			if (i % 2 == 0 && i != 0) {
 				div.add(tempHl);
 				
 				tempHl = new HorizontalLayout();
-				tempHl.setHeight("100%");
-				tempHl.setWidth("98%");
+				tempHl.setClassName("hlCancionesLista");
 			}
 			
 			tempHl.add(_list_Artista.get(i));
@@ -60,7 +59,7 @@ public class Artistas_similares extends VistaArtistas_similares {
 		
 		for (int i = 0; i < artistas.length; i++) {
 			temp = new Foto_Artista(artistas[i]);
-			temp.setClassName("artistasSimilares");
+			temp.setClassName("max250");
 			temp.getNickB().setVisible(false);
 			
 			_list_Artista.add(temp);

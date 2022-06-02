@@ -17,8 +17,8 @@ export class VistaActor_comun extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: center;">
- <vaadin-vertical-layout id="LayoutCabecera" style="align-self: center; align-items: center; justify-content: center; width: 100%; height: 8%; background-color: WhiteSmoke; max-height: 8%;"></vaadin-vertical-layout>
- <vaadin-vertical-layout style="width: 100%; height: 80%; flex-shrink: 1; align-self: center; align-items: center; justify-content: space-around; overflow-y: scroll; max-height: 80%;" id="LayoutPrincipal">
+ <vaadin-vertical-layout id="LayoutCabecera" style="align-self: center; align-items: center; justify-content: center; width: 100%; height: 15%; background-color: WhiteSmoke; max-height: 15%;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout style="width: 100%; height: 78%; flex-shrink: 1; justify-content: space-around; overflow-y: scroll; max-height: 78%; align-self: center; align-items: center;" id="LayoutPrincipal">
   <vaadin-button id="verEstadisticasB" style="align-self: flex-end; margin: var(--lumo-space-m);">
     Estadísticas de uso 
   </vaadin-button>

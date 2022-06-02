@@ -18,7 +18,7 @@ export class VistaRealizar_busqueda extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;" id="vaadinVerticalLayout">
  <label id="mensajeL" style="align-self: center; margin: var(--lumo-space-s);">Se han encontrado los siguientes resultados</label>
  <label id="errorL" style="align-self: center; margin: var(--lumo-space-m);">No se han encontrado resultados</label>
- <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="justify-content: center; align-items: center;"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="justify-content: space-evenly; align-items: center; width: 100%; height: 100%; align-self: center;"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

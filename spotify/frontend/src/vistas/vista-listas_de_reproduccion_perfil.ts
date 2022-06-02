@@ -18,7 +18,7 @@ export class VistaListas_de_reproduccion_perfil extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around;">
  <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s); font-weight:bold;">Listas de reproducción</label>
- <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s); width: 90%; justify-content: center;">
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s); width: 50%; justify-content: center;">
   <vaadin-button id="anteriorB" style="margin-right: var(--lumo-space-m); width: 100%;">
     Anterior 
   </vaadin-button>

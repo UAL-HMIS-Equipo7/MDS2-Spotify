@@ -20,8 +20,8 @@ export class VistaCanciones_administrador extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Canciones</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-around; align-items: center;" id="vaadinVerticalLayout">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m); font-weight: bold;">Canciones</label>
  <vaadin-scroller id="navegacionSB" style="width: 100%; height: 100%; align-self: center;"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;

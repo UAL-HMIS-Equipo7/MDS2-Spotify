@@ -54,14 +54,14 @@ public class MainView extends VerticalLayout {
 //		getStyle().set("height", "100%");
 //		getStyle().set("padding", "0px");   
 //		getStyle().set("margin", "0px");
-    	
-    	getStyle().set("max-height", "100%");
-    	getStyle().set("max-width", "100%");
+//    	
+//    	getStyle().set("max-height", "100%");
+//    	getStyle().set("max-width", "100%");
     	
     	VerticalLayout layoutPrincipal = new VerticalLayout();
     	layoutPrincipal.getStyle().set("max-height", "100%");
     	layoutPrincipal.getStyle().set("max-width", "100%");
-//    	
+    	
 //    	layoutPrincipal.getStyle().set("width", "100%");   
 //    	layoutPrincipal.getStyle().set("height", "100%");
 //    	layoutPrincipal.getStyle().set("padding", "0px");   

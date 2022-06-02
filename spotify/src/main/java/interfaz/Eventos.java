@@ -32,16 +32,17 @@ public class Eventos extends VistaEventos {
 		Scroller scroll = this.getNavegacionSB();
 		
 		Div div = new Div();
+		div.setClassName("divScroll350");
 		
 		HorizontalLayout tempHl = new HorizontalLayout();
-		tempHl.setClassName("fullSize");
+		tempHl.setClassName("hlCancionesLista");
 		
 		for (int i = 0; i < _list_Evento.size(); i++) {
 			if (i % 2 == 0 && i != 0) {
 				div.add(tempHl);
 				
 				tempHl = new HorizontalLayout();
-				tempHl.setClassName("fullSize");
+				tempHl.setClassName("hlCancionesLista");
 			}
 			
 			tempHl.add(_list_Evento.get(i));
@@ -60,6 +61,7 @@ public class Eventos extends VistaEventos {
 		
 		for (int i = 0; i < eventos.length; i++) {
 			temp = new Evento(eventos[i], true);
+			temp.setClassName("max250");
 			
 			_list_Evento.add(temp);
 		}

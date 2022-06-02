@@ -15,10 +15,10 @@ export class VistaResultados_listas_de_reproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Listas de reproducción</label>
- <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s);" id="contenedorSuperior"></vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s);" id="contenedorInferior"></vaadin-horizontal-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-evenly;" theme="spacing-s">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m); font-weight: bold;">Listas de reproducción</label>
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-xs); width: 100%; height: 40%; align-self: center; align-items: center; justify-content: space-evenly;" id="contenedorSuperior"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s); width: 100%; height: 40%; align-self: center; align-items: center; justify-content: space-evenly;" id="contenedorInferior"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

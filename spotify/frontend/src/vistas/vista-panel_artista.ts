@@ -15,10 +15,10 @@ export class VistaPanel_artista extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="estiloL" style="align-self: center; margin: var(--lumo-space-s);">Estilo</label>
- <vaadin-horizontal-layout style="height: 48%; margin: var(--lumo-space-s); width: 98%; padding: var(--lumo-space-xs);" id="contenedorSuperior"></vaadin-horizontal-layout>
- <vaadin-horizontal-layout style="width: 98%; padding: var(--lumo-space-xs); height: 48%;" id="contenedorInferior"></vaadin-horizontal-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: center;" theme="spacing-s">
+ <label id="estiloL" style="align-self: center; margin: var(--lumo-space-s); font-weight: bold;">Estilo</label>
+ <vaadin-horizontal-layout style="height: 45%; width: 100%; align-self: center; align-items: center; justify-content: space-around;" id="contenedorSuperior"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout style="width: 100%; height: 45%; align-self: center; align-items: center; justify-content: space-around;" id="contenedorInferior"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

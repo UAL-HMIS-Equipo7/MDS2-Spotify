@@ -17,17 +17,17 @@ export class VistaVer_perfil_ajeno extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; margin: var(--lumo-space-xs);">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-  <vaadin-vertical-layout theme="spacing" style="align-items: center; margin: var(--lumo-space-m);">
-   <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="width: 30%; align-items: center; justify-content: center;"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-self: center; align-items: center;">
+  <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-m); width: 30%; height: 50%; align-items: center; justify-content: flex-start;">
+   <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="width: 90%; align-items: center; justify-content: center; height: 40%;"></vaadin-horizontal-layout>
    <label id="emailL">Email</label>
-   <label id="nickL">Nick</label>
+   <label id="nickL" style="font-weight: bold;">Nick</label>
    <vaadin-button id="seguirB">
      Seguir 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; margin: var(--lumo-space-m);" id="vaadinVerticalLayout">
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-evenly;">
+  <vaadin-vertical-layout theme="spacing-xs" style="width: 100%; height: 100%; margin: var(--lumo-space-s); align-self: center; align-items: center; justify-content: space-around;" id="vaadinVerticalLayout">
+   <vaadin-horizontal-layout style="width: 100%; align-items: center; justify-content: space-evenly; height: 5%; font-weight: bold;">
     <label id="seguidoresL">Seguidores: X</label>
     <label id="seguidosL">Seguidos: X</label>
    </vaadin-horizontal-layout>

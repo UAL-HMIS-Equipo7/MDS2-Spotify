@@ -18,7 +18,7 @@ export class VistaVer_lista_de_reproduccion extends LitElement {
     return html`
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; margin: var(--lumo-space-s);">
  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; margin: var(--lumo-space-s);">
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
+  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%;">
    <vaadin-button id="compartirB" style="width: 20%;">
      Compartir 
    </vaadin-button>
@@ -27,11 +27,11 @@ export class VistaVer_lista_de_reproduccion extends LitElement {
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 50%; height: 100%;">
-  <label id="informacionL" style="align-self: center;">Información de la lista</label>
+ <vaadin-vertical-layout theme="spacing" style="width: 25%; height: 100%;">
+  <label id="informacionL" style="align-self: center; font-weight: bold;">Información de la lista</label>
   <label id="tituloL" style="align-self: center;">Título</label>
   <vaadin-button id="autorB" style="align-self: center;">
-   Autor
+    Autor 
   </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>

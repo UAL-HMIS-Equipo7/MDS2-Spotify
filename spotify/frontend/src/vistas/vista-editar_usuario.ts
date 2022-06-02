@@ -18,7 +18,7 @@ export class VistaEditar_usuario extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around; padding: var(--lumo-space-s);">
- <label id="tituloL">Usuario Registrado</label>
+ <label id="tituloL" style="font-weight: bold;">Usuario Registrado</label>
  <label id="errorL">Mensaje de error correspondiente</label>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="max-width: 500px; max-height: 500px;"></vaadin-horizontal-layout>

@@ -15,10 +15,10 @@ export class VistaResultados_canciones extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Canciones</label>
- <vaadin-horizontal-layout theme="spacing" id="contenedorSuperior" style="align-items: center; justify-content: center;"></vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" id="contenedorInferior" style="align-items: center; justify-content: center;"></vaadin-horizontal-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around;" theme="spacing-s">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m); font-weight: bold;">Canciones</label>
+ <vaadin-horizontal-layout theme="spacing" id="contenedorSuperior" style="align-items: center; justify-content: space-evenly; width: 100%; height: 40%; margin: var(--lumo-space-xs); align-self: center;"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" id="contenedorInferior" style="align-items: center; justify-content: space-evenly; width: 100%; height: 40%; margin: var(--lumo-space-xs); align-self: center;"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

@@ -2,6 +2,7 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
@@ -12,6 +13,7 @@ import basededatos.iActor_comun;
 import interfaz.Cancion;
 import vistas.VistaCanciones_mas_exitosas;
 
+@CssImport("./styles/shared-styles.css")
 public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 //	private Label _tituloL;
 //	private ScrollBar _navegacionSB;
@@ -29,19 +31,22 @@ public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 		
 		Scroller scroll = this.getNavegacionSB();
 		
-		//Testing elements
 		Div div = new Div();
+		div.setClassName("divScroll350");
 		
 		HorizontalLayout tempHl = new HorizontalLayout();
+		tempHl.setClassName("hlCancionesLista");
 		
 		for (int i = 0; i < _list_Cancion.size(); i++) {
 			if (i % 2 == 0 && i != 0) {
 				div.add(tempHl);
 				
 				tempHl = new HorizontalLayout();
+				tempHl.setClassName("hlCancionesLista");
 			}
 			
 			tempHl.add(_list_Cancion.get(i));
+			
 		}
 		
 		div.add(tempHl);
@@ -57,6 +62,7 @@ public class Canciones_mas_exitosas extends VistaCanciones_mas_exitosas {
 		
 		for (int i = 0; i < canciones.length; i++) {
 			temp = new Cancion(canciones[i]);
+			temp.setClassName("max250");
 			
 			_list_Cancion.add(temp);
 		}

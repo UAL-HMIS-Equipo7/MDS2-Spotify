@@ -19,7 +19,7 @@ export class VistaEdicion_y_creacion_artista extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-around; align-items: center; padding: var(--lumo-space-s);">
- <label id="tituloL">Artista</label>
+ <label id="tituloL" style="font-weight: bold;">Artista</label>
  <label id="errorL">Mensaje de error correspondiente</label>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="max-width: 500px; max-height: 500px;"></vaadin-horizontal-layout>

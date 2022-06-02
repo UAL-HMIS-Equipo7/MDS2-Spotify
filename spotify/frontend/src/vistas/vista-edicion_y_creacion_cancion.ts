@@ -19,7 +19,7 @@ export class VistaEdicion_y_creacion_cancion extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-evenly; padding: var(--lumo-space-s);">
- <label id="tituloCancionL">Canción</label>
+ <label id="tituloCancionL" style="font-weight: bold;">Canción</label>
  <label id="errorL">Mensaje de error correspondiente</label>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-vertical-layout theme="spacing" style="align-self: center; align-items: center;">

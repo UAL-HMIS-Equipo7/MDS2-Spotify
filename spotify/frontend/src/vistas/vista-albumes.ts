@@ -20,9 +20,9 @@ export class VistaAlbumes extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Álbumes</label>
- <vaadin-scroller style="align-self: center;" id="vaadinScroller"></vaadin-scroller>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-evenly;">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m); font-weight: bold;">Álbumes</label>
+ <vaadin-scroller style="align-self: center; width: 100%; height: 90%;" id="vaadinScroller"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;
   }
