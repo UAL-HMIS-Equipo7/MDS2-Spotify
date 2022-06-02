@@ -112,27 +112,29 @@ public class Registrarse extends VistaRegistrarse {
 	public boolean Validar_datos_de_registro() {
 		//VALIDAR
 		boolean correcto = true;
-		int contador = 0;
+		
+		int especiales = 0;
 		int mayuscula = 0;
 		int minuscula = 0;
 		
 		for(char c : this.getContraseniaTF().getValue().toCharArray()) {
 			if(c == '!' || c == '@' || c == '#' || c == '$' || c == '%' || c == '&' )
-				contador++;
-		}
-		
-		for(int i = 0; i<this.getContraseniaTF().getValue().length();i++) {
-			if(Character.isUpperCase(this.getContraseniaTF().getValue().charAt(i)))
+				especiales++;
+			
+			if(Character.isUpperCase(c))
 				mayuscula++;
-		}
-		
-		for(int i = 0; i<this.getContraseniaTF().getValue().length();i++) {
-			if(Character.isLowerCase(this.getContraseniaTF().getValue().charAt(i)))
+			
+			if(Character.isLowerCase(c))
 				minuscula++;
 		}
 		
-		if(this.getNickTF().getValue().isBlank() || this.getEmailTF().getValue().isBlank() || this.getContraseniaTF().getValue().isBlank() || this.getRepiteContraseniaTF().getValue().isBlank() || this.getContraseniaTF().getValue().length() < 10 || contador < 3 || this.getRepiteContraseniaTF().getValue().compareTo(this.getContraseniaTF().getValue())!= 0  || mayuscula < 0 || minuscula < 0)
+		if(this.getNickTF().getValue().isBlank() || this.getEmailTF().getValue().isBlank() || 
+			this.getContraseniaTF().getValue().isBlank() || this.getRepiteContraseniaTF().getValue().isBlank() ||
+			this.getContraseniaTF().getValue().length() < 10 || especiales < 3 || 
+			this.getRepiteContraseniaTF().getValue().compareTo(this.getContraseniaTF().getValue())!= 0  ||
+			mayuscula < 0 || minuscula < 0)
 			correcto = false;
+		
 		return correcto;
 	}
 }
