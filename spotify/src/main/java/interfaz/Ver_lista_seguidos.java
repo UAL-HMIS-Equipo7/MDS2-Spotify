@@ -20,7 +20,9 @@ public class Ver_lista_seguidos extends VistaVer_lista_seguidos {
 		_artistas = new Artistas(1, usuario);
 		
 		VerticalLayout vlizq = new VerticalLayout();
+		vlizq.setClassName("divScroll500");
 		VerticalLayout vlder = new VerticalLayout();
+		vlder.setClassName("divScroll500");
 		HorizontalLayout hl = new HorizontalLayout();
 		
 		vlizq.add(_usuarios);

@@ -16,17 +16,17 @@ export class VistaListas_de_reproduccion_perfil extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: center;">
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Listas de reproducción</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: space-around;">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s); font-weight:bold;">Listas de reproducción</label>
  <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-s); width: 90%; justify-content: center;">
-  <vaadin-button id="anteriorB" style="margin-right: var(--lumo-space-m);">
+  <vaadin-button id="anteriorB" style="margin-right: var(--lumo-space-m); width: 100%;">
     Anterior 
   </vaadin-button>
-  <vaadin-button id="siguienteB" style="margin-left: var(--lumo-space-m);">
+  <vaadin-button id="siguienteB" style="margin-left: var(--lumo-space-m); width: 100%;">
     Siguiente 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" id="contenedor" style="width: 90%;"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" id="contenedor" style="width: 90%; height: 70%; align-items: center; justify-content: center; margin: var(--lumo-space-s);"></vaadin-horizontal-layout>
  <vaadin-button id="crearListaB" style="align-self: center;">
    Crear Lista 
  </vaadin-button>

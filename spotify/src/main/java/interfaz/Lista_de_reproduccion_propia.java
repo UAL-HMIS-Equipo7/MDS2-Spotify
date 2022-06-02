@@ -32,7 +32,8 @@ public class Lista_de_reproduccion_propia extends VistaLista_de_reproduccion_pro
 					canciones[0].getFicheroMultimediaAltaCalidadRuta());
 		}
 		
-		vl.setClassName("max350");
+		img.setClassName("max350");
+		
 		vl.add(img);
 		
 		vl.addClickListener(new ComponentEventListener<ClickEvent<VerticalLayout>>() {

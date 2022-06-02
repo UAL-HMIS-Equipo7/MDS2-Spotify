@@ -38,7 +38,7 @@ public class Ver_perfil_propio extends VistaVer_perfil_propio {
 		_usuario = usuario;
 		
 		_fotoImg = new Image(GestorArchivos.CargarImagen(_usuario.getFotoRuta()), _usuario.getFotoRuta());
-		_fotoImg.setClassName("max350");
+		_fotoImg.setClassName("max500");
 		getFotoImgLayout().add(_fotoImg);
 		
 		this.getEmailL().setText(_usuario.getDatos().getEmail());

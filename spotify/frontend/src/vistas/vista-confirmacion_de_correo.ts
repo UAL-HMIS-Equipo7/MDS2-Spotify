@@ -21,7 +21,7 @@ export class VistaConfirmacion_de_correo extends LitElement {
  <vaadin-button id="atrasB" style="align-self: flex-start; margin: var(--lumo-space-m);">
    Atrás 
  </vaadin-button>
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-xl);">Verificación de Código</label>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-xl); font-weight: bold;">Verificación de Código</label>
  <vaadin-vertical-layout theme="spacing" style="height: 60%; justify-content: center; align-self: center;">
   <vaadin-text-field label="" placeholder="Introduzca el código" id="codigoTF" style="align-self: center;"></vaadin-text-field>
   <label id="errorL" style="align-self: center;">Error Correspondiente</label>

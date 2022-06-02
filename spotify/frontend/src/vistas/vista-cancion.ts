@@ -16,8 +16,8 @@ export class VistaCancion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; padding: var(--lumo-space-m);">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: center;">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; padding: var(--lumo-space-m); align-items: center; justify-content: center;">
   <vaadin-horizontal-layout theme="spacing" id="cancionImgLayout" style="width: 80%; height: 80%; align-self: center;"></vaadin-horizontal-layout>
   <vaadin-button id="tituloB" style="align-self: center; width: 20%;">
     Título 

@@ -2,6 +2,7 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -11,6 +12,7 @@ import basededatos.iActor_comun;
 import interfaz.Cancion;
 import vistas.VistaUltimas_canciones_reproducidas;
 
+@CssImport("./styles/shared-styles.css")
 public class Ultimas_canciones_reproducidas extends VistaUltimas_canciones_reproducidas {
 //	private Label _tituloL;
 	public Vector<Cancion> _list_Cancion = new Vector<Cancion>();
@@ -45,6 +47,7 @@ public class Ultimas_canciones_reproducidas extends VistaUltimas_canciones_repro
 		
 		for (int i = 0; i < 10 && i < canciones.length; i++) {
 			temp = new Cancion(canciones[i]);
+			temp.setClassName("max250");
 			
 			_list_Cancion.add(temp);
 		}

@@ -21,6 +21,21 @@ public class Reproductor__Cibernauta_ extends Reproductor {
 		this.getTituloL().setVisible(true);
 		this.getCreditosB().setVisible(true);
 		
+		this.getCreditosB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				Dialog ventanaModal = new Dialog();
+				
+				_creditos = new Creditos(ventanaModal, _cancion);
+				
+				ventanaModal.add(_creditos);
+				ventanaModal.open();
+				
+			}
+		});
+		
 		CargarCancion();
 	}
 	
@@ -36,20 +51,7 @@ public class Reproductor__Cibernauta_ extends Reproductor {
 			this.getTituloL().setText(_cancion.getTitulo());
 			this.getTituloL().setVisible(true);
 			this.getCreditosB().setEnabled(true);
-			this.getCreditosB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-				
-				@Override
-				public void onComponentEvent(ClickEvent<Button> event) {
-					
-					Dialog ventanaModal = new Dialog();
-					
-					_creditos = new Creditos(ventanaModal, _cancion);
-					
-					ventanaModal.add(_creditos);
-					ventanaModal.open();
-					
-				}
-			});
+			
 		}
 	}
 }

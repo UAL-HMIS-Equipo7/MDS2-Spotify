@@ -7,6 +7,7 @@ import java.util.Vector;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -17,6 +18,7 @@ import interfaz.Lista_de_reproduccion_ajena;
 import interfaz.Lista_de_reproduccion_propia;
 import spotify.GestorActor;
 
+@CssImport("./styles/shared-styles.css")
 public class Listas_de_reproduccion_perfil extends VistaListas_de_reproduccion_perfil {
 //	private event _cambiar_listas_por_pagina;
 //	private Label _tituloL;
@@ -147,6 +149,7 @@ public class Listas_de_reproduccion_perfil extends VistaListas_de_reproduccion_p
 					continue;
 				
 				temp = new Lista_de_reproduccion_propia(listas[i]);
+				temp.setClassName("max250");
 				
 				_list_Lista_de_reproduccion_propia.add(temp);
 			}
@@ -161,6 +164,7 @@ public class Listas_de_reproduccion_perfil extends VistaListas_de_reproduccion_p
 					continue;
 				
 				temp = new Lista_de_reproduccion_ajena(listas[i]);
+				temp.setClassName("max250");
 				
 				_list_Lista_de_reproduccion_ajena.add(temp);
 			}

@@ -42,7 +42,7 @@ public class Listas_recomendadas extends VistaListas_recomendadas {
 				continue;
 			
 			temp = new Lista_de_reproduccion_ajena(listas[i]);
-			temp.setClassName("fullSize");
+			temp.setClassName("max250");
 			
 			_list_Lista_de_reproduccion_ajena.add(temp);
 		}

@@ -2,6 +2,7 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
@@ -12,6 +13,7 @@ import interfaz.Album;
 import spotify.GestorActor;
 import vistas.VistaAlbumes_recomendados;
 
+@CssImport("./styles/shared-styles.css")
 public class Albumes_recomendados extends VistaAlbumes_recomendados {
 	public Vector<Album> _list_Album = new Vector<Album>();
 
@@ -36,7 +38,7 @@ public class Albumes_recomendados extends VistaAlbumes_recomendados {
 		
 		for (int i = 0; i < 4 && i < albumes.length; i++) {
 			temp = new Album(albumes[i]);
-			temp.getElement().setAttribute("align-self", "center");
+			temp.setClassName("max250");
 			
 			_list_Album.add(temp);
 		}

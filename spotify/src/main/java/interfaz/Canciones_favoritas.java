@@ -5,6 +5,7 @@ import java.util.Vector;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -16,6 +17,7 @@ import interfaz.Cancion;
 import spotify.GestorVentana;
 import vistas.VistaCanciones_favoritas;
 
+@CssImport("./styles/shared-styles.css")
 public class Canciones_favoritas extends VistaCanciones_favoritas {
 //	private Label _tituloL;
 //	private Button _verMasB;
@@ -74,6 +76,7 @@ public class Canciones_favoritas extends VistaCanciones_favoritas {
 		
 		for (int i = 0; i < 10 && i < canciones.length; i++) {
 			temp = new Cancion(canciones[i]);
+			temp.setClassName("max250");
 			
 			_list_Cancion.add(temp);
 		}

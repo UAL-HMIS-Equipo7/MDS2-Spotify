@@ -45,16 +45,18 @@ public class Cibernauta extends VistaCibernauta {
 		hlSuperior.getStyle().set("heigth", "20%");
 		hlSuperior.getStyle().set("padding", "var(--lumo-space-l)");	
 		
-		Image fotoImg = new Image("https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU", "logo");
+		Image fotoImg = new Image("https://play-lh.googleusercontent.com/UrY7BAZ-XfXGpfkeWg0zCCeo-7ras4DCoRalC_WXXWTK9q5b0Iw7B0YQMsVxZaNB7DM", "logo");
 		fotoImg.getStyle().set("height", "100%");
 		fotoImg.getStyle().set("width", "100%");
-		fotoImg.getStyle().set("max-width", "150px");
+		fotoImg.getStyle().set("max-width", "125px");
+		fotoImg.getStyle().set("max-height", "125px");
 		
 		Label nombreAppL = new Label("Spotify");
 		nombreAppL.getStyle().set("width", "100%");
 		nombreAppL.getStyle().set("margin", "var(--lumo-space-l)");
 		nombreAppL.getStyle().set("text-align", "center");
 		nombreAppL.getStyle().set("font-size", "large");
+		nombreAppL.getStyle().set("font-weight", "bold");
 		
 		Button iniciarSesionB = new Button("Iniciar Sesión");
 		iniciarSesionB.getStyle().set("width", "300px");

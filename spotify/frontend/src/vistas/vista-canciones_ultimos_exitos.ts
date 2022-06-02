@@ -21,8 +21,8 @@ export class VistaCanciones_ultimos_exitos extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-m);">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-items: center;" id="contenedorSuperior"></vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-items: center;" id="contenedorInferior"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-items: center; justify-content: center; align-self: center;" id="contenedorSuperior"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-items: center; justify-content: center; align-self: center;" id="contenedorInferior"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

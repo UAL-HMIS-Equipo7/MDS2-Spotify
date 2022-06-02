@@ -21,7 +21,7 @@ export class VistaReproductor extends LitElement {
   <vaadin-button id="tituloB">
     TituloCancion 
   </vaadin-button>
-  <label id="tituloL" style="align-self: center;">TituloCancion</label>
+  <label id="tituloL" style="align-self: center; font-weight: bold;">TituloCancion</label>
   <vaadin-button id="creditosB">
     Créditos 
   </vaadin-button>

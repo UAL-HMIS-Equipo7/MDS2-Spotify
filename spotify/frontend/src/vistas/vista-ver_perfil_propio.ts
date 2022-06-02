@@ -17,11 +17,11 @@ export class VistaVer_perfil_propio extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-between;">
-  <vaadin-vertical-layout theme="spacing" style="align-items: center; margin: var(--lumo-space-m); padding: var(--lumo-space-m);" id="contenedorIzquierdo">
-   <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="width: 30%;"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-items: center; justify-content: center;">
+  <vaadin-vertical-layout theme="spacing" style="align-items: center; margin: var(--lumo-space-m); padding: var(--lumo-space-m); height: 100%; justify-content: space-between; width: 30%;" id="contenedorIzquierdo">
+   <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="width: 90%; height: 40%;"></vaadin-horizontal-layout>
    <label id="emailL">Email</label>
-   <label id="nickL">Nick</label>
+   <label id="nickL" style="font-weight: bold;">Nick</label>
    <vaadin-button id="modificarInformacionB">
      Modificar Información 
    </vaadin-button>
@@ -32,8 +32,8 @@ export class VistaVer_perfil_propio extends LitElement {
      Añadir información de conciertos 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-m); align-items: center;" id="contenedorDerecho">
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-around;">
+  <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-m); width: 60%; height: 100%; justify-content: space-between; align-items: center;" id="contenedorDerecho">
+   <vaadin-horizontal-layout style="width: 100%; height: 30%; align-items: center; justify-content: space-around;">
     <vaadin-button id="seguidoresB">
       Seguidores: X 
     </vaadin-button>

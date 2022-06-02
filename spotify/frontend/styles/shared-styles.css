@@ -108,6 +108,20 @@
 	height: 100%;
 }
 
+.max250 {
+	max-width: 250px; 
+	max-height: 250px; 
+	width: 100%; 
+	height: 100%;
+}
+
+.max500 {
+	max-width: 500px; 
+	max-height: 500px; 
+	width: 100%; 
+	height: 100%;
+}
+
 .cancion {
  	max-width: 350px;
  	max-height: 350px;
@@ -118,5 +132,10 @@
 .divScroll350 {
 	overflow-y: scroll;
 	max-height: 350px;
+}
+
+.divScroll500{
+	overflow-y: scroll;
+	max-height: 500px;
 }
 

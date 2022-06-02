@@ -16,15 +16,15 @@ export class VistaCabecera_superior extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="margin: var(--lumo-space-xs); justify-content: center; align-items: center;">
- <img id="inicioB" style="width: 10%; height: 10%; margin: var(--lumo-space-xs);" src="https://cdn.pixabay.com/photo/2013/07/12/15/53/home-150499_960_720.png">
+<vaadin-horizontal-layout class="content" style="justify-content: space-between; align-items: center; margin: var(--lumo-space-xs);">
+ <img id="inicioB" style="width: 10%; height: 10%; max-width: 125px; max-height: 125px;" src="https://play-lh.googleusercontent.com/UrY7BAZ-XfXGpfkeWg0zCCeo-7ras4DCoRalC_WXXWTK9q5b0Iw7B0YQMsVxZaNB7DM">
  <label id="telefonoL" style="margin: var(--lumo-space-xs);">900900900</label>
  <vaadin-button id="contactoB" style="margin: var(--lumo-space-xs);">
-  Contactar
+   Contactar 
  </vaadin-button>
- <img id="buscarB" style="width: 7%; height: 8%; margin: var(--lumo-space-xs);" src="http://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png">
+ <img id="buscarB" style="width: 7%; height: 8%; margin: var(--lumo-space-xs); max-width: 75px; max-height: 75px;" src="https://github.com/mdmontesinos/MDS2-Spotify/blob/master/spotify/src/main/webapp/img/buscar-lupa.png?raw=true">
  <vaadin-text-field label="" placeholder="Buscar" id="buscarTF" style="width: 15%; margin: var(--lumo-space-xs);"></vaadin-text-field>
- <img style="width: 15%; height: 15%; margin: var(--lumo-space-xs);" src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&amp;quality=20" id="perfilImg">
+ <img style="width: 15%; height: 15%; margin: var(--lumo-space-xs); max-width: 125px; max-height: 125px;" src="https://github.com/mdmontesinos/MDS2-Spotify/blob/master/spotify/src/main/webapp/img/icono-perfil.png?raw=true" id="perfilImg">
  <vaadin-button id="verPerfilUsuarioB" style="margin: var(--lumo-space-xs);">
    Ver perfil 
  </vaadin-button>

@@ -76,6 +76,6 @@ public class MainView extends VerticalLayout {
     	basededatos.Administrador admin = (Administrador) bd.Iniciar_Sesion("admin@gmail.com", "admin");
     	GestorActor.Administrador(admin);
     	
-    	//GestorActor.Cibernauta();
+//    	GestorActor.Cibernauta();
     }
 }

@@ -15,9 +15,9 @@ export class VistaUltimas_canciones_reproducidas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Últimas Canciones Reproducidas</label>
- <vaadin-vertical-layout theme="spacing" style="height: 70%; justify-content: space-evenly;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-around;">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m); font-weight: bold;">Últimas Canciones Reproducidas</label>
+ <vaadin-vertical-layout style="justify-content: space-around; align-items: center; align-self: center; height: 100%; margin: var(--lumo-space-s); width: 100%;">
   <vaadin-horizontal-layout theme="spacing" id="contenedorSuperior" style="align-items: center; justify-content: center; align-self: center;"></vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" id="contenedorInferior" style="align-self: center; align-items: center; justify-content: center;"></vaadin-horizontal-layout>
  </vaadin-vertical-layout>

@@ -14,7 +14,7 @@ export class VistaLista_de_reproduccion_propia extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-s);" id="contenedor"></vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-s); align-items: center; justify-content: center;" id="contenedor"></vaadin-vertical-layout>
 `;
   }
 

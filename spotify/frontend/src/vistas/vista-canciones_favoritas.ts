@@ -16,13 +16,13 @@ export class VistaCanciones_favoritas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Canciones Favoritas</label>
- <vaadin-vertical-layout theme="spacing" style="height: 70%; align-self: center; justify-content: space-evenly;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-around;">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m); font-weight: bold;">Canciones Favoritas</label>
+ <vaadin-vertical-layout style="height: 100%; align-self: center; justify-content: space-around; align-items: center; margin: var(--lumo-space-s); width: 100%;">
   <vaadin-horizontal-layout theme="spacing" id="contenedorSuperior" style="align-self: center; align-items: center; justify-content: center;"></vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" id="contenedorInferior" style="align-self: center; align-items: center; justify-content: center;"></vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-button id="verMasB" style="align-self: flex-end;">
+ <vaadin-button id="verMasB" style="align-self: flex-end; margin: var(--lumo-space-s);">
    Ver más 
  </vaadin-button>
 </vaadin-vertical-layout>

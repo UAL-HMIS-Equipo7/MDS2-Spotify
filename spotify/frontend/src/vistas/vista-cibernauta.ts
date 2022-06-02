@@ -17,14 +17,14 @@ export class VistaCibernauta extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center; align-items: center;" id="LayoutPrincipal">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 20%; padding: var(--lumo-space-l);">
-  <img id="fotoImg" style="width: 100%; height: 100%; max-width: 150px;" src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU">
-  <label id="nombreAppL" style="width: 100%; margin: var(--lumo-space-l); text-align: center; font-size:large;">Nombre App</label>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 20%; padding: var(--lumo-space-l); justify-content: space-between;">
+  <img id="fotoImg" style="width: 100%; height: 100%; max-width: 125px; max-height: 125px;" src="https://play-lh.googleusercontent.com/UrY7BAZ-XfXGpfkeWg0zCCeo-7ras4DCoRalC_WXXWTK9q5b0Iw7B0YQMsVxZaNB7DM">
+  <label id="nombreAppL" style="margin: var(--lumo-space-l); text-align: center; font-size:large;">Nombre App</label>
   <vaadin-button id="iniciarSesionB" style="width: 300px; max-width: 300px;">
     Iniciar Sesión 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 80%; flex-grow: 0; padding: var(--lumo-space-m);" id="vaadinHorizontalLayout"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 80%; flex-grow: 0; padding: var(--lumo-space-m); align-items: center; justify-content: center;" id="vaadinHorizontalLayout"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

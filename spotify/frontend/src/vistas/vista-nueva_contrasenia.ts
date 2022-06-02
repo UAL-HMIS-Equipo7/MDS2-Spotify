@@ -21,9 +21,9 @@ export class VistaNueva_contrasenia extends LitElement {
  <vaadin-button id="atrasB" style="align-self: flex-start; margin: var(--lumo-space-m);" src="">
    Atras 
  </vaadin-button>
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-l);">Nueva contraseña</label>
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-l); font-weight: bold;">Nueva contraseña</label>
  <vaadin-horizontal-layout theme="spacing" style="justify-content: center; align-self: center; height: 40%;">
-  <img id="contraseniaImg" style="align-self: center; max-width: 150px; max-height: 150px;" src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&amp;quality=20">
+  <img id="contraseniaImg" style="align-self: center; max-width: 150px; max-height: 150px;" src="https://github.com/mdmontesinos/MDS2-Spotify/blob/master/spotify/src/main/webapp/img/password.png?raw=true">
   <vaadin-vertical-layout theme="spacing" style="justify-content: center;">
    <vaadin-text-field placeholder="Introduzca nueva contraseña" id="contraseniaTF" style="flex-grow: 0; flex-shrink: 1;"></vaadin-text-field>
    <vaadin-text-field placeholder="Repita la nueva contraseña" id="repiteContraseniaTF" style="align-self: center;"></vaadin-text-field>

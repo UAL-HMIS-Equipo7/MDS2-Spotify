@@ -22,19 +22,19 @@ export class VistaIniciar_sesion extends LitElement {
  <vaadin-button id="atrasB" style="align-self: flex-start; margin: var(--lumo-space-m);">
    Atrás 
  </vaadin-button>
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Inicio de Sesión</label>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 30%; justify-content: center;">
-  <vaadin-vertical-layout theme="spacing" style="width: 30%; height: 100%; align-items: center;">
-   <vaadin-horizontal-layout theme="spacing">
-    <img id="emailImg" style="max-width: 100px;" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m); font-weight: bold">Inicio de Sesión</label>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 30%; justify-content: space-between;">
+  <vaadin-vertical-layout theme="spacing" style="width: 30%; height: 100%; justify-content: center; align-items: flex-end;">
+   <vaadin-horizontal-layout theme="spacing" style="align-items: center;">
+    <img id="emailImg" style="max-width: 100px;" src="https://github.com/mdmontesinos/MDS2-Spotify/blob/master/spotify/src/main/webapp/img/correo.png?raw=true">
     <vaadin-text-field placeholder="Email" id="emailTF" required></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing">
-    <img id="contraseniaImg" src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image-620x600.jpg" style="max-width: 100px;">
+    <img id="contraseniaImg" src="https://github.com/mdmontesinos/MDS2-Spotify/blob/master/spotify/src/main/webapp/img/password.png?raw=true" style="max-width: 100px;">
     <vaadin-password-field label="" placeholder="Contraseña" value="" id="contraseniaTF"></vaadin-password-field>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 10%; height: 100%; flex-grow: 0; align-items: center;">
+  <vaadin-vertical-layout theme="spacing" style="width: 10%; height: 100%; flex-grow: 0; align-items: center; justify-content: center;">
    <vaadin-button id="googleB">
      Google 
    </vaadin-button>

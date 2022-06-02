@@ -52,7 +52,6 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 								contenedor.remove(_editar_informacion_del_perfil_no_artista);
 								getNickL().setVisible(true);
 								getEmailL().setVisible(true);
-								getDarseBajaB().setVisible(true);
 								getModificarInformacionB().setVisible(true);
 							}
 						});
