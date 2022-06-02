@@ -811,4 +811,43 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		
 		return yaSeguido;
 	}
+
+	@Override
+	public basededatos.Administrador Obtener_Administrador(int aIdAdministrador) {
+		basededatos.Administrador admin = null;
+		
+		try {
+			admin = _bD_Administradores.Obtener_Administrador(aIdAdministrador);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return admin;
+	}
+
+	@Override
+	public basededatos.Artista Obtener_Artista(int aIdArtista) {
+		basededatos.Artista artista = null;
+		
+		try {
+			artista = _bD_Artistas.Obtener_Artista(aIdArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return artista;
+	}
+
+	@Override
+	public basededatos.Usuario_Registrado Obtener_Usuario(int aIdUsuario) {
+		basededatos.Usuario_Registrado usuario = null;
+		
+		try {
+			usuario = _bD_Usuarios_Registrados.Obtener_Usuario(aIdUsuario);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return usuario;
+	}
 }

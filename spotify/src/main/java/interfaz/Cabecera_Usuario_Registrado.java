@@ -5,6 +5,9 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iUsuario_Registrado;
+import spotify.GestorActor;
 import spotify.GestorVentana;
 
 public class Cabecera_Usuario_Registrado extends Cabecera_superior {
@@ -12,9 +15,11 @@ public class Cabecera_Usuario_Registrado extends Cabecera_superior {
 	
 	public Ver_perfil_propio__Usuario_Registrado_ _ver_perfil_propio__Usuario_Registrado_;
 	
-	public Cabecera_Usuario_Registrado(basededatos.Usuario_Registrado usuario) {
+	private iUsuario_Registrado bd = new BDPrincipal();
+	
+	public Cabecera_Usuario_Registrado() {
 
-		super(usuario);
+		super();
 		
 		this.getVerPerfilUsuarioB().setVisible(true);
 		
@@ -23,10 +28,18 @@ public class Cabecera_Usuario_Registrado extends Cabecera_superior {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				_ver_perfil_propio__Usuario_Registrado_ = new Ver_perfil_propio__Usuario_Registrado_(usuario);
-
-				GestorVentana.CambiarVentana(_ver_perfil_propio__Usuario_Registrado_);
+				Ver_perfil();
 			}
 		});
+	}
+	
+	@Override
+	public void Ver_perfil() {
+		
+		basededatos.Usuario_Registrado usuario = bd.Obtener_Usuario(GestorActor.getIdUsuario());
+		
+		_ver_perfil_propio__Usuario_Registrado_ = new Ver_perfil_propio__Usuario_Registrado_(usuario);
+		
+		GestorVentana.CambiarVentana(_ver_perfil_propio__Usuario_Registrado_);
 	}
 }

@@ -82,14 +82,12 @@ public class BD_Usuarios_Registrados {
 		return id_usuario;
 	}
 
-	public Usuario_Registrado Obtener_Usuario(int aIdDatosAcceso) throws PersistentException {
+	public Usuario_Registrado Obtener_Usuario(int aIdUsuario) throws PersistentException {
 		Usuario_Registrado usuario = null;
 		
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Datos_Acceso datos = Datos_AccesoDAO.getDatos_AccesoByORMID(aIdDatosAcceso);
-			
-			usuario = (Usuario_Registrado) datos.getUsuario();
+			usuario = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdUsuario);
 			
 			t.commit();
 		} catch (Exception e) {

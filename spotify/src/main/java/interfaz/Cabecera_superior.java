@@ -27,7 +27,7 @@ public class Cabecera_superior extends VistaCabecera_superior {
 	public Contactar_con_la_empresa _contactar_con_la_empresa;
 	public Realizar_busqueda _realizar_busqueda;
 	
-	public Cabecera_superior(Usuario_generico usuario) {
+	public Cabecera_superior() {
 		
 		this.getVerPerfilAdministradorB().setVisible(false);
 		this.getVerPerfilArtistaB().setVisible(false);
@@ -88,5 +88,10 @@ public class Cabecera_superior extends VistaCabecera_superior {
 
 	public void Cerrar_sesion() {
 		GestorActor.Cibernauta();
+	}
+	
+	public void Ver_perfil() {
+		//Overrideado
+		throw new UnsupportedOperationException();
 	}
 }

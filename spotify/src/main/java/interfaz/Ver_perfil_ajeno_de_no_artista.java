@@ -50,12 +50,24 @@ public class Ver_perfil_ajeno_de_no_artista extends Ver_perfil_ajeno {
 	public void Seguir_usuario() {
 		bd.Seguir_Usuario(GestorActor.getIdUsuario(), _usuario.getORMID());
 		_yaSeguido = true;
+		
+		int seguidores = Integer.parseInt(this.getSeguidoresL().getText().split(": ")[1]);
+		seguidores++;
+		
+		this.getSeguidoresL().setText("Seguidores: " + seguidores);
+		
 		this.getSeguirB().setText("Dejar de seguir");
 	}
 	
 	public void Dejar_De_Seguir_Usuario() {
 		bd.Dejar_De_Seguir_Usuario(GestorActor.getIdUsuario(), _usuario.getORMID());
 		_yaSeguido = false;
+		
+		int seguidores = Integer.parseInt(this.getSeguidoresL().getText().split(": ")[1]);
+		seguidores--;
+		
+		this.getSeguidoresL().setText("Seguidores: " + seguidores);
+		
 		this.getSeguirB().setText("Seguir");
 	}
 }

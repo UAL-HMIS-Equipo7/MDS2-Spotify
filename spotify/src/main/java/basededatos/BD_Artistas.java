@@ -30,9 +30,19 @@ public class BD_Artistas {
 		return artistas;
 	}
 
-	public Artista Obtener_Artista(int aIdDatosAcceso) {
-		//Hace falta si DatosAcceso ya tiene la referencia al usuario??
-		throw new UnsupportedOperationException();
+	public Artista Obtener_Artista(int aIdArtista) throws PersistentException {
+		Artista artista = null;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			artista = ArtistaDAO.getArtistaByORMID(aIdArtista);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return artista;
 	}
 
 	public void Actualizar_Foto_Perfil(int aIdArtista, String aNuevaFoto) throws PersistentException {
@@ -126,6 +136,7 @@ public class BD_Artistas {
 			
 			ArtistaCriteria criteria = new ArtistaCriteria();
 			criteria.estiloId.eq(estiloId);
+			criteria.id.ne(aIdArtista);
 			
 			artistasSimilares = ArtistaDAO.listArtistaByCriteria(criteria);
 			t.commit();

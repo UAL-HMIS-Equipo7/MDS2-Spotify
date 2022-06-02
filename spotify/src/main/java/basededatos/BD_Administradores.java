@@ -11,10 +11,20 @@ public class BD_Administradores {
 	public Vector<Administrador> _contiene_administradores = new Vector<Administrador>();
 	public BDPrincipal _bDPrincipal_admin;
 
-	public Administrador Obtener_Administrador(int aIdDatosAcceso) {
-		//Hace falta si DatosAcceso ya tiene la referencia al usuario??
+	public Administrador Obtener_Administrador(int aIdAdministrador) throws PersistentException {
 		
-		throw new UnsupportedOperationException();
+		Administrador admin = null;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			admin = AdministradorDAO.getAdministradorByORMID(aIdAdministrador);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return admin;
 	}
 
 	public void Actualizar_Perfil(int aIdAdministrador, String aNuevoEmail, String aNuevoNick) throws PersistentException {

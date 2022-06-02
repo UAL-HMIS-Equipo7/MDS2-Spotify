@@ -4,6 +4,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
@@ -43,7 +44,9 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 
-								_editar_informacion_del_perfil_no_artista.Validar_datos_de_perfil(); // bool?
+								if (!_editar_informacion_del_perfil_no_artista.Validar_datos_de_perfil()) {
+									Notification.show("Debe rellenar todos los campos");
+								}
 								_editar_informacion_del_perfil_no_artista.ActualizarPerfil();
 
 								contenedor.remove(_editar_informacion_del_perfil_no_artista);

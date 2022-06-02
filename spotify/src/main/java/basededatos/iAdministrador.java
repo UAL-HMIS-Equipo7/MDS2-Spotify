@@ -12,7 +12,7 @@ public interface iAdministrador extends iActor_comun {
 
 	public void Actualizar_Usuario(Usuario_Registrado aUsuario);
 
-	public int Crear_Cancion(String titulo, int idEstilo, String tituloAlbum, String compositores, String productores, String ficheroMultimediaRuta, String ficheroMultimediaAltaCalidadRuta, String interpretes);
+	public int Crear_Cancion(String aTitulo, int aIdEstilo, String aTituloAlbum, String aCompositores, String aProductores, String aFicheroMultimediaRuta, String aFicheroMultimediaAltaCalidadRuta, String interpretes);
 
 	public void Actualizar_Cancion(Cancion aCancion, String aTituloAlbum, String[] aInterpretes);
 
@@ -20,7 +20,7 @@ public interface iAdministrador extends iActor_comun {
 
 	public void Actualizar_Artista(Artista aArtista);
 
-	public int Crear_Estilo(String nombre);
+	public int Crear_Estilo(String aNombre);
 
 	public Cancion[] Cargar_Canciones_Administrador(String aParametrosBusqueda);
 
@@ -28,7 +28,7 @@ public interface iAdministrador extends iActor_comun {
 
 	public void Eliminar_Cancion(int aIdCancion);
 
-	public int Crear_Album(String titulo, String imagenRuta, String fechaEdicion, String[] listaArtistas, Cancion[] listaCanciones);
+	public int Crear_Album(String aTitulo, String aImagenRuta, String aFechaEdicion, String[] aListaArtistas, Cancion[] aListaCanciones);
 
 	public void Actualizar_Album(Album aAlbum, String[] aAutores);
 
@@ -38,7 +38,9 @@ public interface iAdministrador extends iActor_comun {
 	
 	public void Actualizar_Numero_Canciones_Reproducibles(int aIdAdministrador, int aNuevoValor);
 	
-	public int Cargar_Numero_Canciones_Mostradas(int idAdministrador);
+	public int Cargar_Numero_Canciones_Mostradas(int aIdAdministrador);
 	
-	public int Cargar_Numero_Canciones_Reproducibles(int idAdministrador);
+	public int Cargar_Numero_Canciones_Reproducibles(int aIdAdministrador);
+	
+	public Administrador Obtener_Administrador(int aIdAdministrador);
 }

@@ -25,7 +25,7 @@ public class Administrador extends Actor_comun {
 		
 		VerticalLayout vl = this.getLayoutCabecera().as(VerticalLayout.class);
 		
-		_cabecera_Administrador = new Cabecera_Administrador(administrador);
+		_cabecera_Administrador = new Cabecera_Administrador();
 		
 		_cabecera_Administrador.getInicioB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 
