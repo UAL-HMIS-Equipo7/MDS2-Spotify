@@ -22,6 +22,8 @@ public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 		
 		_artista = artista;
 		
+		Cargar_artista();
+		
 		Comprobar_artista_seguido();
 		
 		if (_yaSeguido) {
@@ -49,7 +51,13 @@ public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 				
 			}
 		});
-
+		
+		this.getSeguidoresL().setText("Seguidores: " + Integer.toString(_artista.seguidor.size()));
+		this.getSeguidosL().setText("Seguidos: " + Integer.toString(_artista.seguido.size()));
+	}
+	
+	public void Cargar_artista() {
+		_artista = bd.Obtener_Artista(_artista.getORMID());
 	}
 	
 	public void Comprobar_artista_seguido() {
@@ -59,12 +67,24 @@ public class Ver_perfil_ajeno_de_artista extends Ver_perfil_ajeno {
 	public void Seguir_artista() {
 		bd.Seguir_Artista(GestorActor.getIdUsuario(), _artista.getORMID());
 		_yaSeguido = true;
+		
+		int seguidores = Integer.parseInt(this.getSeguidoresL().getText().split(": ")[1]);
+		seguidores++;
+		
+		this.getSeguidoresL().setText("Seguidores: " + seguidores);
+		
 		this.getSeguirB().setText("Dejar de seguir");
 	}
 	
 	public void Dejar_de_seguir_artista() {
 		bd.Dejar_De_Seguir_Artista(GestorActor.getIdUsuario(), _artista.getORMID());
 		_yaSeguido = false;
+		
+		int seguidores = Integer.parseInt(this.getSeguidoresL().getText().split(": ")[1]);
+		seguidores--;
+		
+		this.getSeguidoresL().setText("Seguidores: " + seguidores);
+		
 		this.getSeguirB().setText("Seguir");
 	}
 }

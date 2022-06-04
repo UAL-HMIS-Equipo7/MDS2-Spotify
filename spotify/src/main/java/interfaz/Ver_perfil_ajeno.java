@@ -26,8 +26,6 @@ public class Ver_perfil_ajeno extends VistaVer_perfil_ajeno {
 		img.setClassName("max500");
 		getFotoImgLayout().add(img);
 		
-		this.getSeguidoresL().setText("Seguidores: " + Integer.toString(usuario.seguidor.size()));
-		this.getSeguidosL().setText("Seguidos: " + Integer.toString(usuario.seguido.size()));
 		this.getEmailL().setText(usuario.getDatos().getEmail());
 		this.getNickL().setText(usuario.getNick());
 		

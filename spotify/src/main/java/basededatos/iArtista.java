@@ -9,6 +9,4 @@ public interface iArtista extends iActor_comun {
 	public void Eliminar_Artista(int aIdArtista);
 
 	public Artista[] Cargar_Artistas_Similares(int aIdArtista);
-	
-	public Artista Obtener_Artista(int aIdArtista);
 }

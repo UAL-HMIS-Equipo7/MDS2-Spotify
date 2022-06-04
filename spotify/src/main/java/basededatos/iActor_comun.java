@@ -83,4 +83,8 @@ public interface iActor_comun {
 	public boolean Comprobar_Artista_Seguido(int aIdUsuarioGenerico, int aIdArtista);
 	
 	public boolean Comprobar_Usuario_Seguido(int aIdSeguidor, int aIdSeguido);
+	
+	public Artista Obtener_Artista(int aIdArtista);
+	
+	public Usuario_Registrado Obtener_Usuario(int aIdUsuario);
 }

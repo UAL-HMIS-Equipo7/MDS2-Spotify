@@ -20,6 +20,8 @@ public class Ver_perfil_ajeno_de_no_artista extends Ver_perfil_ajeno {
 		
 		_usuario = usuario;
 		
+		Cargar_usuario();
+		
 		Comprobar_usuario_seguido();
 		
 		if (_yaSeguido) {
@@ -40,7 +42,14 @@ public class Ver_perfil_ajeno_de_no_artista extends Ver_perfil_ajeno {
 					Seguir_usuario();
 				}
 			}
-		});		
+		});
+		
+		this.getSeguidoresL().setText("Seguidores: " + Integer.toString(_usuario.seguidor.size()));
+		this.getSeguidosL().setText("Seguidos: " + Integer.toString(_usuario.seguido.size()));
+	}
+	
+	public void Cargar_usuario() {
+		_usuario = bd.Obtener_Usuario(_usuario.getORMID());
 	}
 	
 	public void Comprobar_usuario_seguido() {
