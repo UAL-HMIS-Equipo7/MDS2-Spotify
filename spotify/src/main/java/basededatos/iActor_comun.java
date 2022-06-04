@@ -87,4 +87,6 @@ public interface iActor_comun {
 	public Artista Obtener_Artista(int aIdArtista);
 	
 	public Usuario_Registrado Obtener_Usuario(int aIdUsuario);
+	
+	public Cancion Obtener_Cancion(int aIdCancion);
 }

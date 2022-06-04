@@ -319,4 +319,19 @@ public class BD_Canciones {
 		
 		return esFavorita;
 	}
+	
+	public Cancion Obtener_Cancion(int aIdCancion) throws PersistentException {
+		Cancion cancion = null;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			cancion = CancionDAO.getCancionByORMID(aIdCancion);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return cancion;
+	}
 }

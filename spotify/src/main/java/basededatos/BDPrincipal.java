@@ -850,4 +850,17 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		
 		return usuario;
 	}
+
+	@Override
+	public Cancion Obtener_Cancion(int aIdCancion) {
+		basededatos.Cancion cancion = null;
+		
+		try {
+			cancion = _bD_Canciones.Obtener_Cancion(aIdCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return cancion;
+	}
 }

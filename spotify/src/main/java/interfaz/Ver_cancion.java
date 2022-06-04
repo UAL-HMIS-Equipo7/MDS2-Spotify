@@ -43,6 +43,8 @@ public class Ver_cancion extends VistaVer_cancion {
 		
 		_cancion = cancion;
 		
+		Cargar_cancion();
+		
 		Comprobar_si_favorita();
 		
 		Image img = new Image(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()),
@@ -105,6 +107,10 @@ public class Ver_cancion extends VistaVer_cancion {
 //			
 //		}
 
+	}
+	
+	public void Cargar_cancion() {
+		_cancion = bd.Obtener_Cancion(_cancion.getORMID());
 	}
 	
 	public void Cargar_Listas() {
