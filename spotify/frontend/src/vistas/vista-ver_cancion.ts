@@ -17,18 +17,18 @@ export class VistaVer_cancion extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 98%; align-self: center; align-items: center;">
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; align-items: center; justify-content: center;">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 98%; align-self: center; align-items: center; justify-content: center;">
   <vaadin-horizontal-layout theme="spacing" id="fotoCancionImgLayout" style="align-items: center; justify-content: center;"></vaadin-horizontal-layout>
-  <label id="tituloL" style="align-self: center;">TÍTULO</label>
+  <label id="tituloL" style="align-self: center; font-weight: bold;">TÍTULO</label>
   <vaadin-button id="aniadirFavoritosB" style="align-self: center;">
     Añadir a favoritos 
   </vaadin-button>
   <label id="aniadirListaL" style="align-self: center;">Añadir a lista de reproducción</label>
   <vaadin-combo-box id="aniadirListaB" style="align-self: center;"></vaadin-combo-box>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 98%; align-self: center;">
-  <label id="creditosTituloL" style="align-self: center;">Créditos</label>
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 98%; align-self: center; align-items: center; justify-content: center;">
+  <label id="creditosTituloL" style="align-self: center; font-weight: bold;">Créditos</label>
   <label id="creditosTituloCancionL" style="align-self: center;">Título</label>
   <label id="creditosTituloAlbumL" style="align-self: center;">Título del álbum</label>
   <label id="creditosCompositorL" style="align-self: center;">Compositor/es</label>

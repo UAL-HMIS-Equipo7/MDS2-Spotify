@@ -49,14 +49,19 @@ public class Ver_cancion extends VistaVer_cancion {
 		
 		Image img = new Image(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()),
 				_cancion.getFicheroMultimediaAltaCalidadRuta());
-		img.setClassName("cancion");
+		img.setClassName("max500");
 		getFotoCancionImgLayout().add(img);
 		
 		this.getTituloL().setText(_cancion.getTitulo());
-		this.getCreditosTituloCancionL().setText(_cancion.getTitulo());
-		this.getCreditosTituloAlbumL().setText(_cancion.getIncluida_en_albumes().getTitulo());
-		this.getCreditosCompositorL().setText(_cancion.getCompositores());
-		this.getCreditosProductorL().setText(_cancion.getProductores());
+		this.getCreditosTituloCancionL().setText("Título Canción: " + _cancion.getTitulo());
+		if (_cancion.getIncluida_en_albumes() != null) {
+			this.getCreditosTituloAlbumL().setText("Título Álbum: " + _cancion.getIncluida_en_albumes().getTitulo());
+		}
+		else {
+			this.getCreditosTituloAlbumL().setText("Título Álbum: --");
+		}
+		this.getCreditosCompositorL().setText("Compositores: " + _cancion.getCompositores());
+		this.getCreditosProductorL().setText("Productores: " + _cancion.getProductores());
 		
 		StringBuilder intepretes = new StringBuilder();
 		basededatos.Artista[] artistas = _cancion.intepretes.toArray();
@@ -65,13 +70,18 @@ public class Ver_cancion extends VistaVer_cancion {
 			intepretes.append(artistas[i].getNick() + ", ");
 		}
 		
-		this.getCreditosInterpreteL().setText(intepretes.toString());
+		this.getCreditosInterpreteL().setText("Intérpretes: " + intepretes.toString());
 		
 		basededatos.Estilo[] estilo = _cancion.estilos.toArray();
 		
-		this.getCreditoEstiloL().setText(estilo[0].getNombre());
+		if (estilo.length > 0) {
+			this.getCreditoEstiloL().setText("Estilo: " + estilo[0].getNombre());
+		}
+		else {
+			this.getCreditoEstiloL().setText("Estilo: --");
+		}
 		
-		this.getCreditosFicheroL().setText(_cancion.getFicheroMultimediaRuta());
+		this.getCreditosFicheroL().setText("Fichero: " + _cancion.getFicheroMultimediaRuta());
 		
 		if (_esFavorita) {
 			this.getAniadirFavoritosB().setText("Eliminar de favoritos");
