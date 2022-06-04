@@ -872,4 +872,13 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public void Eliminar_Lista_De_Reproduccion(int aIdLista) {
+		try {
+			_bD_Lista_de_reproduccion.Eliminar_Lista_De_Reproduccion(aIdLista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
 }

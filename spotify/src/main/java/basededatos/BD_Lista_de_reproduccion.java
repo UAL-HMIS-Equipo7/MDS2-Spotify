@@ -183,4 +183,18 @@ public class BD_Lista_de_reproduccion {
 		
 		return yaSeguida;
 	}
+	
+	public void Eliminar_Lista_De_Reproduccion(int aIdLista) throws PersistentException {
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.getLista_de_reproduccionByORMID(aIdLista);
+			
+			Lista_de_reproduccionDAO.delete(lista);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+	}
 }

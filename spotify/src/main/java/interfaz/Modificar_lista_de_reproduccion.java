@@ -6,6 +6,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iActor_comun;
 import spotify.GestorActor;
 import vistas.VistaModificar_lista_de_reproduccion;
 
@@ -17,7 +19,13 @@ public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_rep
 	
 	private VerticalLayout vl;
 	
+	iActor_comun bd = new BDPrincipal();
+	
+	basededatos.Lista_de_reproduccion _lista;
+	
 	public Modificar_lista_de_reproduccion(basededatos.Lista_de_reproduccion lista) {
+		
+		_lista = lista;
 		
 		vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
@@ -57,8 +65,8 @@ public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_rep
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				Eliminar_lista_de_reproduccion();
-				//Aqui devolver a la vista anterior
 				
+				GestorActor.RecargarActorActual();
 			}
 		});
 	}
@@ -73,6 +81,6 @@ public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_rep
 	}
 
 	public void Eliminar_lista_de_reproduccion() {
-		throw new UnsupportedOperationException();
+		bd.Eliminar_Lista_De_Reproduccion(_lista.getORMID());
 	}
 }
