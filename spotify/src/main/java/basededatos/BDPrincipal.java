@@ -863,4 +863,13 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		
 		return cancion;
 	}
+
+	@Override
+	public void Quitar_Cancion_Lista(int aIdCancion, int aIdLista) {
+		try {
+			_bD_Canciones.Quitar_Cancion_Lista(aIdCancion, aIdLista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
 }

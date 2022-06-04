@@ -1,12 +1,18 @@
 package interfaz;
 
+import java.util.List;
+import java.util.Set;
+import java.util.Vector;
 import java.util.stream.Collectors;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.checkbox.CheckboxGroup;
+import com.vaadin.flow.component.checkbox.CheckboxGroupVariant;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
@@ -36,8 +42,12 @@ public class Ver_cancion extends VistaVer_cancion {
 	iActor_comun bd = new BDPrincipal();
 	basededatos.Cancion _cancion;
 	basededatos.Lista_de_reproduccion[] _listas;
+	List<String> _nombresListas;
+	List<String> _listasSeleccionadas;
 	
 	boolean _esFavorita = false;
+	
+	int _idLista;
 	
 	public Ver_cancion(basededatos.Cancion cancion) {
 		
@@ -46,6 +56,8 @@ public class Ver_cancion extends VistaVer_cancion {
 		Cargar_cancion();
 		
 		Comprobar_si_favorita();
+		
+		Cargar_Listas();
 		
 		Image img = new Image(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()),
 				_cancion.getFicheroMultimediaAltaCalidadRuta());
@@ -105,18 +117,74 @@ public class Ver_cancion extends VistaVer_cancion {
 			}
 		});
 		
-
-		//Este método hay que rehacerlo
+		CheckboxGroup<String> listasCheckbox = this.getListasCB();
+		listasCheckbox.addThemeVariants(CheckboxGroupVariant.LUMO_VERTICAL);
 		
-//		for(int i=0; i<this.getAniadirListaB().getPageSize(); i++) {
-//			this.getAniadirListaB().getElement().addEventListener("click", e ->{
-//				
-//				Aniadir_cancion_a_lista_de_reproduccion(e);
-//				
-//			});
-//			
-//		}
+		_nombresListas = new Vector<String>(_listas.length);
+		_listasSeleccionadas = new Vector<String>();
+		
+		for (basededatos.Lista_de_reproduccion lista : _listas) {
+			if (lista.getPropietario_favorito() != null) {
+				continue;
+			}
+			
+			_nombresListas.add(lista.getTitulo());
+			
+			if (lista.canciones_incluidas.contains(_cancion)) {
+				_listasSeleccionadas.add(lista.getTitulo());
+			}
+		}
+		
+		listasCheckbox.setItems(_nombresListas);
+		listasCheckbox.select(_listasSeleccionadas);
 
+		listasCheckbox.addValueChangeListener(event -> 
+			Procesar_Evento_Lista(event.getValue(), event.getOldValue())
+		);
+	}
+	
+	private void Procesar_Evento_Lista(Set<String> actual, Set<String> old) {
+		
+		String[] arrActual = new String[actual.size()];
+		arrActual = actual.toArray(arrActual);
+		
+		boolean hayAniadida = false;
+		
+		for (int i = 0; i < arrActual.length; i++) {
+			if (_listasSeleccionadas.contains(arrActual[i])) {
+				continue;
+			}
+			else {
+				_idLista = _listas[_nombresListas.indexOf(arrActual[i])].getORMID();
+				Aniadir_cancion_a_lista_de_reproduccion();
+				_listasSeleccionadas.add(arrActual[i]);
+				hayAniadida = true;
+				
+				break;
+			}
+		}
+		
+		if (hayAniadida) {
+			return;
+		}
+		
+		int indexEliminado = -1;
+		
+		for (int i = 0; i < _listasSeleccionadas.size(); i++) {
+			if (actual.contains(_listasSeleccionadas.get(i))) {
+				continue;
+			}
+			else {
+				_idLista = _listas[_nombresListas.indexOf(_listasSeleccionadas.get(i))].getORMID();
+				Quitar_cancion_de_lista_de_reproduccion();
+				indexEliminado = i;
+				break;
+			}
+		}
+		
+		if (indexEliminado != -1) {
+			_listasSeleccionadas.remove(indexEliminado);
+		}
 	}
 	
 	public void Cargar_cancion() {
@@ -143,7 +211,11 @@ public class Ver_cancion extends VistaVer_cancion {
 		this.getAniadirFavoritosB().setText("Añadir a favoritos");
 	}
 
-	public void Aniadir_cancion_a_lista_de_reproduccion(int idLista) {
-		bd.Aniadir_cancion_a_lista(_cancion.getORMID(), idLista);
+	public void Aniadir_cancion_a_lista_de_reproduccion() {
+		bd.Aniadir_cancion_a_lista(_cancion.getORMID(), _idLista);
+	}
+	
+	public void Quitar_cancion_de_lista_de_reproduccion() {
+		bd.Quitar_Cancion_Lista(_cancion.getORMID(), _idLista);
 	}
 }

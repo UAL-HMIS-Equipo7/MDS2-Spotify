@@ -9,6 +9,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.checkbox.CheckboxGroup;
 
 /**
  * A Designer generated component for the vista-ver_cancion template.
@@ -19,6 +20,14 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @Tag("vista-ver_cancion")
 @JsModule("./src/vistas/vista-ver_cancion.ts")
 public class VistaVer_cancion extends LitTemplate {
+
+	public CheckboxGroup getListasCB() {
+		return listasCB;
+	}
+
+	public void setListasCB(CheckboxGroup listasCB) {
+		this.listasCB = listasCB;
+	}
 
 	public HorizontalLayout getFotoCancionImgLayout() {
 		return fotoCancionImgLayout;
@@ -42,22 +51,6 @@ public class VistaVer_cancion extends LitTemplate {
 
 	public void setAniadirFavoritosB(Button aniadirFavoritosB) {
 		this.aniadirFavoritosB = aniadirFavoritosB;
-	}
-
-	public Label getAniadirListaL() {
-		return aniadirListaL;
-	}
-
-	public void setAniadirListaL(Label aniadirListaL) {
-		this.aniadirListaL = aniadirListaL;
-	}
-
-	public ComboBox<String> getAniadirListaB() {
-		return aniadirListaB;
-	}
-
-	public void setAniadirListaB(ComboBox<String> aniadirListaB) {
-		this.aniadirListaB = aniadirListaB;
 	}
 
 	public Label getCreditosTituloL() {
@@ -128,10 +121,6 @@ public class VistaVer_cancion extends LitTemplate {
 	private Label tituloL;
 	@Id("aniadirFavoritosB")
 	private Button aniadirFavoritosB;
-	@Id("aniadirListaL")
-	private Label aniadirListaL;
-	@Id("aniadirListaB")
-	private ComboBox<String> aniadirListaB;
 	@Id("creditosTituloL")
 	private Label creditosTituloL;
 	@Id("creditosTituloCancionL")
@@ -150,6 +139,8 @@ public class VistaVer_cancion extends LitTemplate {
 	private Label creditoEstiloL;
 	@Id("fotoCancionImgLayout")
 	private HorizontalLayout fotoCancionImgLayout;
+	@Id("listasCB")
+	private CheckboxGroup listasCB;
 
 	/**
      * Creates a new VistaVer_cancion.

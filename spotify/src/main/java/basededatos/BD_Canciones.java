@@ -67,6 +67,25 @@ public class BD_Canciones {
 		}
 		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
+	
+	public void Quitar_Cancion_Lista(int aIdCancion, int aIdLista) throws PersistentException {
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.getLista_de_reproduccionByORMID(aIdLista);
+			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
+
+			if (lista.canciones_incluidas.contains(cancion)) {
+				lista.canciones_incluidas.remove(cancion);
+			}
+			
+			Lista_de_reproduccionDAO.save(lista);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+	}
 
 	public Cancion[] Cargar_Ultimas_Canciones_Reproducidas(int aIdUsuarioGenerico) throws PersistentException {
 		Cancion[] canciones = new Cancion[0];

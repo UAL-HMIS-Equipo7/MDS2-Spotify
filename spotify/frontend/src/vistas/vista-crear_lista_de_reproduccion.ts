@@ -18,7 +18,7 @@ export class VistaCrear_lista_de_reproduccion extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-m);">
- <label id="tituloL" style="align-self: center;">Lista de reproducción</label>
+ <label id="tituloL" style="align-self: center; font-weight: bold;">Lista de reproducción</label>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: center;">
   <label id="tituloListaL" style="align-self: center;">Título</label>
   <vaadin-text-field label="" id="tituloListaTF" style="align-self: center;">
