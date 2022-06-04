@@ -5,6 +5,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-imagen_estilos template.
@@ -16,16 +17,16 @@ import com.vaadin.flow.component.template.Id;
 @JsModule("./src/vistas/vista-imagen_estilos.ts")
 public class VistaImagen_estilos extends LitTemplate {
 
-    public Image getEstiloImg() {
-		return estiloImg;
+	public Element getContenedor() {
+		return contenedor;
 	}
 
-	public void setEstiloImg(Image estiloImg) {
-		this.estiloImg = estiloImg;
+	public void setContenedor(Element contenedor) {
+		this.contenedor = contenedor;
 	}
 
-	@Id("estiloImg")
-	private Image estiloImg;
+	@Id("contenedor")
+	private Element contenedor;
 
 	/**
      * Creates a new VistaImagen_estilos.

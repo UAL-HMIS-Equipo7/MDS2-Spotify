@@ -5,6 +5,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-imagen_artistas template.
@@ -16,16 +17,16 @@ import com.vaadin.flow.component.template.Id;
 @JsModule("./src/vistas/vista-imagen_artistas.ts")
 public class VistaImagen_artistas extends LitTemplate {
 
-    public Image getArtistaImg() {
-		return artistaImg;
+    public Element getContenedor() {
+		return contenedor;
 	}
 
-	public void setArtistaImg(Image artistaImg) {
-		this.artistaImg = artistaImg;
+	public void setContenedor(Element contenedor) {
+		this.contenedor = contenedor;
 	}
 
-	@Id("artistaImg")
-	private Image artistaImg;
+	@Id("contenedor")
+	private Element contenedor;
 
 	/**
      * Creates a new VistaImagen_artistas.

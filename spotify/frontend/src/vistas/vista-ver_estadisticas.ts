@@ -15,15 +15,15 @@ export class VistaVer_estadisticas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m);">Estadísticas de uso</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; justify-content: center;">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-m); font-weight: bold;">Estadísticas de uso</label>
  <vaadin-horizontal-layout theme="spacing" style="width: 90%; height: 100%; align-self: center; padding: var(--lumo-space-s);" id="vaadinHorizontalLayout">
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 40%; justify-content: center;">
-   <label id="tiempoTituloL" style="align-self: center;">Tiempo reproducido</label>
+  <vaadin-vertical-layout theme="spacing" style="width: 40%; height: 40%; justify-content: center;">
+   <label id="tiempoTituloL" style="align-self: center; font-weight: bold;">Tiempo reproducido</label>
    <label id="tiempoL" style="align-self: center;">0000000</label>
-   <label id="numCancionesTituloL" style="align-self: center;">Número de canciones reproducidas</label>
+   <label id="numCancionesTituloL" style="align-self: center; font-weight: bold;">Número de canciones reproducidas</label>
    <label id="numCancionesL" style="align-self: center;">000000</label>
-   <label id="numArtistasTituloL" style="align-self: center;">Número de artistas escuchados</label>
+   <label id="numArtistasTituloL" style="align-self: center; font-weight: bold;">Número de artistas escuchados</label>
    <label id="numArtistasL" style="align-self: center;">000000</label>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>

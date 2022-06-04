@@ -14,9 +14,7 @@ export class VistaImagen_estilos extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-s);">
- <img id="estiloImg" style="width: 100%; height: 100%;" src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&amp;quality=20">
-</vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-s); align-items: center; justify-content: center;" id="contenedor"></vaadin-vertical-layout>
 `;
   }
 
