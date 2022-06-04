@@ -50,8 +50,8 @@ public class BD_Usuarios_Registrados {
 			Datos_Acceso datos = Datos_AccesoDAO.getDatos_AccesoByORMID(aIdDatosAcceso);
 			
 			Usuario_Registrado usuario = Usuario_RegistradoDAO.createUsuario_Registrado();
-			usuario.setNick(aNick);
-			usuario.setFotoRuta(aFoto);
+			usuario.setNick(aNick.trim());
+			usuario.setFotoRuta(aFoto.trim());
 			usuario.setDatos(datos);
 			
 			Estadistica estadistica = EstadisticaDAO.createEstadistica();
@@ -170,8 +170,8 @@ public class BD_Usuarios_Registrados {
 			Usuario_Registrado usuario = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdUsuario);
 			Datos_Acceso datos = usuario.getDatos();
 			
-			datos.setEmail(aNuevoEmail);
-			usuario.setNick(aNuevoNick);
+			datos.setEmail(aNuevoEmail.trim());
+			usuario.setNick(aNuevoNick.trim());
 			
 			usuario.setDatos(datos);
 			

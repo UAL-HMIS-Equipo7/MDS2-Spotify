@@ -41,6 +41,12 @@ public class Editar_album extends VistaEditar_album {
 				
 				String[] autores = this.getArtistaTF().getValue().split(",");
 				
+				System.out.println("Autores TF: " + this.getArtistaTF().getValue());
+				
+				for (String autor : autores) {
+					System.out.println("Autor: " + autor);
+				}
+				
 				bd.Actualizar_Album(album, autores);
 			}
 		};

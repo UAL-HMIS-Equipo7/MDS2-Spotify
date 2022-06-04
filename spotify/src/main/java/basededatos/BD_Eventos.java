@@ -18,9 +18,9 @@ public class BD_Eventos {
 		try {
 			Evento evento = EventoDAO.createEvento();
 			Artista artista = ArtistaDAO.getArtistaByORMID(aIdArtista);
-			evento.setImagenRuta(imagenRuta);
+			evento.setImagenRuta(imagenRuta.trim());
 			evento.setFechaYHora(fechaYHora);
-			evento.setDescripcion(descripcion);
+			evento.setDescripcion(descripcion.trim());
 			evento.setPrecio(precio);
 			evento.setPublicado_por(artista);
 			id_evento = evento.getORMID();

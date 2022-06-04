@@ -11,7 +11,7 @@ public class BD_Estilos {
 	public BDPrincipal _bDPrincipal_estilos;
 	public Vector<Estilo> _contiene_eventos = new Vector<Estilo>();
 
-	public int Crear_Estilo(String nombre) throws PersistentException {
+	public int Crear_Estilo(String aNombre) throws PersistentException {
 		
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		int idEstilo = -1;
@@ -19,7 +19,7 @@ public class BD_Estilos {
 
 			Estilo estilo = EstiloDAO.createEstilo();
 			
-			estilo.setNombre(nombre);
+			estilo.setNombre(aNombre.trim());
 			
 			EstiloDAO.save(estilo);
 			idEstilo = estilo.getORMID();

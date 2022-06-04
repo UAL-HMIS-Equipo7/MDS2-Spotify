@@ -75,7 +75,8 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 			
 			this.getCreditosTituloTF().setValue(_cancion.getTitulo());
 			
-			this.getTituloAlbumTF().setValue(_cancion.getIncluida_en_albumes().getTitulo());
+			if (_cancion.getIncluida_en_albumes() != null)
+				this.getTituloAlbumTF().setValue(_cancion.getIncluida_en_albumes().getTitulo());
 			this.getCompositorTF().setValue(_cancion.getCompositores());
 			this.getProductorTF().setValue(_cancion.getProductores());
 			
@@ -213,7 +214,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 	public boolean Validar_datos_cancion() {
 		//VALIDACION
 		boolean correcto = true;
-		if(this.getTituloTF().getValue().isBlank() || this.getTituloAlbumTF().getValue().isBlank() || this.getCompositorTF().getValue().isBlank() || this.getProductorTF().getValue().isBlank() || _rutaFicheroMultimedia.isBlank() || _img.getSrc().isBlank() || this.getInterpreteTF().getValue().isBlank()) {
+		if(this.getTituloTF().getValue().isBlank() || this.getCompositorTF().getValue().isBlank() || this.getProductorTF().getValue().isBlank() || _rutaFicheroMultimedia.isBlank() || _img.getSrc().isBlank() || this.getInterpreteTF().getValue().isBlank()) {
 			correcto = false;
 		}
 		return correcto;

@@ -23,9 +23,9 @@ public class BD_Datos_Acceso {
 		try {
 
 			Datos_Acceso datos = Datos_AccesoDAO.createDatos_Acceso();
-			datos.setEmail(aEmail);
-			datos.setPassword(aContrasenia);
-			datos.setTipo(aTipoUsuario);
+			datos.setEmail(aEmail.trim());
+			datos.setPassword(aContrasenia.trim());
+			datos.setTipo(aTipoUsuario.trim());
 			datos.setNumeroIntentos(0);
 
 			Datos_AccesoDAO.save(datos);
@@ -41,12 +41,12 @@ public class BD_Datos_Acceso {
 
 	public void Actualizar_Contrasenia(String aEmail, String aNuevaContrasenia) throws PersistentException {
 		Datos_AccesoCriteria criteria = new Datos_AccesoCriteria();
-		criteria.email.eq(aEmail);
+		criteria.email.eq(aEmail.trim());
 		
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Datos_Acceso datos = Datos_AccesoDAO.loadDatos_AccesoByCriteria(criteria);
-			datos.setPassword(aNuevaContrasenia);
+			datos.setPassword(aNuevaContrasenia.trim());
 			Datos_AccesoDAO.save(datos);
 			t.commit();
 		} catch (Exception e) {
@@ -60,7 +60,7 @@ public class BD_Datos_Acceso {
 		Datos_Acceso datos = null;
 		
 		Datos_AccesoCriteria criteria = new Datos_AccesoCriteria();
-		criteria.email.like("%" + aEmail + "%");
+		criteria.email.like("%" + aEmail.trim() + "%");
 		
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
@@ -81,7 +81,7 @@ public class BD_Datos_Acceso {
 			if (datos != null) {
 				String password = datos.getPassword();
 				
-				if (!password.equals(aContrasenia)) {
+				if (!password.equals(aContrasenia.trim())) {
 					int intentos = datos.getNumeroIntentos();
 					intentos++;
 					

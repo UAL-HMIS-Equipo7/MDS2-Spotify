@@ -116,7 +116,7 @@ public class BD_Lista_de_reproduccion {
 			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenericoAutor);
 			
 			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.createLista_de_reproduccion();
-			lista.setTitulo(aTitulo);
+			lista.setTitulo(aTitulo.trim());
 			lista.setAutor(usuario);
 			Lista_de_reproduccionDAO.save(lista);
 			

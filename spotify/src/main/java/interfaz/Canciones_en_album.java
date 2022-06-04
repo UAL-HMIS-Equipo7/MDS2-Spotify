@@ -46,7 +46,7 @@ public class Canciones_en_album extends VistaCanciones_en_album {
 		_vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		_index = _list_Cancion_a_eliminar_album.size() - 1;
 		
-		if (_index > 0)
+		if (_index >= 0)
 			_vl.add(_list_Cancion_a_eliminar_album.elementAt(_index));
 		
 		this.getAnteriorB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

@@ -33,10 +33,10 @@ public class BD_Administradores {
 			Administrador admin = AdministradorDAO.getAdministradorByORMID(aIdAdministrador);
 			
 			Datos_Acceso datos = admin.getDatos();
-			datos.setEmail(aNuevoEmail);
+			datos.setEmail(aNuevoEmail.trim());
 			Datos_AccesoDAO.save(datos);
 			
-			admin.setNick(aNuevoNick);
+			admin.setNick(aNuevoNick.trim());
 			AdministradorDAO.save(admin);
 			
 			t.commit();

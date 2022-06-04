@@ -110,19 +110,20 @@ public class BD_Canciones {
 			AlbumCriteria criteria = new AlbumCriteria();
 			criteria.titulo.like("%" + tituloAlbum.trim().toLowerCase() + "%");
 			Album alb = AlbumDAO.loadAlbumByCriteria(criteria);
-			cancion.setTitulo(titulo);
-			cancion.setCompositores(compositores);
-			cancion.setFicheroMultimediaAltaCalidadRuta(ficheroMultimediaAltaCalidadRuta);
-			cancion.setFicheroMultimediaRuta(ficheroMultimediaRuta);
-			cancion.setProductores(productores);
+			cancion.setTitulo(titulo.trim());
+			cancion.setCompositores(compositores.trim());
+			cancion.setFicheroMultimediaAltaCalidadRuta(ficheroMultimediaAltaCalidadRuta.trim());
+			cancion.setFicheroMultimediaRuta(ficheroMultimediaRuta.trim());
+			cancion.setProductores(productores.trim());
 			cancion.estilos.add(estilo);
 			cancion.setIncluida_en_albumes(alb);
 			
 			String[] artistas = interpretes.split(",");
-			ArtistaCriteria criteriaArtista = new ArtistaCriteria();
+			ArtistaCriteria criteriaArtista;
 			
 			for (int i = 0; i < artistas.length; i++) {
-				criteriaArtista.nick.eqIgnoreCase(artistas[i]);
+				criteriaArtista = new ArtistaCriteria();
+				criteriaArtista.nick.like("%" + artistas[i].trim() + "%");
 				Artista artista = ArtistaDAO.loadArtistaByCriteria(criteriaArtista);
 				cancion.intepretes.add(artista);
 			}
@@ -140,7 +141,7 @@ public class BD_Canciones {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			AlbumCriteria criteriaAlbum = new AlbumCriteria();
-			criteriaAlbum.titulo.like("%" + aTituloAlbum + "%");
+			criteriaAlbum.titulo.like("%" + aTituloAlbum.trim() + "%");
 			
 			Album album = AlbumDAO.loadAlbumByCriteria(criteriaAlbum);
 			aCancion.setIncluida_en_albumes(album);
@@ -152,7 +153,7 @@ public class BD_Canciones {
 			
 			for (int i = 0; i < aInterpretes.length; i++) {
 				criteriaArtista = new ArtistaCriteria();
-				criteriaArtista.nick.like("%" + aInterpretes[i] + "%");
+				criteriaArtista.nick.like("%" + aInterpretes[i].trim() + "%");
 				
 				temp = ArtistaDAO.loadArtistaByCriteria(criteriaArtista);
 				

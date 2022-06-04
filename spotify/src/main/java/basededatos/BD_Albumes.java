@@ -99,20 +99,24 @@ public class BD_Albumes {
 		try {
 
 			Album alb = AlbumDAO.createAlbum();
-			alb.setTitulo(titulo);
-			alb.setImagenRuta(imagenRuta);
+			alb.setTitulo(titulo.trim());
+			alb.setImagenRuta(imagenRuta.trim());
 			alb.setFechaEdicion(fechaEdicion);
 			
-			ArtistaCriteria criteria = new ArtistaCriteria();
+			ArtistaCriteria criteria;
 			
 			for (String nombre : listaArtistas) {
-				criteria.nick.eqIgnoreCase(nombre);
+				criteria = new ArtistaCriteria();
+				criteria.nick.like("%" + nombre.trim() + "%");
 				Artista artista = ArtistaDAO.loadArtistaByCriteria(criteria);
 				alb.autores.add(artista);
 			}
 			
-			for (Cancion cancion :listaCanciones) {
-				alb.incluye_a.add(cancion);
+			Cancion cancionBD;
+			
+			for (Cancion cancion : listaCanciones) {
+				cancionBD = CancionDAO.getCancionByORMID(cancion.getORMID());
+				alb.incluye_a.add(cancionBD);
 			}
 
 			AlbumDAO.save(alb);
@@ -131,16 +135,23 @@ public class BD_Albumes {
 
 			aAlbum.autores.clear();
 			
-			basededatos.Artista temp;
-			ArtistaCriteria criteria;
+			ArtistaCriteria[] criterias = new ArtistaCriteria[aAutores.length];
 			
 			for (int i = 0; i < aAutores.length; i++) {
-				criteria = new ArtistaCriteria();
-				criteria.nick.like("%" + aAutores[i] + "%");
+				System.out.println("Artista: " + aAutores[i]);
+				ArtistaCriteria criteria = new ArtistaCriteria();
+				criteria.nick.like("%" + aAutores[i].trim() + "%");
 				
-				temp = ArtistaDAO.loadArtistaByCriteria(criteria);
+				criterias[i] = criteria;
+				
+			}
+			
+			for (int i = 0; i < criterias.length; i++) {
+				
+				basededatos.Artista temp = ArtistaDAO.loadArtistaByCriteria(criterias[i]);
 				
 				if (temp != null) {
+					System.out.println("Artista cargado: " + temp.getNick());
 					aAlbum.autores.add(temp);
 				}
 			}

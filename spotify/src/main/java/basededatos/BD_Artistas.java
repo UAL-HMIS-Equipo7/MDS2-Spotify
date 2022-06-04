@@ -50,7 +50,7 @@ public class BD_Artistas {
 		try {
 			Artista artista = ArtistaDAO.getArtistaByORMID(aIdArtista);
 			
-			artista.setFotoRuta(aNuevaFoto);
+			artista.setFotoRuta(aNuevaFoto.trim());
 			ArtistaDAO.save(artista);
 			
 			t.commit();
@@ -71,8 +71,8 @@ public class BD_Artistas {
 			Estilo estilo = EstiloDAO.getEstiloByORMID(aIdEstilo);
 			artista.setEstilo(estilo);
 			
-			artista.setFotoRuta(aFotoRuta);
-			artista.setNick(aNick);
+			artista.setFotoRuta(aFotoRuta.trim());
+			artista.setNick(aNick.trim());
 			artista.setDatos(dato);
 			dato.setUsuario(artista);
 			
