@@ -55,6 +55,26 @@ public class BD_Datos_Acceso {
 		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
+	//Propuesta Metodo Comprobacion
+	public boolean Comprobar_Email(String aEmail) throws PersistentException {
+		boolean existe = false;
+		Datos_AccesoCriteria criteria = new Datos_AccesoCriteria();
+		criteria.email.eq(aEmail.trim());
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Datos_Acceso datos = Datos_AccesoDAO.loadDatos_AccesoByCriteria(criteria);
+			if(datos.getEmail().contentEquals(aEmail)) {
+				existe = true;
+			}
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+		return existe;
+	}
 	public Datos_Acceso Realizar_Intento_Inicio_Sesion(String aEmail, String aContrasenia) throws PersistentException {
 		
 		Datos_Acceso datos = null;
