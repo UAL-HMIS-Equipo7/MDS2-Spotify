@@ -259,4 +259,28 @@ public class BD_Artistas {
 		
 		return yaSeguido;
 	}
+	
+	public boolean Comprobar_Nick_Artista(String aNick) throws PersistentException {
+		boolean existe = false;
+		ArtistaCriteria criteria = new ArtistaCriteria();
+		criteria.nick.eq(aNick.trim());
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Artista datos = ArtistaDAO.loadArtistaByCriteria(criteria);
+			if(datos == null) {
+				existe = false;
+			}else {
+				if(datos.getNick().contentEquals(aNick)){
+					existe = true;
+				}
+			}
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+		return existe;
+	}
 }

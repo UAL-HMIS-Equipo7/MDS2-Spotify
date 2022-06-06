@@ -130,7 +130,15 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 
 	public void Guardar_cambios_artista() {
 		
+		if(bd.Comprobar_Email(getEmailTF().getValue()) == true) {
+			Notification.show("El email introducido ya existe");
+			return;
+		}
 		
+		if(bd.Comprobar_Nick_Artista(getNickTF().getValue()) == true) {
+			Notification.show("El nick introducido ya existe");
+			return;
+		}
 		
 		if (_artista != null) {
 			_artista.setFotoRuta(_img.getSrc());
