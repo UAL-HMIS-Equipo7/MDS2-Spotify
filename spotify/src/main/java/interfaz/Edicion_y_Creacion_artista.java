@@ -135,7 +135,7 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 			return;
 		}
 		
-		if(bd.Comprobar_Nick_Artista(getNickTF().getValue()) == true) {
+		if(bd.Comprobar_Nick(getNickTF().getValue()) == true) {
 			Notification.show("El nick introducido ya existe");
 			return;
 		}

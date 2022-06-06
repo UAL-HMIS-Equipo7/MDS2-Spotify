@@ -46,4 +46,28 @@ public class BD_Estilos {
 		
 		return estilos;
 	}
+	
+	public boolean Comprobar_Estilo(String aNombre) throws PersistentException {
+	boolean existe = false;
+	EstiloCriteria criteria = new EstiloCriteria();
+	criteria.nombre.eq(aNombre.trim());
+	PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+	try {
+		
+		Estilo datos = EstiloDAO.loadEstiloByCriteria(criteria);
+		if(datos == null) {
+			existe = false;
+		}else {
+			if(datos.getNombre().contentEquals(aNombre)){
+				existe = true;
+			}
+		}
+		t.commit();
+	} catch (Exception e) {
+		t.rollback();
+	}
+	
+	AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+	return existe;
+	}
 }

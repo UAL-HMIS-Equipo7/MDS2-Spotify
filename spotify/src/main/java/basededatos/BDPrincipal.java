@@ -902,15 +902,17 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 		return existe;
 	}
-	
+
 	@Override
-	public boolean Comprobar_Nick_Artista(String aNick) {
+	public boolean Comprobar_Estilo(String aNombre) {
 		boolean existe = false;
 		try {
-			existe = _bD_Artistas.Comprobar_Nick_Artista(aNick);
+			existe = _bD_Estilos.Comprobar_Estilo(aNombre);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
 		return existe;
 	}
+	
+
 }

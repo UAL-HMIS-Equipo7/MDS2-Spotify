@@ -46,5 +46,8 @@ public interface iAdministrador extends iActor_comun {
 	
 	public boolean Comprobar_Email(String aEmail);
 	
-	public boolean Comprobar_Nick_Artista(String aNick);
+	public boolean Comprobar_Nick(String aNick);
+	
+	public boolean Comprobar_Estilo(String aNombre);
+	
 }

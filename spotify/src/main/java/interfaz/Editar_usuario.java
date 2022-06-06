@@ -85,6 +85,12 @@ public class Editar_usuario extends VistaEditar_usuario {
 					Notification.show("Hay algun error en los campos introducidos");
 					return;
 				}
+				
+				if(bd.Comprobar_Nick(getNickTF().getValue()) == true) {
+					Notification.show("El nick introducido ya existe");
+					return;
+				}
+				
 				Guardar_cambios_usuario();
 				
 				GestorVentana.Atras();
