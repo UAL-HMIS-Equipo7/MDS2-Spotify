@@ -881,4 +881,25 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 			e.printStackTrace();
 		}
 	}
+	
+	public boolean Comprobar_Email(String aEmail) {
+		boolean existe = false;
+		try {
+			existe = _bD_Datos_Acceso.Comprobar_Email(aEmail);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return existe;
+	}
+
+	@Override
+	public boolean Comprobar_Nick(String aNick) {
+		boolean existe = false;
+		try {
+			existe = _bD_Usuarios_Registrados.Comprobar_Nick(aNick);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return existe;
+	}
 }

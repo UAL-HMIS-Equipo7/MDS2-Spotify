@@ -241,4 +241,28 @@ public class BD_Usuarios_Registrados {
 		
 		return yaSeguido;
 	}
+	
+	public boolean Comprobar_Nick(String aNick) throws PersistentException {
+		boolean existe = false;
+		Usuario_RegistradoCriteria criteria = new Usuario_RegistradoCriteria();
+		criteria.nick.eq(aNick.trim());
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Usuario_Registrado datos = Usuario_RegistradoDAO.loadUsuario_RegistradoByCriteria(criteria);
+			if(datos == null) {
+				existe = false;
+			}else {
+				if(datos.getNick().contentEquals(aNick)){
+					existe = true;
+				}
+			}
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+		return existe;
+	}
 }

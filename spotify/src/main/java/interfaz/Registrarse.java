@@ -86,7 +86,16 @@ public class Registrarse extends VistaRegistrarse {
 					Notification.show("Hay algun error en los campos introducidos, revise si ha introducido al menos 3 caracteres especiales en la contraseña, que la contraseña contenga un minimo de 10 caracteres y que contenga letras mayusculas y minusculas");
 					return;
 				}
+			
+				if(bd.Comprobar_Email(getEmailTF().getValue()) == true) {
+					Notification.show("El email introducido ya existe");
+					return;
+				}
 				
+				if(bd.Comprobar_Nick(getNickTF().getValue()) == true) {
+					Notification.show("El nick introducido ya existe");
+					return;
+				}
 				int id = bd.Registrar_Usuario(getEmailTF().getValue(), getNickTF().getValue(), getContraseniaTF().getValue(), rutaFoto);
 				
 				if (id == -1) {
