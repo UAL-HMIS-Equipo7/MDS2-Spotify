@@ -185,15 +185,28 @@ public class BD_Lista_de_reproduccion {
 	}
 	
 	public void Eliminar_Lista_De_Reproduccion(int aIdLista) throws PersistentException {
-		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		
+		PersistentTransaction t2 = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.getLista_de_reproduccionByORMID(aIdLista);
 			
+			Cancion[] canciones = lista.canciones_incluidas.toArray();
+			
+			for (Cancion cancion : canciones) {
+				lista.canciones_incluidas.remove(cancion);
+			}
+			
+			Usuario_generico[] usuarios = lista.seguidor.toArray();
+			
+			for (Usuario_generico usuario : usuarios) {
+				lista.seguidor.remove(usuario);
+			}
+			
 			Lista_de_reproduccionDAO.delete(lista);
 			
-			t.commit();
+			t2.commit();
 		} catch (Exception e) {
-			t.rollback();
+			t2.rollback();
 		}
 		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
