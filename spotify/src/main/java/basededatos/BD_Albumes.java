@@ -72,6 +72,17 @@ public class BD_Albumes {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Album album = AlbumDAO.loadAlbumByORMID(aIdAlbum);
+			
+			Cancion[] canciones = album.incluye_a.toArray();
+			for (Cancion cancion : canciones) {
+				album.incluye_a.remove(cancion);
+			}
+			
+//			Artista[] artistas = album.autores.toArray();
+//			for (Artista artista : artistas) {
+//				album.autores.remove(artista);
+//			}
+			
 			AlbumDAO.delete(album);
 			t.commit();
 		} catch (Exception e) {
