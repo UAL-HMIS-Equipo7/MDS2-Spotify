@@ -86,7 +86,7 @@ public class Editar_usuario extends VistaEditar_usuario {
 					return;
 				}
 				
-				if(bd.Comprobar_Nick(getNickTF().getValue()) == true) {
+				if(bd.Comprobar_Nick_Usuario(getNickTF().getValue()) == true) {
 					Notification.show("El nick introducido ya existe");
 					return;
 				}

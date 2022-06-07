@@ -242,7 +242,7 @@ public class BD_Usuarios_Registrados {
 		return yaSeguido;
 	}
 	
-	public boolean Comprobar_Nick(String aNick) throws PersistentException {
+	public boolean Comprobar_Nick_Usuario(String aNick) throws PersistentException {
 		boolean existe = false;
 		Usuario_RegistradoCriteria criteria = new Usuario_RegistradoCriteria();
 		criteria.nick.eq(aNick.trim());

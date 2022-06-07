@@ -260,7 +260,7 @@ public class BD_Artistas {
 		return yaSeguido;
 	}
 	
-	public boolean Comprobar_Nick(String aNick) throws PersistentException {
+	public boolean Comprobar_Nick_Artista(String aNick) throws PersistentException {
 		boolean existe = false;
 		ArtistaCriteria criteria = new ArtistaCriteria();
 		criteria.nick.eq(aNick.trim());

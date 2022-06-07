@@ -92,7 +92,7 @@ public class Registrarse extends VistaRegistrarse {
 					return;
 				}
 				
-				if(bd.Comprobar_Nick(getNickTF().getValue()) == true) {
+				if(bd.Comprobar_Nick_Usuario(getNickTF().getValue()) == true) {
 					Notification.show("El nick introducido ya existe");
 					return;
 				}
