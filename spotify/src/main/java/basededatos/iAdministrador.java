@@ -42,8 +42,6 @@ public interface iAdministrador extends iActor_comun {
 	
 	public int Cargar_Numero_Canciones_Reproducibles(int aIdAdministrador);
 	
-	public Administrador Obtener_Administrador(int aIdAdministrador);
-	
 	public boolean Comprobar_Email(String aEmail);
 	
 	public boolean Comprobar_Nick(String aNick);

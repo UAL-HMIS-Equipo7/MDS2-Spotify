@@ -88,6 +88,8 @@ public interface iActor_comun {
 	
 	public Usuario_Registrado Obtener_Usuario(int aIdUsuario);
 	
+	public Administrador Obtener_Administrador(int aIdAdministrador);
+	
 	public Cancion Obtener_Cancion(int aIdCancion);
 	
 	public void Quitar_Cancion_Lista(int aIdCancion, int aIdLista);

@@ -49,7 +49,14 @@ public class Ver_perfil_ajeno_de_no_artista extends Ver_perfil_ajeno {
 	}
 	
 	public void Cargar_usuario() {
-		_usuario = bd.Obtener_Usuario(_usuario.getORMID());
+		
+		int id = _usuario.getORMID();
+		
+		_usuario = bd.Obtener_Usuario(id);
+		
+		if (_usuario == null) {
+			_usuario = bd.Obtener_Administrador(id);
+		}
 	}
 	
 	public void Comprobar_usuario_seguido() {
