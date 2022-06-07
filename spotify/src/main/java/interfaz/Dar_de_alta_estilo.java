@@ -26,6 +26,8 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 	
 	public Dar_de_alta_estilo() {
 		
+		this.getErrorL().setVisible(false);
+		
 		//Botones de Guardar y Cancelar
 		this.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

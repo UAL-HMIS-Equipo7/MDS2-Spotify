@@ -41,6 +41,8 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	
 	public Iniciar_sesion() {
 
+		this.getErrorL().setVisible(false);
+		
 		this.getIniciarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override

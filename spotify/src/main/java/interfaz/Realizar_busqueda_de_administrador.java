@@ -23,6 +23,8 @@ public class Realizar_busqueda_de_administrador extends VistaRealizar_busqueda_d
 		_artistas_administrador = new Artistas_administrador(parametrosBusqueda);
 		_usuarios_administrador = new Usuarios_administrador(parametrosBusqueda);
 		
+		this.getErrorL().setVisible(false);
+		
 		HorizontalLayout hlcs = this.getContenedorSuperior();
 		hlcs.add(_canciones_administrador);
 		hlcs.add(_albumes_administrador);

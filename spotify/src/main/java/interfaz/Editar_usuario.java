@@ -40,6 +40,8 @@ public class Editar_usuario extends VistaEditar_usuario {
 	
 	public Editar_usuario(basededatos.Usuario_Registrado usuario) {
 		
+		this.getErrorL().setVisible(false);
+		
 		_usuario = usuario;
 		
 		_img = new Image(GestorArchivos.CargarImagen(_usuario.getFotoRuta()), _usuario.getFotoRuta());

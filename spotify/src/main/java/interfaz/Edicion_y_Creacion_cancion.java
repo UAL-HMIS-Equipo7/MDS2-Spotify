@@ -55,6 +55,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 
 	public Edicion_y_Creacion_cancion(basededatos.Cancion cancion) {
 		
+		
 		Cargar_Estilos();
 		
 		List<String> nombreEstilos = new Vector<String>(_estilos.length);
@@ -64,6 +65,8 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 		}
 		
 		this.getEstiloCB().setItems(nombreEstilos);
+		
+		this.getErrorL().setVisible(false);
 		
 		_cancion = cancion;
 		

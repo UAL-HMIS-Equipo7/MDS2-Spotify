@@ -49,6 +49,8 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 		
 		Cargar_Estilos();
 		
+		this.getErrorL().setVisible(false);
+		
 		List<String> nombreEstilos = new Vector<String>(_estilos.length);
 		
 		for (basededatos.Estilo estilo : _estilos) {

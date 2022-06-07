@@ -42,6 +42,7 @@ public class Registrarse extends VistaRegistrarse {
 	
 	public Registrarse() {
 		
+		this.getErrorL().setVisible(false);
 		
 		this.getIniciarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -113,7 +114,7 @@ public class Registrarse extends VistaRegistrarse {
 			return;
 		}
 		
-		if(rutaFoto == null) {
+		if(rutaFoto == null || rutaFoto.isBlank()) {
 			rutaFoto = "img/defaultuser.png";
 		}
 		int id = bd.Registrar_Usuario(getEmailTF().getValue(), getNickTF().getValue(), getContraseniaTF().getValue(), rutaFoto);

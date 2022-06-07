@@ -23,6 +23,8 @@ public class Bloqueo_inicio_sesion extends VistaBloqueo_inicio_sesion {
 	
 	public Bloqueo_inicio_sesion() {
 		
+		this.getErrorL().setVisible(false);
+		
 		fechaInicio = LocalDateTime.now();
 		fechaFin = fechaInicio.plus(Duration.of(15, ChronoUnit.MINUTES));
 		

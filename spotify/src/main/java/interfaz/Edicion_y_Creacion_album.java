@@ -40,6 +40,8 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 	public Edicion_y_Creacion_album(basededatos.Album album) {
 		_album = album;
 		
+		this.getErrorL().setVisible(false);
+		
 		if (_album != null) {
 			this.getTituloAlbumTF().setValue(_album.getTitulo());
 			this.getFechaEdicionTF().setValue(_album.getFechaEdicion());
