@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class Reproductor__Cibernauta_ extends Reproductor {
@@ -13,9 +14,9 @@ public class Reproductor__Cibernauta_ extends Reproductor {
 
 	public Creditos _creditos;
 	
-	public Reproductor__Cibernauta_() {
+	public Reproductor__Cibernauta_(int limiteReproducibles) {
 		
-		super();
+		super(limiteReproducibles);
 		
 		this.getTituloB().setVisible(false);
 		this.getTituloL().setVisible(true);
@@ -42,6 +43,11 @@ public class Reproductor__Cibernauta_ extends Reproductor {
 	@Override
 	public void CargarCancion() {
 		super.CargarCancion();
+		
+		if (_reproduccionesActuales > _limReproducibles) {
+			Notification.show("Se ha superado el límite de canciones reproducibles por hoy");
+			return;
+		}
 		
 		if (_cancion == null) {
 			this.getTituloL().setVisible(false);

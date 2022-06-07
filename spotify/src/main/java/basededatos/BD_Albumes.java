@@ -78,11 +78,6 @@ public class BD_Albumes {
 				album.incluye_a.remove(cancion);
 			}
 			
-//			Artista[] artistas = album.autores.toArray();
-//			for (Artista artista : artistas) {
-//				album.autores.remove(artista);
-//			}
-			
 			AlbumDAO.delete(album);
 			t.commit();
 		} catch (Exception e) {

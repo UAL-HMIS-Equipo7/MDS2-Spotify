@@ -8,6 +8,8 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta;
 import spotify.GestorReproductor;
 import spotify.GestorVentana;
 import vistas.VistaCibernauta;
@@ -23,6 +25,9 @@ public class Cibernauta extends VistaCibernauta {
 	public Canciones_ultimos_exitos _canciones_ultimos_exitos;
 	public Reproductor__Cibernauta_ _reproductor__Cibernauta_;
 	
+	private int _limReproducibles = 0;
+	private iCibernauta bd = new BDPrincipal();
+	
 	public Cibernauta() {
 //		_canciones_ultimos_exitos = new Canciones_ultimos_exitos();
 //		_canciones_ultimos_exitos.getElement().setAttribute("width", "100%");
@@ -34,6 +39,8 @@ public class Cibernauta extends VistaCibernauta {
 	}
 	
 	public void Inicializar() {
+		
+		Cargar_numero_canciones_reproducibles();
 		
 		VerticalLayout layoutPrincipal = this.getLayoutPrincipal().as(VerticalLayout.class);
 		layoutPrincipal.removeAll();
@@ -80,7 +87,7 @@ public class Cibernauta extends VistaCibernauta {
 		layoutPrincipal.add(hlSuperior);
 		layoutPrincipal.add(hlInferior);
 		
-		_reproductor__Cibernauta_ = new Reproductor__Cibernauta_();
+		_reproductor__Cibernauta_ = new Reproductor__Cibernauta_(_limReproducibles);
 		_reproductor__Cibernauta_.getStyle().set("margin", "var(--lumo-space-m)");
 		
 		GestorReproductor.setReproductor(_reproductor__Cibernauta_);
@@ -96,5 +103,9 @@ public class Cibernauta extends VistaCibernauta {
 				GestorVentana.CambiarVentana(_iniciar_sesion);
 			}
 		});
+	}
+	
+	public void Cargar_numero_canciones_reproducibles() {
+		_limReproducibles = bd.Cargar_Numero_Canciones_Reproducibles();
 	}
 }

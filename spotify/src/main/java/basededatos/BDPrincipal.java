@@ -926,5 +926,16 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		return existe;
 	}
 
+	@Override
+	public int Cargar_Numero_Canciones_Reproducibles() {
+		int limReproducibles = 0;
+		try {
+			limReproducibles = _bD_Administradores.Cargar_Numero_Canciones_Reproducibles();
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return limReproducibles;
+	}
+
 
 }
