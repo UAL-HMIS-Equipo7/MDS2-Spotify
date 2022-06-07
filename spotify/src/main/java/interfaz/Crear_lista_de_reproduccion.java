@@ -34,6 +34,11 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 					Notification.show("Hay algun error en los campos introducidos");
 					return;
 				}
+				
+				if(_usuario.listas.size() > 100) {
+					Notification.show("Has superado el límite de listas creadas");
+					return;
+				}
 				Guardar_cambios_lista();
 				
 				GestorVentana.Atras();

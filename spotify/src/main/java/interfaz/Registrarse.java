@@ -42,6 +42,7 @@ public class Registrarse extends VistaRegistrarse {
 	
 	public Registrarse() {
 		
+		
 		this.getIniciarSesionB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -87,25 +88,8 @@ public class Registrarse extends VistaRegistrarse {
 					return;
 				}
 			
-				if(bd.Comprobar_Email(getEmailTF().getValue()) == true) {
-					Notification.show("El email introducido ya existe");
-					return;
-				}
+				RegistrarUsuario();
 				
-				if(bd.Comprobar_Nick_Usuario(getNickTF().getValue()) == true) {
-					Notification.show("El nick introducido ya existe");
-					return;
-				}
-				int id = bd.Registrar_Usuario(getEmailTF().getValue(), getNickTF().getValue(), getContraseniaTF().getValue(), rutaFoto);
-				
-				if (id == -1) {
-					Notification.show("Error al registrar usuario");
-				}
-				else {
-					_confirmacion_de_correo = new Confirmacion_de_correo(getEmailTF().getValue());
-					
-					GestorVentana.CambiarVentana(_confirmacion_de_correo);
-				}
 			}
 		});
 		
@@ -118,6 +102,29 @@ public class Registrarse extends VistaRegistrarse {
 		});
 	}
 
+	public void RegistrarUsuario() {
+		if(bd.Comprobar_Email(getEmailTF().getValue()) == true) {
+			Notification.show("El email introducido ya existe");
+			return;
+		}
+		
+		if(bd.Comprobar_Nick_Usuario(getNickTF().getValue()) == true) {
+			Notification.show("El nick introducido ya existe");
+			return;
+		}
+		
+		int id = bd.Registrar_Usuario(getEmailTF().getValue(), getNickTF().getValue(), getContraseniaTF().getValue(), rutaFoto);
+		
+		if (id == -1) {
+			Notification.show("Error al registrar usuario");
+		}
+		else {
+			_confirmacion_de_correo = new Confirmacion_de_correo(getEmailTF().getValue());
+			
+			GestorVentana.CambiarVentana(_confirmacion_de_correo);
+		}
+	}
+	
 	public boolean Validar_datos_de_registro() {
 		//VALIDAR
 		boolean correcto = true;

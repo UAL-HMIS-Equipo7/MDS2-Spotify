@@ -212,6 +212,18 @@ public class Ver_cancion extends VistaVer_cancion {
 	}
 
 	public void Aniadir_cancion_a_lista_de_reproduccion() {
+		
+		for(int i = 0; i < _listas.length ; i++) {
+			if(!(_listas[i].getORMID() == _idLista)) {
+				continue;
+			}else {
+				if(_listas[i].canciones_incluidas.size() > 1000) {
+					Notification.show("Se ha superado el limite de canciones en esta lista");
+					return;
+				}
+			}
+		}
+		
 		bd.Aniadir_cancion_a_lista(_cancion.getORMID(), _idLista);
 	}
 	

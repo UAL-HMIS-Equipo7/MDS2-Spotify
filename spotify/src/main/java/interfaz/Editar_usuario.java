@@ -86,10 +86,7 @@ public class Editar_usuario extends VistaEditar_usuario {
 					return;
 				}
 				
-				if(bd.Comprobar_Nick_Usuario(getNickTF().getValue()) == true) {
-					Notification.show("El nick introducido ya existe");
-					return;
-				}
+				
 				
 				Guardar_cambios_usuario();
 				
@@ -107,6 +104,12 @@ public class Editar_usuario extends VistaEditar_usuario {
 	}
 
 	public void Guardar_cambios_usuario() {
+		
+		if(bd.Comprobar_Nick_Usuario(getNickTF().getValue()) == true) {
+			Notification.show("El nick introducido ya existe");
+			return;
+		}
+		
 		_usuario.setFotoRuta(_img.getSrc());
 		
 		basededatos.Datos_Acceso datos = _usuario.getDatos();
@@ -121,7 +124,7 @@ public class Editar_usuario extends VistaEditar_usuario {
 
 	public boolean Validar_datos_usuario() {
 		boolean correcto = true;
-		//foto opcional?
+
 		if(this.getEmailTF().getValue().isBlank() || this.getContraseniaTF().getValue().isBlank() || this.getNickTF().getValue().isBlank()) {
 			correcto = false;
 		}

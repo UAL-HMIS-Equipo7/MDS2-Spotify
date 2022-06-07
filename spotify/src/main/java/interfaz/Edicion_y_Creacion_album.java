@@ -117,7 +117,7 @@ public class Edicion_y_Creacion_album extends VistaEdicion_y_creacion_album {
 	public boolean Validar_cambios_album() {
 		//VALIDAR
 		boolean correcto = true;
-		if(this.getTituloAlbumTF().getValue().isBlank() || _img.getSrc().isBlank() || this.getArtistaTF().getValue().isBlank() ) {
+		if(this.getTituloAlbumTF().getValue().isBlank() || _img.getSrc() == null || _img.getSrc().isBlank() || this.getArtistaTF().getValue().isBlank() ) {
 			correcto = false;
 		}
 		return correcto;

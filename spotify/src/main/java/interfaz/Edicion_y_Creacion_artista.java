@@ -163,7 +163,7 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 	public boolean Validar_datos_artista() {
 		
 		boolean correcto = true;
-		if(this.getEmailTF().getValue().isBlank() || this.getNickTF().getValue().isBlank() || this.getContraseniaTF().getValue().isBlank() || _img.getSrc().isBlank() || _estiloSeleccionado == null) {
+		if(this.getEmailTF().getValue().isBlank() || this.getNickTF().getValue().isBlank() || this.getContraseniaTF().getValue().isBlank() || _img.getSrc() == null || _img.getSrc().isBlank() || _estiloSeleccionado == null) {
 			correcto = false;
 		}
 		return correcto;
