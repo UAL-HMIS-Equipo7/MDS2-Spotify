@@ -113,6 +113,9 @@ public class Registrarse extends VistaRegistrarse {
 			return;
 		}
 		
+		if(rutaFoto == null) {
+			rutaFoto = "img/defaultuser.png";
+		}
 		int id = bd.Registrar_Usuario(getEmailTF().getValue(), getNickTF().getValue(), getContraseniaTF().getValue(), rutaFoto);
 		
 		if (id == -1) {
