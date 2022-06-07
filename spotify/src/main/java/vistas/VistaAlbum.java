@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-album template.
@@ -17,6 +18,13 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-album.ts")
 public class VistaAlbum extends LitTemplate {
 
+	public Label getTituloL() {
+		return tituloL;
+	}
+
+	public void setTituloL(Label tituloL) {
+		this.tituloL = tituloL;
+	}
 
 	public Element getContenedor() {
 		return contenedor;
@@ -28,6 +36,8 @@ public class VistaAlbum extends LitTemplate {
 
 	@Id("contenedor")
 	private Element contenedor;
+	@Id("tituloL")
+	private Label tituloL;
 
 	/**
      * Creates a new VistaAlbum.

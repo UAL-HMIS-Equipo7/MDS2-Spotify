@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-lista_de_reproduccion_propia template.
@@ -17,7 +18,15 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-lista_de_reproduccion_propia.ts")
 public class VistaLista_de_reproduccion_propia extends LitTemplate {
 
-    public Element getContenedor() {
+    public Label getTituloL() {
+		return tituloL;
+	}
+
+	public void setTituloL(Label tituloL) {
+		this.tituloL = tituloL;
+	}
+
+	public Element getContenedor() {
 		return contenedor;
 	}
 
@@ -27,6 +36,8 @@ public class VistaLista_de_reproduccion_propia extends LitTemplate {
 
 	@Id("contenedor")
 	private Element contenedor;
+	@Id("tituloL")
+	private Label tituloL;
 
 	/**
      * Creates a new VistaLista_de_reproduccion_propia.

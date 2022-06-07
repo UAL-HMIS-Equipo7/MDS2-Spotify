@@ -14,7 +14,10 @@ export class VistaAlbum extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center; align-items: center;" id="contenedor"></vaadin-vertical-layout>
+<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; align-items: center; justify-content: center;">
+ <label id="tituloL" style="align-self: center;">Titulo</label>
+ <vaadin-vertical-layout style="width: 90%; height: 90%; justify-content: center; align-items: center; align-self: center;" id="contenedor"></vaadin-vertical-layout>
+</vaadin-vertical-layout>
 `;
   }
 

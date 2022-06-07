@@ -20,6 +20,8 @@ public class Lista_de_reproduccion_ajena extends VistaLista_de_reproduccion_ajen
 		
 		basededatos.Cancion[] canciones = lista.canciones_incluidas.toArray();
 		
+		this.getTituloL().setText(lista.getTitulo());
+		
 		VerticalLayout vl = getContenedor().as(VerticalLayout.class);
 		
 		Image img = new Image(GestorArchivos.CargarImagen(canciones[0].getFicheroMultimediaAltaCalidadRuta()),
