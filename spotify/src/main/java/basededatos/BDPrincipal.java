@@ -97,10 +97,19 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 	}
 
-	public void Actualizar_Perfil(int aIdAdministrador, String aNuevoEmail, String aNuevoNick) {
+	public void Actualizar_Perfil_Usuario(int aIdAdministrador, String aNuevoEmail, String aNuevoNick) {
 		try {
 			//TODO: Falta el actualizar perfil para usuario
-			_bD_Administradores.Actualizar_Perfil(aIdAdministrador, aNuevoEmail, aNuevoNick);
+			_bD_Usuarios_Registrados.Actualizar_Perfil_Usuario(aIdAdministrador, aNuevoEmail, aNuevoNick);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void Actualizar_Perfil_Administrador(int aIdAdministrador, String aNuevoEmail, String aNuevoNick) {
+		try {
+			//TODO: Falta el actualizar perfil para usuario
+			_bD_Administradores.Actualizar_Perfil_Administrador(aIdAdministrador, aNuevoEmail, aNuevoNick);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
