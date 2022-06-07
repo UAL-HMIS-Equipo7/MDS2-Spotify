@@ -14,7 +14,10 @@ export class VistaCancion_cibernauta extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="contenedor"></vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-m);">
+ <label id="tituloL" style="align-self: center; margin: var(--lumo-space-s);">Titulo</label>
+ <vaadin-vertical-layout style="width: 90%; height: 90%; align-self: center; align-items: center; justify-content: center;" id="contenedor"></vaadin-vertical-layout>
+</vaadin-vertical-layout>
 `;
   }
 

@@ -220,7 +220,6 @@ public class BD_Canciones {
 	}
 
 	public Cancion[] Cargar_Canciones_Administrador(String aParametrosBusqueda) throws PersistentException {
-		//Podriamos usar el método de busqueda ya creado?? (Realizar_Busqueda_Canciones)
 		return Realizar_Busqueda_Canciones(aParametrosBusqueda);
 	}
 

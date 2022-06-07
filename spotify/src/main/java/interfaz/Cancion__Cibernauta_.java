@@ -18,6 +18,7 @@ public class Cancion__Cibernauta_ extends VistaCancion_cibernauta {
 	
 	public Cancion__Cibernauta_(basededatos.Cancion cancion) {
 		
+		this.getTituloL().setText(cancion.getTitulo());
 		
 		VerticalLayout vl = this.getContenedor().as(VerticalLayout.class);
 		
