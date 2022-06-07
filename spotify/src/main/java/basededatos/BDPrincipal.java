@@ -892,16 +892,28 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		return existe;
 	}
 
-	@Override
-	public boolean Comprobar_Nick(String aNick) {
+
+	public boolean Comprobar_Nick_Artista(String aNick) {
 		boolean existe = false;
 		try {
-			existe = _bD_Usuarios_Registrados.Comprobar_Nick(aNick);
+			existe = _bD_Artistas.Comprobar_Nick_Artista(aNick);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
 		return existe;
 	}
+	
+	public boolean Comprobar_Nick_Usuario(String aNick) {
+		boolean existe = false;
+		try {
+			existe = _bD_Usuarios_Registrados.Comprobar_Nick_Usuario(aNick);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return existe;
+	}
+	
+	
 
 	@Override
 	public boolean Comprobar_Estilo(String aNombre) {
@@ -913,6 +925,6 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 		return existe;
 	}
-	
+
 
 }

@@ -14,5 +14,5 @@ public interface iCibernauta {
 	
 	public boolean Comprobar_Email(String aEmail);
 	
-	public boolean Comprobar_Nick(String aNick);
+	public boolean Comprobar_Nick_Usuario(String aNick);
 }
