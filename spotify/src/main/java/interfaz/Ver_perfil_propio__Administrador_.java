@@ -34,7 +34,7 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 				_editar_informacion_del_perfil_no_artista = new Editar_informacion_del_perfil_no_artista(administrador) {
 					@Override
 					public void ActualizarPerfil() {
-						bd.Actualizar_Perfil(administrador.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
+						bd.Actualizar_Perfil_Administrador(administrador.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
 					}
 				};
 
