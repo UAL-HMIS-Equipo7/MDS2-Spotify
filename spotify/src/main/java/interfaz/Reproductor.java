@@ -25,8 +25,8 @@ public class Reproductor extends VistaReproductor {
 	
 	public AudioPlayer _audioPlayer;
 	
-	protected int _limReproducibles = -1;
-	protected int _reproduccionesActuales = 0;
+	public int _limReproducibles = -1;
+	public int _reproduccionesActuales = 0;
 	
 	public Reproductor() {
 		
@@ -41,13 +41,10 @@ public class Reproductor extends VistaReproductor {
 		this();
 		_limReproducibles = limiteReproducibles;
 		_reproduccionesActuales = 0;
+		
 	}
 	
 	public void CargarCancion() {
-		
-		if (_reproduccionesActuales >= _limReproducibles && _limReproducibles != -1) {
-			return;
-		}
 		
 		if (_cancion != null) {
 			_audioPlayer.setSource(GestorArchivos.CargarAudio(_cancion.getFicheroMultimediaRuta()));

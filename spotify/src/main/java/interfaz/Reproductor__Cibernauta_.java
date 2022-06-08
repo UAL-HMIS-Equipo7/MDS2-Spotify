@@ -44,11 +44,6 @@ public class Reproductor__Cibernauta_ extends Reproductor {
 	public void CargarCancion() {
 		super.CargarCancion();
 		
-		if (_reproduccionesActuales > _limReproducibles) {
-			Notification.show("Se ha superado el límite de canciones reproducibles por hoy");
-			return;
-		}
-		
 		if (_cancion == null) {
 			this.getTituloL().setVisible(false);
 			this.getCreditosB().setEnabled(false);

@@ -1,22 +1,37 @@
 package spotify;
 
+import com.vaadin.flow.component.notification.Notification;
+
 import interfaz.Reproductor;
 
 public class GestorReproductor {
 	private static Reproductor _reproductor;
+	private static boolean _esCibernauta;
 	
 	public static void setReproductor(Reproductor reproductor) {
 		
-		if (_reproductor == null) {
+		if (_reproductor == null || _esCibernauta) {
 			_reproductor = reproductor;
 		}
+		
+		_esCibernauta = false;
 	}
 	
 	public static void setReproductorCibernauta(Reproductor reproductor) {
 		_reproductor = reproductor;
+		_esCibernauta = true;
 	}
 	
 	public static void setCancion(basededatos.Cancion cancion) {
+		
+		if (_reproductor._cancion != null && _reproductor._cancion.getORMID() == cancion.getORMID()) {
+			return;
+		}
+		
+		if (_reproductor._reproduccionesActuales >= _reproductor._limReproducibles && _reproductor._limReproducibles != -1) {
+			Notification.show("Se ha superado el límite de canciones reproducibles por hoy");
+			return;
+		}
 		
 		_reproductor._cancion = cancion;
 		
