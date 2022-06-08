@@ -30,6 +30,8 @@ public class Cancion extends VistaCancion {
 		
 		this.getTituloB().setText(_cancion.getTitulo());
 		
+		this.getTituloL().setText(_cancion.getTitulo());
+		
 		Image img = new Image(GestorArchivos.CargarImagen(_cancion.getFicheroMultimediaAltaCalidadRuta()),
 				_cancion.getFicheroMultimediaAltaCalidadRuta());
 		img.setClassName("cancion");

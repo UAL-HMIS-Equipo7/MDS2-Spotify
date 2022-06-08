@@ -38,10 +38,10 @@ export class VistaRegistrarse extends LitElement {
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s);">
-  <img id="fotoImg" style="max-width: 100px; max-height: 100px;" src="">
+  <img id="fotoImg" style="max-width: 100px; max-height: 100px;" src="https://github.com/mdmontesinos/MDS2-Spotify/blob/master/spotify/src/main/webapp/img/defaultuser.png?raw=true">
   <vaadin-horizontal-layout theme="spacing" style="align-items: center;">
    <vaadin-button id="fotoFC">
-    Foto de perfil
+     Foto de perfil 
    </vaadin-button>
    <label style="align-self: center;" id="opcionalL">*Opcional</label>
   </vaadin-horizontal-layout>

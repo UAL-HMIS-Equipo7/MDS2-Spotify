@@ -142,9 +142,13 @@ public class BD_Canciones {
 			
 			for (int i = 0; i < artistas.length; i++) {
 				criteriaArtista = new ArtistaCriteria();
-				criteriaArtista.nick.like("%" + artistas[i].trim() + "%");
+				criteriaArtista.nick.like("%" + artistas[i].trim().strip() + "%");
 				Artista artista = ArtistaDAO.loadArtistaByCriteria(criteriaArtista);
-				cancion.intepretes.add(artista);
+				
+				if (artista != null) {
+					System.out.println("Artista a añadir: " + artista.getNick());
+					cancion.intepretes.add(artista);
+				}
 			}
 			id_cancion = cancion.getORMID();
 			CancionDAO.save(cancion);
@@ -157,40 +161,65 @@ public class BD_Canciones {
 	}
 
 	public void Actualizar_Cancion(Cancion aCancion, String aTituloAlbum, String[] aInterpretes) throws PersistentException {
+		
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
+			
+			Cancion cancion = CancionDAO.getCancionByORMID(aCancion.getORMID());
+			
+			cancion.setTitulo(aCancion.getTitulo());
+			cancion.setCompositores(aCancion.getCompositores());
+			cancion.setFicheroMultimediaAltaCalidadRuta(aCancion.getFicheroMultimediaAltaCalidadRuta());
+			cancion.setFicheroMultimediaRuta(aCancion.getFicheroMultimediaRuta());
+			cancion.setProductores(aCancion.getProductores());
+			
 			AlbumCriteria criteriaAlbum = new AlbumCriteria();
-			criteriaAlbum.titulo.like("%" + aTituloAlbum.trim() + "%");
+			criteriaAlbum.titulo.like("%" + aTituloAlbum.trim().strip() + "%");
 			
 			Album album = AlbumDAO.loadAlbumByCriteria(criteriaAlbum);
-			aCancion.setIncluida_en_albumes(album);
+			cancion.setIncluida_en_albumes(album);
 			
-			aCancion.intepretes.clear();
+			Artista[] artistas = cancion.intepretes.toArray();
+			
+			for (Artista artista : artistas) {
+				cancion.intepretes.remove(artista);
+			}
+			
+			CancionDAO.save(cancion);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+		
+		PersistentTransaction t2 = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Cancion cancion = CancionDAO.getCancionByORMID(aCancion.getORMID());
 			
 			basededatos.Artista temp;
 			ArtistaCriteria criteriaArtista;
 			
 			for (int i = 0; i < aInterpretes.length; i++) {
 				criteriaArtista = new ArtistaCriteria();
-				criteriaArtista.nick.like("%" + aInterpretes[i].trim() + "%");
+				criteriaArtista.nick.like("%" + aInterpretes[i].trim().strip() + "%");
 				
 				temp = ArtistaDAO.loadArtistaByCriteria(criteriaArtista);
 				
 				if (temp != null) {
-					aCancion.intepretes.add(temp);
+					cancion.intepretes.add(temp);
 				}
 			}
 			
-			CancionDAO.save(aCancion);
-			t.commit();
+			CancionDAO.save(cancion);
+			t2.commit();
 		} catch (Exception e) {
-			t.rollback();
+			t2.rollback();
 		}
 		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Cancion[] Cargar_Canciones_Administrador(String aParametrosBusqueda) throws PersistentException {
-		//Podriamos usar el método de busqueda ya creado?? (Realizar_Busqueda_Canciones)
 		return Realizar_Busqueda_Canciones(aParametrosBusqueda);
 	}
 

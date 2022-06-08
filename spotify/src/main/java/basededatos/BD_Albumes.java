@@ -72,6 +72,12 @@ public class BD_Albumes {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Album album = AlbumDAO.loadAlbumByORMID(aIdAlbum);
+			
+			Cancion[] canciones = album.incluye_a.toArray();
+			for (Cancion cancion : canciones) {
+				album.incluye_a.remove(cancion);
+			}
+			
 			AlbumDAO.delete(album);
 			t.commit();
 		} catch (Exception e) {
@@ -107,9 +113,12 @@ public class BD_Albumes {
 			
 			for (String nombre : listaArtistas) {
 				criteria = new ArtistaCriteria();
-				criteria.nick.like("%" + nombre.trim() + "%");
+				criteria.nick.like("%" + nombre.trim().strip() + "%");
 				Artista artista = ArtistaDAO.loadArtistaByCriteria(criteria);
-				alb.autores.add(artista);
+				
+				if (artista != null) {
+					alb.autores.add(artista);
+				}
 			}
 			
 			Cancion cancionBD;
@@ -130,36 +139,63 @@ public class BD_Albumes {
 	}
 
 	public void Actualizar_Album(Album aAlbum, String[] aAutores) throws PersistentException {
+		
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
-
-			aAlbum.autores.clear();
 			
-			ArtistaCriteria[] criterias = new ArtistaCriteria[aAutores.length];
+			Album album = AlbumDAO.getAlbumByORMID(aAlbum.getORMID());
 			
-			for (int i = 0; i < aAutores.length; i++) {
-				System.out.println("Artista: " + aAutores[i]);
-				ArtistaCriteria criteria = new ArtistaCriteria();
-				criteria.nick.like("%" + aAutores[i].trim() + "%");
-				
-				criterias[i] = criteria;
-				
+			album.setTitulo(aAlbum.getTitulo());
+			album.setImagenRuta(aAlbum.getImagenRuta());
+			album.setFechaEdicion(aAlbum.getFechaEdicion());
+			
+			Artista[] artistas = album.autores.toArray();
+			for (Artista artista : artistas) {
+				album.autores.remove(artista);
 			}
 			
-			for (int i = 0; i < criterias.length; i++) {
-				
-				basededatos.Artista temp = ArtistaDAO.loadArtistaByCriteria(criterias[i]);
-				
-				if (temp != null) {
-					System.out.println("Artista cargado: " + temp.getNick());
-					aAlbum.autores.add(temp);
-				}
+			Cancion[] canciones = album.incluye_a.toArray();
+			for (Cancion cancion : canciones) {
+				album.incluye_a.remove(cancion);
 			}
 			
-			AlbumDAO.save(aAlbum);
+			AlbumDAO.save(album);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
+		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+		
+		PersistentTransaction t2 = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Album album = AlbumDAO.getAlbumByORMID(aAlbum.getORMID());
+			
+			basededatos.Artista tempArtista;
+			ArtistaCriteria criteriaArtista;
+			
+			for (int i = 0; i < aAutores.length; i++) {
+				criteriaArtista = new ArtistaCriteria();
+				criteriaArtista.nick.like("%" + aAutores[i].trim().strip() + "%");
+				
+				tempArtista = ArtistaDAO.loadArtistaByCriteria(criteriaArtista);
+				
+				if (tempArtista != null) {
+					album.autores.add(tempArtista);
+				}
+			}
+			
+			basededatos.Cancion tempCancion;
+			Cancion[] canciones = aAlbum.incluye_a.toArray();
+			
+			for (Cancion cancion : canciones) {
+				tempCancion = CancionDAO.getCancionByORMID(cancion.getORMID());
+				album.incluye_a.add(tempCancion);
+			}
+			
+			AlbumDAO.save(album);
+			t2.commit();
+		} catch (Exception e) {
+			t2.rollback();
 		}
 		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}

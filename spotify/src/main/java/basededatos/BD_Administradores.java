@@ -79,7 +79,7 @@ public class BD_Administradores {
 	public int Cargar_Numero_Canciones_Mostradas() throws PersistentException {
 		return Cargar_Numero_Canciones_Mostradas(1);
 	}
-	
+
 	public int Cargar_Numero_Canciones_Mostradas(int idAdministrador) throws PersistentException {
 		int num = 0;
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
@@ -95,6 +95,10 @@ public class BD_Administradores {
 		}
 		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 		return num;
+	}
+	
+	public int Cargar_Numero_Canciones_Reproducibles() throws PersistentException {
+		return Cargar_Numero_Canciones_Reproducibles(1);
 	}
 	
 	public int Cargar_Numero_Canciones_Reproducibles(int idAdministrador) throws PersistentException {

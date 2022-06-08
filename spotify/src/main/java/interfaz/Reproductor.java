@@ -1,5 +1,6 @@
 package interfaz;
 
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 import spotify.AudioPlayer;
@@ -24,6 +25,9 @@ public class Reproductor extends VistaReproductor {
 	
 	public AudioPlayer _audioPlayer;
 	
+	protected int _limReproducibles = -1;
+	protected int _reproduccionesActuales = 0;
+	
 	public Reproductor() {
 		
 		HorizontalLayout hl = this.getContenedor();
@@ -33,10 +37,21 @@ public class Reproductor extends VistaReproductor {
 		hl.add(_audioPlayer);
 	}
 	
+	public Reproductor(int limiteReproducibles) {
+		this();
+		_limReproducibles = limiteReproducibles;
+		_reproduccionesActuales = 0;
+	}
+	
 	public void CargarCancion() {
+		
+		if (_reproduccionesActuales >= _limReproducibles && _limReproducibles != -1) {
+			return;
+		}
 		
 		if (_cancion != null) {
 			_audioPlayer.setSource(GestorArchivos.CargarAudio(_cancion.getFicheroMultimediaRuta()));
+			_reproduccionesActuales++;
 		}
 		
 		//Overrideado

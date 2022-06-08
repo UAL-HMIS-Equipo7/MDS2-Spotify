@@ -18,6 +18,7 @@ public class Album extends VistaAlbum {
 	
 	public Album(basededatos.Album album) {
 		
+		this.getTituloL().setText(album.getTitulo());
 		
 		VerticalLayout vl = getContenedor().as(VerticalLayout.class);
 		
