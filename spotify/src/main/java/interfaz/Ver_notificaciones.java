@@ -16,12 +16,14 @@ public class Ver_notificaciones extends VistaVer_notificaciones {
 	
 	public Ver_notificaciones(Dialog ventanaModal, Usuario_generico usuario) {
 		
-		this.getNumeroNotificacionesL().setText(Integer.toString(usuario.notificaciones.size()));
-		
 		_notificaciones = new Notificaciones(ventanaModal, usuario);
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(_notificaciones);
+		
+		this.getNumeroNotificacionesL().setText("Tienes "+Integer.toString(usuario.notificaciones.size())+ " notificaciones nuevas");
+		
+		
 		
 		this.getCerrarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

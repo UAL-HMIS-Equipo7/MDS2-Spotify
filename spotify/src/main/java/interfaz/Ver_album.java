@@ -19,6 +19,7 @@ public class Ver_album extends VistaVer_album {
 		this.getFechaEdicionL().setText(album.getFechaEdicion());
 		
 		_canciones_album = new Canciones_album(album);
+		_canciones_album.setClassName("fullSize");
 		_autores_album = new Autores_album(album);
 		
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();

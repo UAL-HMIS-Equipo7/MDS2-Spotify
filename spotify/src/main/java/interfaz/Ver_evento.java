@@ -29,7 +29,7 @@ public class Ver_evento extends VistaVer_evento {
 		
 		this.getDescripcionTF().setValue(evento.getDescripcion());
 		this.getFechaHoraL().setText(evento.getFechaYHora());
-		this.getPrecioL().setText(Integer.toString(evento.getPrecio()));
+		this.getPrecioL().setText("Precio: "+Integer.toString(evento.getPrecio()) +"€");
 		this.getTituloL().setText(evento.getPublicado_por().getNick());
 		
 		this.getAtrasB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

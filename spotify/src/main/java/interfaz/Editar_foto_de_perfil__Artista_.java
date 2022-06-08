@@ -38,10 +38,11 @@ public class Editar_foto_de_perfil__Artista_ extends VistaEditar_foto_de_perfil_
 						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 						
 						_img.setSrc(rutaFoto);
-						
+						ActualizarFotoPerfil();
 						modal.close();
 					}
 				});
+				modal.open();
 			}
 		});
 	}

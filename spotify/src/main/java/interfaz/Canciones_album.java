@@ -32,7 +32,7 @@ public class Canciones_album extends VistaCanciones_album {
 		
 		//Testing elements
 		Div div = new Div();
-		
+		div.setClassName("divScroll500");
 		HorizontalLayout tempHl = new HorizontalLayout();
 		tempHl.getElement().setAttribute("justify-content", "space-evenly");
 		

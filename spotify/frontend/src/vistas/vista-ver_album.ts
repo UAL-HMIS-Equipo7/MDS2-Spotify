@@ -16,9 +16,9 @@ export class VistaVer_album extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: flex-start;" id="vaadinHorizontalLayout">
-  <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-grow: 0; align-items: center;" id="vaadinVerticalLayout">
-   <label id="informacionL">Información</label>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: space-around; align-self: center; align-items: center;" id="vaadinHorizontalLayout">
+  <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-grow: 0; align-items: center; width: 10%;" id="vaadinVerticalLayout">
+   <label id="informacionL" style="font-weight:bold;">Información</label>
    <label id="tituloL">Título</label>
    <label id="fechaEdicionL">01/01/2020</label>
   </vaadin-vertical-layout>
