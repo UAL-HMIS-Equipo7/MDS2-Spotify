@@ -64,10 +64,12 @@ public class Ver_perfil_propio__Usuario_Registrado_ extends Ver_perfil_propio {
 						_editar_informacion_del_perfil_no_artista.ActualizarPerfil();
 						
 						contenedor.remove(_editar_informacion_del_perfil_no_artista);
+						usuario.setNick(_editar_informacion_del_perfil_no_artista.getNickTF().getValue());
+						getNickL().setText(_editar_informacion_del_perfil_no_artista.getNickTF().getValue());
 						getNickL().setVisible(true);
+						usuario.getDatos().setEmail(_editar_informacion_del_perfil_no_artista.getEmailTF().getValue());
+						getEmailL().setText(_editar_informacion_del_perfil_no_artista.getEmailTF().getValue());
 						getEmailL().setVisible(true);
-						getDarseBajaB().setVisible(true);
-						getModificarInformacionB().setVisible(true);
 					}
 				});
 				

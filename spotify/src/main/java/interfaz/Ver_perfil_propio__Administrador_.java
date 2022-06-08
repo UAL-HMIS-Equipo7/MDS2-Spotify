@@ -50,7 +50,11 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 								_editar_informacion_del_perfil_no_artista.ActualizarPerfil();
 
 								contenedor.remove(_editar_informacion_del_perfil_no_artista);
+								administrador.setNick(_editar_informacion_del_perfil_no_artista.getNickTF().getValue());
+								getNickL().setText(_editar_informacion_del_perfil_no_artista.getNickTF().getValue());
 								getNickL().setVisible(true);
+								administrador.getDatos().setEmail(_editar_informacion_del_perfil_no_artista.getEmailTF().getValue());
+								getEmailL().setText(_editar_informacion_del_perfil_no_artista.getEmailTF().getValue());
 								getEmailL().setVisible(true);
 								getModificarInformacionB().setVisible(true);
 							}
