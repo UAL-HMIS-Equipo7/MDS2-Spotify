@@ -31,7 +31,7 @@ public class Notificaciones extends VistaNotificaciones {
 		Scroller scroll = this.getNavegacionSB();
 		
 		Div div = new Div();
-		
+		div.setClassName("divScroll350");
 		for (Notificacion notificacion : _list_Notificacion) {
 			div.add(notificacion);
 		}

@@ -89,6 +89,6 @@ public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_
 	}
 
 	public void Confirmar_evento() {
-		bd.Crear_Evento(artista.getORMID(), rutaFoto, this.getFechaHoraTF().getValue(), this.getVaadinTextArea().getValue(), Integer.parseInt(this.getPrecioTF().getValue()));
+		bd.Crear_Evento(artista.getORMID(), _img.getSrc(), this.getFechaHoraTF().getValue(), this.getVaadinTextArea().getValue(), Integer.parseInt(this.getPrecioTF().getValue()));
 	}
 }
