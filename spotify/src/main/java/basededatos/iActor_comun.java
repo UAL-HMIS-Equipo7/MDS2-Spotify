@@ -97,4 +97,6 @@ public interface iActor_comun {
 	public void Eliminar_Lista_De_Reproduccion(int aIdLista);
 	
 	public void Actualizar_Lista(Lista_de_reproduccion aLista);
+	
+	public int Comprobar_Datos_Usuario(int aIdUsuarioGenerico, String aEmail, String aNick);
 }

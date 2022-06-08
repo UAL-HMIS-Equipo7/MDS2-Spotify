@@ -34,7 +34,29 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 				_editar_informacion_del_perfil_no_artista = new Editar_informacion_del_perfil_no_artista(administrador) {
 					@Override
 					public void ActualizarPerfil() {
+						
+						int codigo = bd.Comprobar_Datos_Usuario(administrador.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
+						
+						if (codigo == 1) {
+							Notification.show("El email introducido ya existe");
+							return;
+						}
+						
+						if (codigo == 2) {
+							Notification.show("El nick introducido ya existe");
+							return;
+						}
+						
 						bd.Actualizar_Perfil_Administrador(administrador.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
+						
+						contenedor.remove(_editar_informacion_del_perfil_no_artista);
+						administrador.setNick(_editar_informacion_del_perfil_no_artista.getNickTF().getValue());
+						getNickL().setText(_editar_informacion_del_perfil_no_artista.getNickTF().getValue());
+						getNickL().setVisible(true);
+						administrador.getDatos().setEmail(_editar_informacion_del_perfil_no_artista.getEmailTF().getValue());
+						getEmailL().setText(_editar_informacion_del_perfil_no_artista.getEmailTF().getValue());
+						getEmailL().setVisible(true);
+						getModificarInformacionB().setVisible(true);
 					}
 				};
 
@@ -48,15 +70,6 @@ public class Ver_perfil_propio__Administrador_ extends Ver_perfil_propio {
 									Notification.show("Debe rellenar todos los campos");
 								}
 								_editar_informacion_del_perfil_no_artista.ActualizarPerfil();
-
-								contenedor.remove(_editar_informacion_del_perfil_no_artista);
-								administrador.setNick(_editar_informacion_del_perfil_no_artista.getNickTF().getValue());
-								getNickL().setText(_editar_informacion_del_perfil_no_artista.getNickTF().getValue());
-								getNickL().setVisible(true);
-								administrador.getDatos().setEmail(_editar_informacion_del_perfil_no_artista.getEmailTF().getValue());
-								getEmailL().setText(_editar_informacion_del_perfil_no_artista.getEmailTF().getValue());
-								getEmailL().setVisible(true);
-								getModificarInformacionB().setVisible(true);
 							}
 						});
 

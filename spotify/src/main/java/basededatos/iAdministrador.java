@@ -42,12 +42,6 @@ public interface iAdministrador extends iActor_comun {
 	
 	public int Cargar_Numero_Canciones_Reproducibles(int aIdAdministrador);
 	
-	public boolean Comprobar_Email(String aEmail);
-	
-	public boolean Comprobar_Nick_Artista(String aNick);
-	
-	public boolean Comprobar_Nick_Usuario(String aNick);
-	
 	public boolean Comprobar_Estilo(String aNombre);
 	
 }

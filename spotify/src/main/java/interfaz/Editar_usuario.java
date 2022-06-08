@@ -107,7 +107,14 @@ public class Editar_usuario extends VistaEditar_usuario {
 
 	public void Guardar_cambios_usuario() {
 		
-		if(bd.Comprobar_Nick_Usuario(getNickTF().getValue()) == true) {
+		int codigo = bd.Comprobar_Datos_Usuario(_usuario.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
+		
+		if (codigo == 1) {
+			Notification.show("El email introducido ya existe");
+			return;
+		}
+		
+		if (codigo == 2) {
 			Notification.show("El nick introducido ya existe");
 			return;
 		}

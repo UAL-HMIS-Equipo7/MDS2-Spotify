@@ -12,9 +12,7 @@ public interface iCibernauta {
 	
 	public Cancion[] Cargar_Canciones_Aleatorias(int aNumCanciones);
 	
-	public boolean Comprobar_Email(String aEmail);
-	
-	public boolean Comprobar_Nick_Usuario(String aNick);
-	
 	public int Cargar_Numero_Canciones_Reproducibles();
+	
+	public int Comprobar_Datos_Usuario(String aEmail, String aNick);
 }

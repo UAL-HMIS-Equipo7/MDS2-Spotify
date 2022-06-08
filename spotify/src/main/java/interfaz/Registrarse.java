@@ -104,12 +104,15 @@ public class Registrarse extends VistaRegistrarse {
 	}
 
 	public void RegistrarUsuario() {
-		if(bd.Comprobar_Email(getEmailTF().getValue()) == true) {
+		
+		int codigo = bd.Comprobar_Datos_Usuario(getEmailTF().getValue(), getNickTF().getValue());
+		
+		if (codigo == 1) {
 			Notification.show("El email introducido ya existe");
 			return;
 		}
 		
-		if(bd.Comprobar_Nick_Usuario(getNickTF().getValue()) == true) {
+		if (codigo == 2) {
 			Notification.show("El nick introducido ya existe");
 			return;
 		}

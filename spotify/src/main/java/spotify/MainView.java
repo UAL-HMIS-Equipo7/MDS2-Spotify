@@ -73,8 +73,8 @@ public class MainView extends VerticalLayout {
     	
     	//TODO: DEBUG
     	iCibernauta bd = new BDPrincipal();
-    	basededatos.Artista admin = (basededatos.Artista) bd.Iniciar_Sesion("rosalia@gmail.com", "rosalia");
-    	GestorActor.Artista(admin);
+    	basededatos.Administrador admin = (basededatos.Administrador) bd.Iniciar_Sesion("admin@gmail.com", "admin");
+    	GestorActor.Administrador(admin);
     	
 //    	GestorActor.Cibernauta();
     }

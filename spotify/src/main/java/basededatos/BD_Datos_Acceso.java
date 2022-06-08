@@ -132,4 +132,36 @@ public class BD_Datos_Acceso {
 		
 		return datos;
 	}
+	
+	public int Comprobar_Datos_Usuario(int aIdUsuarioGenerico, String aEmail, String aNick) throws PersistentException {
+		
+		int codigo = 0;
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Datos_Acceso[] datos = Datos_AccesoDAO.listDatos_AccesoByQuery(null, null);
+			
+			for (Datos_Acceso dato : datos) {
+				if (dato.getUsuario().getORMID() == aIdUsuarioGenerico) {
+					continue;
+				}
+				
+				if (dato.getEmail().equalsIgnoreCase(aEmail.trim().strip())) {
+					codigo = 1;
+					break;
+				}
+				
+				if (dato.getUsuario().getNick().equalsIgnoreCase(aNick.trim().strip())) {
+					codigo = 2;
+					break;
+				}
+			}
+
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return codigo;
+	}
 }

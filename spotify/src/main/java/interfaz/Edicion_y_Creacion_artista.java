@@ -115,9 +115,8 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 					Notification.show("Hay algun error en los campos introducidos");
 					return;
 				}
-				Guardar_cambios_artista();
 				
-				GestorVentana.Atras();
+				Guardar_cambios_artista();
 			}
 		});
 		
@@ -132,12 +131,21 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 
 	public void Guardar_cambios_artista() {
 		
-		if(bd.Comprobar_Email(getEmailTF().getValue()) == true) {
+		int codigo = -1;
+		
+		if (_artista != null) {
+			codigo = bd.Comprobar_Datos_Usuario(_artista.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
+		}
+		else {
+			codigo = bd.Comprobar_Datos_Usuario(-1, getEmailTF().getValue(), getNickTF().getValue());
+		}
+		
+		if (codigo == 1) {
 			Notification.show("El email introducido ya existe");
 			return;
 		}
 		
-		if(bd.Comprobar_Nick_Artista(getNickTF().getValue()) == true) {
+		if (codigo == 2) {
 			Notification.show("El nick introducido ya existe");
 			return;
 		}
@@ -160,6 +168,8 @@ public class Edicion_y_Creacion_artista extends VistaEdicion_y_creacion_artista 
 			bd.Crear_Artista(getEmailTF().getValue(), getNickTF().getValue(),
 							getContraseniaTF().getValue(), _img.getSrc(), _estiloSeleccionado.getORMID());
 		}
+		
+		GestorVentana.Atras();
 	}
 
 	public boolean Validar_datos_artista() {

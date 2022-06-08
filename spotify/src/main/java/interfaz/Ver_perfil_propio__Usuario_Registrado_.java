@@ -4,6 +4,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
@@ -51,17 +52,19 @@ public class Ver_perfil_propio__Usuario_Registrado_ extends Ver_perfil_propio {
 				_editar_informacion_del_perfil_no_artista = new Editar_informacion_del_perfil_no_artista(usuario) {
 					@Override
 					public void ActualizarPerfil() {
-						bd.Actualizar_Perfil_Usuario(usuario.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
-					}
-				};
-				
-				_editar_informacion_del_perfil_no_artista.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
+						int codigo = bd.Comprobar_Datos_Usuario(usuario.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
 						
-						_editar_informacion_del_perfil_no_artista.Validar_datos_de_perfil(); //bool?
-						_editar_informacion_del_perfil_no_artista.ActualizarPerfil();
+						if (codigo == 1) {
+							Notification.show("El email introducido ya existe");
+							return;
+						}
+						
+						if (codigo == 2) {
+							Notification.show("El nick introducido ya existe");
+							return;
+						}
+						
+						bd.Actualizar_Perfil_Usuario(usuario.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
 						
 						contenedor.remove(_editar_informacion_del_perfil_no_artista);
 						usuario.setNick(_editar_informacion_del_perfil_no_artista.getNickTF().getValue());
@@ -70,6 +73,19 @@ public class Ver_perfil_propio__Usuario_Registrado_ extends Ver_perfil_propio {
 						usuario.getDatos().setEmail(_editar_informacion_del_perfil_no_artista.getEmailTF().getValue());
 						getEmailL().setText(_editar_informacion_del_perfil_no_artista.getEmailTF().getValue());
 						getEmailL().setVisible(true);
+					}
+				};
+				
+				_editar_informacion_del_perfil_no_artista.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						
+						if (_editar_informacion_del_perfil_no_artista.Validar_datos_de_perfil() == false) {
+							Notification.show("Debe rellenar todos los campos");
+						}
+						
+						_editar_informacion_del_perfil_no_artista.ActualizarPerfil();
 					}
 				});
 				

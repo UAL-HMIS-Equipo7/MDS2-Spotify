@@ -891,39 +891,6 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 	}
 	
-	public boolean Comprobar_Email(String aEmail) {
-		boolean existe = false;
-		try {
-			existe = _bD_Datos_Acceso.Comprobar_Email(aEmail);
-		} catch (PersistentException e) {
-			e.printStackTrace();
-		}
-		return existe;
-	}
-
-
-	public boolean Comprobar_Nick_Artista(String aNick) {
-		boolean existe = false;
-		try {
-			existe = _bD_Artistas.Comprobar_Nick_Artista(aNick);
-		} catch (PersistentException e) {
-			e.printStackTrace();
-		}
-		return existe;
-	}
-	
-	public boolean Comprobar_Nick_Usuario(String aNick) {
-		boolean existe = false;
-		try {
-			existe = _bD_Usuarios_Registrados.Comprobar_Nick_Usuario(aNick);
-		} catch (PersistentException e) {
-			e.printStackTrace();
-		}
-		return existe;
-	}
-	
-	
-
 	@Override
 	public boolean Comprobar_Estilo(String aNombre) {
 		boolean existe = false;
@@ -955,5 +922,23 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 	}
 
-
+	public int Comprobar_Datos_Usuario(int aIdUsuarioGenerico, String aEmail, String aNick) {
+		int codigo = 0;
+		try {
+			codigo = _bD_Datos_Acceso.Comprobar_Datos_Usuario(aIdUsuarioGenerico, aEmail, aNick);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return codigo;
+	}
+	
+	public int Comprobar_Datos_Usuario(String aEmail, String aNick) {
+		int codigo = 0;
+		try {
+			codigo = _bD_Datos_Acceso.Comprobar_Datos_Usuario(-1, aEmail, aNick);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return codigo;
+	}
 }
