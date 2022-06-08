@@ -38,44 +38,31 @@ import org.springframework.beans.factory.annotation.Autowired;
         description = "This is an example Vaadin application.",
         enableInstallPrompt = false)
 //@CssImport("./styles/shared-styles.css")
-//@CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
 public class MainView extends VerticalLayout {
 
     /**
      * Construct a new Vaadin view.
      * <p>
      * Build the initial UI state for the user accessing the application.
-     *
-     * @param service The message service. Automatically injected Spring managed bean.
      */
-    public MainView(@Autowired GreetService service) {
-
-//		getStyle().set("width", "100%");   
-//		getStyle().set("height", "100%");
-//		getStyle().set("padding", "0px");   
-//		getStyle().set("margin", "0px");
-//    	
-//    	getStyle().set("max-height", "100%");
-//    	getStyle().set("max-width", "100%");
+    public MainView() {
+    	
+    	getThemeList().clear();
+    	getStyle().clear();
+    	getStyle().set("align-items", "center");
     	
     	VerticalLayout layoutPrincipal = new VerticalLayout();
-    	layoutPrincipal.getStyle().set("max-height", "100%");
-    	layoutPrincipal.getStyle().set("max-width", "100%");
     	
-//    	layoutPrincipal.getStyle().set("width", "100%");   
-//    	layoutPrincipal.getStyle().set("height", "100%");
-//    	layoutPrincipal.getStyle().set("padding", "0px");   
-//    	layoutPrincipal.getStyle().set("margin", "0px");
+    	layoutPrincipal.getThemeList().clear();
+    	layoutPrincipal.getStyle().clear();
+    	layoutPrincipal.getStyle().set("align-items", "center");
+    	layoutPrincipal.getStyle().set("width", "100%");   
+    	layoutPrincipal.getStyle().set("height", "100%");
 		
     	add(layoutPrincipal);
     	
     	GestorActor.setLayout(layoutPrincipal);
     	
-    	//TODO: DEBUG
-    	iCibernauta bd = new BDPrincipal();
-    	basededatos.Administrador admin = (basededatos.Administrador) bd.Iniciar_Sesion("admin@gmail.com", "admin");
-    	GestorActor.Administrador(admin);
-    	
-//    	GestorActor.Cibernauta();
+    	GestorActor.Cibernauta();
     }
 }
