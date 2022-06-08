@@ -11,21 +11,23 @@ public class NombreArtista extends VistaNombreartista {
 	public Ver_perfil_ajeno_de_artista _ver_perfil_ajeno_de_artista;
 	public Ver_perfil_propio__Artista_ _ver_perfil_propio__Artista_;
 	
+	private basededatos.Artista _artista;
+	
 	public NombreArtista(basededatos.Artista artista) {
 		
-		this.getNombreL().setText(artista.getNick());
+		_artista = artista;
 		
-		this.getNombreL().getElement().addEventListener("click", e -> {
-			
-			//Comprobar si el artista so yo o no
-			if (GestorActor.getIdUsuario() == artista.getORMID()) {
-				_ver_perfil_propio__Artista_ = new Ver_perfil_propio__Artista_(artista);
-				GestorVentana.CambiarVentana(_ver_perfil_propio__Artista_);
-			}
-			else {
-				_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(artista);
-				GestorVentana.CambiarVentana(_ver_perfil_propio__Artista_);
-			}
-		});
+		this.getNombreL().setText(_artista.getNick());
+	}
+	
+	public void Ir_a_perfil() {
+		if (GestorActor.getIdUsuario() == _artista.getORMID()) {
+			_ver_perfil_propio__Artista_ = new Ver_perfil_propio__Artista_(_artista);
+			GestorVentana.CambiarVentana(_ver_perfil_propio__Artista_);
+		}
+		else {
+			_ver_perfil_ajeno_de_artista = new Ver_perfil_ajeno_de_artista(_artista);
+			GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_artista);
+		}
 	}
 }

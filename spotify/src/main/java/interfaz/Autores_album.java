@@ -25,17 +25,14 @@ public class Autores_album extends VistaAutores_album {
 		CargarAutoresAlbum();
 		
 		ComboBox<NombreArtista> cb = this.getArtistasCB();
+		cb.setAllowCustomValue(false);
+		cb.setLabel("Autores");
+		cb.setItemLabelGenerator(artista -> artista.getNombreL().getText());
+		cb.addValueChangeListener(event -> {
+			event.getValue().Ir_a_perfil();
+		});
 		
-//		Vector<String> nombres = new Vector<String>();
-//		
-//		for (NombreArtista na : _list_NombreArtista) {
-//			nombres.add(na.getNombreL().getText());
-//		}
-		
-		//cb.setItems(nombres);
 		cb.setItems(_list_NombreArtista);
-
-		//Ver como resolver el combobox
 	}
 	
 	public void CargarAutoresAlbum() {
