@@ -26,8 +26,8 @@ export class VistaListas_de_reproduccion_perfil extends LitElement {
     Siguiente 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" id="contenedor" style="width: 90%; height: 70%; align-items: center; justify-content: center; margin: var(--lumo-space-s);"></vaadin-horizontal-layout>
- <vaadin-button id="crearListaB" style="align-self: center;">
+ <vaadin-horizontal-layout theme="spacing" id="contenedor" style="width: 90%; height: 70%; align-items: center; justify-content: center; margin: var(--lumo-space-m);"></vaadin-horizontal-layout>
+ <vaadin-button id="crearListaB" style="align-self: center; margin: var(--lumo-space-m);">
    Crear Lista 
  </vaadin-button>
 </vaadin-vertical-layout>
