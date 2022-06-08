@@ -145,8 +145,6 @@ public class Listas_de_reproduccion_perfil extends VistaListas_de_reproduccion_p
 			Lista_de_reproduccion_propia temp;
 			
 			for (int i = 0; i < listas.length; i++) {
-				if (listas[i].canciones_incluidas.size() == 0)
-					continue;
 				
 				temp = new Lista_de_reproduccion_propia(listas[i]);
 				temp.setClassName("max250");
