@@ -16,11 +16,11 @@ export class VistaEditar_informacion_del_perfil_no_artista extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center; align-items: center;">
+<vaadin-vertical-layout style="width: 20%; height: 100%; justify-content: center; align-items: center;">
  <vaadin-text-field placeholder="Email" id="emailTF"></vaadin-text-field>
  <vaadin-text-field placeholder="Nick" id="nickTF"></vaadin-text-field>
  <vaadin-button id="guardarB">
-  Guardar
+   Guardar 
  </vaadin-button>
 </vaadin-vertical-layout>
 `;

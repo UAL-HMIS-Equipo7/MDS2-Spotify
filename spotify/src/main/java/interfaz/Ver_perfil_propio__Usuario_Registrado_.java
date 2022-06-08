@@ -90,10 +90,12 @@ public class Ver_perfil_propio__Usuario_Registrado_ extends Ver_perfil_propio {
 				});
 				
 				contenedor.add(_editar_informacion_del_perfil_no_artista);
+				getFotoImgLayout().setClassName("max250");
 				getNickL().setVisible(false);
 				getEmailL().setVisible(false);
 				getDarseBajaB().setVisible(false);
 				getModificarInformacionB().setVisible(false);
+				
 			}
 		});
 	}
