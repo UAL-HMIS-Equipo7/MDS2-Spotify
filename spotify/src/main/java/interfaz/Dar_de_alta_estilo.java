@@ -34,7 +34,7 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				if(Validar_datos_estilo()) {
+				if(Validar_datos_estilo() == false) {
 					Notification.show("Hay algun error en los campos introducidos");
 					return;
 				}
