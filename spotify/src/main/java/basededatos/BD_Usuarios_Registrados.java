@@ -17,7 +17,86 @@ public class BD_Usuarios_Registrados {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Usuario_Registrado usuario = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdUsuario);
+			
+			Cancion[] ultimasReproducidas = usuario.ultimas_reproducidas.toArray();
+			for (Cancion cancion : ultimasReproducidas) {
+				usuario.ultimas_reproducidas.remove(cancion);
+			}
+			
+			Evento[] notificaciones = usuario.notificaciones.toArray();
+			for (Evento notificacion : notificaciones) {
+				usuario.notificaciones.remove(notificacion);
+			}
+			
+			Lista_de_reproduccion[] listas = usuario.listas.toArray();
+			for (Lista_de_reproduccion lista : listas) {
+				usuario.listas.remove(lista);
+				
+				Cancion[] cancionesLista = lista.canciones_incluidas.toArray();
+				
+				for (Cancion cancion : cancionesLista) {
+					lista.canciones_incluidas.remove(cancion);
+				}
+				
+				Usuario_generico[] usuarios = lista.seguidor.toArray();
+				
+				for (Usuario_generico usuarioSeguidorLista : usuarios) {
+					lista.seguidor.remove(usuarioSeguidorLista);
+				}
+				
+				Lista_de_reproduccionDAO.delete(lista);
+			}
+			
+			Lista_de_reproduccion[] listasSeguidas = usuario.lista_seguida.toArray();
+			for (Lista_de_reproduccion lista : listasSeguidas) {
+				usuario.lista_seguida.remove(lista);
+			}
+			
+			Usuario_generico[] seguidos = usuario.seguido.toArray();
+			for (Usuario_generico seguido : seguidos) {
+				usuario.seguido.remove(seguido);
+			}
+			
+			Usuario_generico[] seguidores = usuario.seguidor.toArray();
+			for (Usuario_generico seguidor : seguidores) {
+				usuario.seguidor.remove(seguidor);
+			}
+			
+			Estadistica estadistica = usuario.getEstadistica();
+			Artista[] artistasEscuchados = estadistica.artistas_mas_escuchados.toArray();
+			for (Artista artistaEscuchado : artistasEscuchados) {
+				estadistica.artistas_mas_escuchados.remove(artistaEscuchado);
+			}
+			
+			Estilo[] estilosEscuchados = estadistica.estilos_mas_escuchados.toArray();
+			for (Estilo estiloEscuchado : estilosEscuchados) {
+				estadistica.estilos_mas_escuchados.remove(estiloEscuchado);
+			}
+			EstadisticaDAO.delete(estadistica);
+			
+			Lista_de_reproduccion favoritos = usuario.getFavorita();
+			
+			Cancion[] cancionesLista = favoritos.canciones_incluidas.toArray();
+			
+			for (Cancion cancion : cancionesLista) {
+				favoritos.canciones_incluidas.remove(cancion);
+			}
+			
+			Usuario_generico[] usuarios = favoritos.seguidor.toArray();
+			
+			for (Usuario_generico usuarioSeguirLista : usuarios) {
+				favoritos.seguidor.remove(usuario);
+			}
+			
+			Lista_de_reproduccionDAO.delete(favoritos);
+			
+			int idDatos = usuario.getDatos().getORMID();
+			
 			Usuario_RegistradoDAO.delete(usuario);
+			
+			Datos_Acceso datos = Datos_AccesoDAO.getDatos_AccesoByORMID(idDatos);
+			Datos_AccesoDAO.delete(datos);
+
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
