@@ -32,7 +32,7 @@ public interface iAdministrador extends iActor_comun {
 
 	public void Actualizar_Album(Album aAlbum, String[] aAutores);
 
-	public void Actualizar_Perfil(int aIdAdministrador, String aNuevoEmail, String aNuevoNick);
+	public void Actualizar_Perfil_Administrador(int aIdAdministrador, String aNuevoEmail, String aNuevoNick);
 	
 	public void Actualizar_Numero_Canciones_Mostradas(int aIdAdministrador, int aNuevoValor);
 	

@@ -21,6 +21,7 @@ public class Confirmacion_de_correo extends VistaConfirmacion_de_correo {
 	
 	public Confirmacion_de_correo(String email) {
 		
+		this.getErrorL().setVisible(false);
 		
 		this.getReenviarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -35,7 +36,7 @@ public class Confirmacion_de_correo extends VistaConfirmacion_de_correo {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				// TODO Validación del código de correo
-				if (email.equals(getCodigoTF().getValue())) {
+				if (getCodigoTF().getValue() != null) {
 					Notification.show("Correo validado");
 					GestorActor.Cibernauta();
 				}

@@ -51,7 +51,7 @@ public class Ver_perfil_propio__Usuario_Registrado_ extends Ver_perfil_propio {
 				_editar_informacion_del_perfil_no_artista = new Editar_informacion_del_perfil_no_artista(usuario) {
 					@Override
 					public void ActualizarPerfil() {
-						bd.Actualizar_Perfil(usuario.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
+						bd.Actualizar_Perfil_Usuario(usuario.getORMID(), getEmailTF().getValue(), getNickTF().getValue());
 					}
 				};
 				

@@ -25,6 +25,8 @@ public class Nueva_contrasenia extends VistaNueva_contrasenia {
 	
 	public Nueva_contrasenia(String email) {
 		
+		this.getErrorL().setVisible(false);
+		
 		this.getConfirmarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override

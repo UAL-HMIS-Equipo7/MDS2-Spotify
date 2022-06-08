@@ -26,6 +26,8 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 	
 	public Dar_de_alta_estilo() {
 		
+		this.getErrorL().setVisible(false);
+		
 		//Botones de Guardar y Cancelar
 		this.getGuardarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -36,6 +38,8 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 					Notification.show("Hay algun error en los campos introducidos");
 					return;
 				}
+				
+			
 				Guardar_cambios_estilo();
 				
 				GestorVentana.Atras();
@@ -52,6 +56,10 @@ public class Dar_de_alta_estilo extends VistaDar_de_alta_estilo {
 	}
 
 	public void Guardar_cambios_estilo() {
+		if(bd.Comprobar_Estilo(getNombreTF().getValue()) == true) {
+			Notification.show("Este nombre de estilo ya existe");
+			return;
+		}
 		bd.Crear_Estilo(getNombreTF().getValue());
 	}
 

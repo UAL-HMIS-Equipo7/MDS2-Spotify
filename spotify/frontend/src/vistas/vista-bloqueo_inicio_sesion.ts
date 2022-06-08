@@ -18,7 +18,7 @@ export class VistaBloqueo_inicio_sesion extends LitElement {
  <vaadin-button id="atrasB" style="align-self: flex-start; margin: var(--lumo-space-s);">
    Atrás 
  </vaadin-button>
- <img id="alertaImg" style="height: 50%; width: 50%; align-self: center;" src="https://github.com/mdmontesinos/MDS2-Spotify/blob/master/spotify/src/main/webapp/img/bloqueo-inicio.png?raw=true">
+ <img id="alertaImg" style="height: 50%; width: 50%; align-self: center; max-width: 350px; max-height: 350px;" src="https://github.com/mdmontesinos/MDS2-Spotify/blob/master/spotify/src/main/webapp/img/bloqueo-inicio.png?raw=true">
  <label id="errorL" style="align-self: center;">Ha fallado demasiados intentos de inicio de sesión. Inténtelo de nuevo en:</label>
  <label id="tiempoL" style="align-self: center; font-weight: bold;">00:00</label>
 </vaadin-vertical-layout>

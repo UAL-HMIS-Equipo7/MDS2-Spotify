@@ -298,8 +298,17 @@ public class BD_Canciones {
 		try {
 			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
 			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
-			
+			Cancion cancion2 = null;
+			if(!(usuario.ultimas_reproducidas.size()>=12)) {
 			usuario.ultimas_reproducidas.add(cancion);
+			}else {
+				Cancion[] listaCanciones = usuario.ultimas_reproducidas.toArray();
+				if(listaCanciones.length>0) {
+				 cancion2 = listaCanciones[0];
+				}
+				usuario.ultimas_reproducidas.remove(cancion2);
+				usuario.ultimas_reproducidas.add(cancion);
+			}
 			Usuario_genericoDAO.save(usuario);
 			
 			int numReproducciones = cancion.getNumReproducciones();

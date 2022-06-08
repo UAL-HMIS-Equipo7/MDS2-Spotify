@@ -35,6 +35,7 @@ public class Album_administrador extends VistaAlbum_administrador {
 		getAlbumImgLayout().add(img);
 			
 		this.getAlbumL().setText(_album.getTitulo());
+		
 	
 		this.getEditarAlbumB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

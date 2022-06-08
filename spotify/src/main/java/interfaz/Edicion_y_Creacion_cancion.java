@@ -55,6 +55,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 
 	public Edicion_y_Creacion_cancion(basededatos.Cancion cancion) {
 		
+		
 		Cargar_Estilos();
 		
 		List<String> nombreEstilos = new Vector<String>(_estilos.length);
@@ -64,6 +65,8 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 		}
 		
 		this.getEstiloCB().setItems(nombreEstilos);
+		
+		this.getErrorL().setVisible(false);
 		
 		_cancion = cancion;
 		
@@ -214,7 +217,7 @@ public class Edicion_y_Creacion_cancion extends VistaEdicion_y_creacion_cancion 
 	public boolean Validar_datos_cancion() {
 		//VALIDACION
 		boolean correcto = true;
-		if(this.getTituloTF().getValue().isBlank() || this.getCompositorTF().getValue().isBlank() || this.getProductorTF().getValue().isBlank() || _rutaFicheroMultimedia.isBlank() || _img.getSrc().isBlank() || this.getInterpreteTF().getValue().isBlank()) {
+		if(this.getTituloTF().getValue().isBlank() || this.getCompositorTF().getValue().isBlank() || this.getProductorTF().getValue().isBlank() || _rutaFicheroMultimedia == null || _rutaFicheroMultimedia.isBlank() || _img.getSrc() == null || _img.getSrc().isBlank() || this.getInterpreteTF().getValue().isBlank()) {
 			correcto = false;
 		}
 		return correcto;

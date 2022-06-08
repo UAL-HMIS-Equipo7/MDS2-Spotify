@@ -164,7 +164,7 @@ public class BD_Usuarios_Registrados {
 		return usuariosSeguidos.toArray(new Usuario_Registrado[usuariosSeguidos.size()]);
 	}
 
-	public void Actualizar_Perfil(int aIdUsuario, String aNuevoEmail, String aNuevoNick) throws PersistentException {
+	public void Actualizar_Perfil_Usuario(int aIdUsuario, String aNuevoEmail, String aNuevoNick) throws PersistentException {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Usuario_Registrado usuario = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(aIdUsuario);

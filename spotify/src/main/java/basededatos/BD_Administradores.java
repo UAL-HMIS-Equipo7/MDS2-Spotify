@@ -27,7 +27,7 @@ public class BD_Administradores {
 		return admin;
 	}
 
-	public void Actualizar_Perfil(int aIdAdministrador, String aNuevoEmail, String aNuevoNick) throws PersistentException {
+	public void Actualizar_Perfil_Administrador(int aIdAdministrador, String aNuevoEmail, String aNuevoNick) throws PersistentException {
 		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Administrador admin = AdministradorDAO.getAdministradorByORMID(aIdAdministrador);
