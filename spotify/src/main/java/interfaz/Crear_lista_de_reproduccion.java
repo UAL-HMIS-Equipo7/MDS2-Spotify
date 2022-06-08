@@ -36,15 +36,6 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 					return;
 				}
 				
-				basededatos.Lista_de_reproduccion[] listasActuales = bd.Cargar_Listas_Usuario(_usuario.getORMID());
-				
-				if (listasActuales != null) {
-					if(listasActuales.length >= 100) {
-						Notification.show("Has superado el límite de listas creadas");
-						return;
-					}
-				}
-				
 				Guardar_cambios_lista();
 				
 				GestorActor.RecargarActorActual();
@@ -71,6 +62,15 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 	}
 
 	public void Guardar_cambios_lista() {
+		basededatos.Lista_de_reproduccion[] listasActuales = bd.Cargar_Listas_Usuario(_usuario.getORMID());
+		
+		if (listasActuales != null) {
+			if(listasActuales.length >= 100) {
+				Notification.show("Has superado el límite de listas creadas");
+				return;
+			}
+		}
+		
 		bd.Crear_Lista_de_Reproduccion(_usuario.getORMID(), getTituloListaTF().getValue());
 	}
 }
