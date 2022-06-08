@@ -4,6 +4,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.FinishedEvent;
@@ -21,6 +22,7 @@ public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_
 	private iArtista bd = new BDPrincipal();
 	private basededatos.Artista artista;
 	private String rutaFoto;
+	private Image _img;
 	
 	public Aniadir_informacion_de_eventos(basededatos.Artista artista) {
 		this.artista = artista;
@@ -63,13 +65,17 @@ public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_
 					
 					@Override
 					public void onComponentEvent(FinishedEvent event) {
-						rutaFoto = GestorArchivos.SubirImagen(buffer);
+						String rutaFoto = GestorArchivos.SubirImagen(buffer);
 						
-						getImagenImg().setSrc(rutaFoto);
+						_img = new Image(GestorArchivos.CargarImagen(rutaFoto), rutaFoto);
+						_img.setClassName("imagenEdicionCreacionAdministrador");
+						getImagenImgLayout().removeAll();
+						getImagenImgLayout().add(_img);
 						
 						modal.close();
 					}
 				});
+				modal.open();
 			}
 		});
 	}

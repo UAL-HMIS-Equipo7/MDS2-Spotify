@@ -9,6 +9,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.TextArea;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-aniadir_informacion_de_eventos template.
@@ -20,10 +21,16 @@ import com.vaadin.flow.component.textfield.TextArea;
 @JsModule("./src/vistas/vista-aniadir_informacion_de_eventos.ts")
 public class VistaAniadir_informacion_de_eventos extends LitTemplate {
 
-    @Id("tituloL")
+    public HorizontalLayout getImagenImgLayout() {
+		return imagenImgLayout;
+	}
+
+	public void setImagenImgLayout(HorizontalLayout imagenImgLayout) {
+		this.imagenImgLayout = imagenImgLayout;
+	}
+
+	@Id("tituloL")
 	private Label tituloL;
-	@Id("imagenImg")
-	private Image imagenImg;
 	@Id("elegirImagenFC")
 	private Button elegirImagenFC;
 	public Label getTituloL() {
@@ -32,14 +39,6 @@ public class VistaAniadir_informacion_de_eventos extends LitTemplate {
 
 	public void setTituloL(Label tituloL) {
 		this.tituloL = tituloL;
-	}
-
-	public Image getImagenImg() {
-		return imagenImg;
-	}
-
-	public void setImagenImg(Image imagenImg) {
-		this.imagenImg = imagenImg;
 	}
 
 	public Button getElegirImagenFC() {
@@ -120,6 +119,8 @@ public class VistaAniadir_informacion_de_eventos extends LitTemplate {
 	private Button confirmarB;
 	@Id("cancelarB")
 	private Button cancelarB;
+	@Id("imagenImgLayout")
+	private HorizontalLayout imagenImgLayout;
 
 	/**
      * Creates a new VistaAniadir_informacion_de_eventos.
