@@ -33,66 +33,10 @@ public class VistaModificar_lista_de_reproduccion extends LitTemplate {
 	public void setEliminarB2(Button eliminarB2) {
 		this.eliminarB2 = eliminarB2;
 	}
-	public Button getEliminarB() {
-		return eliminarB;
-	}
-	public void setEliminarB(Button eliminarB) {
-		this.eliminarB = eliminarB;
-	}
-	public Label getListadoL() {
-		return listadoL;
-	}
-	public void setListadoL(Label listadoL) {
-		this.listadoL = listadoL;
-	}
-	public TextField getListadoTF() {
-		return listadoTF;
-	}
-	public void setListadoTF(TextField listadoTF) {
-		this.listadoTF = listadoTF;
-	}
-	public Image getAniadirB() {
-		return aniadirB;
-	}
-	public void setAniadirB(Image aniadirB) {
-		this.aniadirB = aniadirB;
-	}
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
-	}
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
-	public Image getFlechaIzquierdaB() {
-		return flechaIzquierdaB;
-	}
-	public void setFlechaIzquierdaB(Image flechaIzquierdaB) {
-		this.flechaIzquierdaB = flechaIzquierdaB;
-	}
-	public Image getFlechaDerechaB() {
-		return flechaDerechaB;
-	}
-	public void setFlechaDerechaB(Image flechaDerechaB) {
-		this.flechaDerechaB = flechaDerechaB;
-	}
-	@Id("listadoL")
-	private Label listadoL;
-	@Id("listadoTF")
-	private TextField listadoTF;
-	@Id("aniadirB")
-	private Image aniadirB;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("flechaIzquierdaB")
-	private Image flechaIzquierdaB;
-	@Id("flechaDerechaB")
-	private Image flechaDerechaB;
 	@Id("eliminarB2")
 	private Button eliminarB2;
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("eliminarB")
-	private Button eliminarB;
 	/**
      * Creates a new VistaModificar_lista_de_reproduccion.
      */

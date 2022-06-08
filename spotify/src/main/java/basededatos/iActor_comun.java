@@ -95,4 +95,6 @@ public interface iActor_comun {
 	public void Quitar_Cancion_Lista(int aIdCancion, int aIdLista);
 	
 	public void Eliminar_Lista_De_Reproduccion(int aIdLista);
+	
+	public void Actualizar_Lista(Lista_de_reproduccion aLista);
 }

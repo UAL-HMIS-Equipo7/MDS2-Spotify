@@ -19,7 +19,7 @@ public class Cancion extends VistaCancion {
 //	private event _reproducir__No_Cibernauta_;
 //	private Image _cancionImg;
 	
-	private basededatos.Cancion _cancion;
+	public basededatos.Cancion _cancion;
 	private iActor_comun bd = new BDPrincipal();
 	
 	public Cancion(basededatos.Cancion cancion) {

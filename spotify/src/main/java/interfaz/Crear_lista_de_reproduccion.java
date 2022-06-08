@@ -9,6 +9,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import basededatos.BDPrincipal;
 import basededatos.Usuario_generico;
 import basededatos.iActor_comun;
+import spotify.GestorActor;
 import spotify.GestorVentana;
 import vistas.VistaCrear_lista_de_reproduccion;
 
@@ -35,13 +36,18 @@ public class Crear_lista_de_reproduccion extends VistaCrear_lista_de_reproduccio
 					return;
 				}
 				
-				if(_usuario.listas.size() > 100) {
-					Notification.show("Has superado el límite de listas creadas");
-					return;
+				basededatos.Lista_de_reproduccion[] listasActuales = bd.Cargar_Listas_Usuario(_usuario.getORMID());
+				
+				if (listasActuales != null) {
+					if(listasActuales.length >= 100) {
+						Notification.show("Has superado el límite de listas creadas");
+						return;
+					}
 				}
+				
 				Guardar_cambios_lista();
 				
-				GestorVentana.Atras();
+				GestorActor.RecargarActorActual();
 			}
 		});
 		

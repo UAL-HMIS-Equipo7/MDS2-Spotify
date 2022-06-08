@@ -70,12 +70,16 @@ public class Menu_Administracion extends VistaMenu_administracion {
 			numCancionesMostradas = Integer.parseInt(this.getNumCancionesMostradasTF().getValue());
 			
 			Editar_canciones_que_puede_escuchar_un_cibernauta();
+			
+			Notification.show("Número de canciones mostradas editado: " + this.getNumCancionesMostradasTF().getValue());
 	    });
 		
 		this.getLimiteCancionesReproduciblesTF().addKeyPressListener(Key.ENTER, e -> {
 			numCancionesReproducibles = Integer.parseInt(this.getLimiteCancionesReproduciblesTF().getValue());
 			
 	        Editar_numero_de_canciones_que_puede_escuchar_un_cibernauta();
+	        
+	        Notification.show("Número de canciones reproducibles editado: " + this.getLimiteCancionesReproduciblesTF().getValue());
 	    });
 	}
 	

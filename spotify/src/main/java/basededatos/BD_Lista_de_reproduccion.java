@@ -210,4 +210,48 @@ public class BD_Lista_de_reproduccion {
 		}
 		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
 	}
+	
+	public void Actualizar_Lista(Lista_de_reproduccion aLista) throws PersistentException{
+		
+		Cancion[] cancionesNuevas = aLista.canciones_incluidas.toArray();
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.getLista_de_reproduccionByORMID(aLista.getORMID());
+			
+			lista.setTitulo(aLista.getTitulo());
+			
+			Cancion[] canciones = lista.canciones_incluidas.toArray();
+			for (Cancion cancion : canciones) {
+				lista.canciones_incluidas.remove(cancion);
+			}
+			
+			Lista_de_reproduccionDAO.save(lista);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+		
+		PersistentTransaction t2 = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Lista_de_reproduccion lista = Lista_de_reproduccionDAO.getLista_de_reproduccionByORMID(aLista.getORMID());
+			
+			basededatos.Cancion tempCancion;
+			for (Cancion cancion : cancionesNuevas) {
+				tempCancion = CancionDAO.getCancionByORMID(cancion.getORMID());
+				lista.canciones_incluidas.add(tempCancion);
+			}
+			
+			Lista_de_reproduccionDAO.save(lista);
+			
+			t2.commit();
+		} catch (Exception e) {
+			t2.rollback();
+		}
+		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+	}
 }

@@ -946,5 +946,14 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		return limReproducibles;
 	}
 
+	@Override
+	public void Actualizar_Lista(Lista_de_reproduccion aLista) {
+		try {
+			_bD_Lista_de_reproduccion.Actualizar_Lista(aLista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 }

@@ -1,5 +1,7 @@
 package interfaz;
 
+import java.time.LocalDateTime;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -16,6 +18,7 @@ public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_rep
 //	private event _aniadir_cancion;
 //	private event _eliminar_lista_de_reproduccion;
 	public Crear_lista_de_reproduccion _crear_lista_de_reproduccion;
+	public Canciones_a_modificar_lista _canciones_a_modificar_lista;
 	
 	private VerticalLayout vl;
 	
@@ -33,31 +36,23 @@ public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_rep
 			@Override
 			public void Guardar_cambios_lista() {
 				
-				//Override para tener acceso a la lista de canciones
+				_lista.canciones_incluidas.clear();
 				
+				for(int i = 0; i< _canciones_a_modificar_lista._list_Cancion.size();i++) {
+					_lista.canciones_incluidas.add(_canciones_a_modificar_lista._list_Cancion.get(i)._cancion);
+				}
+				
+				_lista.setTitulo(this.getTituloListaTF().getValue());
+
+				bd.Actualizar_Lista(lista);
 			}
 		};
+		_crear_lista_de_reproduccion.getTituloListaTF().setValue(_lista.getTitulo());
+		_crear_lista_de_reproduccion.getAutorListaTF().setValue(_lista.getAutor().getNick());
 		vl.add(_crear_lista_de_reproduccion);
 		
-		this.getEliminarB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				Eliminar_cancion();
-				
-			}
-		});
-		
-		this.getAniadirB().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Image> event) {
-				
-				Aniadir_cancion();
-				
-			}
-		});
+		_canciones_a_modificar_lista = new Canciones_a_modificar_lista(lista);
+		vl.add(_canciones_a_modificar_lista);
 		
 		this.getEliminarB2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -69,15 +64,6 @@ public class Modificar_lista_de_reproduccion extends VistaModificar_lista_de_rep
 				GestorActor.RecargarActorActual();
 			}
 		});
-	}
-	
-
-	public void Eliminar_cancion() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Aniadir_cancion() {
-		throw new UnsupportedOperationException();
 	}
 
 	public void Eliminar_lista_de_reproduccion() {
