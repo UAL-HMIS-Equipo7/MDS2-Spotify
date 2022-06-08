@@ -30,7 +30,11 @@ public class Creditos extends VistaCreditos {
 		this.getCancionImgLayout().add(img);
 		
 		this.getTituloL().setText(cancion.getTitulo());
+		if(cancion.getIncluida_en_albumes() != null) {
 		this.getTituloAlbumL().setText(cancion.getIncluida_en_albumes().getTitulo());
+		}else {
+			this.getTituloAlbumL().setText("--");
+		}
 		this.getCompositorL().setText(cancion.getCompositores());
 		this.getProductorL().setText(cancion.getProductores());
 		
