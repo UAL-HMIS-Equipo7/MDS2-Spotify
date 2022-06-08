@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-usuario template.
@@ -26,18 +27,18 @@ public class VistaUsuario extends LitTemplate {
 		this.fotoImgLayout = fotoImgLayout;
 	}
 
-	public Element getNickB() {
+	public Button getNickB() {
 		return nickB;
 	}
 
-	public void setNickB(Element nickB) {
+	public void setNickB(Button nickB) {
 		this.nickB = nickB;
 	}
 
-	@Id("nickB")
-	private Element nickB;
 	@Id("fotoImgLayout")
 	private HorizontalLayout fotoImgLayout;
+	@Id("nickB")
+	private Button nickB;
 
 	/**
      * Creates a new VistaUsuario.

@@ -16,7 +16,7 @@ export class VistaFoto_artista extends LitElement {
   render() {
     return html`
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; padding: var(--lumo-space-m);">
- <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="width: 100%; height: 100%;"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="width: 100%; height: 100%; align-items: center; justify-content: center;"></vaadin-horizontal-layout>
  <vaadin-button id="nickB" style="align-self: center; width: 100%; flex-grow: 0; flex-shrink: 1; margin: var(--lumo-space-m);">
    Nick 
  </vaadin-button>

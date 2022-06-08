@@ -1,5 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-usuario')
 export class VistaUsuario extends LitElement {
@@ -14,9 +15,11 @@ export class VistaUsuario extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; padding: var(--lumo-space-m); justify-content: center;">
- <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="align-items: center; justify-content: center; align-self: center;"></vaadin-horizontal-layout>
- <a href="https://vaadin.com" id="nickB" style="align-self: center;">Nick </a>
+<vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; padding: var(--lumo-space-m);">
+ <vaadin-horizontal-layout theme="spacing" id="fotoImgLayout" style="width: 100%; height: 100%; align-self: center; align-items: center; justify-content: center;"></vaadin-horizontal-layout>
+ <vaadin-button id="nickB" style="align-self: center; width: 100%; flex-grow: 0; flex-shrink: 1; margin: var(--lumo-space-m);">
+  Nick
+ </vaadin-button>
 </vaadin-horizontal-layout>
 `;
   }

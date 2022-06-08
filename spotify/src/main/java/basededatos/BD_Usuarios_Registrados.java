@@ -223,7 +223,7 @@ public class BD_Usuarios_Registrados {
 			
 			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
 			
-			Iterator<Usuario_generico> iterador = usuario.seguidor.getIterator();
+			Iterator<Usuario_generico> iterador = usuario.seguido.getIterator();
 			
 			Usuario_generico temp;
 			

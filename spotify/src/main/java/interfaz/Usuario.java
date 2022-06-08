@@ -2,6 +2,7 @@ package interfaz;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -20,12 +21,14 @@ public class Usuario extends VistaUsuario {
 	public Usuario(basededatos.Usuario_Registrado usuario) {
 		
 		this.getNickB().setText(usuario.getNick());
-		this.getNickB().addEventListener("click", e ->{
+		this.getNickB().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
-			_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista(usuario);
-			
-			GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_no_artista);
-			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				_ver_perfil_ajeno_de_no_artista = new Ver_perfil_ajeno_de_no_artista(usuario);
+				
+				GestorVentana.CambiarVentana(_ver_perfil_ajeno_de_no_artista);
+			}
 		});
 		
 		Image img = new Image(GestorArchivos.CargarImagen(usuario.getFotoRuta()),usuario.getFotoRuta());

@@ -28,7 +28,6 @@ public class Usuarios extends VistaUsuarios {
 		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		//TODO -> Añadir un scroller??
 		HorizontalLayout tempHl = new HorizontalLayout();
 		tempHl.getElement().setAttribute("justify-content", "space-evenly");
 		
