@@ -126,16 +126,23 @@ public class BD_Canciones {
 
 			Cancion cancion = CancionDAO.createCancion();
 			Estilo estilo = EstiloDAO.getEstiloByORMID(idEstilo);
-			AlbumCriteria criteria = new AlbumCriteria();
-			criteria.titulo.like("%" + tituloAlbum.trim().toLowerCase() + "%");
-			Album alb = AlbumDAO.loadAlbumByCriteria(criteria);
+			
+			if (tituloAlbum != null && !tituloAlbum.trim().toLowerCase().isBlank()) {
+				AlbumCriteria criteria = new AlbumCriteria();
+				criteria.titulo.like("%" + tituloAlbum.trim().toLowerCase() + "%");
+				Album alb = AlbumDAO.loadAlbumByCriteria(criteria);
+				
+				cancion.setIncluida_en_albumes(alb);
+			}
+			
+			
 			cancion.setTitulo(titulo.trim());
 			cancion.setCompositores(compositores.trim());
 			cancion.setFicheroMultimediaAltaCalidadRuta(ficheroMultimediaAltaCalidadRuta.trim());
 			cancion.setFicheroMultimediaRuta(ficheroMultimediaRuta.trim());
 			cancion.setProductores(productores.trim());
 			cancion.estilos.add(estilo);
-			cancion.setIncluida_en_albumes(alb);
+			
 			
 			String[] artistas = interpretes.split(",");
 			ArtistaCriteria criteriaArtista;
