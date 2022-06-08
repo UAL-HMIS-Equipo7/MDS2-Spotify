@@ -81,9 +81,8 @@ public class Aniadir_informacion_de_eventos extends VistaAniadir_informacion_de_
 	}
 
 	public boolean Validar_informacion_evento() {
-		//VALIDAR
 		boolean correcto = true;
-		if(this.getFechaHoraTF().getValue().isBlank() || this.getVaadinTextArea().getValue().isBlank() || rutaFoto == null || rutaFoto.isBlank()  || this.getPrecioTF().getValue().isBlank()) {
+		if(this.getFechaHoraTF().getValue().isBlank() || this.getVaadinTextArea().getValue().isBlank()  || _img.getSrc() == null || _img.getSrc().isBlank()  || this.getPrecioTF().getValue().isBlank()) {
 			correcto = false;
 		}
 		return correcto;
