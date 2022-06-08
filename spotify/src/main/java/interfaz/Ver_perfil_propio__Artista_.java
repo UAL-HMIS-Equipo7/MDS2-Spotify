@@ -29,7 +29,8 @@ public class Ver_perfil_propio__Artista_ extends Ver_perfil_propio {
 
 		VerticalLayout vl = this.getContenedorDerecho().as(VerticalLayout.class);
 		vl.add(_panel_artista);
-		vl.add(_editar_foto_de_perfil__Artista_);
+		VerticalLayout vl2 = this.getContenedorIzquierdo().as(VerticalLayout.class);
+		vl2.add(_editar_foto_de_perfil__Artista_);
 		
 		this.getModificarInformacionB().setVisible(false);
 		

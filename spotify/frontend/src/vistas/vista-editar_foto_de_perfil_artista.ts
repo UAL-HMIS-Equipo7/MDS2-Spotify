@@ -17,7 +17,7 @@ export class VistaEditar_foto_de_perfil_artista extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;">
  <vaadin-button id="elegirFotoFC" style="align-self: center;">
-  FileChooser
+  Seleccionar Foto
  </vaadin-button>
 </vaadin-vertical-layout>
 `;
