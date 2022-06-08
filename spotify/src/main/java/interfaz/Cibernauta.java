@@ -90,7 +90,7 @@ public class Cibernauta extends VistaCibernauta {
 		_reproductor__Cibernauta_ = new Reproductor__Cibernauta_(_limReproducibles);
 		_reproductor__Cibernauta_.getStyle().set("margin", "var(--lumo-space-m)");
 		
-		GestorReproductor.setReproductor(_reproductor__Cibernauta_);
+		GestorReproductor.setReproductorCibernauta(_reproductor__Cibernauta_);
 		
 		layoutPrincipal.add(_reproductor__Cibernauta_);
 		
