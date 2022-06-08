@@ -27,9 +27,7 @@ public class Ver_estadisticas extends VistaVer_estadisticas {
 		
 		_usuario = usuario;
 		
-		Cargar_ultimas_reproducidas();
-		
-		this.getNumCancionesL().setText(Integer.toString(_numCanciones));
+		Cargar_numero_canciones_y_artistas();
 		
 		_artistas_mas_escuchados = new Artistas_mas_escuchados(_usuario);
 		_estilos_mas_escuchados = new Estilos_mas_escuchados(_usuario);
@@ -40,11 +38,12 @@ public class Ver_estadisticas extends VistaVer_estadisticas {
 		hl.add(_estilos_mas_escuchados);
 	}
 	
-	public void Cargar_ultimas_reproducidas() {
-		basededatos.Cancion[] ultimas = bd.Cargar_Ultimas_Canciones_Reproducidas(_usuario.getORMID());
+	public void Cargar_numero_canciones_y_artistas() {
+		int[] datos = bd.Obtener_Numero_Canciones_Y_Artistas(_usuario.getORMID());
 		
-		if (ultimas != null) {
-			_numCanciones = ultimas.length;
+		if (datos != null && datos.length > 0) {
+			this.getNumCancionesL().setText(Integer.toString(datos[0]));
+			this.getNumArtistasL().setText(Integer.toString(datos[1]));
 		}
 	}
 }

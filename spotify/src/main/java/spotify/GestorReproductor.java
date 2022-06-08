@@ -6,7 +6,7 @@ import interfaz.Reproductor;
 
 public class GestorReproductor {
 	private static Reproductor _reproductor;
-	private static boolean _esCibernauta;
+	private static boolean _esCibernauta = false;
 	
 	public static void setReproductor(Reproductor reproductor) {
 		
@@ -28,9 +28,11 @@ public class GestorReproductor {
 			return;
 		}
 		
-		if (_reproductor._reproduccionesActuales >= _reproductor._limReproducibles && _reproductor._limReproducibles != -1) {
-			Notification.show("Se ha superado el límite de canciones reproducibles por hoy");
-			return;
+		if (_esCibernauta) {
+			if (_reproductor._limReproducibles != -1 && _reproductor._reproduccionesActuales >= _reproductor._limReproducibles) {
+				Notification.show("Se ha superado el límite de canciones reproducibles por hoy");
+				return;
+			}
 		}
 		
 		_reproductor._cancion = cancion;

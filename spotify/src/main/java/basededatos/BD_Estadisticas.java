@@ -87,7 +87,7 @@ public class BD_Estadisticas {
 			}
 			
 			estadistica.setNumeroArtistas(estadistica.artistas_mas_escuchados.size());
-			estadistica.setNumeroCanciones(usuario.ultimas_reproducidas.size());
+			estadistica.setNumeroCanciones(estadistica.getNumeroCanciones() + 1);
 			
 			//Actualizar tiempo??
 			//estadistica.setTiempoReproducido(-1);
@@ -102,5 +102,25 @@ public class BD_Estadisticas {
 			t.rollback();
 		}
 		AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().disposePersistentManager();
+	}
+	
+	public int[] Obtener_Numero_Canciones_Y_Artistas(int aIdUsuarioGenerico) throws PersistentException {
+		
+		int[] datos = new int[2];
+		
+		PersistentTransaction t = AplicacióndeBúsquedayReproduccióndeMúsicaPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_generico usuario = Usuario_genericoDAO.getUsuario_genericoByORMID(aIdUsuarioGenerico);
+			Estadistica estadistica = usuario.getEstadistica();
+			
+			datos[0] = estadistica.getNumeroCanciones();
+			datos[1] = estadistica.getNumeroArtistas();
+
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return datos;
 	}
 }

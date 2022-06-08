@@ -941,4 +941,15 @@ public class BDPrincipal implements iAdministrador, iUsuario_Registrado, iCibern
 		}
 		return codigo;
 	}
+
+	@Override
+	public int[] Obtener_Numero_Canciones_Y_Artistas(int aIdUsuarioGenerico) {
+		int[] datos = new int[2];
+		try {
+			datos = _bD_Estadisticas.Obtener_Numero_Canciones_Y_Artistas(aIdUsuarioGenerico);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return datos;
+	}
 }
