@@ -44,11 +44,19 @@ public class Actor_comun extends VistaActor_comun {
 		
 		VerticalLayout vl = getLayoutReproductor().as(VerticalLayout.class);
 		
-		_reproductor__No_Cibernauta_ = new Reproductor__No_Cibernauta_();
+		Reproductor reproActual = GestorReproductor.getReproductor();
 		
-		GestorReproductor.setReproductor(_reproductor__No_Cibernauta_);
-		
-		vl.add(_reproductor__No_Cibernauta_);
+		if (reproActual == null || reproActual instanceof Reproductor__Cibernauta_) {
+			_reproductor__No_Cibernauta_ = new Reproductor__No_Cibernauta_();
+			
+			if (GestorReproductor.setReproductor(_reproductor__No_Cibernauta_)) {
+				vl.add(_reproductor__No_Cibernauta_);
+			}
+		}
+		else {
+			vl.removeAll();
+			vl.add(reproActual);
+		}
 	}
 	
 	public void Inicializar(boolean menuAdministracionVisible) {

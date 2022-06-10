@@ -8,14 +8,25 @@ public class GestorReproductor {
 	private static Reproductor _reproductor;
 	private static boolean _esCibernauta = false;
 	
-	public static void setReproductor(Reproductor reproductor) {
+	public static boolean setReproductor(Reproductor reproductor) {
+		
+		boolean aniadido = false;
 		
 		if (_reproductor == null || _esCibernauta) {
 			_reproductor = reproductor;
+			aniadido = true;
 		}
 		
 		_esCibernauta = false;
+		
+		return aniadido;
 	}
+	
+	public static Reproductor getReproductor() {
+		return _reproductor;
+	}
+	
+	
 	
 	public static void setReproductorCibernauta(Reproductor reproductor) {
 		_reproductor = reproductor;
